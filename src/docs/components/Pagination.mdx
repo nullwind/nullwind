@@ -1,0 +1,32 @@
+import { Meta, Playground } from "~/components/docs";
+import { Pagination } from "~/components";
+
+<Meta
+  title="Pagination"
+  description="The pagination component can be used to navigate across a series of content and data sets for various pages such as blog posts, products, and more. You can use multiple variants of this component with or without icons and even for paginating table data entries."
+/>
+
+# Pagination
+
+The pagination component can be used to navigate across a series of content and data sets for various pages such as blog posts, products, and more. You can use multiple variants of this component with or without icons and even for paginating table data entries.
+
+## Usage
+
+```jsx
+import Pagination from "nullwind/Pagination";
+```
+
+## Examples
+
+<Playground title="Default">
+  <Playground.Preview>
+    <div class="flex justify-center items-center">
+      <Pagination count={50} perPage={10} onchange={() => alert("Pagination has changed")} />
+    </div>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Pagination count={50} perPage={10} onchange={() => alert("Pagination has changed")} />
+    ```
+  </Playground.Code>
+</Playground>

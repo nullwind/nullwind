@@ -1,0 +1,52 @@
+import { Meta, Playground } from "~/components/docs";
+import { Checkbox } from "~/components";
+
+<Meta
+  title="Checkbox"
+  description="The code below can be used to create a fieldset of checkbox elements inside a form. We also created a checkbox variant with extra description and one in a disabled form."
+/>
+
+# Checkbox
+
+The code below can be used to create a fieldset of checkbox elements inside a form. We also created a checkbox variant with extra description and one in a disabled form.
+
+## Usage
+
+```jsx
+import Checkbox from "nullwind/Checkbox";
+```
+
+## Examples
+
+<Playground title="Default">
+  <Playground.Preview>
+    <Checkbox label="Some label here" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Checkbox label="Some label here" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With description">
+  <Playground.Preview>
+    <Checkbox label="Some label here" description="This is some description" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Checkbox label="Some label here" description="This is some description" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Disabled">
+  <Playground.Preview>
+    <Checkbox label="Some label here" disabled />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Checkbox label="Some label here" disabled />
+    ```
+  </Playground.Code>
+</Playground>

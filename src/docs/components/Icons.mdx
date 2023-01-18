@@ -1,0 +1,48 @@
+import { IconYoutube, IconInstagram, IconTwitter } from "nullstack-feather-icons";
+import { Meta } from "~/components/docs";
+
+<Meta title="Icons" description="Nullwind comes with a set of icons from Tabler Icons" />
+
+# Icons
+
+You're probably familiar with icons, they're everywhere. They're used to represent actions, objects, and concepts. They're used to communicate information and help users navigate your app.
+
+## Usage
+
+Import the icon and render it in your component. You can adjust SVG properties through props:
+
+### Feather Icons
+
+```jsx
+import { IconTwitter } from "nullstack-feather-icons";
+
+const MyComponent = () => {
+  return (
+    <IconTwitter
+      size={36} // set custom `width` and `height`
+      color="red" // set `stroke` color
+      stroke={3} // set `stroke-width`
+    />
+  );
+};
+```
+
+You can find the full list of icons [here](https://feathericons.com/).
+
+### Tabler Icons
+
+```jsx
+import { IconBrandTwitter } from "nullstack-tabler-icons";
+
+const MyComponent = () => {
+  return (
+    <IconBrandTwitter
+      size={36} // set custom `width` and `height`
+      color="red" // set `stroke` color
+      stroke={3} // set `stroke-width`
+    />
+  );
+};
+```
+
+You can find the full list of icons [here](https://tablericons.com/).

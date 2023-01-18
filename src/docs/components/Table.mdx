@@ -1,0 +1,120 @@
+import { Meta, Playground } from "~/components/docs";
+import Table from "~/components/Table";
+
+<Meta
+  title="Table"
+  description="Tables serve to distribute information in rows and columns, facilitating the visualization and understanding of data and its correlations."
+/>
+
+# Table
+
+Tables serve to distribute information in rows and columns, facilitating the visualization and understanding of data and its correlations.
+
+## Usage
+
+```jsx
+import Table from "nullwind/Table";
+```
+
+## Examples
+
+<Playground>
+  <Playground.Preview>
+    <Table>
+      <Table.THead>
+        <Table.TR>
+          <Table.TH>Name</Table.TH>
+          <Table.TH>Title</Table.TH>
+          <Table.TH>Email</Table.TH>
+          <Table.TH>Role</Table.TH>
+          <Table.TH>Actions</Table.TH>
+        </Table.TR>
+      </Table.THead>
+      <Table.TBody>
+        <Table.TR>
+          <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
+          <Table.TD>Software Engineer</Table.TD>
+          <Table.TD>user@ae.studio</Table.TD>
+          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <a href="#" class="text-primary-600 hover:text-primary-900">
+              Edit
+            </a>
+          </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
+          <Table.TD>Software Engineer</Table.TD>
+          <Table.TD>user@ae.studio</Table.TD>
+          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <a href="#" class="text-primary-600 hover:text-primary-900">
+              Edit
+            </a>
+          </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
+          <Table.TD>Software Engineer</Table.TD>
+          <Table.TD>user@ae.studio</Table.TD>
+          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <a href="#" class="text-primary-600 hover:text-primary-900">
+              Edit
+            </a>
+          </Table.TD>
+        </Table.TR>
+      </Table.TBody>
+    </Table>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Table>
+      <Table.THead>
+        <Table.TR>
+          <Table.TH>Name</Table.TH>
+          <Table.TH>Title</Table.TH>
+          <Table.TH>Email</Table.TH>
+          <Table.TH>Role</Table.TH>
+          <Table.TH>Actions</Table.TH>
+        </Table.TR>
+      </Table.THead>
+      <Table.TBody>
+        <Table.TR>
+          <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
+          <Table.TD>Software Engineer</Table.TD>
+          <Table.TD>user@ae.studio</Table.TD>
+          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <a href="#" class="text-primary-600 hover:text-primary-900">
+              Edit
+            </a>
+          </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
+          <Table.TD>Software Engineer</Table.TD>
+          <Table.TD>user@ae.studio</Table.TD>
+          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <a href="#" class="text-primary-600 hover:text-primary-900">
+              Edit
+            </a>
+          </Table.TD>
+        </Table.TR>
+        <Table.TR>
+          <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
+          <Table.TD>Software Engineer</Table.TD>
+          <Table.TD>user@ae.studio</Table.TD>
+          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <a href="#" class="text-primary-600 hover:text-primary-900">
+              Edit
+            </a>
+          </Table.TD>
+        </Table.TR>
+      </Table.TBody>
+    </Table>
+    ```
+  </Playground.Code>
+</Playground>

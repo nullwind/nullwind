@@ -1,0 +1,26 @@
+{
+  "name": "nullstack-components",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "nullstack": "~0.17.0",
+    "postcss-loader": "^7.0.1",
+    "tailwindcss": "^3.0.0"
+  },
+  "scripts": {
+    "start": "npx nullstack start",
+    "build": "npx nullstack build"
+  },
+  "dependencies": {
+    "@mapbox/rehype-prism": "^0.8.0",
+    "@mdx-js/loader": "^2.2.1",
+    "nullstack-feather-icons": "^1.0.0",
+    "nullstack-tabler-icons": "^1.0.2",
+    "prism-themes": "git+https://github.com/prismjs/prism-themes.git",
+    "string-replace-loader": "^3.1.0"
+  }
+}

@@ -1,0 +1,46 @@
+import Nullstack from "nullstack";
+
+import { AppShell } from "./AppShell";
+import NotFound from "./docs/NotFound.mdx";
+import { routes } from "./routes";
+
+import "prism-themes/themes/prism-shades-of-purple.css";
+import "./styles.css";
+import "../tailwind.css";
+
+class Application extends Nullstack {
+  prepare({ page }) {
+    page.locale = "en-US";
+  }
+
+  renderHead() {
+    return (
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+    );
+  }
+
+  render() {
+    const allRoutes = routes.map((section) => section.routes).flat();
+
+    return (
+      <body class="bg-white text-secondary-500 antialiased">
+        <Head />
+        <AppShell>
+          {allRoutes.map(({ component: Component, path }) => (
+            <Component route={path} persistent />
+          ))}
+          <NotFound route="*" persistent />
+        </AppShell>
+      </body>
+    );
+  }
+}
+
+export default Application;

@@ -1,0 +1,55 @@
+import { Meta, Playground } from "~/components/docs";
+import Preview from "./Preview";
+
+<Meta
+  title="Modal"
+  description="The modal component can be used as an interactive dialog on top of the main content area of the website to show notifications and gather information using form elements from your website users."
+/>
+
+# Modal
+
+The modal component can be used as an interactive dialog on top of the main content area of the website to show notifications and gather information using form elements from your website users.
+
+## Usage
+
+```jsx
+import Modal from "nullwind/Modal";
+
+const MyApp = () => {
+  return (
+    <Modal visible={true}>
+      <h2 class="text-xl font-semibold mb-3">Some title</h2>
+      <p class="text-base">Modal Body</p>
+      <Modal.Footer>
+        <Button color="primary" class="ml-2">
+          Save
+        </Button>
+        <Button color="secondary">Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+```
+
+## Examples
+
+<Playground>
+  <Playground.Preview stacked>
+    <Preview />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Modal visible={true}>
+      <h2 class="text-xl font-semibold mb-3">Some title</h2>
+      <p class="text-base">Modal Body</p>
+      <Modal.Footer>
+        <Button color="secondary">Close</Button>
+        <Button color="primary" class="ml-2">
+          Save
+        </Button>
+      </Modal.Footer>
+    </Modal>
+    ```
+
+  </Playground.Code>
+</Playground>

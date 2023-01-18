@@ -1,0 +1,82 @@
+import { Meta, Playground } from "~/components/docs";
+import { Textarea } from "~/components";
+
+<Meta title="Textarea" description="Use the following code to create a textarea form element." />
+
+# Textarea
+
+Use the following code to create a textarea form element.
+
+## Usage
+
+```jsx
+import Textarea from "nullwind/Textarea";
+```
+
+## Examples
+
+<Playground title="Default">
+  <Playground.Preview>
+    <Textarea />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Textarea />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With label">
+  <Playground.Preview>
+    <Textarea label="Email" required />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Textarea label="Email" required />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With corner">
+  <Playground.Preview>
+    <Textarea label="Email" corner="This is a corner" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Textarea label="Email" corner="This is a corner" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With help text">
+  <Playground.Preview>
+    <Textarea label="Email" helper="This a help message" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Textarea label="Email" helper="This a help message" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With validation error">
+  <Playground.Preview>
+    <Textarea label="Email" error="This a error message" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Textarea label="Email" error="This a error message" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Disabled">
+  <Playground.Preview>
+    <Textarea label="Email" disabled />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Textarea label="Email" disabled />
+    ```
+  </Playground.Code>
+</Playground>

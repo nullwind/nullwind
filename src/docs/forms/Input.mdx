@@ -1,0 +1,85 @@
+import { Meta, Playground } from "~/components/docs";
+import { Input } from "~/components";
+
+<Meta
+  title="Input"
+  description="These are system-generated notifications with a high degree of criticality. They should be used when the system is unstable or there is a risk of loss of data or access to resources."
+/>
+
+# Input
+
+These are system-generated notifications with a high degree of criticality. They should be used when the system is unstable or there is a risk of loss of data or access to resources.
+
+## Usage
+
+```jsx
+import Input from "nullwind/Input";
+```
+
+## Examples
+
+<Playground title="Default">
+  <Playground.Preview>
+    <Input />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Input />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With label">
+  <Playground.Preview>
+    <Input label="Email" required />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Input label="Email" required />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With corner">
+  <Playground.Preview>
+    <Input label="Email" corner="This is a corner" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Input label="Email" corner="This is a corner" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With help text">
+  <Playground.Preview>
+    <Input label="Email" helper="This a help message" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Input label="Email" helper="This a help message" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With validation error">
+  <Playground.Preview>
+    <Input label="Email" error="This is a error message" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Input label="Email" error="This is a error message" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Disabled">
+  <Playground.Preview>
+    <Input label="Email" disabled />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Input label="Email" disabled />
+    ```
+  </Playground.Code>
+</Playground>

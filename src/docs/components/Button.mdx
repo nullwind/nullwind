@@ -1,0 +1,181 @@
+import { IconShare, IconPlus, IconX, IconTrash } from "nullstack-feather-icons";
+import { Meta, Playground } from "~/components/docs";
+import Button from "~/components/Button";
+
+<Meta
+  title="Button"
+  description="A button is an interface element that makes it possible to perform an action."
+/>
+
+# Button
+
+A button is an interface element that makes it possible to perform an action. It must clearly and
+objectively represent the effect of the action when clicked. Do not use buttons to navigate between
+pages, for that use Links.
+
+## Usage
+
+```jsx
+import Button from "nullwind/Button";
+
+const MyComponent = () => {
+  return (
+    <Button
+      href="https://nullstack.app" // set custom `href` to use as a link
+      color="primary" // primary, secondary, info, success, warning, danger
+      size="md" // xs, sm, md, lg, xl
+      outline={false}
+      fullSized={false}
+      rounded={true}
+      disabled={false}
+      onclick={() => {}}
+    >
+      Button
+    </Button>
+  );
+};
+```
+
+## Examples
+
+<Playground title="Colors">
+  <Playground.Preview>
+    <div class="flex flex-wrap gap-5 justify-center items-center">
+      <Button>Primary</Button>
+      <Button color="secondary">Secondary</Button>
+      <Button color="info">
+        <IconShare size={16} /> Share
+      </Button>
+      <Button color="success">
+        <IconPlus size={16} /> Add
+      </Button>
+      <Button color="warning">
+        <IconX size={16} /> Remove
+      </Button>
+      <Button color="danger">
+        <IconTrash size={16} /> Delete
+      </Button>
+    </div>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Button>Primary</Button>
+    <Button color="secondary">Secondary</Button>
+    <Button color="info">
+      <IconShare size={16} /> Share
+    </Button>
+    <Button color="success">
+      <IconPlus size={16} /> Add
+    </Button>
+    <Button color="warning">
+      <IconX size={16} /> Remove
+    </Button>
+    <Button color="danger">
+      <IconTrash size={16} /> Delete
+    </Button>
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Outline">
+  <Playground.Preview>
+    <div class="flex flex-wrap gap-5 justify-center items-center">
+      <Button outline>Primary</Button>
+      <Button outline color="secondary">
+        Secondary
+      </Button>
+      <Button outline color="info">
+        <IconShare size={16} /> Share
+      </Button>
+      <Button outline color="success">
+        <IconPlus size={16} /> Add
+      </Button>
+      <Button outline color="warning">
+        <IconX size={16} /> Remove
+      </Button>
+      <Button outline color="danger">
+        <IconTrash size={16} /> Delete
+      </Button>
+    </div>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Button outline>Primary</Button>
+    <Button outline color="secondary">
+      Secondary
+    </Button>
+    <Button outline color="info">
+      <IconShare size={16} /> Share
+    </Button>
+    <Button outline color="success">
+      <IconPlus size={16} /> Add
+    </Button>
+    <Button outline color="warning">
+      <IconX size={16} /> Remove
+    </Button>
+    <Button outline color="danger">
+      <IconTrash size={16} /> Delete
+    </Button>
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Rounded">
+  <Playground.Preview>
+    <div class="flex flex-wrap gap-5 justify-center items-center">
+      <Button>Rounded</Button>
+      <Button rounded={false}>Not Rounded</Button>
+    </div>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Button>Rounded</Button>
+    <Button rounded={false}>Not Rounded</Button>
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Sizes">
+  <Playground.Preview>
+    <div class="flex flex-wrap gap-5 justify-center items-center">
+      <Button size="xs">XS</Button>
+      <Button size="sm">SM</Button>
+      <Button size="md">MD</Button>
+      <Button size="lg">LG</Button>
+      <Button size="xl">XL</Button>
+    </div>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Button size="xs">XS</Button>
+    <Button size="sm">SM</Button>
+    <Button size="md">MD</Button>
+    <Button size="lg">LG</Button>
+    <Button size="xl">XL</Button>
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Full sized">
+  <Playground.Preview>
+    <Button fullSized>Full Sized</Button>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Button fullSized>Full Sized</Button>
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Disabled">
+  <Playground.Preview>
+    <div class="flex flex-wrap gap-5 justify-center items-center">
+      <Button disabled>Primary</Button>
+    </div>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Button disabled>Primary</Button>
+    ```
+  </Playground.Code>
+</Playground>

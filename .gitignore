@@ -1,0 +1,7 @@
+node_modules/
+.development/
+.production/
+docs/
+package-lock.json
+yarn.lock
+.env

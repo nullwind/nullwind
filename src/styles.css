@@ -1,0 +1,12 @@
+pre[class*="language-"] {
+  padding: 1.5em;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  font-size: 14px;
+}
+
+.prose :where(p):not(:where([class~="not-prose"] *)) {
+  margin: 0 !important;
+}
