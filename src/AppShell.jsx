@@ -1,11 +1,21 @@
 import Nullstack from "nullstack";
 import { IconMenu, IconGithub } from "nullstack-feather-icons";
+import docsearch from "@docsearch/js";
 import { Logo } from "./icons/Logo";
 import { Breadcrumb, Pagination } from "./components/docs";
 import { routes } from "./routes";
 
 export class AppShell extends Nullstack {
   menuOpen = false;
+
+  startDocSearch(context) {
+    docsearch({
+      container: context.element,
+      appId: "M02H11VP29",
+      apiKey: "3c167fea00aecc19658aa30d0a98090b",
+      indexName: "nullwind",
+    });
+  }
 
   renderHeader() {
     return (
@@ -51,8 +61,11 @@ export class AppShell extends Nullstack {
                   Sections <small class="text-white/50">soon</small>
                 </a>
               </li>
+              <li>
+                <div id="docsearch" ref={this.startDocSearch} />
+              </li>
             </ul>
-            <div class="hidden h-5 w-px bg-secondary-500/10 md:block"></div>
+            <div class="hidden h-5 w-px bg-white/20 md:block"></div>
             <ul class="mt-6 items-center gap-5 space-y-6 font-medium md:mt-0 md:flex md:space-y-0">
               <li>
                 <a

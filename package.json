@@ -16,6 +16,7 @@
     "build": "npx nullstack build"
   },
   "dependencies": {
+    "@docsearch/js": "^3.3.2",
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/loader": "^2.2.1",
     "nullstack-feather-icons": "^1.0.0",

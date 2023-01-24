@@ -10,3 +10,7 @@ pre[class*="language-"] {
 .prose :where(p):not(:where([class~="not-prose"] *)) {
   margin: 0 !important;
 }
+
+.DocSearch-Button {
+  margin-left: 0 !important;
+}
