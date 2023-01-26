@@ -17,7 +17,7 @@ import Modal from "nullwind/Modal";
 
 const MyApp = () => {
   return (
-    <Modal visible={true}>
+    <Modal visible={true} onclose={() => (this.visible = false)}>
       <h2 class="text-xl font-semibold mb-3">Some title</h2>
       <p class="text-base">Modal Body</p>
       <Modal.Footer>
@@ -39,7 +39,7 @@ const MyApp = () => {
   </Playground.Preview>
   <Playground.Code>
     ```jsx
-    <Modal visible={true}>
+    <Modal visible={true} onclose={() => (this.visible = false)}>
       <h2 class="text-xl font-semibold mb-3">Some title</h2>
       <p class="text-base">Modal Body</p>
       <Modal.Footer>

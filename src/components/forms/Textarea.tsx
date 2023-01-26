@@ -1,6 +1,10 @@
-import Label from "./Label";
-import Helper from "./Helper";
+import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
+
 import Error from "./Error";
+import Helper from "./Helper";
+import Label from "./Label";
+
+import theme from "~/theme";
 
 interface TextareaProps {
   class?: string;
@@ -8,61 +12,55 @@ interface TextareaProps {
   helper?: string;
   id?: string;
   label?: string;
-  name?: string;
   rows?: number;
   error?: string;
   corner?: string;
-  bind?: object;
   required?: boolean;
-  readonly?: boolean;
 }
 
-export default function Textarea(props: TextareaProps) {
-  const {
-    id,
-    class: klass,
-    label,
-    name,
-    rows = 4,
-    bind,
-    helper,
-    corner,
-    disabled,
-    error,
-    required,
-    readonly,
-  } = props;
+function Textarea({
+  id,
+  class: klass,
+  label,
+  rows = 4,
+  helper,
+  corner,
+  disabled,
+  error,
+  required,
+  ...props
+}: NullstackClientContext<TextareaProps>) {
+  const classes = theme.textarea;
 
   return (
     <div>
       <div class="flex justify-between">
-        <Label required={required} for={id}>
-          {label}
-        </Label>
-        {corner && (
-          <span class="text-sm text-gray-500" id={id}>
-            {corner}
-          </span>
-        )}
+        <>
+          {label && (
+            <Label required={required} for={id}>
+              {label}
+            </Label>
+          )}
+          {corner && (
+            <span class="text-sm text-gray-500" id={id}>
+              {corner}
+            </span>
+          )}
+        </>
       </div>
       <div class="mt-1">
         <textarea
           rows={rows}
           id={id}
-          name={name}
-          class={[
-            "shadow-sm focus:ring-primary-500 focus:border-primary-500 block w-full sm:text-sm border-gray-300 rounded-md",
-            error &&
-              " border-danger-300 text-danger-900 placeholder-danger-300 focus:ring-danger-500 focus:border-danger-500",
-            klass,
-          ]}
+          class={[classes.base, error && classes.error, klass]}
           disabled={disabled}
-          bind={bind}
           required={required}
-          readonly={readonly}
+          {...props}
         />
       </div>
       {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}
     </div>
   );
 }
+
+export default Textarea as NullstackFunctionalComponent<TextareaProps>;

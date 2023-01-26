@@ -1,6 +1,6 @@
 const theme = {
   button: {
-    base: "items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed",
+    base: "items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:cursor-not-allowed disabled:opacity-50",
     rounded: "rounded-md",
     fullSized: "w-full",
     color: {
@@ -29,7 +29,6 @@ const theme = {
       danger:
         "text-danger-500 bg-white border border-danger-500 hover:bg-danger-50 disabled:hover:bg-white focus:ring-4 focus:ring-danger-300 dark:text-danger-500 dark:border-danger-500 dark:hover:bg-danger-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
     },
-    disabled: "cursor-not-allowed opacity-50",
     size: {
       xs: "text-xs px-2 py-1",
       sm: "text-sm px-3 py-1.5",
@@ -69,6 +68,51 @@ const theme = {
         danger: "text-danger-500 dark:text-danger-600",
       },
     },
+  },
+  input: {
+    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500",
+    error:
+      "border-danger-300 text-danger-900 placeholder-danger-300 focus:ring-danger-500 focus:border-danger-500",
+  },
+  label: {
+    base: "mb-1 block text-sm font-medium text-gray-700",
+    required: 'after:ml-0.5 after:text-red-500 after:content-["*"]',
+  },
+  helper: {
+    base: "mt-2 text-sm text-gray-500",
+  },
+  error: {
+    base: "mt-2 text-sm text-danger-600",
+  },
+  select: {
+    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50",
+    error:
+      "border-danger-300 text-danger-900 placeholder-danger-300 focus:ring-danger-500 focus:border-danger-500",
+  },
+  textarea: {
+    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50",
+    error:
+      "border-danger-300 text-danger-900 placeholder-danger-300 focus:ring-danger-500 focus:border-danger-500",
+  },
+  checkbox: {
+    base: "h-4 w-4 rounded border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0 disabled:cursor-not-allowed disabled:text-gray-400",
+  },
+  radio: {
+    base: "h-4 w-4 rounded-full border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0 disabled:cursor-not-allowed disabled:text-gray-400",
+  },
+  modal: {
+    base: "modal-transition fixed z-30 inset-0 overflow-y-auto",
+    wrapper: "flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center",
+    overlay: "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity",
+    container:
+      "relative inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full",
+    close: {
+      base: "absolute top-0 right-0 pt-4 pr-4",
+      button:
+        "bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500",
+    },
+    body: "bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4",
+    footer: "bg-gray-50 px-4 py-3 flex justify-end sm:px-6",
   },
 };
 

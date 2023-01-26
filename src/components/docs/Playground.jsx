@@ -63,7 +63,7 @@ Playground.Preview = ({ activeTab, children }) => {
 
   return (
     <div
-      class={["p-4 bg-slate-50 border border-slate-200 rounded-md not-prose w-full overflow-auto"]}
+      class={["p-4 bg-white border border-slate-200 rounded-md not-prose w-full overflow-auto"]}
     >
       {children}
     </div>

@@ -1,18 +1,25 @@
-import Nullstack from "nullstack";
+import Nullstack, { NullstackClientContext } from "nullstack";
 
 interface ToggleProps {
   class?: string;
   disabled?: boolean;
   id?: string;
   label?: string;
-  name: string;
-  bind: any;
-  onclick?: () => void;
+  bind: {
+    object: object;
+    property: string;
+  };
 }
 
 class Toggle extends Nullstack {
-  render(props: ToggleProps) {
-    const { id, class: klass, label, bind, disabled = false } = props;
+  render({
+    id,
+    class: klass,
+    label,
+    bind,
+    disabled = false,
+    ...props
+  }: NullstackClientContext<ToggleProps>) {
     const value = bind?.object?.[bind?.property];
 
     return (
@@ -27,6 +34,7 @@ class Toggle extends Nullstack {
         ]}
         role="switch"
         bind={bind}
+        {...props}
       >
         <span class="sr-only">{label}</span>
         <span
@@ -35,7 +43,7 @@ class Toggle extends Nullstack {
             "pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200",
             value ? " translate-x-5" : " translate-x-0",
           ]}
-        ></span>
+        />
       </button>
     );
   }

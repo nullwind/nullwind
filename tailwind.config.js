@@ -2,7 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: ["./src/**/*.{njs,jsx,nts,tsx,ts,mdx}"],
+  content: ["./src/**/*.{njs,jsx,nts,tsx,js,ts,mdx}"],
   theme: {
     extend: {
       fontFamily: {

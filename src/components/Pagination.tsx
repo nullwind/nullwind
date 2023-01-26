@@ -1,8 +1,35 @@
-import Nullstack from "nullstack";
+import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
+
 import { IconChevronLeft, IconChevronRight } from "nullstack-feather-icons";
 
+interface PaginationProps {
+  params: Record<string, string>;
+  count: number;
+  perPage: number;
+  onchange: () => void;
+  pageParamKey?: string;
+}
+
+interface PaginationLinkProps {
+  disabled?: boolean;
+  active?: boolean;
+  class?: string;
+  linkParams?: Record<string, string | number>;
+  onclick?: () => void;
+  children?: NullstackNode;
+}
+
+declare function Link(context: PaginationLinkProps): NullstackNode;
+
 class Pagination extends Nullstack {
-  renderLink({ disabled, active, class: klass, linkParams, onclick, children }) {
+  renderLink({
+    disabled,
+    active,
+    class: klass,
+    linkParams,
+    onclick,
+    children,
+  }: NullstackClientContext<PaginationProps & PaginationLinkProps>) {
     return (
       <a
         href="#"
@@ -27,7 +54,13 @@ class Pagination extends Nullstack {
     );
   }
 
-  render({ params, count, perPage, onchange, pageParamKey = "page", showDetails = false }) {
+  render({
+    params,
+    count,
+    perPage,
+    onchange,
+    pageParamKey = "page",
+  }: NullstackClientContext<PaginationProps>) {
     if (count <= perPage) {
       return false;
     }

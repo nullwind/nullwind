@@ -1,12 +1,17 @@
-import { NullstackNode } from "nullstack";
+import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
+
+import theme from "~/theme";
 
 interface HelperProps {
   children?: NullstackNode;
   class?: string;
 }
 
-export default function Helper(props: HelperProps) {
+function Helper(props: NullstackClientContext<HelperProps>) {
   const { class: klass, children } = props;
+  const classes = theme.helper;
 
-  return <p class={["mt-2 text-sm text-gray-500", klass]}>{children}</p>;
+  return <p class={[classes.base, klass]}>{children}</p>;
 }
+
+export default Helper as NullstackFunctionalComponent<HelperProps>;

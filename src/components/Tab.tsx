@@ -1,4 +1,11 @@
-const Tab = ({ onchange, children }) => {
+import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
+
+interface TabProps {
+  children?: NullstackClientContext<TabItemProps>[];
+  onchange?: (index: number) => void;
+}
+
+const Tab = ({ onchange, children }: NullstackClientContext<TabProps>) => {
   return (
     <div>
       <div class="border-b border-b-gray-100">
@@ -30,6 +37,17 @@ const Tab = ({ onchange, children }) => {
   );
 };
 
+interface IconProps {
+  size?: number;
+}
+
+interface TabItemProps {
+  title?: string;
+  icon?: NullstackFunctionalComponent<IconProps>;
+  active?: boolean;
+  attributes?: TabItemProps;
+}
+
 Tab.Item = ({ children }) => <div>{children}</div>;
 
-export default Tab;
+export default Tab as NullstackFunctionalComponent<TabProps>;

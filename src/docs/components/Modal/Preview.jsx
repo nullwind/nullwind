@@ -1,4 +1,5 @@
 import Nullstack from "nullstack";
+
 import { Button, Modal } from "~/components";
 
 class Preview extends Nullstack {
@@ -10,8 +11,7 @@ class Preview extends Nullstack {
         <Button color="primary" onclick={() => (this.visible = true)}>
           Open modal
         </Button>
-        <Modal visible={this.visible}>
-          <Modal.Close />
+        <Modal visible={this.visible} onclose={() => (this.visible = false)}>
           <Modal.Body>
             <h2 class="text-xl font-semibold mb-3">Some title</h2>
             <p class="text-base">

@@ -1,14 +1,17 @@
-import { NullstackNode } from "nullstack";
+import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
+
+import theme from "~/theme";
 
 interface ErrorProps {
   children?: NullstackNode;
   class?: string;
 }
 
-function Error(props: ErrorProps) {
+function Error(props: NullstackClientContext<ErrorProps>) {
   const { class: klass, children } = props;
+  const classes = theme.error;
 
-  return <p class={["mt-2 text-sm text-danger-600", klass]}>{children}</p>;
+  return <p class={[classes.base, klass]}>{children}</p>;
 }
 
-export default Error;
+export default Error as NullstackFunctionalComponent<ErrorProps>;
