@@ -1,4 +1,5 @@
 import Alert from "./docs/components/Alert.mdx";
+import Avatar from "./docs/components/Avatar.mdx";
 import Badge from "./docs/components/Badge.mdx";
 import Button from "./docs/components/Button.mdx";
 import Icons from "./docs/components/Icons.mdx";
@@ -32,6 +33,11 @@ export const routes = [
         title: "Alert",
         path: "/components/alert",
         component: Alert,
+      },
+      {
+        title: "Avatar",
+        path: "/components/avatar",
+        component: Avatar,
       },
       {
         title: "Badge",

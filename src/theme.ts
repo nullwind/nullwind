@@ -129,6 +129,14 @@ const theme = {
       lg: "px-3 py-1 text-sm",
     },
   },
+  avatar: {
+    base: "flex flex-wrap items-center gap-3",
+    image: "h-full w-full rounded-full object-cover object-center ring ring-white",
+    imageFallback:
+      "flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-secondary-100 text-gray-500",
+    name: "text-sm font-medium text-secondary-500",
+    description: "text-xs text-secondary-400",
+  },
 };
 
 export default theme;
