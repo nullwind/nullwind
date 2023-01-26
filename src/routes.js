@@ -1,17 +1,18 @@
-import QuickStart from "./docs/getting-started/QuickStart.mdx";
+import Alert from "./docs/components/Alert.mdx";
+import Badge from "./docs/components/Badge.mdx";
 import Button from "./docs/components/Button.mdx";
 import Icons from "./docs/components/Icons.mdx";
-import Alert from "./docs/components/Alert.mdx";
-import Table from "./docs/components/Table.mdx";
-import Tab from "./docs/components/Tab.mdx";
-import Pagination from "./docs/components/Pagination.mdx";
 import Modal from "./docs/components/Modal/Modal.mdx";
-import Input from "./docs/forms/Input.mdx";
-import Textarea from "./docs/forms/Textarea.mdx";
-import Toggle from "./docs/forms/Toggle.mdx";
+import Pagination from "./docs/components/Pagination.mdx";
+import Tab from "./docs/components/Tab.mdx";
+import Table from "./docs/components/Table.mdx";
 import Checkbox from "./docs/forms/Checkbox.mdx";
+import Input from "./docs/forms/Input.mdx";
 import Radio from "./docs/forms/Radio.mdx";
 import Select from "./docs/forms/Select.mdx";
+import Textarea from "./docs/forms/Textarea.mdx";
+import Toggle from "./docs/forms/Toggle.mdx";
+import QuickStart from "./docs/getting-started/QuickStart.mdx";
 
 export const routes = [
   {
@@ -31,6 +32,11 @@ export const routes = [
         title: "Alert",
         path: "/components/alert",
         component: Alert,
+      },
+      {
+        title: "Badge",
+        path: "/components/badge",
+        component: Badge,
       },
       {
         title: "Button",

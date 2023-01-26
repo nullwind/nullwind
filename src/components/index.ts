@@ -5,6 +5,7 @@ export { default as Alert } from "./Alert";
 export { default as Tab } from "./Tab";
 export { default as Pagination } from "./Pagination";
 export { default as Modal } from "./Modal";
+export { default as Badge } from "./Badge";
 
 // Forms
 export { default as Input } from "./forms/Input";

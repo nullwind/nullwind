@@ -114,6 +114,21 @@ const theme = {
     body: "bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4",
     footer: "bg-gray-50 px-4 py-3 flex justify-end sm:px-6",
   },
+  badge: {
+    base: "rounded-full font-semibold",
+    color: {
+      primary: "bg-primary-50 text-primary-600",
+      secondary: "bg-secondary-50 text-secondary-600",
+      info: "bg-info-50 text-info-600",
+      success: "bg-success-50 text-success-600",
+      warning: "bg-warning-50 text-warning-600",
+      danger: "bg-danger-50 text-danger-600",
+    },
+    size: {
+      base: "px-2 py-1 text-xs",
+      lg: "px-3 py-1 text-sm",
+    },
+  },
 };
 
 export default theme;
