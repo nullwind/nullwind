@@ -1,6 +1,6 @@
 import { IconEdit, IconTrash } from "nullstack-feather-icons";
 import { Meta, Playground } from "~/components/docs";
-import Table from "~/components/Table";
+import { Table, Badge } from "~/components";
 
 <Meta
   title="Table"
@@ -27,7 +27,7 @@ import Table from "nullwind/Table";
           <Table.TH>Name</Table.TH>
           <Table.TH>Title</Table.TH>
           <Table.TH>Email</Table.TH>
-          <Table.TH>Role</Table.TH>
+          <Table.TH>Status</Table.TH>
           <Table.TH>Actions</Table.TH>
         </Table.TR>
       </Table.THead>
@@ -36,7 +36,9 @@ import Table from "nullwind/Table";
           <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
           <Table.TD>Software Engineer</Table.TD>
           <Table.TD>user@ae.studio</Table.TD>
-          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <Badge color="success">Active</Badge>
+          </Table.TD>
           <Table.TD class="space-x-2">
             <a href="#" class="text-primary-600 hover:text-primary-900">
               Edit
@@ -47,7 +49,9 @@ import Table from "nullwind/Table";
           <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
           <Table.TD>Software Engineer</Table.TD>
           <Table.TD>user@ae.studio</Table.TD>
-          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <Badge color="warning">Pending</Badge>
+          </Table.TD>
           <Table.TD class="space-x-2">
             <a href="#" class="text-primary-600 hover:text-primary-900">
               Edit
@@ -58,7 +62,9 @@ import Table from "nullwind/Table";
           <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
           <Table.TD>Software Engineer</Table.TD>
           <Table.TD>user@ae.studio</Table.TD>
-          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <Badge color="danger">Inactive</Badge>
+          </Table.TD>
           <Table.TD class="space-x-2">
             <a href="#" class="text-primary-600 hover:text-primary-900">
               Edit
@@ -76,7 +82,7 @@ import Table from "nullwind/Table";
           <Table.TH>Name</Table.TH>
           <Table.TH>Title</Table.TH>
           <Table.TH>Email</Table.TH>
-          <Table.TH>Role</Table.TH>
+          <Table.TH>Status</Table.TH>
           <Table.TH>Actions</Table.TH>
         </Table.TR>
       </Table.THead>
@@ -85,7 +91,9 @@ import Table from "nullwind/Table";
           <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
           <Table.TD>Software Engineer</Table.TD>
           <Table.TD>user@ae.studio</Table.TD>
-          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <Badge color="success">Active</Badge>
+          </Table.TD>
           <Table.TD class="space-x-2">
             <a href="#" class="text-primary-600 hover:text-primary-900">
               Edit
@@ -96,7 +104,9 @@ import Table from "nullwind/Table";
           <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
           <Table.TD>Software Engineer</Table.TD>
           <Table.TD>user@ae.studio</Table.TD>
-          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <Badge color="warning">Pending</Badge>
+          </Table.TD>
           <Table.TD class="space-x-2">
             <a href="#" class="text-primary-600 hover:text-primary-900">
               Edit
@@ -107,7 +117,9 @@ import Table from "nullwind/Table";
           <Table.TD class="font-medium text-gray-900">John Doe</Table.TD>
           <Table.TD>Software Engineer</Table.TD>
           <Table.TD>user@ae.studio</Table.TD>
-          <Table.TD>Member</Table.TD>
+          <Table.TD>
+            <Badge color="danger">Inactive</Badge>
+          </Table.TD>
           <Table.TD class="space-x-2">
             <a href="#" class="text-primary-600 hover:text-primary-900">
               Edit
