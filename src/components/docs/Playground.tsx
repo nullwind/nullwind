@@ -1,9 +1,46 @@
-import Nullstack from "nullstack";
-import { IconEye, IconCode } from "nullstack-feather-icons";
+import Nullstack, {
+  NullstackClientContext,
+  NullstackFunctionalComponent,
+  NullstackNode,
+} from "nullstack";
 
-class Playground extends Nullstack {
+import { IconCode, IconEye } from "nullstack-feather-icons";
+
+interface PlaygroundProps {
+  title: string;
+  children: NullstackNode[];
+}
+
+interface PlaygroundTabProps {
+  activeTab: string;
+  children: NullstackNode[];
+}
+
+interface TabButtonProps {
+  label: string;
+  icon: (props: { size: number }) => NullstackNode;
+}
+
+declare function TabButton(context: TabButtonProps): NullstackNode;
+
+class Playground extends Nullstack<PlaygroundProps> {
   activeTab = "preview";
   state = false;
+
+  static Preview = ({ activeTab, children }: NullstackClientContext<PlaygroundTabProps>) => {
+    if (activeTab !== "preview") return false;
+
+    return (
+      <div
+        class={["p-4 bg-white border border-slate-200 rounded-md not-prose w-full overflow-auto"]}
+      >
+        {children}
+      </div>
+    );
+  };
+
+  static Code = ({ activeTab, children }: NullstackClientContext<PlaygroundTabProps>) =>
+    activeTab === "code" && children;
 
   renderTabButton({ label, icon: Icon }) {
     return (
@@ -58,18 +95,4 @@ class Playground extends Nullstack {
   }
 }
 
-Playground.Preview = ({ activeTab, children }) => {
-  if (activeTab !== "preview") return false;
-
-  return (
-    <div
-      class={["p-4 bg-white border border-slate-200 rounded-md not-prose w-full overflow-auto"]}
-    >
-      {children}
-    </div>
-  );
-};
-
-Playground.Code = ({ activeTab, children }) => activeTab === "code" && children;
-
-export default Playground;
+export default Playground as unknown as NullstackFunctionalComponent<PlaygroundProps>;

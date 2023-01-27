@@ -92,7 +92,7 @@ export class AppShell extends Nullstack {
           class={["-ml-2 lg:m-0 lg:block lg:pb-10 lg:pr-4", this.menuOpen ? "visible" : "hidden"]}
         >
           <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-            <nav class="text-sm capitalize">
+            <nav class="text-sm">
               <ul class="space-y-4">
                 {routes.map((group) => (
                   <li>

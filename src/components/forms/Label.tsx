@@ -13,8 +13,6 @@ function Label(props: NullstackClientContext<LabelProps>) {
   const { for: receivedFor, class: klass, required, children } = props;
   const classes = theme.label;
 
-  console.log(required);
-
   return (
     <label for={receivedFor} class={[classes.base, required && classes.required, klass]}>
       {children}

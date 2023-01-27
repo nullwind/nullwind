@@ -14,6 +14,7 @@ import Select from "./docs/forms/Select.mdx";
 import Textarea from "./docs/forms/Textarea.mdx";
 import Toggle from "./docs/forms/Toggle.mdx";
 import QuickStart from "./docs/getting-started/QuickStart.mdx";
+import CreateForm from "./docs/helpers/CreateForm/CreateForm.mdx";
 
 export const routes = [
   {
@@ -108,6 +109,16 @@ export const routes = [
         title: "Toggle",
         path: "/components/toggle",
         component: Toggle,
+      },
+    ],
+  },
+  {
+    title: "Helpers",
+    routes: [
+      {
+        title: "createForm",
+        path: "/helpers/create-form",
+        component: CreateForm,
       },
     ],
   },

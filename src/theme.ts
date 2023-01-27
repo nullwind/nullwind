@@ -82,7 +82,7 @@ const theme = {
     base: "mt-2 text-sm text-gray-500",
   },
   error: {
-    base: "mt-2 text-sm text-danger-600",
+    base: "mt-2 mb-0 text-sm text-danger-600",
   },
   select: {
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50",

@@ -7,10 +7,21 @@ pre[class*="language-"] {
   font-size: 14px;
 }
 
-.prose :where(p):not(:where([class~="not-prose"] *)) {
-  margin: 0 !important;
-}
-
 .DocSearch-Button {
   margin-left: 0 !important;
+}
+
+code {
+  font-size: 14px;
+  padding: 0.2em 0.4em;
+  background-color: #eeeeee;
+  border-radius: 0.3em;
+}
+
+code::before {
+  display: none;
+}
+
+code::after {
+  display: none;
 }
