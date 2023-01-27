@@ -1,5 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
+import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
 
@@ -7,16 +8,18 @@ import theme from "~/theme";
 
 interface CheckboxProps {
   class?: string;
-  description?: string;
-  disabled?: boolean;
+  helper?: string;
+  error?: string;
+  required?: boolean;
   id?: string;
   label?: string;
 }
 
 const Checkbox = ({
   label,
-  description,
-  disabled,
+  helper,
+  error,
+  required,
   id,
   class: klass,
   ...props
@@ -30,19 +33,17 @@ const Checkbox = ({
           id={id}
           type="checkbox"
           class={[classes.base, klass]}
-          disabled={disabled}
+          required={required}
           {...props}
         />
       </div>
       <div class="ml-3 text-sm">
-        <>
-          {label && (
-            <Label class="cursor-pointer" for={id}>
-              {label}
-            </Label>
-          )}
-          {description && <Helper>{description}</Helper>}
-        </>
+        {label && (
+          <Label class="cursor-pointer" for={id} required={required}>
+            {label}
+          </Label>
+        )}
+        {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}
       </div>
     </div>
   );

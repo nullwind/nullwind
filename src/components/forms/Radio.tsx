@@ -9,14 +9,14 @@ interface RadioProps {
   label?: string;
 }
 
-const Radio = ({
+function Radio({
   id,
   class: klass,
   label,
   helper,
   disabled = false,
   ...props
-}: NullstackClientContext<RadioProps>) => {
+}: NullstackClientContext<RadioProps>) {
   const classes = theme.radio;
 
   return (
@@ -36,6 +36,6 @@ const Radio = ({
       </div>
     </div>
   );
-};
+}
 
 export default Radio as NullstackFunctionalComponent<RadioProps>;

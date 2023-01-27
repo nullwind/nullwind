@@ -5,22 +5,20 @@ interface ToggleProps {
   disabled?: boolean;
   id?: string;
   label?: string;
-  bind: {
-    object: object;
-    property: string;
-  };
+  bind?: object;
 }
 
 class Toggle extends Nullstack {
-  render({
-    id,
-    class: klass,
-    label,
-    bind,
-    disabled = false,
-    ...props
-  }: NullstackClientContext<ToggleProps>) {
-    const value = bind?.object?.[bind?.property];
+  toggle({ onclick, bind }) {
+    if (bind) {
+      bind.object[bind.property] = !bind.object[bind.property];
+    }
+
+    onclick && onclick();
+  }
+
+  render({ id, class: klass, label, bind, disabled = false }: NullstackClientContext<ToggleProps>) {
+    const value = !!bind?.object?.[bind?.property];
 
     return (
       <button
@@ -33,8 +31,7 @@ class Toggle extends Nullstack {
           klass,
         ]}
         role="switch"
-        bind={bind}
-        {...props}
+        onclick={() => !disabled && bind && this.toggle({ bind })}
       >
         <span class="sr-only">{label}</span>
         <span

@@ -28,9 +28,12 @@ function Textarea({
   disabled,
   error,
   required,
+  bind,
   ...props
 }: NullstackClientContext<TextareaProps>) {
   const classes = theme.textarea;
+
+  console.log(bind);
 
   return (
     <div>
@@ -50,12 +53,13 @@ function Textarea({
       </div>
       <div class="mt-1">
         <textarea
-          rows={rows}
           id={id}
+          rows={rows}
           class={[classes.base, error && classes.error, klass]}
           disabled={disabled}
           required={required}
-          {...props}
+          // bind={bind}
+          // {...props}
         />
       </div>
       {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}

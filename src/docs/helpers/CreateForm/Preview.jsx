@@ -1,9 +1,9 @@
 import Nullstack from "nullstack";
 
 import { IconXCircle } from "nullstack-feather-icons";
-import { object, string } from "yup";
+import { bool, object, string } from "yup";
 
-import { Alert, Button, Input, Select, Textarea } from "~/components";
+import { Alert, Button, Checkbox, Input, Label, Select, Textarea, Toggle } from "~/components";
 import { createForm } from "~/helpers";
 
 const validationSchema = object({
@@ -16,6 +16,8 @@ const validationSchema = object({
   city: string().required("City is required"),
   zip: string().required("Zip/Postal is required"),
   notes: string(),
+  notifications: bool(),
+  termsAndConditions: string().required("You must agree to the terms and conditions"),
 });
 
 class Preview extends Nullstack {
@@ -90,7 +92,21 @@ class Preview extends Nullstack {
             <Input label="City" bind={this.form.data.city} error={this.form.errors.city} />
             <Input label="Zip/Postal" bind={this.form.data.zip} error={this.form.errors.zip} />
           </div>
-          <Textarea label="Notes" error={this.form.errors.notes} />
+          <Textarea label="Notes" bind={this.form.data.notes} error={this.form.errors.notes} />
+          <hr />
+          <div>
+            <div class="flex items-center gap-2">
+              <Toggle bind={this.form.data.notifications} />{" "}
+              <h4 class="block text-sm font-medium text-gray-700">Allow notifications</h4>
+            </div>
+          </div>
+          <hr />
+          <Checkbox
+            id="terms-and-conditions"
+            label="I agree to the terms and conditions"
+            bind={this.form.data.termsAndConditions}
+            error={this.form.errors.termsAndConditions}
+          />
           {Object.keys(this.form.errors).length > 0 && (
             <Alert color="danger" icon={IconXCircle}>
               <h4>Please, fill all the fields before submitting the form.</h4>
