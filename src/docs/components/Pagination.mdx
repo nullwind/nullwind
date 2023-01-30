@@ -13,7 +13,38 @@ The pagination component can be used to navigate across a series of content and 
 ## Usage
 
 ```jsx
+import Nullstack from "nullstack";
 import Pagination from "nullwind/Pagination";
+
+import Webhook from "~/repository/webhook";
+
+const perPage = 5;
+
+export class Webhooks extends Nullstack {
+  webhooks = [];
+  count = 0;
+
+  static async getWebhooks({ perPage, page }) {
+    const data = await Webhook.all({ perPage, page });
+    return { data };
+  }
+
+  async hydrate({ params }) {
+    const { data } = await this.getWebhooks({
+      perPage,
+      page: parseInt(params.page) || 1,
+    });
+
+    const { webhooks, count } = data;
+
+    this.webhooks = webhooks;
+    this.count = count;
+  }
+
+  render() {
+    return <Pagination perPage={perPage} count={this.count} onchange={this.hydrate} />;
+  }
+}
 ```
 
 ## Examples
