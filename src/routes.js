@@ -12,7 +12,7 @@ import Input from "./docs/forms/Input.mdx";
 import Radio from "./docs/forms/Radio.mdx";
 import Select from "./docs/forms/Select.mdx";
 import Textarea from "./docs/forms/Textarea.mdx";
-import Toggle from "./docs/forms/Toggle.mdx";
+import Toggle from "./docs/forms/Toggle/Toggle.mdx";
 import QuickStart from "./docs/getting-started/QuickStart.mdx";
 import CreateForm from "./docs/helpers/CreateForm/CreateForm.mdx";
 
