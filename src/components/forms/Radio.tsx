@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import theme from "~/theme";
+import theme from "../../theme";
 interface RadioProps {
   class?: string;
   disabled?: boolean;

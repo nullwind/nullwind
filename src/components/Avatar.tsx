@@ -2,7 +2,7 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 
 import { IconUser } from "nullstack-feather-icons";
 
-import theme from "~/theme";
+import theme from "../theme";
 
 interface AvatarProps {
   id?: string;

@@ -3,8 +3,7 @@ import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } f
 import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
-
-import theme from "~/theme";
+import theme from "../../theme";
 
 interface SelectProps {
   children?: NullstackNode;

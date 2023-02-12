@@ -2,7 +2,7 @@ import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } f
 
 import { IconX } from "nullstack-feather-icons";
 
-import theme from "~/theme";
+import theme from "../theme";
 
 interface ModalProps {
   children?: NullstackNode;

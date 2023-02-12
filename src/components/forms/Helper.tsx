@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import theme from "~/theme";
+import theme from "../../theme";
 
 interface HelperProps {
   children?: NullstackNode;
