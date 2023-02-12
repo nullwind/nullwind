@@ -16,26 +16,13 @@ async function validateFormData(validationSchema, data, options = {}) {
   return {};
 }
 
-export function updateForm({ form, validationSchema }) {
+export default function createForm({ form, validationSchema, initialValues = {} }) {
   return {
     ...form,
     validationSchema,
-  };
-}
-
-export default function createForm({ form, validationSchema }) {
-  return {
-    ...form,
-    validationSchema,
-    data: {},
+    data: initialValues,
     errors: {},
     isValid: false,
-    setData(data) {
-      this.data = {
-        ...this.data,
-        ...data,
-      };
-    },
     async validate(options) {
       const [errors, isValid] = await Promise.all([
         validateFormData(this.validationSchema, this.data, options),
