@@ -150,8 +150,8 @@ const theme = {
     position: {
       none: "",
       start: "rounded-r-none border-r-0",
-      middle: "!rounded-none border-l-0 border-r-0",
-      end: "rounded-l-none border-l-0",
+      middle: "!rounded-none border-r-0",
+      end: "rounded-l-none",
     },
   },
   table: {

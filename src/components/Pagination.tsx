@@ -27,6 +27,7 @@ class Pagination extends Nullstack {
     linkParams,
     children,
     positionInGroup,
+    onchange,
   }: NullstackClientContext<PaginationProps & PaginationLinkProps>) {
     return (
       <Button
@@ -35,6 +36,7 @@ class Pagination extends Nullstack {
         disabled={disabled}
         positionInGroup={positionInGroup}
         active={active}
+        onclick={onchange}
       >
         {children}
       </Button>
@@ -73,19 +75,11 @@ class Pagination extends Nullstack {
 
     return (
       <ButtonGroup>
-        <Link
-          onclick={onchange}
-          linkParams={{ ...params, [pageParamKey]: page - 1 }}
-          disabled={page == 1}
-        >
+        <Link linkParams={{ ...params, [pageParamKey]: page - 1 }} disabled={page == 1}>
           <span class="sr-only">Previous</span>
           <IconChevronLeft size={18} />
         </Link>
-        {page != 1 && (
-          <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: "" }}>
-            1
-          </Link>
-        )}
+        {page != 1 && <Link linkParams={{ ...params, [pageParamKey]: "" }}>1</Link>}
         {page > range + 2 && (
           <Link
             onclick={onchange}
@@ -96,7 +90,7 @@ class Pagination extends Nullstack {
           </Link>
         )}
         {prev.map((page) => (
-          <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: page }} key={page}>
+          <Link linkParams={{ ...params, [pageParamKey]: page }} key={page}>
             {page}
           </Link>
         ))}
@@ -107,15 +101,9 @@ class Pagination extends Nullstack {
           </Link>
         ))}
         {page < total - range - 1 && (
-          <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: page + range + 1 }}>
-            ...
-          </Link>
+          <Link linkParams={{ ...params, [pageParamKey]: page + range + 1 }}>...</Link>
         )}
-        <Link
-          onclick={onchange}
-          linkParams={{ ...params, [pageParamKey]: page + 1 }}
-          disabled={page == total}
-        >
+        <Link linkParams={{ ...params, [pageParamKey]: page + 1 }} disabled={page == total}>
           <span class="sr-only">Next</span>
           <IconChevronRight size={18} />
         </Link>
