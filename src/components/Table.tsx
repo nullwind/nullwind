@@ -1,37 +1,41 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
+import theme from "~/theme";
+
 interface DefaultProps {
   id?: string;
   class?: string;
   children?: NullstackNode;
 }
 
+const classes = theme.table;
+
 const Table = ({ id, children, class: klass }: NullstackClientContext<DefaultProps>) => (
-  <table id={id} class={["w-full border-collapse bg-white text-left text-sm text-gray-500", klass]}>
+  <table id={id} class={[classes.base, klass]}>
     {children}
   </table>
 );
 
 Table.THead = ({ children, class: klass }: NullstackClientContext<DefaultProps>) => (
-  <thead class={["bg-gray-50", klass]}>{children}</thead>
+  <thead class={[classes.thead, klass]}>{children}</thead>
 );
 
 Table.TH = ({ children, class: klass }: NullstackClientContext<DefaultProps>) => (
-  <th scope="col" class={["px-6 py-4 font-medium text-gray-900", klass]}>
+  <th scope="col" class={[classes.th, klass]}>
     {children}
   </th>
 );
 
 Table.TBody = ({ children, class: klass }: NullstackClientContext<DefaultProps>) => (
-  <tbody class={["divide-y divide-gray-100 border-t border-gray-100", klass]}>{children}</tbody>
+  <tbody class={[classes.tbody, klass]}>{children}</tbody>
 );
 
 Table.TR = ({ children, class: klass }: NullstackClientContext<DefaultProps>) => (
-  <tr class={klass}>{children}</tr>
+  <tr class={[classes.tr, klass]}>{children}</tr>
 );
 
 Table.TD = ({ children, class: klass }: NullstackClientContext<DefaultProps>) => {
-  return <td class={["px-6 py-4", klass]}>{children}</td>;
+  return <td class={[classes.td, klass]}>{children}</td>;
 };
 
 export default Table as NullstackFunctionalComponent<DefaultProps>;

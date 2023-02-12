@@ -154,6 +154,14 @@ const theme = {
       end: "rounded-l-none border-l-0",
     },
   },
+  table: {
+    base: "w-full border-collapse bg-white text-left text-sm text-gray-500",
+    thead: "bg-gray-50",
+    th: "px-6 py-4 font-medium text-gray-900",
+    tbody: "divide-y divide-gray-100 border-t border-gray-100",
+    tr: "",
+    td: "px-6 py-4",
+  },
 };
 
 export default theme;
