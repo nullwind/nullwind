@@ -3,7 +3,7 @@ import Nullstack from "nullstack";
 import { IconXCircle } from "nullstack-feather-icons";
 import { bool, object, string } from "yup";
 
-import { Alert, Button, Checkbox, Input, Label, Select, Textarea, Toggle } from "~/components";
+import { Alert, Button, Checkbox, Input, Select, Textarea, Toggle } from "~/components";
 import { createForm } from "~/helpers";
 
 const validationSchema = object({
@@ -15,14 +15,26 @@ const validationSchema = object({
   state: string().required("State/Province is required"),
   city: string().required("City is required"),
   zip: string().required("Zip/Postal is required"),
-  notes: string(),
+  notes: string().required("Notes is required"),
   notifications: bool(),
   termsAndConditions: string().required("You must agree to the terms and conditions"),
 });
 
 class Preview extends Nullstack {
   form = {
-    data: {},
+    data: {
+      firstName: "",
+      lastName: "",
+      streetAddress: "",
+      streetAddressComplement: "",
+      country: null,
+      state: null,
+      city: "",
+      zip: "",
+      notes: "",
+      notifications: false,
+      termsAndConditions: false,
+    },
     errors: {},
   };
   countries = [
@@ -37,7 +49,7 @@ class Preview extends Nullstack {
   ];
 
   hydrate() {
-    this.form = createForm({ validationSchema });
+    this.form = createForm({ validationSchema, initialValues: this.form.data });
   }
 
   async send() {

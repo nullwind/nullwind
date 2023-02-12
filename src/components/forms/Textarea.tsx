@@ -32,8 +32,6 @@ function Textarea({
 }: NullstackClientContext<TextareaProps>) {
   const classes = theme.textarea;
 
-  console.log(bind);
-
   return (
     <div>
       <div class="flex justify-between">
@@ -57,8 +55,8 @@ function Textarea({
           class={[classes.base, error && classes.error, klass]}
           disabled={disabled}
           required={required}
-          // bind={bind}
-          // {...props}
+          bind={bind}
+          {...props}
         />
       </div>
       {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}

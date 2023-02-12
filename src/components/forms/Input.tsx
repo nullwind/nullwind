@@ -46,7 +46,7 @@ function Input({
           </span>
         )}
       </div>
-      <div class="mt-1 relative rounded-md shadow-sm">
+      <div class="mt-1 relative rounded-md">
         <input
           id={id}
           type={type}
