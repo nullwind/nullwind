@@ -2,6 +2,9 @@ import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
 
 import { IconChevronLeft, IconChevronRight } from "nullstack-feather-icons";
 
+import Button, { ButtonProps } from "./Button";
+import ButtonGroup from "./ButtonGroup";
+
 interface PaginationProps {
   params: Record<string, string>;
   count: number;
@@ -10,13 +13,9 @@ interface PaginationProps {
   pageParamKey?: string;
 }
 
-interface PaginationLinkProps {
-  disabled?: boolean;
+interface PaginationLinkProps extends ButtonProps {
   active?: boolean;
-  class?: string;
   linkParams?: Record<string, string | number>;
-  onclick?: () => void;
-  children?: NullstackNode;
 }
 
 declare function Link(context: PaginationLinkProps): NullstackNode;
@@ -25,32 +24,20 @@ class Pagination extends Nullstack {
   renderLink({
     disabled,
     active,
-    class: klass,
     linkParams,
-    onclick,
     children,
+    positionInGroup,
   }: NullstackClientContext<PaginationProps & PaginationLinkProps>) {
     return (
-      <a
-        href="#"
-        class={[
-          "relative inline-flex items-center border px-4 py-2 text-sm font-medium transition border-gray-300 text-gray-500",
-          disabled && "cursor-not-allowed",
-          !disabled && !active && "hover:bg-gray-50",
-          active && "z-10 bg-gray-100",
-          klass,
-        ]}
-        onclick={() => {
-          if (disabled || active) {
-            return false;
-          }
-
-          onclick();
-        }}
+      <Button
+        color="secondary"
         params={!disabled && linkParams}
+        disabled={disabled}
+        positionInGroup={positionInGroup}
+        active={active}
       >
         {children}
-      </a>
+      </Button>
     );
   }
 
@@ -85,61 +72,54 @@ class Pagination extends Nullstack {
     }
 
     return (
-      <div class="flex items-center justify-between py-3">
-        <nav
-          class="relative z-0 inline-flex -space-x-px rounded-md shadow-sm bg-white"
-          aria-label="Pagination"
+      <ButtonGroup>
+        <Link
+          onclick={onchange}
+          linkParams={{ ...params, [pageParamKey]: page - 1 }}
+          disabled={page == 1}
         >
+          <span class="sr-only">Previous</span>
+          <IconChevronLeft size={18} />
+        </Link>
+        {page != 1 && (
+          <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: "" }}>
+            1
+          </Link>
+        )}
+        {page > range + 2 && (
           <Link
             onclick={onchange}
-            linkParams={{ ...params, [pageParamKey]: page - 1 }}
-            disabled={page == 1}
-            class="rounded-l-md px-2.5"
+            linkParams={{ ...params, [pageParamKey]: page - range - 1 }}
+            disabled
           >
-            <span class="sr-only">Previous</span>
-            <IconChevronLeft size={18} />
+            ...
           </Link>
-          {page != 1 && (
-            <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: "" }}>
-              1
-            </Link>
-          )}
-          {page > range + 2 && (
-            <Link
-              onclick={onchange}
-              linkParams={{ ...params, [pageParamKey]: page - range - 1 }}
-              disabled
-            >
-              ...
-            </Link>
-          )}
-          {prev.map((page) => (
-            <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: page }} key={page}>
-              {page}
-            </Link>
-          ))}
-          <Link active>{page}</Link>
-          {next.map((page) => (
-            <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: page }} key={page}>
-              {page}
-            </Link>
-          ))}
-          {page < total - range - 1 && (
-            <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: page + range + 1 }}>
-              ...
-            </Link>
-          )}
-          <Link
-            onclick={onchange}
-            linkParams={{ ...params, [pageParamKey]: page + 1 }}
-            disabled={page == total}
-            class="rounded-r-md px-2.5"
-          >
-            <span class="sr-only">Next</span>
-            <IconChevronRight size={18} />
+        )}
+        {prev.map((page) => (
+          <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: page }} key={page}>
+            {page}
           </Link>
-        </nav>
-      </div>
+        ))}
+        <Link active>{page}</Link>
+        {next.map((page) => (
+          <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: page }} key={page}>
+            {page}
+          </Link>
+        ))}
+        {page < total - range - 1 && (
+          <Link onclick={onchange} linkParams={{ ...params, [pageParamKey]: page + range + 1 }}>
+            ...
+          </Link>
+        )}
+        <Link
+          onclick={onchange}
+          linkParams={{ ...params, [pageParamKey]: page + 1 }}
+          disabled={page == total}
+        >
+          <span class="sr-only">Next</span>
+          <IconChevronRight size={18} />
+        </Link>
+      </ButtonGroup>
     );
   }
 }

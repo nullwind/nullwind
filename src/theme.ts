@@ -29,6 +29,14 @@ const theme = {
       danger:
         "text-danger-500 bg-white border border-danger-500 hover:bg-danger-50 disabled:hover:bg-white focus:ring-4 focus:ring-danger-300 dark:text-danger-500 dark:border-danger-500 dark:hover:bg-danger-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
     },
+    active: {
+      primary: "bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-600",
+      secondary: "bg-secondary-200 dark:bg-secondary-600 dark:hover:bg-secondary-600",
+      info: "bg-info-600 dark:bg-info-600 dark:hover:bg-info-600",
+      success: "bg-success-600 dark:bg-success-600 dark:hover:bg-success-600",
+      warning: "bg-warning-600 dark:bg-warning-600 dark:hover:bg-warning-600",
+      danger: "bg-danger-600 dark:bg-danger-600 dark:hover:bg-danger-600",
+    },
     size: {
       xs: "text-xs px-2 py-1",
       sm: "text-sm px-3 py-1.5",
@@ -136,6 +144,15 @@ const theme = {
       "flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-secondary-100 text-gray-500",
     name: "text-sm font-medium text-secondary-500",
     description: "text-xs text-secondary-400",
+  },
+  buttonGroup: {
+    base: "inline-flex",
+    position: {
+      none: "",
+      start: "rounded-r-none border-r-0",
+      middle: "!rounded-none border-l-0 border-r-0",
+      end: "rounded-l-none border-l-0",
+    },
   },
 };
 
