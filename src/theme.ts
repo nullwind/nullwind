@@ -1,33 +1,33 @@
 const theme = {
   button: {
-    base: "items-center justify-center font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:cursor-not-allowed disabled:opacity-50",
+    base: "items-center justify-center font-medium focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:cursor-not-allowed disabled:opacity-50",
     rounded: "rounded-md",
     fullSized: "w-full",
     color: {
       primary:
-        "text-white bg-primary-500 border border-transparent hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 disabled:hover:bg-primary-500 dark:bg-primary-500 dark:hover:bg-primary-500 dark:focus:ring-primary-800 dark:disabled:hover:bg-primary-500",
+        "text-white bg-primary-500 border border-transparent hover:bg-primary-800 disabled:hover:bg-primary-500 dark:bg-primary-500 dark:hover:bg-primary-500 dark:disabled:hover:bg-primary-500",
       secondary:
-        "text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 disabled:hover:bg-white focus:ring-secondary-500 focus:text-secondary-500 dark:bg-transparent dark:text-gray-400 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-500 focus:ring-2 dark:disabled:hover:bg-gray-800",
-      info: "text-white bg-info-500 border border-transparent hover:bg-info-800 focus:ring-4 focus:ring-info-300 disabled:hover:bg-info-500 dark:bg-info-500 dark:hover:bg-info-500 dark:focus:ring-info-800 dark:disabled:hover:bg-info-500",
+        "text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 disabled:hover:bg-white dark:bg-transparent dark:text-gray-400 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:disabled:hover:bg-gray-800",
+      info: "text-white bg-info-500 border border-transparent hover:bg-info-800 disabled:hover:bg-info-500 dark:bg-info-500 dark:hover:bg-info-500 dark:disabled:hover:bg-info-500",
       success:
-        "text-white bg-success-500 border border-transparent hover:bg-success-800 focus:ring-4 focus:ring-success-300 disabled:hover:bg-success-500 dark:bg-success-500 dark:hover:bg-success-500 dark:focus:ring-success-800 dark:disabled:hover:bg-success-500",
+        "text-white bg-success-500 border border-transparent hover:bg-success-800 disabled:hover:bg-success-500 dark:bg-success-500 dark:hover:bg-success-500 dark:disabled:hover:bg-success-500",
       warning:
-        "text-white bg-warning-400 border border-transparent hover:bg-warning-500 focus:ring-4 focus:ring-warning-300 disabled:hover:bg-warning-400 dark:focus:ring-warning-900 dark:disabled:hover:bg-warning-400",
+        "text-white bg-warning-400 border border-transparent hover:bg-warning-500 disabled:hover:bg-warning-400 dark:disabled:hover:bg-warning-400",
       danger:
-        "text-white bg-danger-500 border border-transparent hover:bg-danger-800 focus:ring-4 focus:ring-danger-300 disabled:hover:bg-danger-800 dark:bg-danger-500 dark:hover:bg-danger-500 dark:focus:ring-danger-900 dark:disabled:hover:bg-danger-500",
+        "text-white bg-danger-500 border border-transparent hover:bg-danger-800 disabled:hover:bg-danger-800 dark:bg-danger-500 dark:hover:bg-danger-500 dark:disabled:hover:bg-danger-500",
     },
     outline: {
       primary:
-        "text-primary-500 bg-white border border-primary-500 hover:bg-primary-50 disabled:hover:bg-white focus:ring-4 focus:ring-primary-300 dark:text-primary-500 dark:border-primary-500 dark:hover:bg-primary-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
+        "text-primary-500 bg-white border border-primary-500 hover:bg-primary-50 disabled:hover:bg-white dark:text-primary-500 dark:border-primary-500 dark:hover:bg-primary-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
       secondary:
-        "text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 disabled:hover:bg-white focus:ring-secondary-500 focus:text-secondary-500 dark:text-gray-400 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-500 focus:ring-2 dark:disabled:hover:bg-gray-800",
-      info: "text-info-500 bg-white border border-info-500 hover:bg-info-50 disabled:hover:bg-white focus:ring-4 focus:ring-info-300 dark:text-info-500 dark:border-info-500 dark:hover:bg-info-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
+        "text-gray-900 bg-white border border-gray-200 hover:bg-gray-100 disabled:hover:bg-white dark:text-gray-400 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-500 dark:disabled:hover:bg-gray-800",
+      info: "text-info-500 bg-white border border-info-500 hover:bg-info-50 disabled:hover:bg-white dark:text-info-500 dark:border-info-500 dark:hover:bg-info-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
       success:
-        "text-success-500 bg-white border border-success-500 hover:bg-success-50 disabled:hover:bg-white focus:ring-4 focus:ring-success-300 dark:text-success-500 dark:border-success-500 dark:hover:bg-success-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
+        "text-success-500 bg-white border border-success-500 hover:bg-success-50 disabled:hover:bg-white dark:text-success-500 dark:border-success-500 dark:hover:bg-success-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
       warning:
-        "text-warning-400 bg-white border border-warning-400 hover:bg-warning-50 disabled:hover:bg-white focus:ring-4 focus:ring-warning-300 dark:text-warning-400 dark:border-warning-400 dark:hover:bg-warning-500 dark:disabled:hover:bg-gray-800",
+        "text-warning-400 bg-white border border-warning-400 hover:bg-warning-50 disabled:hover:bg-white dark:text-warning-400 dark:border-warning-400 dark:hover:bg-warning-500 dark:disabled:hover:bg-gray-800",
       danger:
-        "text-danger-500 bg-white border border-danger-500 hover:bg-danger-50 disabled:hover:bg-white focus:ring-4 focus:ring-danger-300 dark:text-danger-500 dark:border-danger-500 dark:hover:bg-danger-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
+        "text-danger-500 bg-white border border-danger-500 hover:bg-danger-50 disabled:hover:bg-white dark:text-danger-500 dark:border-danger-500 dark:hover:bg-danger-500 dark:hover:text-white dark:disabled:hover:bg-gray-800",
     },
     active: {
       primary: "bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-600",
@@ -70,7 +70,7 @@ const theme = {
       base: "-mx-1.5 -my-1.5 ml-auto inline-flex h-8 w-8 p-1.5 items-center",
       icon: "w-5 h-5",
       color: {
-        info: "text-info-500 focus:ring-info-400 dark:text-info-600",
+        info: "text-info-500 dark:text-info-600",
         success: "text-success-500 dark:text-success-600",
         warning: "text-warning-500 dark:text-warning-600",
         danger: "text-danger-500 dark:text-danger-600",
@@ -78,9 +78,8 @@ const theme = {
     },
   },
   input: {
-    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-400 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500",
-    error:
-      "border-danger-300 text-danger-900 placeholder-danger-300 focus:ring-danger-500 focus:border-danger-500",
+    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-400 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500",
+    error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
   label: {
     base: "mb-1 block text-sm font-medium text-gray-700",
@@ -93,20 +92,18 @@ const theme = {
     base: "mt-2 mb-0 text-sm text-danger-600",
   },
   select: {
-    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50",
-    error:
-      "border-danger-300 text-danger-900 placeholder-danger-300 focus:ring-danger-500 focus:border-danger-500",
+    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
+    error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
   textarea: {
-    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50",
-    error:
-      "border-danger-300 text-danger-900 placeholder-danger-300 focus:ring-danger-500 focus:border-danger-500",
+    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
+    error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
   checkbox: {
-    base: "h-4 w-4 rounded border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0 disabled:cursor-not-allowed disabled:text-gray-400",
+    base: "h-4 w-4 rounded border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:text-gray-400",
   },
   radio: {
-    base: "h-4 w-4 rounded-full border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0 disabled:cursor-not-allowed disabled:text-gray-400",
+    base: "h-4 w-4 rounded-full border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:text-gray-400",
   },
   modal: {
     base: "modal-transition fixed z-30 inset-0 overflow-y-auto",
@@ -116,8 +113,7 @@ const theme = {
       "relative inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full",
     close: {
       base: "absolute top-0 right-0 pt-4 pr-4",
-      button:
-        "bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500",
+      button: "bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none",
     },
     body: "bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4",
     footer: "bg-gray-50 px-4 py-3 flex justify-end sm:px-6",
