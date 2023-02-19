@@ -11,7 +11,7 @@ export { default as Table } from "./Table";
 
 // Forms
 export { default as Checkbox } from "./forms/Checkbox";
-export { default as Input } from "./forms/Input";
+export { default as TextInput } from "./forms/TextInput";
 export { default as Radio } from "./forms/Radio";
 export { default as Select } from "./forms/Select";
 export { default as Textarea } from "./forms/Textarea";

@@ -8,7 +8,7 @@ import Pagination from "./docs/components/Pagination.mdx";
 import Tab from "./docs/components/Tab.mdx";
 import Table from "./docs/components/Table.mdx";
 import Checkbox from "./docs/forms/Checkbox.mdx";
-import Input from "./docs/forms/Input.mdx";
+import TextInput from "./docs/forms/TextInput.mdx";
 import Radio from "./docs/forms/Radio.mdx";
 import Select from "./docs/forms/Select.mdx";
 import Textarea from "./docs/forms/Textarea.mdx";
@@ -86,11 +86,6 @@ export const routes = [
         component: Checkbox,
       },
       {
-        title: "Input",
-        path: "/components/input",
-        component: Input,
-      },
-      {
         title: "Radio",
         path: "/components/radio",
         component: Radio,
@@ -104,6 +99,11 @@ export const routes = [
         title: "Textarea",
         path: "/components/textarea",
         component: Textarea,
+      },
+      {
+        title: "TextInput",
+        path: "/components/textInput",
+        component: TextInput,
       },
       {
         title: "Toggle",
