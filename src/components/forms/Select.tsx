@@ -3,6 +3,7 @@ import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } f
 import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
+import Corner from "./Corner";
 import theme from "../../theme";
 
 interface SelectProps {
@@ -33,15 +34,11 @@ const Select = ({
 
   return (
     <div>
-      <div class="flex justify-between">
+      <div class={classes.root}>
         <Label required={required} for={id}>
           {label}
         </Label>
-        {corner && (
-          <span class="text-sm text-gray-500" id={id}>
-            {corner}
-          </span>
-        )}
+        {corner && <Corner>{corner}</Corner>}
       </div>
       <select
         id={id}

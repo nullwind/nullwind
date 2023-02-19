@@ -78,12 +78,16 @@ const theme = {
     },
   },
   input: {
+    root: "flex justify-between mb-1",
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-400 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
   label: {
     base: "mb-1 block text-sm font-medium text-gray-700",
     required: 'after:ml-0.5 after:text-red-500 after:content-["*"]',
+  },
+  corner: {
+    base: "text-sm text-gray-500",
   },
   helper: {
     base: "mt-2 text-sm text-gray-500",
@@ -92,21 +96,44 @@ const theme = {
     base: "mt-2 mb-0 text-sm text-danger-600",
   },
   select: {
+    root: "flex justify-between mb-1",
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
   textarea: {
+    root: "flex justify-between mb-1",
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
   checkbox: {
+    root: "relative flex items-start gap-3",
     base: "h-4 w-4 rounded border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:text-gray-400",
   },
   radio: {
+    root: "relative flex items-start gap-3",
     base: "h-4 w-4 rounded-full border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:text-gray-400",
+  },
+  toggle: {
+    base: "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500",
+    checked: {
+      on: "bg-primary-600",
+      off: "bg-gray-200",
+    },
+    disabled: "cursor-not-allowed opacity-50",
+    switch: {
+      base: "pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200",
+      checked: {
+        on: "translate-x-5",
+        off: "translate-x-0",
+      },
+    },
   },
   modal: {
     base: "modal-transition fixed z-30 inset-0 overflow-y-auto",
+    visible: {
+      on: "block",
+      off: "hidden",
+    },
     wrapper: "flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center",
     overlay: "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity",
     container:
@@ -135,6 +162,7 @@ const theme = {
   },
   avatar: {
     base: "flex flex-wrap items-center gap-3",
+    imageWrapper: "h-10 w-10 flex-shrink-0",
     image: "h-full w-full rounded-full object-cover object-center ring ring-white",
     imageFallback:
       "flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-secondary-100 text-gray-500",
@@ -157,6 +185,16 @@ const theme = {
     tbody: "divide-y divide-gray-100 border-t border-gray-100",
     tr: "",
     td: "px-6 py-4",
+  },
+  tab: {
+    wrapper: "border-b border-b-gray-100",
+    list: "-mb-px flex items-center gap-4 text-sm font-medium",
+    item: {
+      base: "inline-flex cursor-pointer items-center gap-2 px-1 py-3 text-primary-600 hover:text-primary-600",
+      active:
+        "relative text-primary-600 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-primary-600",
+    },
+    panel: "py-3",
   },
 };
 

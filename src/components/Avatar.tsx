@@ -17,7 +17,7 @@ function Avatar(props: NullstackClientContext<AvatarProps>) {
 
   return (
     <div id={id} class={classes.base}>
-      <div class="h-10 w-10">
+      <div class={classes.imageWrapper}>
         {(src && <img class={classes.image} src={src} alt={name} />) || (
           <div class={classes.imageFallback}>
             <IconUser size={20} />

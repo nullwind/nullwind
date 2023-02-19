@@ -27,17 +27,9 @@ const Checkbox = ({
   const classes = theme.checkbox;
 
   return (
-    <div class="relative flex items-start">
-      <div class="flex items-center h-5">
-        <input
-          id={id}
-          type="checkbox"
-          class={[classes.base, klass]}
-          required={required}
-          {...props}
-        />
-      </div>
-      <div class="ml-3 text-sm">
+    <div class={classes.root}>
+      <input id={id} type="checkbox" class={[classes.base, klass]} required={required} {...props} />
+      <div>
         {label && (
           <Label class="cursor-pointer" for={id} required={required}>
             {label}

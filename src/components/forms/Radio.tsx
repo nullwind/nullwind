@@ -1,5 +1,7 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
+import Helper from "./Helper";
+import Label from "./Label";
 import theme from "../../theme";
 interface RadioProps {
   class?: string;
@@ -20,19 +22,11 @@ function Radio({
   const classes = theme.radio;
 
   return (
-    <div class="relative flex items-start">
-      <div class="flex items-center h-5">
-        <input id={id} type="radio" class={[classes.base, klass]} disabled={disabled} {...props} />
-      </div>
-      <div class="ml-3 text-sm">
-        <>
-          {label && (
-            <label for={id} class="font-medium text-gray-700 cursor-pointer">
-              {label}
-            </label>
-          )}
-          {helper && <p class="text-gray-500">{helper}</p>}
-        </>
+    <div class={classes.root}>
+      <input id={id} type="radio" class={[classes.base, klass]} disabled={disabled} {...props} />
+      <div>
+        {label && <Label for={id}>{label}</Label>}
+        {helper && <Helper>{helper}</Helper>}
       </div>
     </div>
   );

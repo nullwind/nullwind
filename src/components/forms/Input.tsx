@@ -1,5 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
+import Corner from "./Corner";
 import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
@@ -36,17 +37,13 @@ function Input({
 
   return (
     <div>
-      <div class="flex justify-between">
+      <div class={classes.root}>
         <Label required={required} for={id}>
           {label}
         </Label>
-        {corner && (
-          <span class="text-sm text-gray-500" id={id}>
-            {corner}
-          </span>
-        )}
+        {corner && <Corner>{corner}</Corner>}
       </div>
-      <div class="mt-1 relative rounded-md">
+      <div>
         <input
           id={id}
           type={type}

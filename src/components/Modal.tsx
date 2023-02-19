@@ -14,7 +14,11 @@ const Modal = ({ visible, onclose, children }: NullstackClientContext<ModalProps
   const classes = theme.modal;
 
   return (
-    <div class={[classes.base, visible ? "block" : "hidden"]} role="dialog" aria-modal={visible}>
+    <div
+      class={[classes.base, classes.visible[visible ? "on" : "off"]]}
+      role="dialog"
+      aria-modal={visible}
+    >
       <div class={classes.wrapper}>
         <div class={classes.overlay} aria-hidden="true" />
         <div class={classes.container}>
