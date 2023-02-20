@@ -7,7 +7,7 @@ import { Meta } from "~/components/docs";
 ## Installation
 
 ```bash
-npm install -D tailwindcss
+npm install -D tailwindcss @tailwindcss/forms @tailwindcss/typography nullwind
 ```
 
 Nullwind is a modern UI component library for Tailwind CSS, you just need to install Tailwind CSS and configure it.
@@ -21,7 +21,7 @@ You need to add this to your `tailwind.config.js` file.
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 module.exports = {
-  content: ["./src/**/*.{njs,jsx,nts,tsx,js,ts}"],
+  content: ["node_modules/nullwind/src/theme.ts", "src/**/*.{jsx,tsx}"],
   theme: {
     extend: {
       // Set font family
