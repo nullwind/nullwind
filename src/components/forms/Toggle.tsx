@@ -1,6 +1,6 @@
 import Nullstack, { NullstackClientContext } from "nullstack";
 
-import theme from "~/theme";
+import theme from "../../theme";
 
 interface ToggleProps {
   class?: string;
