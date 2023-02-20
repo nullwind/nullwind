@@ -9,7 +9,7 @@
   ],
   "author": "Fabio Coelho",
   "license": "ISC",
-  "main": "./src/components/index.ts",
+  "main": "./src/index.ts",
   "files": [
     "src/theme.ts",
     "src/components",
