@@ -8,11 +8,15 @@ interface ModalProps {
   children?: NullstackNode;
   visible?: boolean;
   onclose?: () => void;
+  classes?: typeof theme.modal;
 }
 
-const Modal = ({ visible, onclose, children }: NullstackClientContext<ModalProps>) => {
-  const classes = theme.modal;
-
+const Modal = ({
+  classes = theme.modal,
+  visible,
+  onclose,
+  children,
+}: NullstackClientContext<ModalProps>) => {
   return (
     <div
       class={[classes.base, classes.visible[visible ? "on" : "off"]]}

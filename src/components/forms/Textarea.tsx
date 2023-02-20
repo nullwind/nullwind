@@ -7,7 +7,6 @@ import Label from "./Label";
 import theme from "../../theme";
 
 interface TextareaProps {
-  class?: string;
   disabled?: boolean;
   helper?: string;
   id?: string;
@@ -16,11 +15,11 @@ interface TextareaProps {
   error?: string;
   corner?: string;
   required?: boolean;
+  classes?: typeof theme.textarea;
 }
 
 function Textarea({
   id,
-  class: klass,
   label,
   rows = 4,
   helper,
@@ -29,10 +28,9 @@ function Textarea({
   error,
   required,
   bind,
+  classes = theme.textarea,
   ...props
 }: NullstackClientContext<TextareaProps>) {
-  const classes = theme.textarea;
-
   return (
     <div>
       <div class={classes.root}>
@@ -49,7 +47,7 @@ function Textarea({
         <textarea
           id={id}
           rows={rows}
-          class={[classes.base, error && classes.error, klass]}
+          class={[classes.base, error && classes.error]}
           disabled={disabled}
           required={required}
           bind={bind}

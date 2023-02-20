@@ -4,26 +4,24 @@ import Helper from "./Helper";
 import Label from "./Label";
 import theme from "../../theme";
 interface RadioProps {
-  class?: string;
   disabled?: boolean;
   helper?: string;
   id?: string;
   label?: string;
+  classes?: typeof theme.radio;
 }
 
 function Radio({
   id,
-  class: klass,
   label,
   helper,
   disabled = false,
+  classes = theme.radio,
   ...props
 }: NullstackClientContext<RadioProps>) {
-  const classes = theme.radio;
-
   return (
     <div class={classes.root}>
-      <input id={id} type="radio" class={[classes.base, klass]} disabled={disabled} {...props} />
+      <input id={id} type="radio" class={[classes.base]} disabled={disabled} {...props} />
       <div>
         {label && <Label for={id}>{label}</Label>}
         {helper && <Helper>{helper}</Helper>}

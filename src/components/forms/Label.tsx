@@ -5,16 +5,15 @@ import theme from "../../theme";
 interface LabelProps {
   required?: boolean;
   children?: NullstackNode;
-  class?: string;
   for?: string;
+  classes?: typeof theme.label;
 }
 
 function Label(props: NullstackClientContext<LabelProps>) {
-  const { for: receivedFor, class: klass, required, children } = props;
-  const classes = theme.label;
+  const { for: receivedFor, classes = theme.label, required, children } = props;
 
   return (
-    <label for={receivedFor} class={[classes.base, required && classes.required, klass]}>
+    <label for={receivedFor} class={[classes.base, required && classes.required]}>
       {children}
     </label>
   );

@@ -19,11 +19,11 @@ class Preview extends Nullstack {
               impedit.
             </p>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer class="space-x-2">
             <Button color="secondary" onclick={() => (this.visible = false)}>
               Close
             </Button>
-            <Button color="primary" class="ml-2" onclick={() => (this.visible = false)}>
+            <Button color="primary" onclick={() => (this.visible = false)}>
               Save
             </Button>
           </Modal.Footer>

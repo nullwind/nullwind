@@ -4,14 +4,12 @@ import theme from "../../theme";
 
 interface CornerProps {
   children?: NullstackNode;
-  class?: string;
+  classes?: typeof theme.corner;
 }
 
 function Corner(props: NullstackClientContext<CornerProps>) {
-  const { class: klass, children } = props;
-  const classes = theme.corner;
-
-  return <span class={[classes.base, klass]}>{children}</span>;
+  const { classes = theme.corner, children } = props;
+  return <span class={classes.base}>{children}</span>;
 }
 
 export default Corner as NullstackFunctionalComponent<CornerProps>;

@@ -11,7 +11,7 @@ interface AlertProps {
   ondismiss?: () => void;
   rounded?: boolean;
   withBorderAccent?: boolean;
-  class?: string;
+  classes?: typeof theme.alert;
 }
 
 const Alert = ({
@@ -21,10 +21,8 @@ const Alert = ({
   ondismiss,
   rounded = true,
   withBorderAccent,
-  class: klass,
+  classes = theme.alert,
 }: NullstackClientContext<AlertProps>) => {
-  const classes = theme.alert;
-
   return (
     <div
       class={[
@@ -32,7 +30,6 @@ const Alert = ({
         classes.root.color[color],
         rounded && classes.root.rounded,
         withBorderAccent && classes.root.borderAccent,
-        klass,
       ]}
       role="alert"
     >

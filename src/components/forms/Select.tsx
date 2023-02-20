@@ -1,14 +1,13 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
+import Corner from "./Corner";
 import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
-import Corner from "./Corner";
 import theme from "../../theme";
 
 interface SelectProps {
   children?: NullstackNode;
-  class?: string;
   disabled?: boolean;
   helper?: string;
   id?: string;
@@ -16,11 +15,11 @@ interface SelectProps {
   error?: string;
   corner?: string;
   required?: boolean;
+  classes?: typeof theme.select;
 }
 
 const Select = ({
   id,
-  class: klass,
   label,
   children,
   helper,
@@ -28,10 +27,9 @@ const Select = ({
   corner,
   disabled,
   required,
+  classes = theme.select,
   ...props
 }: NullstackClientContext<SelectProps>) => {
-  const classes = theme.select;
-
   return (
     <div>
       <div class={classes.root}>
@@ -42,7 +40,7 @@ const Select = ({
       </div>
       <select
         id={id}
-        class={[classes.base, error && classes.error, klass]}
+        class={[classes.base, error && classes.error]}
         disabled={disabled}
         required={required}
         {...props}

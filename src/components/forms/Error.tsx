@@ -4,14 +4,12 @@ import theme from "../../theme";
 
 interface ErrorProps {
   children?: NullstackNode;
-  class?: string;
+  classes?: typeof theme.error;
 }
 
 function Error(props: NullstackClientContext<ErrorProps>) {
-  const { class: klass, children } = props;
-  const classes = theme.error;
-
-  return <p class={[classes.base, klass]}>{children}</p>;
+  const { classes = theme.error, children } = props;
+  return <p class={classes.base}>{children}</p>;
 }
 
 export default Error as NullstackFunctionalComponent<ErrorProps>;

@@ -9,11 +9,11 @@ interface AvatarProps {
   src?: string;
   name?: string;
   description?: string;
+  classes?: typeof theme.avatar;
 }
 
 function Avatar(props: NullstackClientContext<AvatarProps>) {
-  const { id, src, name, description } = props;
-  const classes = theme.avatar;
+  const { id, src, name, description, classes = theme.avatar } = props;
 
   return (
     <div id={id} class={classes.base}>

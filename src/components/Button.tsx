@@ -14,7 +14,7 @@ export interface ButtonProps {
   type?: "button" | "submit" | "reset";
   positionInGroup?: "none" | "start" | "middle" | "end";
   active?: boolean;
-  class?: string | string[];
+  classes?: typeof theme.button;
 }
 
 function Button({
@@ -28,25 +28,23 @@ function Button({
   type,
   positionInGroup = "none",
   active,
-  class: klass,
+  classes = theme.button,
   ...props
 }: NullstackClientContext<ButtonProps>) {
   const isLink = typeof href !== "undefined";
   const Component = isLink ? "a" : "button";
-  const classes = theme.button;
   const groupClasses = theme.buttonGroup;
 
   return (
     <Component
       class={[
         classes.base,
-        outline ? classes.outline[color || "primary"] : classes.color[color],
-        active && classes.active[color || "primary"],
+        outline ? classes.outline[color] : classes.color[color],
+        active && classes.active[color],
         rounded && classes.rounded,
         classes.size[size],
         fullSized && classes.fullSized,
         groupClasses.position[positionInGroup],
-        klass,
       ]}
       href={href}
       type={isLink ? undefined : type}

@@ -5,11 +5,10 @@ import theme from "../theme";
 interface TabProps {
   children?: NullstackClientContext<TabItemProps>[];
   onchange?: (index: number) => void;
+  classes?: typeof theme.tab;
 }
 
-const Tab = ({ onchange, children }: NullstackClientContext<TabProps>) => {
-  const classes = theme.tab;
-
+const Tab = ({ onchange, classes = theme.tab, children }: NullstackClientContext<TabProps>) => {
   return (
     <div>
       <div class={classes.wrapper}>

@@ -3,11 +3,11 @@ import Nullstack, { NullstackClientContext } from "nullstack";
 import theme from "../../theme";
 
 interface ToggleProps {
-  class?: string;
   disabled?: boolean;
   id?: string;
   label?: string;
   bind?: object;
+  classes?: typeof theme.toggle;
 }
 
 class Toggle extends Nullstack {
@@ -19,20 +19,20 @@ class Toggle extends Nullstack {
     onclick && onclick();
   }
 
-  render({ id, class: klass, label, bind, disabled = false }: NullstackClientContext<ToggleProps>) {
+  render({
+    id,
+    classes = theme.toggle,
+    label,
+    bind,
+    disabled = false,
+  }: NullstackClientContext<ToggleProps>) {
     const value = !!bind?.object?.[bind?.property];
-    const classes = theme.toggle;
 
     return (
       <button
         id={id}
         type="button"
-        class={[
-          classes.base,
-          classes.checked[value ? "on" : "off"],
-          disabled && classes.disabled,
-          klass,
-        ]}
+        class={[classes.base, classes.checked[value ? "on" : "off"], disabled && classes.disabled]}
         role="switch"
         onclick={() => !disabled && bind && this.toggle({ bind })}
       >

@@ -8,14 +8,14 @@ interface BadgeProps {
   id?: string;
   color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
   size?: "base" | "lg";
+  classes?: typeof theme.badge;
 }
 
 function Badge(props: NullstackClientContext<BadgeProps>) {
-  const { id, color = "primary", size = "base", class: klass, children } = props;
-  const classes = theme.badge;
+  const { id, color = "primary", size = "base", classes = theme.badge, children } = props;
 
   return (
-    <span id={id} class={[classes.base, classes.size[size], classes.color[color], klass]}>
+    <span id={id} class={[classes.base, classes.size[size], classes.color[color]]}>
       {children}
     </span>
   );

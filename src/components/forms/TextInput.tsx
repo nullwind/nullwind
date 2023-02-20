@@ -8,7 +8,6 @@ import theme from "../../theme";
 
 interface InputProps {
   label?: string;
-  class?: string;
   corner?: string;
   error?: string;
   helper?: string;
@@ -18,12 +17,12 @@ interface InputProps {
   type?: string;
   disabled?: boolean;
   required?: boolean;
+  classes?: typeof theme.input;
 }
 
 function Input({
   label,
   id,
-  class: klass,
   type = "text",
   bind,
   error,
@@ -31,10 +30,9 @@ function Input({
   corner,
   disabled,
   required,
+  classes = theme.input,
   ...props
 }: NullstackClientContext<InputProps>) {
-  const classes = theme.input;
-
   return (
     <div>
       <div class={classes.root}>
@@ -47,7 +45,7 @@ function Input({
         <input
           id={id}
           type={type}
-          class={[classes.base, error && classes.error, klass]}
+          class={[classes.base, error && classes.error]}
           bind={bind}
           disabled={disabled}
           required={required}

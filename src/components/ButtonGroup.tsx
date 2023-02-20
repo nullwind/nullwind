@@ -4,15 +4,14 @@ import theme from "../theme";
 
 interface ButtonGroupProps {
   children?: NullstackNode[];
-  class?: string;
+  classes?: typeof theme.buttonGroup;
 }
 
 function ButtonGroup(props: NullstackClientContext<ButtonGroupProps>) {
-  const { class: klass, children } = props;
-  const classes = theme.buttonGroup;
+  const { classes = theme.buttonGroup, children } = props;
 
   return (
-    <div class={[classes.base, klass]}>
+    <div class={classes.base}>
       {children.map((child, index) => {
         if (!child.attributes) return child;
 
