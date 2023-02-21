@@ -97,6 +97,14 @@ const theme = {
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-400 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
+  emailsInput: {
+    root: "flex gap-2 items-center border border-gray-200 rounded-md py-2 px-1 flex-wrap",
+    badges: {
+      base: "flex gap-2 items-center flex-wrap",
+      close: "ml-1",
+    },
+    base: "border-0 flex-grow p-0 focus:outline-none outline-none focus:ring-0",
+  },
   select: {
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",

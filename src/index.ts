@@ -11,14 +11,15 @@ export { default as Table } from "./components/Table";
 
 // Forms
 export { default as Checkbox } from "./components/forms/Checkbox";
-export { default as TextInput } from "./components/forms/TextInput";
+export { default as EmailsInput } from "./components/forms/EmailsInput";
+export { default as Error } from "./components/forms/Error";
+export { default as Helper } from "./components/forms/Helper";
+export { default as Label } from "./components/forms/Label";
 export { default as Radio } from "./components/forms/Radio";
 export { default as Select } from "./components/forms/Select";
 export { default as Textarea } from "./components/forms/Textarea";
+export { default as TextInput } from "./components/forms/TextInput";
 export { default as Toggle } from "./components/forms/Toggle";
-export { default as Label } from "./components/forms/Label";
-export { default as Error } from "./components/forms/Error";
-export { default as Helper } from "./components/forms/Helper";
 
 // Theme
 export { default as theme } from "./theme";

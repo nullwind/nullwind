@@ -8,10 +8,11 @@ import Pagination from "./docs/components/Pagination.mdx";
 import Tab from "./docs/components/Tab.mdx";
 import Table from "./docs/components/Table.mdx";
 import Checkbox from "./docs/forms/Checkbox.mdx";
-import TextInput from "./docs/forms/TextInput.mdx";
+import EmailsInput from "./docs/forms/EmailsInput.mdx";
 import Radio from "./docs/forms/Radio.mdx";
 import Select from "./docs/forms/Select.mdx";
 import Textarea from "./docs/forms/Textarea.mdx";
+import TextInput from "./docs/forms/TextInput.mdx";
 import Toggle from "./docs/forms/Toggle/Toggle.mdx";
 import QuickStart from "./docs/getting-started/QuickStart.mdx";
 import CreateForm from "./docs/helpers/CreateForm/CreateForm.mdx";
@@ -84,6 +85,11 @@ export const routes = [
         title: "Checkbox",
         path: "/components/checkbox",
         component: Checkbox,
+      },
+      {
+        title: "EmailsInput",
+        path: "/components/emailsInput",
+        component: EmailsInput,
       },
       {
         title: "Radio",
