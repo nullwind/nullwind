@@ -77,11 +77,6 @@ const theme = {
       },
     },
   },
-  textInput: {
-    labelWrapper: "flex justify-between mb-1",
-    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-400 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500",
-    error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
-  },
   label: {
     base: "mb-1 block text-sm font-medium text-gray-700",
     required: 'after:ml-0.5 after:text-red-500 after:content-["*"]',
@@ -95,13 +90,18 @@ const theme = {
   error: {
     base: "mt-2 mb-0 text-sm text-danger-600",
   },
-  select: {
+  inputBase: {
     labelWrapper: "flex justify-between mb-1",
+  },
+  textInput: {
+    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-400 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500",
+    error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
+  },
+  select: {
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
   textarea: {
-    labelWrapper: "flex justify-between mb-1",
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },

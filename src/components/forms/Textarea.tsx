@@ -1,9 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import Corner from "./Corner";
-import Error from "./Error";
-import Helper from "./Helper";
-import Label from "./Label";
+import InputBase from "./InputBase";
 import theme from "../../theme";
 
 interface TextareaProps {
@@ -32,30 +29,24 @@ function Textarea({
   ...props
 }: NullstackClientContext<TextareaProps>) {
   return (
-    <div>
-      <div class={classes.labelWrapper}>
-        <>
-          {label && (
-            <Label required={required} for={id}>
-              {label}
-            </Label>
-          )}
-          {corner && <Corner>{corner}</Corner>}
-        </>
-      </div>
-      <div>
-        <textarea
-          id={id}
-          rows={rows}
-          class={[classes.base, error && classes.error]}
-          disabled={disabled}
-          required={required}
-          bind={bind}
-          {...props}
-        />
-      </div>
-      {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}
-    </div>
+    <InputBase
+      id={id}
+      label={label}
+      error={error}
+      helper={helper}
+      corner={corner}
+      required={required}
+    >
+      <textarea
+        id={id}
+        rows={rows}
+        class={[classes.base, error && classes.error]}
+        disabled={disabled}
+        required={required}
+        bind={bind}
+        {...props}
+      />
+    </InputBase>
   );
 }
 

@@ -1,9 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import Corner from "./Corner";
-import Error from "./Error";
-import Helper from "./Helper";
-import Label from "./Label";
+import InputBase from "./InputBase";
 import theme from "../../theme";
 
 interface TextInputProps {
@@ -34,26 +31,24 @@ function TextInput({
   ...props
 }: NullstackClientContext<TextInputProps>) {
   return (
-    <div>
-      <div class={classes.labelWrapper}>
-        <Label required={required} for={id}>
-          {label}
-        </Label>
-        {corner && <Corner>{corner}</Corner>}
-      </div>
-      <div>
-        <input
-          id={id}
-          type={type}
-          class={[classes.base, error && classes.error]}
-          bind={bind}
-          disabled={disabled}
-          required={required}
-          {...props}
-        />
-      </div>
-      {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}
-    </div>
+    <InputBase
+      id={id}
+      label={label}
+      error={error}
+      helper={helper}
+      corner={corner}
+      required={required}
+    >
+      <input
+        id={id}
+        type={type}
+        class={[classes.base, error && classes.error]}
+        bind={bind}
+        disabled={disabled}
+        required={required}
+        {...props}
+      />
+    </InputBase>
   );
 }
 
