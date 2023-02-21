@@ -77,8 +77,8 @@ const theme = {
       },
     },
   },
-  input: {
-    root: "flex justify-between mb-1",
+  textInput: {
+    labelWrapper: "flex justify-between mb-1",
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-400 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
@@ -96,12 +96,12 @@ const theme = {
     base: "mt-2 mb-0 text-sm text-danger-600",
   },
   select: {
-    root: "flex justify-between mb-1",
+    labelWrapper: "flex justify-between mb-1",
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },
   textarea: {
-    root: "flex justify-between mb-1",
+    labelWrapper: "flex justify-between mb-1",
     base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
     error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
   },

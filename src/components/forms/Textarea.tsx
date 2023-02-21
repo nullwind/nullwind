@@ -33,7 +33,7 @@ function Textarea({
 }: NullstackClientContext<TextareaProps>) {
   return (
     <div>
-      <div class={classes.root}>
+      <div class={classes.labelWrapper}>
         <>
           {label && (
             <Label required={required} for={id}>

@@ -6,7 +6,7 @@ import Helper from "./Helper";
 import Label from "./Label";
 import theme from "../../theme";
 
-interface InputProps {
+interface TextInputProps {
   label?: string;
   corner?: string;
   error?: string;
@@ -17,10 +17,10 @@ interface InputProps {
   type?: string;
   disabled?: boolean;
   required?: boolean;
-  classes?: typeof theme.input;
+  classes?: typeof theme.textInput;
 }
 
-function Input({
+function TextInput({
   label,
   id,
   type = "text",
@@ -30,12 +30,12 @@ function Input({
   corner,
   disabled,
   required,
-  classes = theme.input,
+  classes = theme.textInput,
   ...props
-}: NullstackClientContext<InputProps>) {
+}: NullstackClientContext<TextInputProps>) {
   return (
     <div>
-      <div class={classes.root}>
+      <div class={classes.labelWrapper}>
         <Label required={required} for={id}>
           {label}
         </Label>
@@ -57,4 +57,4 @@ function Input({
   );
 }
 
-export default Input as NullstackFunctionalComponent<InputProps>;
+export default TextInput as NullstackFunctionalComponent<TextInputProps>;

@@ -32,7 +32,7 @@ const Select = ({
 }: NullstackClientContext<SelectProps>) => {
   return (
     <div>
-      <div class={classes.root}>
+      <div class={classes.labelWrapper}>
         <Label required={required} for={id}>
           {label}
         </Label>
