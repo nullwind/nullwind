@@ -16,7 +16,7 @@ interface InputBaseProps {
   classes?: typeof theme.inputBase;
 }
 
-function TextInput({
+function InputBase({
   label,
   id,
   error,
@@ -40,4 +40,4 @@ function TextInput({
   );
 }
 
-export default TextInput as NullstackFunctionalComponent<InputBaseProps>;
+export default InputBase as NullstackFunctionalComponent<InputBaseProps>;
