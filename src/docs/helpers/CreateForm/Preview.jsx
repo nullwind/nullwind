@@ -3,7 +3,7 @@ import Nullstack from "nullstack";
 import { IconXCircle } from "nullstack-feather-icons";
 import { bool, object, string } from "yup";
 
-import { Alert, Button, Checkbox, Input, Select, Textarea, Toggle } from "~/components";
+import { Alert, Button, Checkbox, Select, Textarea, TextInput, Toggle } from "~/components";
 import { createForm } from "~/helpers";
 
 const validationSchema = object({
@@ -65,23 +65,23 @@ class Preview extends Nullstack {
       <div class="preview max-w-lg mx-auto">
         <form onsubmit={this.send} class="grid gap-6">
           <div class="grid grid-cols-2 gap-x-4">
-            <Input
+            <TextInput
               label="First Name"
               bind={this.form.data.firstName}
               error={this.form.errors.firstName}
             />
-            <Input
+            <TextInput
               label="Last Name"
               bind={this.form.data.lastName}
               error={this.form.errors.lastName}
             />
           </div>
-          <Input
+          <TextInput
             label="Street Address"
             bind={this.form.data.streetAddress}
             error={this.form.errors.streetAddress}
           />
-          <Input
+          <TextInput
             label="Street Address Complement"
             bind={this.form.data.streetAddressComplement}
             error={this.form.errors.streetAddressComplement}
@@ -101,8 +101,8 @@ class Preview extends Nullstack {
             </Select>
           </div>
           <div class="grid grid-cols-2 gap-x-4">
-            <Input label="City" bind={this.form.data.city} error={this.form.errors.city} />
-            <Input label="Zip/Postal" bind={this.form.data.zip} error={this.form.errors.zip} />
+            <TextInput label="City" bind={this.form.data.city} error={this.form.errors.city} />
+            <TextInput label="Zip/Postal" bind={this.form.data.zip} error={this.form.errors.zip} />
           </div>
           <Textarea label="Notes" bind={this.form.data.notes} error={this.form.errors.notes} />
           <hr />
