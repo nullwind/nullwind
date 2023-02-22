@@ -1,6 +1,6 @@
 import Nullstack, { NullstackClientContext } from "nullstack";
 
-import { IconXCircle } from "nullstack-feather-icons";
+import { IconX } from "nullstack-feather-icons";
 
 import InputBase from "./InputBase";
 import theme from "../../theme";
@@ -115,7 +115,7 @@ class EmailsInput extends Nullstack {
               <Badge>
                 {email}
                 <button class={classes.badges.close} onclick={() => this._removeEmail(email)}>
-                  <IconXCircle size={16} />
+                  <IconX size={16} />
                 </button>
               </Badge>
             ))}
