@@ -20,3 +20,4 @@ export { default as Select } from "./forms/Select";
 export { default as Textarea } from "./forms/Textarea";
 export { default as TextInput } from "./forms/TextInput";
 export { default as Toggle } from "./forms/Toggle";
+export { default as Rating } from "./forms/Rating";

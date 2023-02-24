@@ -204,6 +204,14 @@ const theme = {
     },
     panel: "py-3",
   },
+  rating: {
+    wrapper: "flex items-center gap-1",
+    readOnly: "cursor-default",
+    star: {
+      empty: "text-gray-300 dark:text-gray-500",
+      filled: "text-yellow-400",
+    },
+  },
 };
 
 export default theme;

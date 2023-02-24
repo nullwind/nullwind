@@ -10,6 +10,7 @@ import Table from "./docs/components/Table.mdx";
 import Checkbox from "./docs/forms/Checkbox.mdx";
 import EmailsInput from "./docs/forms/EmailsInput.mdx";
 import Radio from "./docs/forms/Radio.mdx";
+import Rating from "./docs/forms/Rating.mdx";
 import Select from "./docs/forms/Select.mdx";
 import Textarea from "./docs/forms/Textarea.mdx";
 import TextInput from "./docs/forms/TextInput.mdx";
@@ -95,6 +96,11 @@ export const routes = [
         title: "Radio",
         path: "/components/radio",
         component: Radio,
+      },
+      {
+        title: "Rating",
+        path: "/components/rating",
+        component: Rating,
       },
       {
         title: "Select",
