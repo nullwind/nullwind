@@ -12,21 +12,21 @@ class Preview extends Nullstack {
           Open modal
         </Button>
         <Modal visible={this.visible} onclose={() => (this.visible = false)}>
-          <Modal.Body>
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
             <h2 class="text-xl font-semibold mb-3">Some title</h2>
             <p class="text-base">
               Lorem ipsum dolor sit amet. Internos reprehenderit perspiciatis commodi et omnis
               impedit.
             </p>
-          </Modal.Body>
-          <Modal.Footer class="space-x-2">
+          </div>
+          <footer class="bg-gray-50 px-4 py-3 flex justify-end sm:px-6 gap-2">
             <Button color="secondary" onclick={() => (this.visible = false)}>
               Close
             </Button>
             <Button color="primary" onclick={() => (this.visible = false)}>
               Save
             </Button>
-          </Modal.Footer>
+          </footer>
         </Modal>
       </>
     );

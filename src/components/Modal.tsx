@@ -41,17 +41,4 @@ const Modal = ({
   );
 };
 
-interface ElementsProps {
-  class?: string;
-  children?: NullstackNode;
-}
-
-Modal.Body = ({ children, class: klass }: NullstackClientContext<ElementsProps>) => (
-  <div class={[theme.modal.body, klass]}>{children}</div>
-);
-
-Modal.Footer = ({ children, class: klass }: NullstackClientContext<ElementsProps>) => (
-  <div class={[theme.modal.footer, klass]}>{children}</div>
-);
-
 export default Modal as NullstackFunctionalComponent<ModalProps>;

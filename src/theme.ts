@@ -150,8 +150,6 @@ const theme = {
       base: "absolute top-0 right-0 pt-4 pr-4",
       button: "bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none",
     },
-    body: "bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4",
-    footer: "bg-gray-50 px-4 py-3 flex justify-end sm:px-6",
   },
   badge: {
     base: "rounded-full font-semibold",
