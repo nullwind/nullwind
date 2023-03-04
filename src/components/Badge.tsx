@@ -1,7 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import type { UseTheme } from "../providers/ThemeProvider";
-import { Theme } from "../theme";
+import type { Theme, UseTheme } from "../types";
 
 interface BadgeProps {
   children?: NullstackNode;

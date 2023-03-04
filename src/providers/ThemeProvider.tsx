@@ -1,9 +1,8 @@
 import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
 
 import mergeDeep from "../helpers/mergeDeep";
-import defaultTheme, { Theme } from "../theme";
-
-export type UseTheme = (customComponentTheme: Theme[keyof Theme]) => Theme;
+import defaultTheme from "../theme";
+import type { Theme, UseTheme } from "../types";
 
 interface ThemeProviderProps {
   theme?: Theme;
