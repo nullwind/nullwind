@@ -1,15 +1,10 @@
-import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
+import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import type { Theme, UseTheme } from "../types";
+import type { ComponentProps } from "../types";
 
-interface BadgeProps {
-  children?: NullstackNode;
-  class?: string;
-  id?: string;
+interface BadgeProps extends ComponentProps {
   color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
   size?: "base" | "lg";
-  customTheme?: Theme["badge"];
-  useTheme: UseTheme;
 }
 
 function Badge(props: NullstackClientContext<BadgeProps>) {
