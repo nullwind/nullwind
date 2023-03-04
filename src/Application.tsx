@@ -1,8 +1,8 @@
 import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
 
 import { AppShell } from "./AppShell";
-import ThemeProvider from "./components/ThemeProvider";
 import NotFound from "./docs/NotFound.mdx";
+import ThemeProvider from "./providers/ThemeProvider";
 import { routes } from "./routes";
 import type { Theme } from "./theme";
 
