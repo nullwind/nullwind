@@ -1,16 +1,20 @@
-import Nullstack from "nullstack";
+import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
 
 import { AppShell } from "./AppShell";
+import ThemeProvider from "./components/ThemeProvider";
 import NotFound from "./docs/NotFound.mdx";
 import { routes } from "./routes";
+import type { Theme } from "./theme";
 
 import "prism-themes/themes/prism-shades-of-purple.css";
 import "./styles.css";
 import "../tailwind.css";
 
+declare function Head(): NullstackNode;
+
 class Application extends Nullstack {
-  prepare({ page }) {
-    page.locale = "en-US";
+  prepare(context: NullstackClientContext) {
+    context.page.locale = "en-US";
   }
 
   renderHead() {
@@ -31,15 +35,23 @@ class Application extends Nullstack {
     const allRoutes = routes.map((section) => section.routes).flat();
 
     return (
-      <body class="bg-white text-secondary-500 antialiased">
-        <Head />
-        <AppShell>
-          {allRoutes.map(({ component: Component, path }) => (
-            <Component route={path} persistent />
-          ))}
-          <NotFound route="*" persistent />
-        </AppShell>
-      </body>
+      <ThemeProvider
+        theme={
+          {
+            badge: {},
+          } as Theme
+        }
+      >
+        <body class="bg-white text-secondary-500 antialiased">
+          <Head />
+          <AppShell>
+            {allRoutes.map(({ component: Component, path }) => (
+              <Component route={path} persistent />
+            ))}
+            <NotFound route="*" persistent />
+          </AppShell>
+        </body>
+      </ThemeProvider>
     );
   }
 }

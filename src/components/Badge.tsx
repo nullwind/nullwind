@@ -1,6 +1,7 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import theme from "../theme";
+import type { UseTheme } from "./ThemeProvider";
+import { Theme } from "../theme";
 
 interface BadgeProps {
   children?: NullstackNode;
@@ -8,14 +9,25 @@ interface BadgeProps {
   id?: string;
   color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
   size?: "base" | "lg";
-  classes?: typeof theme.badge;
+  customTheme?: Theme["badge"];
+  useTheme: UseTheme;
 }
 
 function Badge(props: NullstackClientContext<BadgeProps>) {
-  const { id, color = "primary", size = "base", classes = theme.badge, children } = props;
+  const {
+    useTheme,
+    id,
+    color = "primary",
+    size = "base",
+    customTheme,
+    children,
+    class: klass,
+  } = props;
+
+  const classes = useTheme(customTheme).badge;
 
   return (
-    <span id={id} class={[classes.base, classes.size[size], classes.color[color]]}>
+    <span id={id} class={[classes.base, classes.size[size], classes.color[color], klass]}>
       {children}
     </span>
   );
