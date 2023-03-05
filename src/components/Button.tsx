@@ -1,39 +1,41 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import theme from "../theme";
+import type { ComponentProps } from "../types";
 
-export interface ButtonProps {
+export interface ButtonProps extends ComponentProps {
+  active?: boolean;
   children?: NullstackNode;
-  disabled?: boolean;
-  href?: string;
   color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
-  outline?: boolean;
-  rounded?: boolean;
+  disabled?: boolean;
   fullSized?: boolean;
+  href?: string;
+  outline?: boolean;
+  positionInGroup?: "none" | "start" | "middle" | "end";
+  rounded?: boolean;
   size?: "sm" | "md" | "lg";
   type?: "button" | "submit" | "reset";
-  positionInGroup?: "none" | "start" | "middle" | "end";
-  active?: boolean;
-  classes?: typeof theme.button;
 }
 
 function Button({
+  active,
   children,
-  href,
+  class: klass,
   color = "primary",
-  outline,
-  rounded = true,
+  customTheme,
   fullSized,
+  href,
+  outline,
+  positionInGroup = "none",
+  rounded = true,
   size = "md",
   type,
-  positionInGroup = "none",
-  active,
-  classes = theme.button,
+  useTheme,
   ...props
 }: NullstackClientContext<ButtonProps>) {
   const isLink = typeof href !== "undefined";
   const Component = isLink ? "a" : "button";
-  const groupClasses = theme.buttonGroup;
+  const classes = useTheme(customTheme).button;
+  const groupClasses = useTheme(customTheme).buttonGroup;
 
   return (
     <Component
@@ -45,6 +47,7 @@ function Button({
         classes.size[size],
         fullSized && classes.fullSized,
         groupClasses.position[positionInGroup],
+        klass,
       ]}
       href={href}
       type={isLink ? undefined : type}

@@ -3,28 +3,30 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface CheckboxProps {
-  helper?: string;
+interface CheckboxProps extends ComponentProps {
   error?: string;
-  required?: boolean;
-  id?: string;
+  helper?: string;
   label?: string;
-  classes?: typeof theme.checkbox;
+  required?: boolean;
 }
 
 const Checkbox = ({
-  label,
-  helper,
+  class: klass,
+  customTheme,
   error,
-  required,
+  helper,
   id,
-  classes = theme.checkbox,
+  label,
+  required,
+  useTheme,
   ...props
 }: NullstackClientContext<CheckboxProps>) => {
+  const classes = useTheme(customTheme).checkbox;
+
   return (
-    <div class={classes.root}>
+    <div class={[classes.root, klass]}>
       <input id={id} type="checkbox" class={classes.base} required={required} {...props} />
       <div>
         {label && (

@@ -1,16 +1,15 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import theme from "../theme";
+import { ComponentProps } from "../types";
 
-interface DefaultProps {
-  id?: string;
-  class?: string;
+interface DefaultProps extends ComponentProps {
   children?: NullstackNode;
 }
 
 const classes = theme.table;
 
-const Table = ({ id, children, class: klass }: NullstackClientContext<DefaultProps>) => (
+const Table = ({ children, class: klass, id }: NullstackClientContext<DefaultProps>) => (
   <table id={id} class={[classes.base, klass]}>
     {children}
   </table>

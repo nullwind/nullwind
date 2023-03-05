@@ -2,27 +2,30 @@ import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } f
 
 import { IconX } from "nullstack-feather-icons";
 
-import theme from "../theme";
+import type { ComponentProps } from "../types";
 
-interface AlertProps {
+interface AlertProps extends ComponentProps {
   children?: NullstackNode;
   color?: "info" | "success" | "warning" | "danger";
   icon?: typeof IconX;
   ondismiss?: () => void;
   rounded?: boolean;
   withBorderAccent?: boolean;
-  classes?: typeof theme.alert;
 }
 
 const Alert = ({
   children,
+  class: klass,
   color = "info",
+  customTheme,
   icon: Icon,
   ondismiss,
   rounded = true,
+  useTheme,
   withBorderAccent,
-  classes = theme.alert,
 }: NullstackClientContext<AlertProps>) => {
+  const classes = useTheme(customTheme).alert;
+
   return (
     <div
       class={[
@@ -30,6 +33,7 @@ const Alert = ({
         classes.root.color[color],
         rounded && classes.root.rounded,
         withBorderAccent && classes.root.borderAccent,
+        klass,
       ]}
       role="alert"
     >

@@ -22,12 +22,12 @@ declare function Link(context: PaginationLinkProps): NullstackNode;
 
 class Pagination extends Nullstack {
   renderLink({
-    disabled,
     active,
-    linkParams,
     children,
-    positionInGroup,
+    disabled,
+    linkParams,
     onchange,
+    positionInGroup,
   }: NullstackClientContext<PaginationProps & PaginationLinkProps>) {
     return (
       <Button

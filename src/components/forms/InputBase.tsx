@@ -4,30 +4,32 @@ import Corner from "./Corner";
 import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface InputBaseProps {
-  label?: string;
+interface InputBaseProps extends ComponentProps {
   corner?: string;
   error?: string;
   helper?: string;
-  id?: string;
+  label?: string;
   required?: boolean;
-  classes?: typeof theme.inputBase;
 }
 
 function InputBase({
-  label,
-  id,
+  children,
+  class: klass,
+  corner,
+  customTheme,
   error,
   helper,
-  corner,
+  id,
+  label,
   required,
-  classes = theme.inputBase,
-  children,
+  useTheme,
 }: NullstackClientContext<InputBaseProps>) {
+  const classes = useTheme(customTheme).inputBase;
+
   return (
-    <div>
+    <div class={klass}>
       <div class={classes.labelWrapper}>
         <Label required={required} for={id}>
           {label}

@@ -1,33 +1,35 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
 import InputBase from "./InputBase";
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface TextareaProps {
-  disabled?: boolean;
-  helper?: string;
-  id?: string;
-  label?: string;
-  rows?: number;
-  error?: string;
+interface TextareaProps extends ComponentProps {
   corner?: string;
+  disabled?: boolean;
+  error?: string;
+  helper?: string;
+  label?: string;
   required?: boolean;
-  classes?: typeof theme.textarea;
+  rows?: number;
 }
 
 function Textarea({
-  id,
-  label,
-  rows = 4,
-  helper,
+  bind,
+  class: klass,
   corner,
+  customTheme,
   disabled,
   error,
+  helper,
+  id,
+  label,
   required,
-  bind,
-  classes = theme.textarea,
+  rows = 4,
+  useTheme,
   ...props
 }: NullstackClientContext<TextareaProps>) {
+  const classes = useTheme(customTheme).textarea;
+
   return (
     <InputBase
       id={id}
@@ -36,6 +38,7 @@ function Textarea({
       helper={helper}
       corner={corner}
       required={required}
+      class={klass}
     >
       <textarea
         id={id}

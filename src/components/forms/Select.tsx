@@ -1,32 +1,34 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import InputBase from "./InputBase";
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface SelectProps {
+interface SelectProps extends ComponentProps {
   children?: NullstackNode;
-  disabled?: boolean;
-  helper?: string;
-  id?: string;
-  label?: string;
-  error?: string;
   corner?: string;
+  disabled?: boolean;
+  error?: string;
+  helper?: string;
+  label?: string;
   required?: boolean;
-  classes?: typeof theme.select;
 }
 
 const Select = ({
+  children,
+  class: klass,
+  corner,
+  customTheme,
+  disabled,
+  error,
+  helper,
   id,
   label,
-  children,
-  helper,
-  error,
-  corner,
-  disabled,
   required,
-  classes = theme.select,
+  useTheme,
   ...props
 }: NullstackClientContext<SelectProps>) => {
+  const classes = useTheme(customTheme).select;
+
   return (
     <InputBase
       id={id}
@@ -35,6 +37,7 @@ const Select = ({
       helper={helper}
       corner={corner}
       required={required}
+      class={klass}
     >
       <select
         id={id}

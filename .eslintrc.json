@@ -4,7 +4,12 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:typescript-sort-keys/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -13,7 +18,14 @@
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint", "import", "unused-imports", "prettier"],
+  "plugins": [
+    "@typescript-eslint",
+    "import",
+    "unused-imports",
+    "prettier",
+    "sort-destructure-keys",
+    "typescript-sort-keys"
+  ],
   "rules": {
     // eslint
 
@@ -52,6 +64,8 @@
 
     // prettier
 
-    "prettier/prettier": "warn"
+    "prettier/prettier": "warn",
+
+    "sort-destructure-keys/sort-destructure-keys": 2
   }
 }

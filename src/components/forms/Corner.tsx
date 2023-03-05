@@ -1,15 +1,15 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface CornerProps {
+interface CornerProps extends ComponentProps {
   children?: NullstackNode;
-  classes?: typeof theme.corner;
 }
 
 function Corner(props: NullstackClientContext<CornerProps>) {
-  const { classes = theme.corner, children } = props;
-  return <span class={classes.base}>{children}</span>;
+  const { children, class: klass, customTheme, useTheme } = props;
+  const classes = useTheme(customTheme).corner;
+  return <span class={[classes.base, klass]}>{children}</span>;
 }
 
 export default Corner as NullstackFunctionalComponent<CornerProps>;

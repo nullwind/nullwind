@@ -1,17 +1,15 @@
 import Nullstack, { NullstackClientContext } from "nullstack";
 
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface ToggleProps {
-  disabled?: boolean;
-  id?: string;
-  label?: string;
+interface ToggleProps extends ComponentProps {
   bind?: object;
-  classes?: typeof theme.toggle;
+  disabled?: boolean;
+  label?: string;
 }
 
 class Toggle extends Nullstack {
-  toggle({ onclick, bind }) {
+  toggle({ bind, onclick }) {
     if (bind) {
       bind.object[bind.property] = !bind.object[bind.property];
     }
@@ -20,19 +18,27 @@ class Toggle extends Nullstack {
   }
 
   render({
-    id,
-    classes = theme.toggle,
-    label,
     bind,
+    class: klass,
+    customTheme,
     disabled = false,
+    id,
+    label,
+    useTheme,
   }: NullstackClientContext<ToggleProps>) {
+    const classes = useTheme(customTheme).toggle;
     const value = !!bind?.object?.[bind?.property];
 
     return (
       <button
         id={id}
         type="button"
-        class={[classes.base, classes.checked[value ? "on" : "off"], disabled && classes.disabled]}
+        class={[
+          classes.base,
+          classes.checked[value ? "on" : "off"],
+          disabled && classes.disabled,
+          klass,
+        ]}
         role="switch"
         onclick={() => !disabled && bind && this.toggle({ bind })}
       >

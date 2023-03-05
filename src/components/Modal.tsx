@@ -2,24 +2,27 @@ import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } f
 
 import { IconX } from "nullstack-feather-icons";
 
-import theme from "../theme";
+import type { ComponentProps } from "../types";
 
-interface ModalProps {
+interface ModalProps extends ComponentProps {
   children?: NullstackNode;
-  visible?: boolean;
   onclose?: () => void;
-  classes?: typeof theme.modal;
+  visible?: boolean;
 }
 
 const Modal = ({
-  classes = theme.modal,
-  visible,
-  onclose,
   children,
+  class: klass,
+  customTheme,
+  onclose,
+  useTheme,
+  visible,
 }: NullstackClientContext<ModalProps>) => {
+  const classes = useTheme(customTheme).modal;
+
   return (
     <div
-      class={[classes.base, classes.visible[visible ? "on" : "off"]]}
+      class={[classes.base, classes.visible[visible ? "on" : "off"], klass]}
       role="dialog"
       aria-modal={visible}
     >

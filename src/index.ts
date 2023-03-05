@@ -21,5 +21,5 @@ export { default as Textarea } from "./components/forms/Textarea";
 export { default as TextInput } from "./components/forms/TextInput";
 export { default as Toggle } from "./components/forms/Toggle";
 
-// Theme
-export { default as theme } from "./theme";
+// Providers
+export { default as ThemeProvider } from "./providers/ThemeProvider";

@@ -1,15 +1,15 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface HelperProps {
+interface HelperProps extends ComponentProps {
   children?: NullstackNode;
-  classes?: typeof theme.helper;
 }
 
 function Helper(props: NullstackClientContext<HelperProps>) {
-  const { classes = theme.helper, children } = props;
-  return <p class={classes.base}>{children}</p>;
+  const { children, class: klass, customTheme, useTheme } = props;
+  const classes = useTheme(customTheme).helper;
+  return <p class={[classes.base, klass]}>{children}</p>;
 }
 
 export default Helper as NullstackFunctionalComponent<HelperProps>;
