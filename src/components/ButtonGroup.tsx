@@ -1,17 +1,17 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import theme from "../theme";
+import { ComponentProps } from "~/types";
 
-interface ButtonGroupProps {
+interface ButtonGroupProps extends ComponentProps {
   children?: NullstackNode[];
-  classes?: typeof theme.buttonGroup;
 }
 
 function ButtonGroup(props: NullstackClientContext<ButtonGroupProps>) {
-  const { classes = theme.buttonGroup, children } = props;
+  const { children, class: klass, customTheme, useTheme } = props;
+  const classes = useTheme(customTheme).buttonGroup;
 
   return (
-    <div class={classes.base}>
+    <div class={[classes.base, klass]}>
       {children.map((child, index) => {
         if (!child.attributes) return child;
 

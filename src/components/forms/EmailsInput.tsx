@@ -3,21 +3,19 @@ import Nullstack, { NullstackClientContext } from "nullstack";
 import { IconX } from "nullstack-feather-icons";
 
 import InputBase from "./InputBase";
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 import Badge from "../Badge";
 
-interface EmailsInputProps {
-  label?: string;
+interface EmailsInputProps extends ComponentProps {
+  bind?: object;
   corner?: string;
+  disabled?: boolean;
   error?: string;
   helper?: string;
-  id?: string;
-  bind?: object;
-  type?: string;
-  disabled?: boolean;
-  required?: boolean;
+  label?: string;
   placeholder?: string;
-  classes?: typeof theme.emailsInput;
+  required?: boolean;
+  type?: string;
 }
 
 const keycode = { comma: 44, enter: 13, backspace: 8 };
@@ -90,16 +88,20 @@ class EmailsInput extends Nullstack {
   }
 
   render({
-    label,
-    id,
+    class: klass,
+    corner,
+    customTheme,
     error,
     helper,
-    corner,
-    required,
-    classes = theme.emailsInput,
+    id,
+    label,
     placeholder = "Add email",
+    required,
+    useTheme,
     ...props
   }: NullstackClientContext<EmailsInputProps>) {
+    const classes = useTheme(customTheme).emailsInput;
+
     return (
       <InputBase
         id={id}
@@ -108,6 +110,7 @@ class EmailsInput extends Nullstack {
         helper={helper}
         corner={corner}
         required={required}
+        class={klass}
       >
         <div class={classes.root}>
           <div class={classes.badges.base}>

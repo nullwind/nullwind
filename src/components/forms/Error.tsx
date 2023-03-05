@@ -1,15 +1,15 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface ErrorProps {
+interface ErrorProps extends ComponentProps {
   children?: NullstackNode;
-  classes?: typeof theme.error;
 }
 
 function Error(props: NullstackClientContext<ErrorProps>) {
-  const { classes = theme.error, children } = props;
-  return <p class={classes.base}>{children}</p>;
+  const { children, class: klass, customTheme, useTheme } = props;
+  const classes = useTheme(customTheme).error;
+  return <p class={[classes.base, klass]}>{children}</p>;
 }
 
 export default Error as NullstackFunctionalComponent<ErrorProps>;

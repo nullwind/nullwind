@@ -2,25 +2,27 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 
 import Helper from "./Helper";
 import Label from "./Label";
-import theme from "../../theme";
-interface RadioProps {
+import type { ComponentProps } from "../../types";
+interface RadioProps extends ComponentProps {
   disabled?: boolean;
   helper?: string;
-  id?: string;
   label?: string;
-  classes?: typeof theme.radio;
 }
 
 function Radio({
+  class: klass,
+  customTheme,
+  disabled = false,
+  helper,
   id,
   label,
-  helper,
-  disabled = false,
-  classes = theme.radio,
+  useTheme,
   ...props
 }: NullstackClientContext<RadioProps>) {
+  const classes = useTheme(customTheme).radio;
+
   return (
-    <div class={classes.root}>
+    <div class={[classes.root, klass]}>
       <input id={id} type="radio" class={[classes.base]} disabled={disabled} {...props} />
       <div>
         {label && <Label for={id}>{label}</Label>}

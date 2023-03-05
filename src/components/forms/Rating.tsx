@@ -2,22 +2,22 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 
 import { IconStar } from "nullstack-feather-icons";
 
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface RatingProps {
-  readOnly?: boolean;
+interface RatingProps extends ComponentProps {
   averageRate?: number;
   bind?: object;
+  readOnly?: boolean;
   size?: number;
-  classes?: typeof theme.rating;
 }
 
 function Rating(props: NullstackClientContext<RatingProps>) {
-  const { readOnly, averageRate, size = 24, classes = theme.rating, bind } = props;
+  const { averageRate, bind, class: klass, customTheme, readOnly, size = 24, useTheme } = props;
+  const classes = useTheme(customTheme).rating;
   const rate = averageRate >= 0 ? averageRate : bind.object[bind.property];
 
   return (
-    <div class={classes.wrapper}>
+    <div class={[classes.wrapper, klass]}>
       {Array.from({ length: 5 }, (_, i) => (
         <button
           class={[

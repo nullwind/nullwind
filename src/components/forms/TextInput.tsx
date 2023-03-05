@@ -1,35 +1,37 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
 import InputBase from "./InputBase";
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface TextInputProps {
-  label?: string;
+interface TextInputProps extends ComponentProps {
+  bind?: object;
   corner?: string;
+  disabled?: boolean;
   error?: string;
   helper?: string;
-  id?: string;
+  label?: string;
   name?: string;
-  bind?: object;
-  type?: string;
-  disabled?: boolean;
   required?: boolean;
-  classes?: typeof theme.textInput;
+  type?: string;
 }
 
 function TextInput({
-  label,
-  id,
-  type = "text",
   bind,
+  class: klass,
+  corner,
+  customTheme,
+  disabled,
   error,
   helper,
-  corner,
-  disabled,
+  id,
+  label,
   required,
-  classes = theme.textInput,
+  type = "text",
+  useTheme,
   ...props
 }: NullstackClientContext<TextInputProps>) {
+  const classes = useTheme(customTheme).textInput;
+
   return (
     <InputBase
       id={id}
@@ -38,6 +40,7 @@ function TextInput({
       helper={helper}
       corner={corner}
       required={required}
+      class={klass}
     >
       <input
         id={id}

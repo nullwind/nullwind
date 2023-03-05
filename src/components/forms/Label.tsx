@@ -1,19 +1,19 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import theme from "../../theme";
+import type { ComponentProps } from "../../types";
 
-interface LabelProps {
-  required?: boolean;
+interface LabelProps extends ComponentProps {
   children?: NullstackNode;
   for?: string;
-  classes?: typeof theme.label;
+  required?: boolean;
 }
 
 function Label(props: NullstackClientContext<LabelProps>) {
-  const { for: receivedFor, classes = theme.label, required, children } = props;
+  const { children, class: klass, customTheme, for: receivedFor, required, useTheme } = props;
+  const classes = useTheme(customTheme).label;
 
   return (
-    <label for={receivedFor} class={[classes.base, required && classes.required]}>
+    <label for={receivedFor} class={[classes.base, required && classes.required, klass]}>
       {children}
     </label>
   );

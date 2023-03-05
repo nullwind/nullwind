@@ -9,13 +9,13 @@ interface BadgeProps extends ComponentProps {
 
 function Badge(props: NullstackClientContext<BadgeProps>) {
   const {
-    useTheme,
-    id,
-    color = "primary",
-    size = "base",
-    customTheme,
     children,
     class: klass,
+    color = "primary",
+    customTheme,
+    id,
+    size = "base",
+    useTheme,
   } = props;
 
   const classes = useTheme(customTheme).badge;

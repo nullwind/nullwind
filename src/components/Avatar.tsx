@@ -2,21 +2,20 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 
 import { IconUser } from "nullstack-feather-icons";
 
-import theme from "../theme";
+import type { ComponentProps } from "../types";
 
-interface AvatarProps {
-  id?: string;
-  src?: string;
-  name?: string;
+interface AvatarProps extends ComponentProps {
   description?: string;
-  classes?: typeof theme.avatar;
+  name?: string;
+  src?: string;
 }
 
 function Avatar(props: NullstackClientContext<AvatarProps>) {
-  const { id, src, name, description, classes = theme.avatar } = props;
+  const { class: klass, customTheme, description, id, name, src, useTheme } = props;
+  const classes = useTheme(customTheme).avatar;
 
   return (
-    <div id={id} class={classes.base}>
+    <div id={id} class={[classes.base, klass]}>
       <div class={classes.imageWrapper}>
         {(src && <img class={classes.image} src={src} alt={name} />) || (
           <div class={classes.imageFallback}>

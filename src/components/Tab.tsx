@@ -1,16 +1,23 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import theme from "../theme";
+import { ComponentProps } from "../types";
 
-interface TabProps {
+interface TabProps extends ComponentProps {
   children?: NullstackClientContext<TabItemProps>[];
   onchange?: (index: number) => void;
-  classes?: typeof theme.tab;
 }
 
-const Tab = ({ onchange, classes = theme.tab, children }: NullstackClientContext<TabProps>) => {
+const Tab = ({
+  children,
+  class: klass,
+  customTheme,
+  onchange,
+  useTheme,
+}: NullstackClientContext<TabProps>) => {
+  const classes = useTheme(customTheme).tab;
+
   return (
-    <div>
+    <div class={klass}>
       <div class={classes.wrapper}>
         <ul class={classes.list}>
           {children.map((child, idx) => {
