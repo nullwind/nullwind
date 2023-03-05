@@ -7,10 +7,38 @@ import { Meta } from "~/components/docs";
 ## Installation
 
 ```bash
-npm install -D tailwindcss @tailwindcss/forms @tailwindcss/typography nullwind
+yarn add -D tailwindcss @tailwindcss/forms @tailwindcss/typography
+yarn add nullwind
 ```
 
 Nullwind is a modern UI component library for Tailwind CSS, you just need to install Tailwind CSS and configure it.
+
+## Usage
+
+```tsx
+import Nullstack from "nullstack";
+import { ThemeProvider, Button } from "nullwind";
+import type { Theme } from "nullwind";
+
+// Custom theme (Optional)
+const customTheme = {
+  button: {
+    base: "rounded-md shadow-sm",
+  },
+};
+
+export default class Application extends Nullstack {
+  render() {
+    return (
+      <ThemeProvider theme={customTheme as Theme}>
+        <body>
+          <Button>Hello world!</Button>
+        </body>
+      </ThemeProvider>
+    );
+  }
+}
+```
 
 ## Configuration
 
@@ -20,6 +48,7 @@ You need to add this to your `tailwind.config.js` file.
 // tailwind.config.js
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: ["node_modules/nullwind/src/theme.ts", "src/**/*.{jsx,tsx}"],
   theme: {
