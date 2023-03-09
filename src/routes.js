@@ -62,11 +62,11 @@ export const routes = [
         path: "/components/modal",
         component: Modal,
       },
-      {
-        title: "Pagination",
-        path: "/components/pagination",
-        component: Pagination,
-      },
+      // {
+      //   title: "Pagination",
+      //   path: "/components/pagination",
+      //   component: Pagination,
+      // },
       {
         title: "Tab",
         path: "/components/tab",
