@@ -29,7 +29,7 @@ function InputBase({
   const classes = useTheme(customTheme).inputBase;
 
   return (
-    <div class={klass}>
+    <div class={[classes.wrapper, klass]}>
       <div class={classes.labelWrapper}>
         <Label required={required} for={id}>
           {label}

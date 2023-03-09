@@ -24,7 +24,7 @@ function Radio({
   return (
     <div class={[classes.root, klass]}>
       <input id={id} type="radio" class={[classes.base]} disabled={disabled} {...props} />
-      <div>
+      <div class={classes.content}>
         {label && <Label for={id}>{label}</Label>}
         {helper && <Helper>{helper}</Helper>}
       </div>

@@ -78,24 +78,25 @@ const theme = {
     },
   },
   label: {
-    base: "mb-1 block text-sm font-medium text-gray-700",
+    base: "block text-sm font-medium text-gray-700 leading-4 cursor-pointer",
     required: 'after:ml-0.5 after:text-red-500 after:content-["*"]',
   },
   corner: {
-    base: "text-sm text-gray-500",
+    base: "text-sm text-gray-500 leading-4",
   },
   helper: {
-    base: "mt-2 text-sm text-gray-500",
+    base: "text-sm text-gray-500 leading-4",
   },
   error: {
-    base: "mt-2 mb-0 text-sm text-danger-600",
+    base: "text-sm text-danger-600 leading-4",
   },
   inputBase: {
-    labelWrapper: "flex justify-between mb-1",
+    wrapper: "flex flex-col gap-1.5",
+    labelWrapper: "flex justify-between",
   },
   textInput: {
-    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-400 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500",
-    error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
+    base: "p-2 block w-full rounded-md border-gray-300 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   emailsInput: {
     root: "flex gap-2 items-center border border-gray-200 rounded-md py-2 px-1 flex-wrap",
@@ -106,23 +107,25 @@ const theme = {
     base: "border-0 flex-grow p-0 focus:outline-none outline-none focus:ring-0",
   },
   select: {
-    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
-    error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
+    base: "p-2 block w-full rounded-md border-gray-300 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   textarea: {
-    base: "block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:bg-gray-50",
-    error: "border-danger-300 text-danger-900 placeholder-danger-300 focus:border-danger-500",
+    base: "p-2 block w-full rounded-md border-gray-300 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   checkbox: {
     root: "relative flex items-start gap-3",
-    base: "h-4 w-4 rounded border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:text-gray-400",
+    base: "h-4 w-4 rounded border-gray-300 text-primary-600 shadow-sm disabled:cursor-not-allowed disabled:text-gray-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
+    content: "flex flex-col gap-1.5",
   },
   radio: {
     root: "relative flex items-start gap-3",
-    base: "h-4 w-4 rounded-full border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 disabled:cursor-not-allowed disabled:text-gray-400",
+    base: "h-4 w-4 rounded-full border-gray-300 text-primary-600 shadow-sm disabled:cursor-not-allowed disabled:text-gray-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
+    content: "flex flex-col gap-1.5",
   },
   toggle: {
-    base: "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500",
+    base: "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200",
     checked: {
       on: "bg-primary-600",
       off: "bg-gray-200",

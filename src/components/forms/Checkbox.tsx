@@ -28,9 +28,9 @@ const Checkbox = ({
   return (
     <div class={[classes.root, klass]}>
       <input id={id} type="checkbox" class={classes.base} required={required} {...props} />
-      <div>
+      <div class={classes.content}>
         {label && (
-          <Label class="cursor-pointer" for={id} required={required}>
+          <Label for={id} required={required}>
             {label}
           </Label>
         )}
