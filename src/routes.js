@@ -87,11 +87,11 @@ export const routes = [
         path: "/components/checkbox",
         component: Checkbox,
       },
-      {
-        title: "EmailsInput",
-        path: "/components/emailsInput",
-        component: EmailsInput,
-      },
+      // {
+      //   title: "EmailsInput",
+      //   path: "/components/emailsInput",
+      //   component: EmailsInput,
+      // },
       {
         title: "Radio",
         path: "/components/radio",
