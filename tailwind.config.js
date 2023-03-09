@@ -9,7 +9,7 @@ module.exports = {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.blue,
+        primary: colors.sky,
         secondary: colors.gray,
         info: colors.blue,
         success: colors.green,
