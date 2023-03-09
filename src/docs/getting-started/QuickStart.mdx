@@ -25,12 +25,12 @@ const customTheme = {
   button: {
     base: "rounded-md shadow-sm",
   },
-};
+} as Theme;
 
 export default class Application extends Nullstack {
   render() {
     return (
-      <ThemeProvider theme={customTheme as Theme}>
+      <ThemeProvider theme={customTheme}>
         <body>
           <Button>Hello world!</Button>
         </body>
