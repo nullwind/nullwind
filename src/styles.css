@@ -25,3 +25,8 @@ code::before {
 code::after {
   display: none;
 }
+
+.DocSearch-Input:focus,
+.DocSearch-Input:active {
+  box-shadow: none !important;
+}
