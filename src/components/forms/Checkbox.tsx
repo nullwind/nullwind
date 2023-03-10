@@ -1,11 +1,10 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import Error from "./Error";
-import Helper from "./Helper";
-import Label from "./Label";
 import type { ComponentProps } from "../../types";
+import InlineInput from "./InlineInput";
 
 interface CheckboxProps extends ComponentProps {
+  disabled?: boolean;
   error?: string;
   helper?: string;
   label?: string;
@@ -26,17 +25,22 @@ const Checkbox = ({
   const classes = useTheme(customTheme).checkbox;
 
   return (
-    <div class={[classes.root, klass]}>
-      <input id={id} type="checkbox" class={classes.base} required={required} {...props} />
-      <div class={classes.content}>
-        {label && (
-          <Label for={id} required={required}>
-            {label}
-          </Label>
-        )}
-        {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}
-      </div>
-    </div>
+    <InlineInput
+      class={klass}
+      error={error}
+      helper={helper}
+      id={id}
+      label={label}
+      required={required}
+    >
+      <input
+        class={[classes.base, error && classes.error]}
+        id={id}
+        required={required}
+        type="checkbox"
+        {...props}
+      />
+    </InlineInput>
   );
 };
 

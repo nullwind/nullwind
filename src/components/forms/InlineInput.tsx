@@ -1,23 +1,20 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import Corner from "./Corner";
 import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
 import type { ComponentProps } from "../../types";
 
-interface InputBaseProps extends ComponentProps {
-  corner?: string;
+interface InlineInputProps extends ComponentProps {
   error?: string;
   helper?: string;
   label?: string;
   required?: boolean;
 }
 
-function InputBase({
+function InlineInput({
   children,
   class: klass,
-  corner,
   customTheme,
   error,
   helper,
@@ -25,21 +22,22 @@ function InputBase({
   label,
   required,
   useTheme,
-}: NullstackClientContext<InputBaseProps>) {
-  const classes = useTheme(customTheme).inputBase;
+}: NullstackClientContext<InlineInputProps>) {
+  const classes = useTheme(customTheme).inlineInput;
 
   return (
     <div class={[classes.wrapper, klass]}>
-      <div class={classes.labelWrapper}>
-        <Label required={required} for={id}>
-          {label}
-        </Label>
-        {corner && <Corner>{corner}</Corner>}
-      </div>
       {children}
-      {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}
+      <div class={classes.labelWrapper}>
+        {label && (
+          <Label for={id} required={required}>
+            {label}
+          </Label>
+        )}
+        {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}
+      </div>
     </div>
   );
 }
 
-export default InputBase as NullstackFunctionalComponent<InputBaseProps>;
+export default InlineInput as NullstackFunctionalComponent<InlineInputProps>;

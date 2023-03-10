@@ -2,7 +2,7 @@ import Nullstack, { NullstackClientContext } from "nullstack";
 
 import { IconX } from "nullstack-feather-icons";
 
-import InputBase from "./InputBase";
+import InputBase from "./Input";
 import type { ComponentProps } from "../../types";
 import Badge from "../Badge";
 

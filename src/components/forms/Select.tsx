@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import InputBase from "./InputBase";
+import Input from "./Input";
 import type { ComponentProps } from "../../types";
 
 interface SelectProps extends ComponentProps {
@@ -30,7 +30,7 @@ const Select = ({
   const classes = useTheme(customTheme).select;
 
   return (
-    <InputBase
+    <Input
       id={id}
       label={label}
       error={error}
@@ -48,7 +48,7 @@ const Select = ({
       >
         {children}
       </select>
-    </InputBase>
+    </Input>
   );
 };
 

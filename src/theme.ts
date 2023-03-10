@@ -90,9 +90,13 @@ const theme = {
   error: {
     base: "text-sm text-danger-600 leading-4",
   },
-  inputBase: {
+  input: {
     wrapper: "flex flex-col gap-1.5",
     labelWrapper: "flex justify-between",
+  },
+  inlineInput: {
+    wrapper: "relative flex items-start gap-3",
+    labelWrapper: "flex flex-col gap-1.5",
   },
   textInput: {
     base: "p-2 block w-full rounded-md border-gray-300 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
@@ -115,14 +119,12 @@ const theme = {
     error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   checkbox: {
-    root: "relative flex items-start gap-3",
     base: "h-4 w-4 rounded border-gray-300 text-primary-600 shadow-sm disabled:cursor-not-allowed disabled:text-gray-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
-    content: "flex flex-col gap-1.5",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   radio: {
-    root: "relative flex items-start gap-3",
     base: "h-4 w-4 rounded-full border-gray-300 text-primary-600 shadow-sm disabled:cursor-not-allowed disabled:text-gray-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
-    content: "flex flex-col gap-1.5",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   toggle: {
     base: "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200",

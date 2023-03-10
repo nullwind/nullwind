@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import InputBase from "./InputBase";
+import Input from "./Input";
 import type { ComponentProps } from "../../types";
 
 interface TextareaProps extends ComponentProps {
@@ -31,7 +31,7 @@ function Textarea({
   const classes = useTheme(customTheme).textarea;
 
   return (
-    <InputBase
+    <Input
       id={id}
       label={label}
       error={error}
@@ -49,7 +49,7 @@ function Textarea({
         bind={bind}
         {...props}
       />
-    </InputBase>
+    </Input>
   );
 }
 

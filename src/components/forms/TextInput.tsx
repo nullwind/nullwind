@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import InputBase from "./InputBase";
+import Input from "./Input";
 import type { ComponentProps } from "../../types";
 
 interface TextInputProps extends ComponentProps {
@@ -33,7 +33,7 @@ function TextInput({
   const classes = useTheme(customTheme).textInput;
 
   return (
-    <InputBase
+    <Input
       id={id}
       label={label}
       error={error}
@@ -51,7 +51,7 @@ function TextInput({
         required={required}
         {...props}
       />
-    </InputBase>
+    </Input>
   );
 }
 
