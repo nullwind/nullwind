@@ -41,6 +41,7 @@ class Application extends Nullstack {
             badge: {},
           } as Theme
         }
+        persistent
       >
         <body class="bg-white text-secondary-500 antialiased">
           <Head />

@@ -30,7 +30,7 @@ const customTheme = {
 export default class Application extends Nullstack {
   render() {
     return (
-      <ThemeProvider theme={customTheme}>
+      <ThemeProvider theme={customTheme} persistent>
         <body>
           <Button>Hello world!</Button>
         </body>
