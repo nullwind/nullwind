@@ -1,7 +1,13 @@
 const theme = {
   button: {
     base: "items-center justify-center font-medium focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:cursor-not-allowed disabled:opacity-50",
-    rounded: "rounded-md",
+    rounded: {
+      none: "rounded-none",
+      sm: "rounded-sm",
+      md: "rounded-md",
+      lg: "rounded-lg",
+      full: "rounded-full",
+    },
     fullSized: "w-full",
     color: {
       primary:
@@ -43,6 +49,15 @@ const theme = {
       md: "text-sm px-4 py-2",
       lg: "text-base px-5 py-2.5",
       xl: "text-base px-6 py-3",
+    },
+  },
+  buttonGroup: {
+    base: "inline-flex",
+    position: {
+      none: "",
+      start: "rounded-r-none border-r-0",
+      middle: "!rounded-none border-r-0",
+      end: "rounded-l-none",
     },
   },
   alert: {
@@ -174,15 +189,6 @@ const theme = {
       "flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-secondary-100 text-slate-500",
     name: "text-sm font-medium text-secondary-500",
     description: "text-xs text-secondary-400",
-  },
-  buttonGroup: {
-    base: "inline-flex",
-    position: {
-      none: "",
-      start: "rounded-r-none border-r-0",
-      middle: "!rounded-none border-r-0",
-      end: "rounded-l-none",
-    },
   },
   table: {
     base: "w-full border-collapse bg-white text-left text-sm text-slate-500",

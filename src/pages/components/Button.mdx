@@ -43,7 +43,7 @@ const MyComponent = () => {
     <div class="flex flex-wrap gap-5 justify-center items-center">
       <Button>Primary</Button>
       <Button color="secondary">Secondary</Button>
-      <Button color="info">Share</Button>
+      <Button color="info">Info</Button>
       <Button color="success">Success</Button>
       <Button color="warning">Warning</Button>
       <Button color="danger">Danger</Button>
@@ -53,7 +53,7 @@ const MyComponent = () => {
     ```jsx
     <Button>Primary</Button>
     <Button color="secondary">Secondary</Button>
-    <Button color="info">Share</Button>
+    <Button color="info">Info</Button>
     <Button color="success">Success</Button>
     <Button color="warning">Warning</Button>
     <Button color="danger">Danger</Button>
@@ -107,14 +107,20 @@ const MyComponent = () => {
 <Playground title="Rounded">
   <Playground.Preview>
     <div class="flex flex-wrap gap-5 justify-center items-center">
-      <Button>Rounded</Button>
-      <Button rounded={false}>Not Rounded</Button>
+      <Button rounded="none">None</Button>
+      <Button rounded="sm">SM</Button>
+      <Button rounded="md">MD</Button>
+      <Button rounded="lg">LG</Button>
+      <Button rounded="full">Full</Button>
     </div>
   </Playground.Preview>
   <Playground.Code>
     ```jsx
-    <Button>Rounded</Button>
-    <Button rounded={false}>Not Rounded</Button>
+    <Button rounded="none">None</Button>
+    <Button rounded="sm">SM</Button>
+    <Button rounded="md">MD</Button>
+    <Button rounded="lg">LG</Button>
+    <Button rounded="full">Full</Button>
     ```
   </Playground.Code>
 </Playground>

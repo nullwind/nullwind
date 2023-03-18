@@ -11,7 +11,7 @@ export interface ButtonProps extends ComponentProps {
   href?: string;
   outline?: boolean;
   positionInGroup?: "none" | "start" | "middle" | "end";
-  rounded?: boolean;
+  rounded?: "none" | "sm" | "md" | "lg" | "full";
   size?: "sm" | "md" | "lg";
   type?: "button" | "submit" | "reset";
 }
@@ -26,7 +26,7 @@ function Button({
   href,
   outline,
   positionInGroup = "none",
-  rounded = true,
+  rounded = "md",
   size = "md",
   type,
   useTheme,
@@ -43,7 +43,7 @@ function Button({
         classes.base,
         outline ? classes.outline[color] : classes.color[color],
         active && classes.active[color],
-        rounded && classes.rounded,
+        classes.rounded[rounded],
         classes.size[size],
         fullSized && classes.fullSized,
         groupClasses.position[positionInGroup],
