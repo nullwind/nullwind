@@ -2,7 +2,6 @@ import Alert from "./docs/components/Alert.mdx";
 import Avatar from "./docs/components/Avatar.mdx";
 import Badge from "./docs/components/Badge.mdx";
 import Button from "./docs/components/Button.mdx";
-import Icons from "./docs/components/Icons.mdx";
 import Modal from "./docs/components/Modal/Modal.mdx";
 import Pagination from "./docs/components/Pagination.mdx";
 import Tab from "./docs/components/Tab.mdx";
@@ -51,11 +50,6 @@ export const routes = [
         title: "Button",
         path: "/components/button",
         component: Button,
-      },
-      {
-        title: "Icons",
-        path: "/components/icons",
-        component: Icons,
       },
       {
         title: "Modal",

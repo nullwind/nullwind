@@ -1,4 +1,5 @@
-import { IconChevronLeft, IconChevronRight } from "nullstack-feather-icons";
+import ChevronLeftIcon from "../icons/ChevronLeftIcon";
+import ChevronRightIcon from "../icons/ChevronRightIcon";
 
 import { routes } from "~/routes";
 
@@ -28,24 +29,20 @@ const Pagination = ({ router }) => {
 
   return (
     <div class="my-10 flex justify-between">
-      <div>
-        <a
-          class="flex items-center gap-1 font-medium capitalize hover:text-secondary-900 no-underline hover:underline"
-          href={prev.path}
-        >
-          <IconChevronLeft />
-          {prev.title}
-        </a>
-      </div>
-      <div>
-        <a
-          class="flex items-center gap-1 font-medium capitalize hover:text-secondary-900 no-underline hover:underline"
-          href={next.path}
-        >
-          {next.title}
-          <IconChevronRight />
-        </a>
-      </div>
+      <a
+        class="flex items-center gap-1 font-medium capitalize hover:text-secondary-900 no-underline hover:underline"
+        href={prev.path}
+      >
+        <ChevronLeftIcon class="w-4 h-4 stroke-2" />
+        {prev.title}
+      </a>
+      <a
+        class="flex items-center gap-1 font-medium capitalize hover:text-secondary-900 no-underline hover:underline"
+        href={next.path}
+      >
+        {next.title}
+        <ChevronRightIcon class="w-4 h-4 stroke-2" />
+      </a>
     </div>
   );
 };

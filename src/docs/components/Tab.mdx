@@ -1,4 +1,3 @@
-import { IconUser, IconBell, IconSettings } from "nullstack-feather-icons";
 import { Meta, Playground } from "~/components/docs";
 import Tab from "~/components/Tab";
 
@@ -19,15 +18,11 @@ import { Tab } from "nullwind";
 const MyComponent = () => {
   return (
     <Tab onchange={(idx) => alert(`Choosen Tab: ${idx}`)}>
-      <Tab.Item title="Profile" icon={IconUser} active>
+      <Tab.Item title="Profile" active>
         Tab content 1
       </Tab.Item>
-      <Tab.Item title="Notifications" icon={IconBell}>
-        Tab content 2
-      </Tab.Item>
-      <Tab.Item title="Settings" icon={IconSettings}>
-        Tab content 3
-      </Tab.Item>
+      <Tab.Item title="Notifications">Tab content 2</Tab.Item>
+      <Tab.Item title="Settings">Tab content 3</Tab.Item>
     </Tab>
   );
 };
@@ -38,29 +33,21 @@ const MyComponent = () => {
 <Playground title="Default">
   <Playground.Preview>
     <Tab onchange={(idx) => alert(`Choosen Tab: ${idx}`)}>
-      <Tab.Item title="Profile" icon={IconUser} active>
+      <Tab.Item title="Profile" active>
         Tab content 1
       </Tab.Item>
-      <Tab.Item title="Notifications" icon={IconBell}>
-        Tab content 2
-      </Tab.Item>
-      <Tab.Item title="Settings" icon={IconSettings}>
-        Tab content 3
-      </Tab.Item>
+      <Tab.Item title="Notifications">Tab content 2</Tab.Item>
+      <Tab.Item title="Settings">Tab content 3</Tab.Item>
     </Tab>
   </Playground.Preview>
   <Playground.Code>
     ```jsx
     <Tab onchange={(idx) => alert(`Choosen Tab: ${idx}`)}>
-      <Tab.Item title="Profile" icon={IconUser} active>
+      <Tab.Item title="Profile" active>
         Tab content 1
       </Tab.Item>
-      <Tab.Item title="Notifications" icon={IconBell}>
-        Tab content 2
-      </Tab.Item>
-      <Tab.Item title="Settings" icon={IconSettings}>
-        Tab content 3
-      </Tab.Item>
+      <Tab.Item title="Notifications">Tab content 2</Tab.Item>
+      <Tab.Item title="Settings">Tab content 3</Tab.Item>
     </Tab>
     ```
   </Playground.Code>

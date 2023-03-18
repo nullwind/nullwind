@@ -4,8 +4,6 @@ import Nullstack, {
   NullstackNode,
 } from "nullstack";
 
-import { IconCode, IconEye } from "nullstack-feather-icons";
-
 interface PlaygroundProps {
   title: string;
   children: NullstackNode[];
@@ -42,7 +40,7 @@ class Playground extends Nullstack<PlaygroundProps> {
   static Code = ({ activeTab, children }: NullstackClientContext<PlaygroundTabProps>) =>
     activeTab === "code" && children;
 
-  renderTabButton({ label, icon: Icon }) {
+  renderTabButton({ label }) {
     return (
       <button
         class={[
@@ -53,9 +51,6 @@ class Playground extends Nullstack<PlaygroundProps> {
         type="button"
         onclick={{ activeTab: label }}
       >
-        <span class={[this.activeTab === label && "text-primary-500"]}>
-          <Icon size={18} />
-        </span>
         <span
           class={[
             "sr-only lg:not-sr-only lg:ml-1.5 capitalize",
@@ -80,8 +75,8 @@ class Playground extends Nullstack<PlaygroundProps> {
             role="tablist"
             aria-orientation="horizontal"
           >
-            <TabButton label="preview" icon={IconEye} />
-            <TabButton label="code" icon={IconCode} />
+            <TabButton label="preview" />
+            <TabButton label="code" />
           </div>
         </div>
         <div>

@@ -1,8 +1,10 @@
 import Nullstack from "nullstack";
-import { IconMenu, IconGithub } from "nullstack-feather-icons";
+
 import docsearch from "@docsearch/js";
-import { Logo } from "./icons/Logo";
+import { IconGithub, IconMenu } from "nullstack-feather-icons";
+
 import { Breadcrumb, Pagination } from "./components/docs";
+import { Logo } from "./icons/Logo";
 import { routes } from "./routes";
 
 export class AppShell extends Nullstack {

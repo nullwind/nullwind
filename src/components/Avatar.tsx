@@ -1,7 +1,5 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import { IconUser } from "nullstack-feather-icons";
-
 import type { ComponentProps } from "../types";
 
 interface AvatarProps extends ComponentProps {
@@ -19,7 +17,7 @@ function Avatar(props: NullstackClientContext<AvatarProps>) {
       <div class={classes.imageWrapper}>
         {(src && <img class={classes.image} src={src} alt={name} />) || (
           <div class={classes.imageFallback}>
-            <IconUser size={20} />
+            <img src={`https://eu.ui-avatars.com/api/?name=${name}`} alt={name} />
           </div>
         )}
       </div>

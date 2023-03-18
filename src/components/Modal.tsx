@@ -1,7 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import { IconX } from "nullstack-feather-icons";
-
+import XIcon from "./icons/XIcon";
 import type { ComponentProps } from "../types";
 
 interface ModalProps extends ComponentProps {
@@ -30,10 +29,10 @@ const Modal = ({
         <div class={classes.overlay} aria-hidden="true" />
         <div class={classes.container}>
           {typeof onclose === "function" && (
-            <div class={classes.close.base} onclick={onclose && onclose}>
-              <button type="button" class={classes.close.button}>
+            <div class={classes.close.root} onclick={onclose && onclose}>
+              <button type="button" class={classes.close.button.root}>
                 <span class="sr-only">Close</span>
-                <IconX />
+                <XIcon class={classes.close.button.icon} />
               </button>
             </div>
           )}

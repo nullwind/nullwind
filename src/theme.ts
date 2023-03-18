@@ -66,9 +66,9 @@ const theme = {
       icon: "mr-3 inline h-5 w-5 flex-shrink-0",
       rounded: "rounded-lg",
     },
-    closeButton: {
-      base: "-mx-1.5 -my-1.5 ml-auto inline-flex h-8 w-8 p-1.5 items-center",
-      icon: "w-5 h-5",
+    close: {
+      base: "p-1.5 -mx-1.5 -mt-1.5",
+      icon: "w-3.5 h-3.5",
       color: {
         info: "text-info-500 dark:text-info-600",
         success: "text-success-500 dark:text-success-600",
@@ -152,8 +152,11 @@ const theme = {
     container:
       "relative inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full",
     close: {
-      base: "absolute top-0 right-0 pt-4 pr-4",
-      button: "bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none",
+      root: "absolute top-3 right-4",
+      button: {
+        root: "bg-white rounded-md text-gray-400 hover:text-gray-500 focus:outline-none",
+        icon: "h-3.5 w-3.5",
+      },
     },
   },
   badge: {
@@ -209,8 +212,8 @@ const theme = {
   },
   rating: {
     wrapper: "flex items-center gap-1",
-    readOnly: "cursor-default",
     star: {
+      base: "h-6 w-6",
       empty: "text-gray-300 dark:text-gray-500",
       filled: "text-yellow-400",
     },

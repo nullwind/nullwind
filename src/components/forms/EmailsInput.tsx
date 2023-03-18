@@ -1,10 +1,9 @@
 import Nullstack, { NullstackClientContext } from "nullstack";
 
-import { IconX } from "nullstack-feather-icons";
-
 import InputBase from "./Input";
 import type { ComponentProps } from "../../types";
 import Badge from "../Badge";
+import XIcon from "../icons/XIcon";
 
 interface EmailsInputProps extends ComponentProps {
   bind?: object;
@@ -118,7 +117,7 @@ class EmailsInput extends Nullstack {
               <Badge>
                 {email}
                 <button class={classes.badges.close} onclick={() => this._removeEmail(email)}>
-                  <IconX size={16} />
+                  <XIcon size={16} />
                 </button>
               </Badge>
             ))}

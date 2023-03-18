@@ -1,4 +1,3 @@
-import { IconInfo, IconCheck, IconAlertTriangle, IconX } from "nullstack-feather-icons";
 import { Meta, Playground } from "~/components/docs";
 import Alert from "~/components/Alert";
 
@@ -18,13 +17,7 @@ import { Alert } from "nullwind";
 
 const MyComponent = () => {
   return (
-    <Alert
-      color="info"
-      icon={IconInfo}
-      rounded={true}
-      withBorderAccent={false}
-      ondismiss={() => {}}
-    >
+    <Alert color="info" rounded={true} withBorderAccent={false} ondismiss={() => {}}>
       This is a info alert
     </Alert>
   );
@@ -36,7 +29,7 @@ const MyComponent = () => {
 <Playground>
   <Playground.Preview>
     <div class="flex flex-wrap gap-5 justify-center items-center">
-      <Alert color="info" icon={IconInfo} ondismiss={() => {}}>
+      <Alert color="info" ondismiss={() => {}}>
         <h4 class="font-bold">Info alert</h4>
         <div class="mt-1">
           <p>
@@ -45,7 +38,7 @@ const MyComponent = () => {
           </p>
         </div>
       </Alert>
-      <Alert color="success" icon={IconCheck} ondismiss={() => {}}>
+      <Alert color="success" ondismiss={() => {}}>
         <h4 class="font-bold">Success alert</h4>
         <div class="mt-1">
           <p>
@@ -54,7 +47,7 @@ const MyComponent = () => {
           </p>
         </div>
       </Alert>
-      <Alert color="warning" icon={IconAlertTriangle} ondismiss={() => {}}>
+      <Alert color="warning" ondismiss={() => {}}>
         <h4 class="font-bold">Warning alert</h4>
         <div class="mt-1">
           <p>
@@ -63,7 +56,7 @@ const MyComponent = () => {
           </p>
         </div>
       </Alert>
-      <Alert color="danger" icon={IconX} ondismiss={() => {}}>
+      <Alert color="danger" ondismiss={() => {}}>
         <h4 class="font-bold">Danger alert</h4>
         <div class="mt-1">
           <p>
@@ -76,7 +69,7 @@ const MyComponent = () => {
   </Playground.Preview>
   <Playground.Code>
     ```jsx
-    <Alert color="info" icon={IconInfo} ondismiss={() => {}}>
+    <Alert color="info" ondismiss={() => {}}>
       <h4 class="font-bold">Info alert</h4>
       <div class="mt-1">
         <p>
@@ -84,7 +77,7 @@ const MyComponent = () => {
         </p>
       </div>
     </Alert>
-    <Alert color="success" icon={IconCheck} ondismiss={() => {}}>
+    <Alert color="success" ondismiss={() => {}}>
       <h4 class="font-bold">Success alert</h4>
       <div class="mt-1">
         <p>
@@ -92,7 +85,7 @@ const MyComponent = () => {
         </p>
       </div>
     </Alert>
-    <Alert color="warning" icon={IconAlertTriangle} ondismiss={() => {}}>
+    <Alert color="warning" ondismiss={() => {}}>
       <h4 class="font-bold">Warning alert</h4>
       <div class="mt-1">
         <p>
@@ -100,7 +93,7 @@ const MyComponent = () => {
         </p>
       </div>
     </Alert>
-    <Alert color="danger" icon={IconX} ondismiss={() => {}}>
+    <Alert color="danger" ondismiss={() => {}}>
       <h4 class="font-bold">Danger alert</h4>
       <div class="mt-1">
         <p>

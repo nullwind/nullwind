@@ -1,9 +1,9 @@
 import Nullstack from "nullstack";
 
-import { IconXCircle } from "nullstack-feather-icons";
 import { bool, object, string } from "yup";
 
 import { Alert, Button, Checkbox, Select, Textarea, TextInput, Toggle } from "~/components";
+import XIcon from "~/components/icons/XIcon";
 import { createForm } from "~/helpers";
 
 const validationSchema = object({
@@ -120,7 +120,7 @@ class Preview extends Nullstack {
             error={this.form.errors.termsAndConditions}
           />
           {Object.keys(this.form.errors).length > 0 && (
-            <Alert color="danger" icon={IconXCircle}>
+            <Alert color="danger" icon={XIcon}>
               <h4>Please, fill all the fields before submitting the form.</h4>
             </Alert>
           )}

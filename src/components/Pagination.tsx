@@ -1,16 +1,16 @@
 import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
 
-import { IconChevronLeft, IconChevronRight } from "nullstack-feather-icons";
-
 import Button, { ButtonProps } from "./Button";
 import ButtonGroup from "./ButtonGroup";
+import ChevronLeftIcon from "./icons/ChevronLeftIcon";
+import ChevronRightIcon from "./icons/ChevronRightIcon";
 
 interface PaginationProps {
-  params: Record<string, string>;
   count: number;
-  perPage: number;
   onchange: () => void;
   pageParamKey?: string;
+  params: Record<string, string>;
+  perPage: number;
 }
 
 interface PaginationLinkProps extends ButtonProps {
@@ -44,11 +44,11 @@ class Pagination extends Nullstack {
   }
 
   render({
-    params,
     count,
-    perPage,
     onchange,
     pageParamKey = "page",
+    params,
+    perPage,
   }: NullstackClientContext<PaginationProps>) {
     if (count <= perPage) {
       return false;
@@ -77,7 +77,7 @@ class Pagination extends Nullstack {
       <ButtonGroup>
         <Link linkParams={{ ...params, [pageParamKey]: page - 1 }} disabled={page == 1}>
           <span class="sr-only">Previous</span>
-          <IconChevronLeft size={18} />
+          <ChevronLeftIcon class="w-4.5 h-4.5" />
         </Link>
         {page != 1 && <Link linkParams={{ ...params, [pageParamKey]: "" }}>1</Link>}
         {page > range + 2 && (
@@ -105,7 +105,7 @@ class Pagination extends Nullstack {
         )}
         <Link linkParams={{ ...params, [pageParamKey]: page + 1 }} disabled={page == total}>
           <span class="sr-only">Next</span>
-          <IconChevronRight size={18} />
+          <ChevronRightIcon class="w-4.5 h-4.5" />
         </Link>
       </ButtonGroup>
     );

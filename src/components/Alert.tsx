@@ -1,13 +1,12 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import { IconX } from "nullstack-feather-icons";
-
+import XIcon from "./icons/XIcon";
 import type { ComponentProps } from "../types";
 
 interface AlertProps extends ComponentProps {
   children?: NullstackNode;
   color?: "info" | "success" | "warning" | "danger";
-  icon?: typeof IconX;
+  icon?: typeof XIcon;
   ondismiss?: () => void;
   rounded?: boolean;
   withBorderAccent?: boolean;
@@ -40,18 +39,18 @@ const Alert = ({
       <div class={classes.root.wrapper}>
         {Icon && (
           <span class={classes.root.icon}>
-            <Icon size={20} />
+            <Icon />
           </span>
         )}
         <div>{children}</div>
         {typeof ondismiss === "function" && (
           <button
             aria-label="Dismiss"
-            class={[classes.closeButton.base, classes.closeButton.color[color]]}
+            class={[classes.close.base, classes.close.color[color]]}
             onclick={ondismiss}
             type="button"
           >
-            <IconX aria-hidden class={classes.closeButton.icon} />
+            <XIcon aria-hidden class={classes.close.icon} />
           </button>
         )}
       </div>

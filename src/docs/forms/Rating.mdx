@@ -17,22 +17,22 @@ import { Rating } from "nullwind";
 
 <Playground title="Default">
   <Playground.Preview>
-    <Rating size={20} averageRate={3} />
+    <Rating averageRate={3} />
   </Playground.Preview>
   <Playground.Code>
     ```jsx
-    <Rating size={20} averageRate={3} bind={this.rating} />
+    <Rating averageRate={3} bind={this.rating} />
     ```
   </Playground.Code>
 </Playground>
 
-<Playground title="Read only">
+<Playground title="Disabled">
   <Playground.Preview>
-    <Rating size={20} averageRate={2} readOnly />
+    <Rating averageRate={2} disabled />
   </Playground.Preview>
   <Playground.Code>
     ```jsx
-    <Rating size={20} averageRate={2} readOnly bind={this.rating} />
+    <Rating averageRate={2} disabled bind={this.rating} />
     ```
   </Playground.Code>
 </Playground>

@@ -1,4 +1,3 @@
-import { IconShare, IconPlus, IconX, IconTrash } from "nullstack-feather-icons";
 import { Meta, Playground } from "~/components/docs";
 import Button from "~/components/Button";
 import ButtonGroup from "~/components/ButtonGroup";
@@ -44,36 +43,20 @@ const MyComponent = () => {
     <div class="flex flex-wrap gap-5 justify-center items-center">
       <Button>Primary</Button>
       <Button color="secondary">Secondary</Button>
-      <Button color="info">
-        <IconShare size={16} /> Share
-      </Button>
-      <Button color="success">
-        <IconPlus size={16} /> Add
-      </Button>
-      <Button color="warning">
-        <IconX size={16} /> Remove
-      </Button>
-      <Button color="danger">
-        <IconTrash size={16} /> Delete
-      </Button>
+      <Button color="info">Share</Button>
+      <Button color="success">Success</Button>
+      <Button color="warning">Warning</Button>
+      <Button color="danger">Danger</Button>
     </div>
   </Playground.Preview>
   <Playground.Code>
     ```jsx
     <Button>Primary</Button>
     <Button color="secondary">Secondary</Button>
-    <Button color="info">
-      <IconShare size={16} /> Share
-    </Button>
-    <Button color="success">
-      <IconPlus size={16} /> Add
-    </Button>
-    <Button color="warning">
-      <IconX size={16} /> Remove
-    </Button>
-    <Button color="danger">
-      <IconTrash size={16} /> Delete
-    </Button>
+    <Button color="info">Share</Button>
+    <Button color="success">Success</Button>
+    <Button color="warning">Warning</Button>
+    <Button color="danger">Danger</Button>
     ```
   </Playground.Code>
 </Playground>
@@ -86,16 +69,16 @@ const MyComponent = () => {
         Secondary
       </Button>
       <Button outline color="info">
-        <IconShare size={16} /> Share
+        Info
       </Button>
       <Button outline color="success">
-        <IconPlus size={16} /> Add
+        Success
       </Button>
       <Button outline color="warning">
-        <IconX size={16} /> Remove
+        Warning
       </Button>
       <Button outline color="danger">
-        <IconTrash size={16} /> Delete
+        Danger
       </Button>
     </div>
   </Playground.Preview>
@@ -106,16 +89,16 @@ const MyComponent = () => {
       Secondary
     </Button>
     <Button outline color="info">
-      <IconShare size={16} /> Share
+      Info
     </Button>
     <Button outline color="success">
-      <IconPlus size={16} /> Add
+      Success
     </Button>
     <Button outline color="warning">
-      <IconX size={16} /> Remove
+      Warning
     </Button>
     <Button outline color="danger">
-      <IconTrash size={16} /> Delete
+      Danger
     </Button>
     ```
   </Playground.Code>
