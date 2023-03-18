@@ -9,11 +9,10 @@
   ],
   "author": "Fabio Coelho",
   "license": "ISC",
-  "main": "./src/index.ts",
+  "main": "./src/lib/components/index.ts",
+  "types": "./src/lib/types.ts",
   "files": [
-    "src/theme.ts",
-    "src/components",
-    "src/helpers"
+    "src/lib"
   ],
   "scripts": {
     "start": "npx nullstack start",

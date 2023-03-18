@@ -1,0 +1,51 @@
+import { Meta, Playground } from "~/components";
+import { Avatar } from "~/lib/components";
+
+<Meta
+  title="Avatar"
+  description="Avatars are used to represent a person or organization. They can be used in a variety of places, including navigation, lists, tables, cards, and more."
+/>
+
+# Avatar
+
+Avatars are used to represent a person or organization. They can be used in a variety of places, including navigation, lists, tables, cards, and more.
+
+## Usage
+
+```jsx
+import { Avatar } from "nullwind";
+
+const MyComponent = () => {
+  return (
+    <Avatar src="/avatar.avif" name="John Doe" description="Joined in April 1976">
+  );
+};
+```
+
+## Examples
+
+<Playground title="Default">
+  <Playground.Preview>
+    <div class="flex flex-wrap justify-center">
+      <Avatar src="/avatar.avif" name="John Doe" description="Joined in April 1976" />
+    </div>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Avatar src="/avatar.avif" name="John Doe" description="Joined in April 1976" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With empty image">
+  <Playground.Preview>
+    <div class="flex flex-wrap justify-center">
+      <Avatar name="John Doe" description="Joined in April 1976" />
+    </div>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Avatar name="John Doe" description="Joined in April 1976" />
+    ```
+  </Playground.Code>
+</Playground>

@@ -1,0 +1,62 @@
+import { Meta, Playground } from "~/components";
+import Preview from "./Preview";
+
+<Meta
+  title="Modal"
+  description="The modal component can be used as an interactive dialog on top of the main content area of the website to show notifications and gather information using form elements from your website users."
+/>
+
+# Modal
+
+The modal component can be used as an interactive dialog on top of the main content area of the website to show notifications and gather information using form elements from your website users.
+
+## Usage
+
+```jsx
+import { Modal } from "nullwind";
+
+const MyApp = () => {
+  return (
+    <Modal visible={true} onclose={() => (this.visible = false)}>
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <h2 class="text-xl font-semibold mb-3">Some title</h2>
+        <p class="text-base">Modal Body</p>
+      </div>
+      <footer class="bg-gray-50 px-4 py-3 flex justify-end sm:px-6 gap-2">
+        <Button color="primary" class="ml-2">
+          Save
+        </Button>
+        <Button color="secondary">Close</Button>
+      </footer>
+    </Modal>
+  );
+};
+```
+
+## Examples
+
+<Playground>
+  <Playground.Preview stacked>
+    <Preview />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Modal visible={this.visible} onclose={() => (this.visible = false)}>
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <h2 class="text-xl font-semibold mb-3">Some title</h2>
+        <p class="text-base">
+          Lorem ipsum dolor sit amet. Internos reprehenderit perspiciatis commodi et omnis impedit.
+        </p>
+      </div>
+      <footer class="bg-gray-50 px-4 py-3 flex justify-end sm:px-6 gap-2">
+        <Button color="secondary" onclick={() => (this.visible = false)}>
+          Close
+        </Button>
+        <Button color="primary" onclick={() => (this.visible = false)}>
+          Save
+        </Button>
+      </footer>
+    </Modal>
+    ```
+  </Playground.Code>
+</Playground>

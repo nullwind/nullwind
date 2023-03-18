@@ -1,0 +1,38 @@
+import { Meta, Playground } from "~/components";
+import { Rating } from "~/lib/components";
+
+<Meta title="Rating" description="Rating component is used to display rating stars." />
+
+# Rating
+
+Rating component is used to display rating stars.
+
+## Usage
+
+```jsx
+import { Rating } from "nullwind";
+```
+
+## Examples
+
+<Playground title="Default">
+  <Playground.Preview>
+    <Rating averageRate={3} />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Rating averageRate={3} bind={this.rating} />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Disabled">
+  <Playground.Preview>
+    <Rating averageRate={2} disabled />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Rating averageRate={2} disabled bind={this.rating} />
+    ```
+  </Playground.Code>
+</Playground>

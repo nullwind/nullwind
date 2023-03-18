@@ -1,0 +1,63 @@
+import { Meta, Playground } from "~/components";
+import { Pagination } from "~/components";
+
+<Meta
+  title="Pagination"
+  description="The pagination component can be used to navigate across a series of content and data sets for various pages such as blog posts, products, and more. You can use multiple variants of this component with or without icons and even for paginating table data entries."
+/>
+
+# Pagination
+
+The pagination component can be used to navigate across a series of content and data sets for various pages such as blog posts, products, and more. You can use multiple variants of this component with or without icons and even for paginating table data entries.
+
+## Usage
+
+```jsx
+import Nullstack from "nullstack";
+import { Pagination } from "nullwind";
+
+import Webhook from "~/repository/webhook";
+
+const perPage = 5;
+
+export class Webhooks extends Nullstack {
+  webhooks = [];
+  count = 0;
+
+  static async getWebhooks({ perPage, page }) {
+    const data = await Webhook.all({ perPage, page });
+    return { data };
+  }
+
+  async hydrate({ params }) {
+    const { data } = await this.getWebhooks({
+      perPage,
+      page: parseInt(params.page) || 1,
+    });
+
+    const { webhooks, count } = data;
+
+    this.webhooks = webhooks;
+    this.count = count;
+  }
+
+  render() {
+    return <Pagination perPage={perPage} count={this.count} onchange={this.hydrate} />;
+  }
+}
+```
+
+## Examples
+
+<Playground title="Default">
+  <Playground.Preview>
+    <div class="flex justify-center items-center">
+      <Pagination count={50} perPage={10} onchange={() => alert("Pagination has changed")} />
+    </div>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Pagination count={50} perPage={10} onchange={() => alert("Pagination has changed")} />
+    ```
+  </Playground.Code>
+</Playground>

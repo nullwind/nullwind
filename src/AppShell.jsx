@@ -3,8 +3,8 @@ import Nullstack from "nullstack";
 import docsearch from "@docsearch/js";
 import { IconGithub, IconMenu } from "nullstack-feather-icons";
 
-import { Breadcrumb, Pagination } from "./components/docs";
-import { Logo } from "./icons/Logo";
+import { Logo } from "./assets/Logo";
+import { Breadcrumb, Pagination } from "./components";
 import { routes } from "./routes";
 
 export class AppShell extends Nullstack {

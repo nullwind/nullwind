@@ -1,0 +1,63 @@
+import { Meta, Playground } from "~/components";
+import { Radio } from "~/lib/components";
+
+<Meta
+  title="Radio"
+  description="Group a series of buttons together on a single line or stack them in a vertical column."
+/>
+
+# Radio
+
+Group a series of buttons together on a single line or stack them in a vertical column.
+
+## Usage
+
+```jsx
+import { Radio } from "nullwind";
+```
+
+## Examples
+
+<Playground title="Default">
+  <Playground.Preview>
+    <Radio id={1} label="Some label here" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Radio id={1} label="Some label here" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With helper">
+  <Playground.Preview>
+    <Radio id={2} label="Some label here" helper="This is a helper" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Radio id={2} label="Some label here" helper="This is a helper" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="With validation error">
+  <Playground.Preview>
+    <Radio id={2} label="Some label here" error="This a error message" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Radio id={2} label="Some label here" error="This a error message" />
+    ```
+  </Playground.Code>
+</Playground>
+
+<Playground title="Disabled">
+  <Playground.Preview>
+    <Radio id={3} label="Some label here" disabled />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Radio id={3} label="Some label here" disabled />
+    ```
+  </Playground.Code>
+</Playground>

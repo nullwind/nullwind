@@ -1,0 +1,54 @@
+import { Meta, Playground } from "~/components";
+import Tab from "~/lib/components/Tab";
+
+<Meta
+  title="Tab"
+  description="These are system-generated notifications with a high degree of criticality. They should be used when the system is unstable or there is a risk of loss of data or access to resources."
+/>
+
+# Tab
+
+Use these responsive tabs components to create a secondary navigational hierarchy for your website or toggle content inside a container
+
+## Usage
+
+```jsx
+import { Tab } from "nullwind";
+
+const MyComponent = () => {
+  return (
+    <Tab onchange={(idx) => alert(`Choosen Tab: ${idx}`)}>
+      <Tab.Item title="Profile" active>
+        Tab content 1
+      </Tab.Item>
+      <Tab.Item title="Notifications">Tab content 2</Tab.Item>
+      <Tab.Item title="Settings">Tab content 3</Tab.Item>
+    </Tab>
+  );
+};
+```
+
+## Examples
+
+<Playground title="Default">
+  <Playground.Preview>
+    <Tab onchange={(idx) => alert(`Choosen Tab: ${idx}`)}>
+      <Tab.Item title="Profile" active>
+        Tab content 1
+      </Tab.Item>
+      <Tab.Item title="Notifications">Tab content 2</Tab.Item>
+      <Tab.Item title="Settings">Tab content 3</Tab.Item>
+    </Tab>
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Tab onchange={(idx) => alert(`Choosen Tab: ${idx}`)}>
+      <Tab.Item title="Profile" active>
+        Tab content 1
+      </Tab.Item>
+      <Tab.Item title="Notifications">Tab content 2</Tab.Item>
+      <Tab.Item title="Settings">Tab content 3</Tab.Item>
+    </Tab>
+    ```
+  </Playground.Code>
+</Playground>

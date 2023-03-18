@@ -1,10 +1,10 @@
 import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
 
 import { AppShell } from "./AppShell";
-import NotFound from "./docs/NotFound.mdx";
-import ThemeProvider from "./providers/ThemeProvider";
+import ThemeProvider from "./lib/providers/ThemeProvider";
+import type { Theme } from "./lib/types";
+import NotFound from "./pages/NotFound.mdx";
 import { routes } from "./routes";
-import type { Theme } from "./types";
 
 import "prism-themes/themes/prism-shades-of-purple.css";
 import "./styles.css";
