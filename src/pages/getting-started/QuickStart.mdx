@@ -32,7 +32,16 @@ export default class Application extends Nullstack {
     return (
       <ThemeProvider theme={customTheme} persistent>
         <body>
-          <Button>Hello world!</Button>
+          <Button
+            class="mt-4"
+            customTheme={{
+              button: {
+                base: "rounded-full",
+              },
+            }}
+          >
+            Hello world!
+          </Button>
         </body>
       </ThemeProvider>
     );
