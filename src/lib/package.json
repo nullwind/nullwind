@@ -1,0 +1,30 @@
+{
+  "name": "nullwind",
+  "description": "Nullstack components library focused on usability, accessibility and developer experience",
+  "version": "0.0.1",
+  "module": "index.ts",
+  "types": "types.d.ts",
+  "license": "MIT",
+  "author": "Fabio Coelho <fccoelho7@gmail.com>",
+  "sideEffects": false,
+  "homepage": "https://nullwind.dev/",
+  "repository": {
+    "url": "https://github.com/fccoelho7/nullwind.git",
+    "type": "git",
+    "directory": "src/lib"
+  },
+  "keywords": [
+    "nullstack",
+    "ui",
+    "components",
+    "ui-kit",
+    "library",
+    "frontend",
+    "design"
+  ],
+  "peerDependencies": {
+    "nullstack": ">=16.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

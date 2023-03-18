@@ -2,18 +2,8 @@
   "name": "nullwind",
   "version": "0.0.1",
   "description": "Components system for Nullstack",
-  "keywords": [
-    "nullstack",
-    "components",
-    "tailwindcss"
-  ],
   "author": "Fabio Coelho",
   "license": "ISC",
-  "main": "./src/lib/components/index.ts",
-  "types": "./src/lib/types.ts",
-  "files": [
-    "src/lib"
-  ],
   "scripts": {
     "start": "npx nullstack start",
     "build": "npx nullstack build",
