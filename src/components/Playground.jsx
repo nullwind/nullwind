@@ -1,31 +1,10 @@
-import Nullstack, {
-  NullstackClientContext,
-  NullstackFunctionalComponent,
-  NullstackNode,
-} from "nullstack";
+import Nullstack from "nullstack";
 
-interface PlaygroundProps {
-  title: string;
-  children: NullstackNode[];
-}
-
-interface PlaygroundTabProps {
-  activeTab: string;
-  children: NullstackNode[];
-}
-
-interface TabButtonProps {
-  label: string;
-  icon: (props: { size: number }) => NullstackNode;
-}
-
-declare function TabButton(context: TabButtonProps): NullstackNode;
-
-class Playground extends Nullstack<PlaygroundProps> {
+class Playground extends Nullstack {
   activeTab = "preview";
   state = false;
 
-  static Preview = ({ activeTab, children }: NullstackClientContext<PlaygroundTabProps>) => {
+  static Preview = ({ activeTab, children }) => {
     if (activeTab !== "preview") return false;
 
     return (
@@ -37,8 +16,7 @@ class Playground extends Nullstack<PlaygroundProps> {
     );
   };
 
-  static Code = ({ activeTab, children }: NullstackClientContext<PlaygroundTabProps>) =>
-    activeTab === "code" && children;
+  static Code = ({ activeTab, children }) => activeTab === "code" && children;
 
   renderTabButton({ label }) {
     return (
@@ -63,7 +41,7 @@ class Playground extends Nullstack<PlaygroundProps> {
     );
   }
 
-  render({ title, children }) {
+  render({ children, title }) {
     return (
       <div class="mb-12">
         <div class="flex full-w items-center justify-between mb-4">
@@ -90,4 +68,4 @@ class Playground extends Nullstack<PlaygroundProps> {
   }
 }
 
-export default Playground as unknown as NullstackFunctionalComponent<PlaygroundProps>;
+export default Playground;

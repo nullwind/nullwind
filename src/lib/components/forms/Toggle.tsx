@@ -3,18 +3,15 @@ import Nullstack, { NullstackClientContext } from "nullstack";
 import type { ComponentProps } from "../../types";
 
 interface ToggleProps extends ComponentProps {
-  bind?: object;
   disabled?: boolean;
   label?: string;
+  onclick?: () => void;
 }
 
 class Toggle extends Nullstack {
-  toggle({ bind, onclick }) {
-    if (bind) {
-      bind.object[bind.property] = !bind.object[bind.property];
-    }
-
-    onclick && onclick();
+  toggle({ bind, onclick }: NullstackClientContext<ToggleProps>) {
+    bind.object[bind.property] = !bind.object[bind.property];
+    onclick?.();
   }
 
   render({
@@ -40,7 +37,8 @@ class Toggle extends Nullstack {
           klass,
         ]}
         role="switch"
-        onclick={() => !disabled && bind && this.toggle({ bind })}
+        disabled={disabled}
+        onclick={this.toggle}
       >
         <span class="sr-only">{label}</span>
         <span

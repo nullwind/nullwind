@@ -1,9 +1,9 @@
-import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
+import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import { ComponentProps } from "~/lib/types";
+import { ComponentProps } from "../types";
 
 interface ButtonGroupProps extends ComponentProps {
-  children?: NullstackNode[];
+  children?: Record<string, Record<string, string>>[];
 }
 
 function ButtonGroup(props: NullstackClientContext<ButtonGroupProps>) {
@@ -14,8 +14,6 @@ function ButtonGroup(props: NullstackClientContext<ButtonGroupProps>) {
     <div class={[classes.base, klass]}>
       {children.map((child, index) => {
         if (!child.attributes) return child;
-
-        console.log(child);
 
         const positionInGroup =
           index === 0 ? "start" : index === children.length - 1 ? "end" : "middle";

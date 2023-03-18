@@ -16,7 +16,7 @@ async function validateFormData(validationSchema, data, options = {}) {
   return {};
 }
 
-export default function createForm({ form, validationSchema, initialValues = {} }) {
+export default function createForm({ form, initialValues = {}, validationSchema }) {
   return {
     ...form,
     validationSchema,

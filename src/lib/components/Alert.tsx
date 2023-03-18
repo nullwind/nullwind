@@ -1,12 +1,14 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import XIcon from "./icons/XIcon";
-import type { ComponentProps } from "../../types";
+import type { ComponentProps } from "../types";
+
+declare function Icon(): NullstackNode;
 
 interface AlertProps extends ComponentProps {
   children?: NullstackNode;
   color?: "info" | "success" | "warning" | "danger";
-  icon?: typeof XIcon;
+  icon?: typeof Icon;
   ondismiss?: () => void;
   rounded?: boolean;
   withBorderAccent?: boolean;

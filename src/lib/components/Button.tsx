@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import type { ComponentProps } from "../../types";
+import type { ComponentProps } from "../types";
 
 export interface ButtonProps extends ComponentProps {
   active?: boolean;

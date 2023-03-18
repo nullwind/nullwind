@@ -1,7 +1,7 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import theme from "../theme";
-import { ComponentProps } from "../../types";
+import { ComponentProps } from "../types";
 
 interface DefaultProps extends ComponentProps {
   children?: NullstackNode;

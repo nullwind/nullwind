@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import { ComponentProps } from "../../types";
+import { ComponentProps } from "../types";
 
 interface TabProps extends ComponentProps {
   children?: NullstackClientContext<TabItemProps>[];
@@ -23,15 +23,13 @@ const Tab = ({
           {children.map((child, idx) => {
             if (!child.attributes?.title) return false;
 
-            const Icon = child.attributes?.icon;
-
             return (
               <li>
                 <a
                   class={[classes.item.base, child.attributes?.active && classes.item.active]}
                   onclick={() => onchange && onchange(idx)}
                 >
-                  {Icon && <Icon size={18} />} {child.attributes?.title}
+                  {child.attributes?.title}
                 </a>
               </li>
             );
@@ -43,15 +41,10 @@ const Tab = ({
   );
 };
 
-interface IconProps {
-  size?: number;
-}
-
 interface TabItemProps {
-  title?: string;
-  icon?: NullstackFunctionalComponent<IconProps>;
   active?: boolean;
   attributes?: TabItemProps;
+  title?: string;
 }
 
 Tab.Item = ({ children }) => <div>{children}</div>;

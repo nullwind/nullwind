@@ -1,7 +1,7 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import type { ComponentProps } from "../../types";
 import InlineInput from "./InlineInput";
+import type { ComponentProps } from "../../types";
 interface RadioProps extends ComponentProps {
   disabled?: boolean;
   error?: string;

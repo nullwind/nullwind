@@ -12,6 +12,7 @@ interface EmailsInputProps extends ComponentProps {
   error?: string;
   helper?: string;
   label?: string;
+  onchange?: (emails: string[]) => void;
   placeholder?: string;
   required?: boolean;
   type?: string;
@@ -24,7 +25,7 @@ class EmailsInput extends Nullstack {
   emails = [];
   inputRef: HTMLInputElement;
 
-  prepare({ bind }) {
+  prepare({ bind }: NullstackClientContext<EmailsInputProps>) {
     if (!bind) return;
     this.emails = bind.object[bind.property];
   }
@@ -35,7 +36,7 @@ class EmailsInput extends Nullstack {
     this.inputRef.addEventListener("paste", this._onPaste);
   }
 
-  update({ bind, onchange }) {
+  update({ bind, onchange }: NullstackClientContext<EmailsInputProps>) {
     if (!bind) return;
     bind.object[bind.property] = this.emails;
     onchange?.(this.emails);
@@ -47,7 +48,7 @@ class EmailsInput extends Nullstack {
     this.inputRef.removeEventListener("paste", this._onPaste);
   }
 
-  _onKeyPress = (event: KeyboardEvent) => {
+  _onKeyPress = (event: KeyboardEvent & { target: HTMLInputElement }) => {
     if (triggerKeyCodes.indexOf(event.keyCode) < 0) return;
     event.preventDefault();
     this._addEmail(event.target.value);
@@ -55,12 +56,12 @@ class EmailsInput extends Nullstack {
     event.target.focus();
   };
 
-  _onKeyDown = (event: KeyboardEvent) => {
+  _onKeyDown = (event: KeyboardEvent & { target: HTMLInputElement }) => {
     if (event.keyCode !== keycode.backspace || event.target.value) return;
     this._removeLastEmail();
   };
 
-  _onPaste = (event: ClipboardEvent) => {
+  _onPaste = (event: ClipboardEvent & { target: HTMLInputElement }) => {
     if (!event.target.matches("input")) return;
     event.preventDefault();
     const chunks = event.clipboardData.getData("Text").split(/(?:,| )+/);
@@ -117,7 +118,7 @@ class EmailsInput extends Nullstack {
               <Badge>
                 {email}
                 <button class={classes.badges.close} onclick={() => this._removeEmail(email)}>
-                  <XIcon size={16} />
+                  <XIcon class="w-4 h-4" />
                 </button>
               </Badge>
             ))}

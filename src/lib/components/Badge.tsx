@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import type { ComponentProps } from "../../types";
+import type { ComponentProps } from "../types";
 
 interface BadgeProps extends ComponentProps {
   color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
