@@ -1,8 +1,8 @@
 import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
 
 import mergeTheme from "../helpers/mergeTheme";
+import defaultTheme from "../theme";
 import type { ComponentProps, Theme, UseTheme } from "../types";
-import defaultTheme from "../../theme";
 
 interface ThemeProviderProps extends ComponentProps {
   children?: NullstackNode;
