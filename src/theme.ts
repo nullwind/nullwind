@@ -213,7 +213,7 @@ const theme = {
   rating: {
     wrapper: "flex items-center gap-1",
     star: {
-      base: "h-6 w-6",
+      base: "h-5 w-5",
       empty: "text-gray-300 dark:text-gray-500",
       filled: "text-yellow-400",
     },
