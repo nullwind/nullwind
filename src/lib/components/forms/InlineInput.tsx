@@ -23,18 +23,22 @@ function InlineInput({
   required,
   useTheme,
 }: NullstackClientContext<InlineInputProps>) {
-  const classes = useTheme(customTheme).inlineInput;
+  const { inlineInput } = useTheme(customTheme);
 
   return (
-    <div class={[classes.wrapper, klass]}>
+    <div class={[inlineInput.wrapper, klass]}>
       {children}
-      <div class={classes.labelWrapper}>
+      <div class={inlineInput.labelWrapper}>
         {label && (
-          <Label for={id} required={required}>
+          <Label for={id} required={required} customTheme={customTheme}>
             {label}
           </Label>
         )}
-        {error ? <Error>{error}</Error> : helper && <Helper>{helper}</Helper>}
+        {error ? (
+          <Error customTheme={customTheme}>{error}</Error>
+        ) : (
+          helper && <Helper customTheme={customTheme}>{helper}</Helper>
+        )}
       </div>
     </div>
   );

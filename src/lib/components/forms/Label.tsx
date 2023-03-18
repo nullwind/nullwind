@@ -13,7 +13,7 @@ function Label(props: NullstackClientContext<LabelProps>) {
   const classes = useTheme(customTheme).label;
 
   return (
-    <label for={receivedFor} class={[classes.base, required && classes.required, klass]}>
+    <label data-required={required} for={receivedFor} class={[classes, klass]}>
       {children}
     </label>
   );

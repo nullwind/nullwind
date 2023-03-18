@@ -39,6 +39,7 @@ function Textarea({
       corner={corner}
       required={required}
       class={klass}
+      customTheme={customTheme}
     >
       <textarea
         id={id}

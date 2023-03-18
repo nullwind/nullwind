@@ -9,7 +9,7 @@ interface HelperProps extends ComponentProps {
 function Helper(props: NullstackClientContext<HelperProps>) {
   const { children, class: klass, customTheme, useTheme } = props;
   const classes = useTheme(customTheme).helper;
-  return <p class={[classes.base, klass]}>{children}</p>;
+  return <p class={[classes, klass]}>{children}</p>;
 }
 
 export default Helper as NullstackFunctionalComponent<HelperProps>;

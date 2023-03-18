@@ -41,6 +41,7 @@ function TextInput({
       corner={corner}
       required={required}
       class={klass}
+      customTheme={customTheme}
     >
       <input
         id={id}

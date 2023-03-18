@@ -38,6 +38,7 @@ const Select = ({
       corner={corner}
       required={required}
       class={klass}
+      customTheme={customTheme}
     >
       <select
         id={id}

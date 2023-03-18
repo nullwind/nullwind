@@ -32,6 +32,7 @@ const Checkbox = ({
       id={id}
       label={label}
       required={required}
+      customTheme={customTheme}
     >
       <input
         class={[classes.base, error && classes.error]}

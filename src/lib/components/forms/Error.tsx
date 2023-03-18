@@ -9,7 +9,7 @@ interface ErrorProps extends ComponentProps {
 function Error(props: NullstackClientContext<ErrorProps>) {
   const { children, class: klass, customTheme, useTheme } = props;
   const classes = useTheme(customTheme).error;
-  return <p class={[classes.base, klass]}>{children}</p>;
+  return <p class={[classes, klass]}>{children}</p>;
 }
 
 export default Error as NullstackFunctionalComponent<ErrorProps>;

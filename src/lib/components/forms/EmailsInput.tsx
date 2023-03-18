@@ -1,6 +1,6 @@
 import Nullstack, { NullstackClientContext } from "nullstack";
 
-import InputBase from "./Input";
+import Input from "./Input";
 import type { ComponentProps } from "../../types";
 import Badge from "../Badge";
 import XIcon from "../icons/XIcon";
@@ -103,7 +103,7 @@ class EmailsInput extends Nullstack {
     const classes = useTheme(customTheme).emailsInput;
 
     return (
-      <InputBase
+      <Input
         id={id}
         label={label}
         error={error}
@@ -111,11 +111,12 @@ class EmailsInput extends Nullstack {
         corner={corner}
         required={required}
         class={klass}
+        customTheme={customTheme}
       >
         <div class={classes.root}>
           <div class={classes.badges.base}>
             {this.emails.map((email) => (
-              <Badge>
+              <Badge customTheme={customTheme}>
                 {email}
                 <button class={classes.badges.close} onclick={() => this._removeEmail(email)}>
                   <XIcon class="w-4 h-4" />
@@ -132,7 +133,7 @@ class EmailsInput extends Nullstack {
             {...props}
           />
         </div>
-      </InputBase>
+      </Input>
     );
   }
 }
