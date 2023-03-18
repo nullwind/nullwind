@@ -6,7 +6,13 @@ class Preview extends Nullstack {
   active = false;
 
   render() {
-    return <Toggle bind={this.active} label="Preview" />;
+    return (
+      <Toggle
+        bind={this.active}
+        label="I accept the terms and conditions"
+        helper="You must accept the terms and conditions to continue"
+      />
+    );
   }
 }
 

@@ -25,7 +25,11 @@ import { Toggle } from "nullwind";
   </Playground.Preview>
   <Playground.Code>
     ```jsx
-    <Toggle label="Some label here" />
+    <Toggle
+      bind={this.active}
+      label="I accept the terms and conditions"
+      helper="You must accept the terms and conditions to continue"
+    />
     ```
   </Playground.Code>
 </Playground>
