@@ -1,6 +1,6 @@
 import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
 
-import mergeDeep from "../helpers/mergeDeep";
+import mergeTheme from "../helpers/mergeTheme";
 import defaultTheme from "../theme";
 import type { ComponentProps, Theme, UseTheme } from "../types";
 
@@ -11,8 +11,7 @@ interface ThemeProviderProps extends ComponentProps {
 class ThemeProvider extends Nullstack<ThemeProviderProps> {
   _useTheme(customTheme: Theme): UseTheme {
     return function useTheme(customComponentTheme) {
-      const mergedTheme = mergeDeep(defaultTheme, customTheme);
-      return mergeDeep(customComponentTheme, mergedTheme);
+      return mergeTheme(mergeTheme(defaultTheme, customTheme), customComponentTheme);
     };
   }
 

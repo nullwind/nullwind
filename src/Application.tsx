@@ -33,16 +33,16 @@ class Application extends Nullstack {
 
   render() {
     const allRoutes = routes.map((section) => section.routes).flat();
+    const customTheme = {
+      tab: {
+        item: {
+          active: "after:bg-primary-600",
+        },
+      },
+    } as Theme;
 
     return (
-      <ThemeProvider
-        theme={
-          {
-            badge: {},
-          } as Theme
-        }
-        persistent
-      >
+      <ThemeProvider theme={customTheme} persistent>
         <body class="bg-white text-secondary-500 antialiased">
           <Head />
           <AppShell>

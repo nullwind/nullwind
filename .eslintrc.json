@@ -10,6 +10,7 @@
     "prettier",
     "plugin:typescript-sort-keys/recommended"
   ],
+  "ignorePatterns": ["node_modules/", "*.test.js"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
