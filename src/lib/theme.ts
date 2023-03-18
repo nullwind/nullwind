@@ -67,8 +67,8 @@ const theme = {
       rounded: "rounded-lg",
     },
     close: {
-      base: "p-1.5 -mx-1.5 -mt-1.5",
-      icon: "w-3.5 h-3.5",
+      root: "p-1.5 -mx-1.5 -mt-1.5",
+      icon: "w-4 h-4",
       color: {
         info: "text-info-500 dark:text-info-600",
         success: "text-success-500 dark:text-success-600",
@@ -144,10 +144,10 @@ const theme = {
     container:
       "relative inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full",
     close: {
-      root: "absolute top-3 right-4",
+      root: "absolute top-4 right-4",
       button: {
         root: "bg-white rounded-md text-slate-400 hover:text-slate-500 focus:outline-none",
-        icon: "h-3.5 w-3.5",
+        icon: "h-5 w-5",
       },
     },
   },

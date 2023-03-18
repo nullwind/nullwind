@@ -48,7 +48,7 @@ const Alert = ({
         {typeof ondismiss === "function" && (
           <button
             aria-label="Dismiss"
-            class={[classes.close.base, classes.close.color[color]]}
+            class={[classes.close.root, classes.close.color[color]]}
             onclick={ondismiss}
             type="button"
           >
