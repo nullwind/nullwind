@@ -210,9 +210,9 @@ const theme = {
     panel: "py-3",
   },
   rating: {
-    wrapper: "flex items-center gap-1",
+    wrapper: "flex items-center",
     star: {
-      base: "h-5 w-5",
+      base: "h-6 w-6",
       empty: "text-slate-300 dark:text-slate-500",
       filled: "text-yellow-400",
     },

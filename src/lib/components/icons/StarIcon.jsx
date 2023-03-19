@@ -1,15 +1,14 @@
-export default function StarIcon({ class: klass, title }) {
+export default function StarIcon({ class: klass }) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      viewBox="0 0 24 24"
+      stroke-linecap="round"
+      stroke-linejoin="round"
       fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
       class={klass}
-      viewBox="0 0 16 16"
-      title={title}
     >
-      <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+      <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
     </svg>
   );
 }
