@@ -3,11 +3,10 @@ import Avatar from "./pages/components/Avatar.mdx";
 import Badge from "./pages/components/Badge.mdx";
 import Button from "./pages/components/Button.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
-import Pagination from "./pages/components/Pagination.mdx";
 import Tab from "./pages/components/Tab.mdx";
 import Table from "./pages/components/Table.mdx";
+import Title from "./pages/components/Title.mdx";
 import Checkbox from "./pages/forms/Checkbox.mdx";
-import EmailsInput from "./pages/forms/EmailsInput.mdx";
 import Radio from "./pages/forms/Radio.mdx";
 import Rating from "./pages/forms/Rating.mdx";
 import Select from "./pages/forms/Select.mdx";
@@ -15,7 +14,6 @@ import Textarea from "./pages/forms/Textarea.mdx";
 import TextInput from "./pages/forms/TextInput.mdx";
 import Toggle from "./pages/forms/Toggle/Toggle.mdx";
 import QuickStart from "./pages/getting-started/QuickStart.mdx";
-import CreateForm from "./pages/helpers/CreateForm/CreateForm.mdx";
 
 export const routes = [
   {
@@ -70,6 +68,11 @@ export const routes = [
         title: "Table",
         path: "/components/table",
         component: Table,
+      },
+      {
+        title: "Title",
+        path: "/components/title",
+        component: Title,
       },
     ],
   },

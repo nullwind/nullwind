@@ -8,6 +8,7 @@ export { default as Modal } from "./components/Modal";
 export { default as Pagination } from "./components/Pagination";
 export { default as Tab } from "./components/Tab";
 export { default as Table } from "./components/Table";
+export { default as Title } from "./components/Title";
 
 // Forms
 export { default as Checkbox } from "./components/forms/Checkbox";

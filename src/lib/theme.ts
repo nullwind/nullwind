@@ -217,6 +217,14 @@ const theme = {
       filled: "text-yellow-400",
     },
   },
+  title: {
+    1: "text-4xl font-bold text-slate-900",
+    2: "text-3xl font-bold text-slate-900",
+    3: "text-2xl font-bold text-slate-900",
+    4: "text-xl font-bold text-slate-900",
+    5: "text-lg font-bold text-slate-900",
+    6: "text-base font-bold text-slate-900",
+  },
 };
 
 export default theme;
