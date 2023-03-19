@@ -16,34 +16,34 @@ Nullwind is a modern UI component library for Tailwind CSS, you just need to ins
 ## Usage
 
 ```tsx
+// Application.js
 import Nullstack from "nullstack";
-import { ThemeProvider, Button } from "nullwind";
-import type { Theme } from "nullwind";
 
-// Custom theme (Optional)
+// Optional: You can customize the global theme
 const customTheme = {
   button: {
-    base: "rounded-md shadow-sm",
+    base: "",
   },
-} as Theme;
+};
 
-export default class Application extends Nullstack {
+class Application extends Nullstack {
+  hydrate(context) {
+    context.useTheme = useTheme(customTheme);
+  }
+
   render() {
+    if (!this.hydrated) return false;
+
+    const customComponentTheme = {
+      button: {
+        base: "bg-primary-500 text-white",
+      },
+    };
+
     return (
-      <ThemeProvider theme={customTheme} persistent>
-        <body>
-          <Button
-            class="mt-4"
-            customTheme={{
-              button: {
-                base: "rounded-full",
-              },
-            }}
-          >
-            Hello world!
-          </Button>
-        </body>
-      </ThemeProvider>
+      <main>
+        <Button customTheme={customComponentTheme}>Button</Button>
+      </main>
     );
   }
 }
@@ -59,7 +59,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: ["node_modules/nullwind/src/theme.ts", "src/**/*.{jsx,tsx}"],
+  content: ["node_modules/nullwind/theme.ts", "src/**/*.{jsx,tsx}"],
   theme: {
     extend: {
       // Set font family

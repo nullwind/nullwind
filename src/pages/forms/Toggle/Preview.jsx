@@ -1,6 +1,6 @@
 import Nullstack from "nullstack";
 
-import { Toggle } from "~/lib/components";
+import { Toggle } from "nullwind";
 
 class Preview extends Nullstack {
   active = false;

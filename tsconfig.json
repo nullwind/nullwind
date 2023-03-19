@@ -12,10 +12,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["src/*"]
-    }
+    "baseUrl": "."
   },
   "include": ["**/*.ts", "**/*.nts", "**/*.tsx"],
   "exclude": ["node_modules"]

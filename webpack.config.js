@@ -28,6 +28,7 @@ const mdxRule = {
 
 const alias = {
   "~": path.resolve(__dirname, "src/"),
+  nullwind: path.resolve(__dirname, "lib/"),
 };
 
 function customServer(...args) {

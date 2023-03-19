@@ -17,10 +17,17 @@ export { default as Error } from "./components/forms/Error";
 export { default as Helper } from "./components/forms/Helper";
 export { default as Label } from "./components/forms/Label";
 export { default as Radio } from "./components/forms/Radio";
+export { default as Rating } from "./components/forms/Rating";
 export { default as Select } from "./components/forms/Select";
 export { default as Textarea } from "./components/forms/Textarea";
 export { default as TextInput } from "./components/forms/TextInput";
 export { default as Toggle } from "./components/forms/Toggle";
 
-// Providers
-export { default as ThemeProvider } from "./providers/ThemeProvider";
+// Icons
+export { default as ChevronLeftIcon } from "./components/icons/ChevronLeftIcon";
+export { default as ChevronRightIcon } from "./components/icons/ChevronRightIcon";
+export { default as StarIcon } from "./components/icons/StarIcon";
+export { default as XIcon } from "./components/icons/XIcon";
+
+// Helpers
+export { default as useTheme } from "./useTheme";

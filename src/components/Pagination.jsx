@@ -1,5 +1,5 @@
-import ChevronLeftIcon from "~/lib/components/icons/ChevronLeftIcon";
-import ChevronRightIcon from "~/lib/components/icons/ChevronRightIcon";
+import { ChevronLeftIcon, ChevronRightIcon } from "nullwind";
+
 import { routes } from "~/routes";
 
 const Pagination = ({ router }) => {

@@ -1,6 +1,6 @@
 import Nullstack from "nullstack";
 
-import { Button, Modal } from "~/lib/components";
+import { Button, Modal } from "nullwind";
 
 class Preview extends Nullstack {
   visible = false;

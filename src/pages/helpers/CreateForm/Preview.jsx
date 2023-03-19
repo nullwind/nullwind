@@ -1,10 +1,9 @@
 import Nullstack from "nullstack";
 
+import { createForm, XIcon } from "nullwind";
 import { bool, object, string } from "yup";
 
 import { Alert, Button, Checkbox, Select, Textarea, TextInput, Toggle } from "~/components";
-import XIcon from "~/lib/components/icons/XIcon";
-import { createForm } from "~/lib/helpers";
 
 const validationSchema = object({
   firstName: string().required("First Name is required"),
