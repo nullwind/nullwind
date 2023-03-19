@@ -26,7 +26,11 @@ const Modal = ({
       aria-modal={visible}
     >
       <div class={classes.wrapper}>
-        <div class={classes.overlay} aria-hidden="true" />
+        <div
+          class={classes.overlay}
+          aria-hidden="true"
+          onclick={typeof onclose === "function" && onclose}
+        />
         <div class={classes.container}>
           {typeof onclose === "function" && (
             <div class={classes.close.root} onclick={onclose && onclose}>
