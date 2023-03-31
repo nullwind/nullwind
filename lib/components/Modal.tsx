@@ -14,12 +14,12 @@ interface ModalProps extends ComponentProps {
 const Modal = ({
   children,
   class: klass,
-  customTheme,
   onclose,
+  theme,
   useTheme,
   visible,
 }: NullstackClientContext<ModalProps>) => {
-  const classes = useTheme(customTheme).modal;
+  const classes = useTheme(theme).modal;
 
   return (
     <div

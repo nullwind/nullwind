@@ -12,8 +12,8 @@ interface AvatarProps extends ComponentProps {
 }
 
 function Avatar(props: NullstackClientContext<AvatarProps>) {
-  const { class: klass, customTheme, description, id, name, placeholder, src, useTheme } = props;
-  const classes = useTheme(customTheme).avatar;
+  const { class: klass, description, id, name, placeholder, src, theme, useTheme } = props;
+  const classes = useTheme(theme).avatar;
   const placeholderUrl = placeholder || `https://eu.ui-avatars.com/api/?name=${name}`;
 
   return (

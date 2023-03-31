@@ -9,8 +9,8 @@ interface LabelProps extends ComponentProps {
 }
 
 function Label(props: NullstackClientContext<LabelProps>) {
-  const { children, class: klass, customTheme, for: receivedFor, required, useTheme } = props;
-  const classes = useTheme(customTheme).label;
+  const { children, class: klass, for: receivedFor, required, theme, useTheme } = props;
+  const classes = useTheme(theme).label;
 
   return (
     <label data-required={required} for={receivedFor} class={[classes, klass]}>

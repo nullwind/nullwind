@@ -13,16 +13,16 @@ interface CheckboxProps extends ComponentProps {
 
 const Checkbox = ({
   class: klass,
-  customTheme,
   error,
   helper,
   id,
   label,
   required,
+  theme,
   useTheme,
   ...rest
 }: NullstackClientContext<CheckboxProps>) => {
-  const classes = useTheme(customTheme).checkbox;
+  const classes = useTheme(theme).checkbox;
 
   return (
     <InlineInput
@@ -32,7 +32,7 @@ const Checkbox = ({
       id={id}
       label={label}
       required={required}
-      customTheme={customTheme}
+      theme={theme}
     >
       <input
         class={[classes.base, error && classes.error]}

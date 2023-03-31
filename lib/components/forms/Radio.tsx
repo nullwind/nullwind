@@ -12,17 +12,17 @@ interface RadioProps extends ComponentProps {
 
 function Radio({
   class: klass,
-  customTheme,
   disabled = false,
   error,
   helper,
   id,
   label,
   required,
+  theme,
   useTheme,
   ...rest
 }: NullstackClientContext<RadioProps>) {
-  const classes = useTheme(customTheme).radio;
+  const classes = useTheme(theme).radio;
 
   return (
     <InlineInput
@@ -32,7 +32,7 @@ function Radio({
       id={id}
       label={label}
       required={required}
-      customTheme={customTheme}
+      theme={theme}
     >
       <input
         class={[classes.base, error && classes.error]}

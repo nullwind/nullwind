@@ -7,8 +7,8 @@ interface ErrorProps extends ComponentProps {
 }
 
 function Error(props: NullstackClientContext<ErrorProps>) {
-  const { children, class: klass, customTheme, useTheme } = props;
-  const classes = useTheme(customTheme).error;
+  const { children, class: klass, theme, useTheme } = props;
+  const classes = useTheme(theme).error;
   return <p class={[classes, klass]}>{children}</p>;
 }
 

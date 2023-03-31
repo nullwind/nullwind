@@ -17,17 +17,17 @@ const Select = ({
   children,
   class: klass,
   corner,
-  customTheme,
   disabled,
   error,
   helper,
   id,
   label,
   required,
+  theme,
   useTheme,
   ...rest
 }: NullstackClientContext<SelectProps>) => {
-  const classes = useTheme(customTheme).select;
+  const classes = useTheme(theme).select;
 
   return (
     <Input
@@ -38,7 +38,7 @@ const Select = ({
       corner={corner}
       required={required}
       class={klass}
-      customTheme={customTheme}
+      theme={theme}
     >
       <select
         id={id}

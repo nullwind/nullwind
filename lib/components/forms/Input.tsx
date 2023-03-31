@@ -18,29 +18,29 @@ function Input({
   children,
   class: klass,
   corner,
-  customTheme,
   error,
   helper,
   id,
   label,
   required,
+  theme,
   useTheme,
 }: NullstackClientContext<InputProps>) {
-  const { input } = useTheme(customTheme);
+  const { input } = useTheme(theme);
 
   return (
     <div class={[input.base, klass]}>
       <div class={input.labelWrapper}>
-        <Label required={required} for={id} customTheme={customTheme}>
+        <Label required={required} for={id} theme={theme}>
           {label}
         </Label>
-        {corner && <Corner customTheme={customTheme}>{corner}</Corner>}
+        {corner && <Corner theme={theme}>{corner}</Corner>}
       </div>
       {children}
       {error ? (
-        <Error customTheme={customTheme}>{error}</Error>
+        <Error theme={theme}>{error}</Error>
       ) : (
-        helper && <Helper customTheme={customTheme}>{helper}</Helper>
+        helper && <Helper theme={theme}>{helper}</Helper>
       )}
     </div>
   );

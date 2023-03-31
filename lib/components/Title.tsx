@@ -12,11 +12,11 @@ interface TitleProps extends ComponentProps {
 function Title({
   children,
   class: klass,
-  customTheme,
   h = 1,
+  theme,
   useTheme,
 }: NullstackClientContext<TitleProps>) {
-  const classes = useTheme(customTheme).title;
+  const classes = useTheme(theme).title;
 
   return (
     <element tag={`h${h}`} class={twMerge(classes[h], klass)}>

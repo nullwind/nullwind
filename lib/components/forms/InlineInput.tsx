@@ -15,29 +15,29 @@ interface InlineInputProps extends ComponentProps {
 function InlineInput({
   children,
   class: klass,
-  customTheme,
   error,
   helper,
   id,
   label,
   required,
+  theme,
   useTheme,
 }: NullstackClientContext<InlineInputProps>) {
-  const { inlineInput } = useTheme(customTheme);
+  const { inlineInput } = useTheme(theme);
 
   return (
     <div class={[inlineInput.base, klass]}>
       {children}
       <div class={inlineInput.labelWrapper}>
         {label && (
-          <Label for={id} required={required} customTheme={customTheme}>
+          <Label for={id} required={required} theme={theme}>
             {label}
           </Label>
         )}
         {error ? (
-          <Error customTheme={customTheme}>{error}</Error>
+          <Error theme={theme}>{error}</Error>
         ) : (
-          helper && <Helper customTheme={customTheme}>{helper}</Helper>
+          helper && <Helper theme={theme}>{helper}</Helper>
         )}
       </div>
     </div>

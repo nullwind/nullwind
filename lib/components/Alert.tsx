@@ -18,12 +18,12 @@ const Alert = ({
   children,
   class: klass,
   color = "info",
-  customTheme,
   icon: Icon,
   ondismiss,
+  theme,
   useTheme,
 }: NullstackClientContext<AlertProps>) => {
-  const classes = useTheme(customTheme).alert;
+  const classes = useTheme(theme).alert;
 
   return (
     <div class={twMerge(classes.base, classes.color[color], klass)} role="alert">

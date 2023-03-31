@@ -9,8 +9,8 @@ interface ButtonGroupProps extends ComponentProps {
 }
 
 function ButtonGroup(props: NullstackClientContext<ButtonGroupProps>) {
-  const { children, class: klass, customTheme, useTheme } = props;
-  const classes = useTheme(customTheme).buttonGroup;
+  const { children, class: klass, theme, useTheme } = props;
+  const classes = useTheme(theme).buttonGroup;
 
   return (
     <div class={twMerge(classes.base, klass)}>

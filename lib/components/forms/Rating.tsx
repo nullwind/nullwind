@@ -10,8 +10,8 @@ interface RatingProps extends ComponentProps {
 }
 
 function Rating(props: NullstackClientContext<RatingProps>) {
-  const { averageRate, bind, class: klass, customTheme, disabled, useTheme } = props;
-  const classes = useTheme(customTheme).rating;
+  const { averageRate, bind, class: klass, disabled, theme, useTheme } = props;
+  const classes = useTheme(theme).rating;
   const rate = averageRate >= 0 ? averageRate : bind.object[bind.property];
 
   return (

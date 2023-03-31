@@ -17,7 +17,6 @@ interface ToggleProps extends ComponentProps {
 function Toggle({
   bind,
   class: klass,
-  customTheme,
   disabled = false,
   error,
   helper,
@@ -25,9 +24,10 @@ function Toggle({
   label,
   onclick,
   required,
+  theme,
   useTheme,
 }: NullstackClientContext<ToggleProps>) {
-  const classes = useTheme(customTheme).toggle;
+  const classes = useTheme(theme).toggle;
   const value = !!bind?.object?.[bind?.property];
 
   return (
@@ -38,7 +38,7 @@ function Toggle({
       id={id}
       label={label}
       required={required}
-      customTheme={customTheme}
+      theme={theme}
     >
       <button
         id={id}

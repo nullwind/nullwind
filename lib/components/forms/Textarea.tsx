@@ -17,7 +17,6 @@ function Textarea({
   bind,
   class: klass,
   corner,
-  customTheme,
   disabled,
   error,
   helper,
@@ -25,10 +24,11 @@ function Textarea({
   label,
   required,
   rows = 4,
+  theme,
   useTheme,
   ...rest
 }: NullstackClientContext<TextareaProps>) {
-  const classes = useTheme(customTheme).textarea;
+  const classes = useTheme(theme).textarea;
 
   return (
     <Input
@@ -39,7 +39,7 @@ function Textarea({
       corner={corner}
       required={required}
       class={klass}
-      customTheme={customTheme}
+      theme={theme}
     >
       <textarea
         id={id}

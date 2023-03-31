@@ -9,9 +9,9 @@ interface BadgeProps extends ComponentProps {
 }
 
 function Badge(props: NullstackClientContext<BadgeProps>) {
-  const { children, class: klass, color = "primary", customTheme, id, useTheme } = props;
+  const { children, class: klass, color = "primary", id, theme, useTheme } = props;
 
-  const classes = useTheme(customTheme).badge;
+  const classes = useTheme(theme).badge;
 
   return (
     <span id={id} class={twMerge(classes.base, classes.color[color], klass)}>

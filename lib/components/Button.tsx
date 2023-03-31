@@ -23,19 +23,19 @@ function Button({
   children,
   class: klass,
   color = "primary",
-  customTheme,
   href,
   outline,
   positionInGroup = "none",
   size = "base",
+  theme,
   type,
   useTheme,
   ...rest
 }: NullstackClientContext<ButtonProps>) {
   const isLink = typeof href !== "undefined";
   const Component = isLink ? "a" : "button";
-  const classes = useTheme(customTheme).button;
-  const groupClasses = useTheme(customTheme).buttonGroup;
+  const classes = useTheme(theme).button;
+  const groupClasses = useTheme(theme).buttonGroup;
 
   return (
     <Component

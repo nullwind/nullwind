@@ -10,11 +10,11 @@ interface TabProps extends ComponentProps {
 const Tab = ({
   children,
   class: klass,
-  customTheme,
   onchange,
+  theme,
   useTheme,
 }: NullstackClientContext<TabProps>) => {
-  const classes = useTheme(customTheme).tab;
+  const classes = useTheme(theme).tab;
 
   return (
     <div class={klass}>

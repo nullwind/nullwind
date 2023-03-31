@@ -19,18 +19,18 @@ function TextInput({
   bind,
   class: klass,
   corner,
-  customTheme,
   disabled,
   error,
   helper,
   id,
   label,
   required,
+  theme,
   type = "text",
   useTheme,
   ...rest
 }: NullstackClientContext<TextInputProps>) {
-  const classes = useTheme(customTheme).textInput;
+  const classes = useTheme(theme).textInput;
 
   return (
     <Input
@@ -41,7 +41,7 @@ function TextInput({
       corner={corner}
       required={required}
       class={klass}
-      customTheme={customTheme}
+      theme={theme}
     >
       <input
         id={id}
