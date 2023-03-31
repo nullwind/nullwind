@@ -18,31 +18,19 @@ Nullwind is a modern UI component library for Tailwind CSS, you just need to ins
 ```tsx
 // Application.js
 import Nullstack from "nullstack";
-
-// Optional: You can customize the global theme
-const customTheme = {
-  button: {
-    base: "",
-  },
-};
+import { useTheme, Button } from "nullwind";
 
 class Application extends Nullstack {
   hydrate(context) {
-    context.useTheme = useTheme(customTheme);
+    context.useTheme = useTheme();
   }
 
   render() {
     if (!this.hydrated) return false;
 
-    const customComponentTheme = {
-      button: {
-        base: "bg-primary-500 text-white",
-      },
-    };
-
     return (
       <main>
-        <Button customTheme={customComponentTheme}>Button</Button>
+        <Button>Button</Button>
       </main>
     );
   }
@@ -82,7 +70,7 @@ module.exports = {
 };
 ```
 
-## Theme
+## Tailwind Theme
 
 We add two colors to the theme, primary and secondary, you can set your colors. This is a required configuration, please configure it according to your own needs.
 

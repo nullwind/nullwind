@@ -26,6 +26,10 @@ code::after {
   display: none;
 }
 
+.prose li > p {
+  margin: 0 !important;
+}
+
 .DocSearch-Input:focus,
 .DocSearch-Input:active {
   box-shadow: none !important;

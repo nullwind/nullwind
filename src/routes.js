@@ -14,6 +14,7 @@ import Textarea from "./pages/forms/Textarea.mdx";
 import TextInput from "./pages/forms/TextInput.mdx";
 import Toggle from "./pages/forms/Toggle/Toggle.mdx";
 import QuickStart from "./pages/getting-started/QuickStart.mdx";
+import Theme from "./pages/getting-started/Theme.mdx";
 
 export const routes = [
   {
@@ -23,6 +24,11 @@ export const routes = [
         title: "Quick Start",
         path: "/",
         component: QuickStart,
+      },
+      {
+        title: "Theme",
+        path: "/getting-started/theme",
+        component: Theme,
       },
     ],
   },
