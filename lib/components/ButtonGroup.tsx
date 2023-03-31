@@ -1,5 +1,7 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
+import { twMerge } from "tailwind-merge";
+
 import { ComponentProps } from "../types";
 
 interface ButtonGroupProps extends ComponentProps {
@@ -11,7 +13,7 @@ function ButtonGroup(props: NullstackClientContext<ButtonGroupProps>) {
   const classes = useTheme(customTheme).buttonGroup;
 
   return (
-    <div class={[classes.base, klass]}>
+    <div class={twMerge(classes.base, klass)}>
       {children.map((child, index) => {
         if (!child.attributes) return child;
 

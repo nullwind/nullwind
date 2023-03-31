@@ -1,23 +1,27 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
+import { twMerge } from "tailwind-merge";
+
 import type { ComponentProps } from "../types";
 
 interface AvatarProps extends ComponentProps {
   description?: string;
   name?: string;
+  placeholder?: string;
   src?: string;
 }
 
 function Avatar(props: NullstackClientContext<AvatarProps>) {
-  const { class: klass, customTheme, description, id, name, src, useTheme } = props;
+  const { class: klass, customTheme, description, id, name, placeholder, src, useTheme } = props;
   const classes = useTheme(customTheme).avatar;
+  const placeholderUrl = placeholder || `https://eu.ui-avatars.com/api/?name=${name}`;
 
   return (
-    <div id={id} class={[classes.base, klass]}>
+    <div id={id} class={twMerge(classes.base, klass)}>
       <div class={classes.imageWrapper}>
         {(src && <img class={classes.image} src={src} alt={name} />) || (
           <div class={classes.imageFallback}>
-            <img src={`https://eu.ui-avatars.com/api/?name=${name}`} alt={name} />
+            <img src={placeholderUrl} alt={name} />
           </div>
         )}
       </div>

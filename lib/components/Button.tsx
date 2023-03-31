@@ -1,5 +1,7 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
+import { twMerge } from "tailwind-merge";
+
 import type { ComponentProps } from "../types";
 
 export interface ButtonProps extends ComponentProps {
@@ -11,8 +13,8 @@ export interface ButtonProps extends ComponentProps {
   href?: string;
   outline?: boolean;
   positionInGroup?: "none" | "start" | "middle" | "end";
-  rounded?: "none" | "sm" | "md" | "lg" | "full";
-  size?: "sm" | "md" | "lg";
+  rounded?: "none" | "sm" | "base" | "lg" | "full";
+  size?: "sm" | "base" | "lg";
   type?: "button" | "submit" | "reset";
 }
 
@@ -22,15 +24,13 @@ function Button({
   class: klass,
   color = "primary",
   customTheme,
-  fullSized,
   href,
   outline,
   positionInGroup = "none",
-  rounded = "md",
-  size = "md",
+  size = "base",
   type,
   useTheme,
-  ...props
+  ...rest
 }: NullstackClientContext<ButtonProps>) {
   const isLink = typeof href !== "undefined";
   const Component = isLink ? "a" : "button";
@@ -39,19 +39,17 @@ function Button({
 
   return (
     <Component
-      class={[
+      class={twMerge(
         classes.base,
         outline ? classes.outline[color] : classes.color[color],
         active && classes.active[color],
-        classes.rounded[rounded],
         classes.size[size],
-        fullSized && classes.fullSized,
         groupClasses.position[positionInGroup],
-        klass,
-      ]}
+        klass
+      )}
       href={href}
       type={isLink ? undefined : type}
-      {...props}
+      {...rest}
     >
       {children}
     </Component>

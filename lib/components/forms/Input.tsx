@@ -29,7 +29,7 @@ function Input({
   const { input } = useTheme(customTheme);
 
   return (
-    <div class={[input.wrapper, klass]}>
+    <div class={[input.base, klass]}>
       <div class={input.labelWrapper}>
         <Label required={required} for={id} customTheme={customTheme}>
           {label}

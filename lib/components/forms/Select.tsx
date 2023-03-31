@@ -25,7 +25,7 @@ const Select = ({
   label,
   required,
   useTheme,
-  ...props
+  ...rest
 }: NullstackClientContext<SelectProps>) => {
   const classes = useTheme(customTheme).select;
 
@@ -45,7 +45,7 @@ const Select = ({
         class={[classes.base, error && classes.error]}
         disabled={disabled}
         required={required}
-        {...props}
+        {...rest}
       >
         {children}
       </select>

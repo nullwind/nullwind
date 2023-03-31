@@ -28,7 +28,7 @@ function TextInput({
   required,
   type = "text",
   useTheme,
-  ...props
+  ...rest
 }: NullstackClientContext<TextInputProps>) {
   const classes = useTheme(customTheme).textInput;
 
@@ -50,7 +50,7 @@ function TextInput({
         bind={bind}
         disabled={disabled}
         required={required}
-        {...props}
+        {...rest}
       />
     </Input>
   );

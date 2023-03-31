@@ -54,11 +54,6 @@ export const routes = [
         path: "/components/modal",
         component: Modal,
       },
-      // {
-      //   title: "Pagination",
-      //   path: "/components/pagination",
-      //   component: Pagination,
-      // },
       {
         title: "Tab",
         path: "/components/tab",
@@ -84,11 +79,6 @@ export const routes = [
         path: "/components/checkbox",
         component: Checkbox,
       },
-      // {
-      //   title: "EmailsInput",
-      //   path: "/components/emailsInput",
-      //   component: EmailsInput,
-      // },
       {
         title: "Radio",
         path: "/components/radio",
@@ -121,14 +111,4 @@ export const routes = [
       },
     ],
   },
-  // {
-  //   title: "Helpers",
-  //   routes: [
-  //     {
-  //       title: "createForm",
-  //       path: "/helpers/create-form",
-  //       component: CreateForm,
-  //     },
-  //   ],
-  // },
 ];

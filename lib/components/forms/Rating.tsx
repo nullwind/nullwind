@@ -15,7 +15,7 @@ function Rating(props: NullstackClientContext<RatingProps>) {
   const rate = averageRate >= 0 ? averageRate : bind.object[bind.property];
 
   return (
-    <div class={[classes.wrapper, klass]}>
+    <div class={[classes.base, klass]}>
       {Array.from({ length: 5 }, (_, i) => (
         <button onclick={() => (bind.object[bind.property] = i)} disabled={disabled}>
           <StarIcon

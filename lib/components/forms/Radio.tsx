@@ -20,7 +20,7 @@ function Radio({
   label,
   required,
   useTheme,
-  ...props
+  ...rest
 }: NullstackClientContext<RadioProps>) {
   const classes = useTheme(customTheme).radio;
 
@@ -39,7 +39,7 @@ function Radio({
         disabled={disabled}
         id={id}
         type="radio"
-        {...props}
+        {...rest}
       />
     </InlineInput>
   );

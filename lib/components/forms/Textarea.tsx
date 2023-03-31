@@ -26,7 +26,7 @@ function Textarea({
   required,
   rows = 4,
   useTheme,
-  ...props
+  ...rest
 }: NullstackClientContext<TextareaProps>) {
   const classes = useTheme(customTheme).textarea;
 
@@ -48,7 +48,7 @@ function Textarea({
         disabled={disabled}
         required={required}
         bind={bind}
-        {...props}
+        {...rest}
       />
     </Input>
   );

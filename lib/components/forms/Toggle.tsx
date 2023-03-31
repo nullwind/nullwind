@@ -1,5 +1,7 @@
 import { NullstackClientContext } from "nullstack";
 
+import { twMerge } from "tailwind-merge";
+
 import InlineInput from "./InlineInput";
 import type { ComponentProps } from "../../types";
 
@@ -41,13 +43,13 @@ function Toggle({
       <button
         id={id}
         type="button"
-        class={[
+        class={twMerge(
           classes.base,
           label && classes.hasLabel,
           classes.checked[value ? "on" : "off"],
           disabled && classes.disabled,
-          klass,
-        ]}
+          klass
+        )}
         role="switch"
         disabled={disabled}
         onclick={() => {

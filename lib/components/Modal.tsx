@@ -1,5 +1,7 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
+import { twMerge } from "tailwind-merge";
+
 import XIcon from "./icons/XIcon";
 import type { ComponentProps } from "../types";
 
@@ -21,7 +23,7 @@ const Modal = ({
 
   return (
     <div
-      class={[classes.base, classes.visible[visible ? "on" : "off"], klass]}
+      class={twMerge(classes.base, classes.visible[visible ? "on" : "off"], klass)}
       role="dialog"
       aria-modal={visible}
     >
@@ -31,7 +33,7 @@ const Modal = ({
           aria-hidden="true"
           onclick={typeof onclose === "function" && onclose}
         />
-        <div class={classes.container}>
+        <div class={classes.content}>
           {typeof onclose === "function" && (
             <div class={classes.close.root} onclick={onclose && onclose}>
               <button type="button" class={classes.close.button.root}>

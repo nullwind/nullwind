@@ -18,24 +18,22 @@ const Tab = ({
 
   return (
     <div class={klass}>
-      <div class={classes.wrapper}>
-        <ul class={classes.list}>
-          {children.map((child, idx) => {
-            if (!child.attributes?.title) return false;
+      <ul class={classes.list}>
+        {children.map((child, idx) => {
+          if (!child.attributes?.title) return false;
 
-            return (
-              <li>
-                <a
-                  class={[classes.item.base, child.attributes?.active && classes.item.active]}
-                  onclick={() => onchange && onchange(idx)}
-                >
-                  {child.attributes?.title}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+          return (
+            <li>
+              <a
+                class={[classes.listItem.base, child.attributes?.active && classes.listItem.active]}
+                onclick={() => onchange && onchange(idx)}
+              >
+                {child.attributes?.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
       <div class={classes.panel}>{children.filter((child) => child.attributes?.active)}</div>
     </div>
   );

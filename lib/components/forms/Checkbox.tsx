@@ -20,7 +20,7 @@ const Checkbox = ({
   label,
   required,
   useTheme,
-  ...props
+  ...rest
 }: NullstackClientContext<CheckboxProps>) => {
   const classes = useTheme(customTheme).checkbox;
 
@@ -39,7 +39,7 @@ const Checkbox = ({
         id={id}
         required={required}
         type="checkbox"
-        {...props}
+        {...rest}
       />
     </InlineInput>
   );

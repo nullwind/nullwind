@@ -23,10 +23,8 @@ const MyComponent = () => {
     <Button
       href="https://nullstack.app" // set custom `href` to use as a link
       color="primary" // primary, secondary, info, success, warning, danger
-      size="md" // xs, sm, md, lg, xl
+      size="base" // xs, sm, base, lg, xl
       outline={false}
-      fullSized={false}
-      rounded={true}
       disabled={false}
       onclick={() => {}}
     >
@@ -104,33 +102,12 @@ const MyComponent = () => {
   </Playground.Code>
 </Playground>
 
-<Playground title="Rounded">
-  <Playground.Preview>
-    <div class="flex flex-wrap gap-5 justify-center items-center">
-      <Button rounded="none">None</Button>
-      <Button rounded="sm">SM</Button>
-      <Button rounded="md">MD</Button>
-      <Button rounded="lg">LG</Button>
-      <Button rounded="full">Full</Button>
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Button rounded="none">None</Button>
-    <Button rounded="sm">SM</Button>
-    <Button rounded="md">MD</Button>
-    <Button rounded="lg">LG</Button>
-    <Button rounded="full">Full</Button>
-    ```
-  </Playground.Code>
-</Playground>
-
 <Playground title="Sizes">
   <Playground.Preview>
     <div class="flex flex-wrap gap-5 justify-center items-center">
       <Button size="xs">XS</Button>
       <Button size="sm">SM</Button>
-      <Button size="md">MD</Button>
+      <Button size="base">Base</Button>
       <Button size="lg">LG</Button>
       <Button size="xl">XL</Button>
     </div>
@@ -139,20 +116,9 @@ const MyComponent = () => {
     ```jsx
     <Button size="xs">XS</Button>
     <Button size="sm">SM</Button>
-    <Button size="md">MD</Button>
+    <Button size="base">Base</Button>
     <Button size="lg">LG</Button>
     <Button size="xl">XL</Button>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Full sized">
-  <Playground.Preview>
-    <Button fullSized>Full Sized</Button>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Button fullSized>Full Sized</Button>
     ```
   </Playground.Code>
 </Playground>

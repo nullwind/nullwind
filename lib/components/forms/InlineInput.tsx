@@ -26,7 +26,7 @@ function InlineInput({
   const { inlineInput } = useTheme(customTheme);
 
   return (
-    <div class={[inlineInput.wrapper, klass]}>
+    <div class={[inlineInput.base, klass]}>
       {children}
       <div class={inlineInput.labelWrapper}>
         {label && (
