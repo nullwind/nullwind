@@ -129,15 +129,18 @@ const theme = {
       on: "block",
       off: "hidden",
     },
-    wrapper: "flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center",
     overlay: "fixed inset-0 bg-slate-500 bg-opacity-75 transition-opacity",
-    content:
-      "relative inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full",
-    close: {
-      base: "absolute top-4 right-4",
-      button: {
-        base: "bg-white rounded-md text-slate-400 hover:text-slate-500 focus:outline-none",
-        icon: "h-5 w-5",
+    wrapper: {
+      base: "flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center",
+      content: {
+        base: "relative inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full",
+        close: {
+          base: "absolute top-4 right-4",
+          button: {
+            base: "bg-white rounded-md text-slate-400 hover:text-slate-500 focus:outline-none",
+            icon: "h-5 w-5",
+          },
+        },
       },
     },
   },

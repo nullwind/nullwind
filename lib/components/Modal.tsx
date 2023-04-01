@@ -27,18 +27,18 @@ const Modal = ({
       role="dialog"
       aria-modal={visible}
     >
-      <div class={classes.wrapper}>
-        <div
-          class={classes.overlay}
-          aria-hidden="true"
-          onclick={typeof onclose === "function" && onclose}
-        />
-        <div class={classes.content}>
+      <div
+        class={classes.overlay}
+        aria-hidden="true"
+        onclick={typeof onclose === "function" && onclose}
+      />
+      <div class={classes.wrapper.base}>
+        <div class={classes.wrapper.content.base}>
           {typeof onclose === "function" && (
-            <div class={classes.close.base} onclick={onclose && onclose}>
-              <button type="button" class={classes.close.button.base}>
+            <div class={classes.wrapper.content.close.base} onclick={onclose && onclose}>
+              <button type="button" class={classes.wrapper.content.close.button.base}>
                 <span class="sr-only">Close</span>
-                <XIcon class={classes.close.button.icon} />
+                <XIcon class={classes.wrapper.content.close.button.icon} />
               </button>
             </div>
           )}
