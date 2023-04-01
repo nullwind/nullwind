@@ -1,6 +1,6 @@
-import { Avatar } from "nullwind";
+import { theme, Avatar } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta
   title="Avatar"
@@ -55,3 +55,11 @@ const MyComponent = () => {
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    avatar: theme.avatar,
+  }}
+/>

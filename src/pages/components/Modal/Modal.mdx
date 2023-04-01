@@ -1,4 +1,5 @@
-import { Meta, Playground } from "~/components";
+import { theme } from "nullwind";
+import { Meta, Playground, ThemePreview } from "~/components";
 import Preview from "./Preview";
 
 <Meta
@@ -60,3 +61,11 @@ const MyApp = () => {
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    modal: theme.modal,
+  }}
+/>

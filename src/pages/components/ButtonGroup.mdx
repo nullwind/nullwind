@@ -1,6 +1,6 @@
-import { Button, ButtonGroup } from "nullwind";
+import { theme, Button, ButtonGroup } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta title="ButtonGroup" description="ButtonGroup component renders a group of buttons" />
 
@@ -48,3 +48,11 @@ const MyComponent = () => {
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    buttonGroup: theme.buttonGroup,
+  }}
+/>

@@ -1,6 +1,6 @@
-import { Rating } from "nullwind";
+import { theme, Rating } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta title="Rating" description="Rating component is used to display rating stars." />
 
@@ -37,3 +37,11 @@ import { Rating } from "nullwind";
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    rating: theme.rating,
+  }}
+/>

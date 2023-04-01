@@ -1,6 +1,6 @@
-import { Table, Badge, Avatar } from "nullwind";
+import { theme, Table, Badge, Avatar } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta
   title="Table"
@@ -143,3 +143,11 @@ import { Table } from "nullwind";
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    table: theme.table,
+  }}
+/>

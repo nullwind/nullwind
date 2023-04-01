@@ -1,6 +1,6 @@
-import { Select } from "nullwind";
+import { theme, Select } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta
   title="Select"
@@ -132,3 +132,16 @@ import { Select } from "nullwind";
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    input: theme.input,
+    label: theme.label,
+    corner: theme.corner,
+    select: theme.select,
+    helper: theme.helper,
+    error: theme.error,
+  }}
+/>

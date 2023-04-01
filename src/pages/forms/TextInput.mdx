@@ -1,6 +1,6 @@
-import { TextInput } from "nullwind";
+import { theme, TextInput } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta
   title="TextInput"
@@ -84,3 +84,16 @@ import { TextInput } from "nullwind";
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    input: theme.input,
+    label: theme.label,
+    corner: theme.corner,
+    textInput: theme.textInput,
+    helper: theme.helper,
+    error: theme.error,
+  }}
+/>

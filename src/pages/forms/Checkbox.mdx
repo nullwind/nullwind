@@ -1,6 +1,6 @@
-import { Checkbox } from "nullwind";
+import { theme, Checkbox } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta
   title="Checkbox"
@@ -62,3 +62,16 @@ import { Checkbox } from "nullwind";
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    inlineInput: theme.inlineInput,
+    label: theme.label,
+    corner: theme.corner,
+    checkbox: theme.checkbox,
+    helper: theme.helper,
+    error: theme.error,
+  }}
+/>

@@ -1,5 +1,5 @@
-import { Meta, Playground } from "~/components";
-import { Toggle } from "nullwind";
+import { theme, Toggle } from "nullwind";
+import { Meta, Playground, ThemePreview } from "~/components";
 import Preview from "./Preview";
 
 <Meta
@@ -44,3 +44,16 @@ import { Toggle } from "nullwind";
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    inlineInput: theme.inlineInput,
+    label: theme.label,
+    corner: theme.corner,
+    toggle: theme.toggle,
+    helper: theme.helper,
+    error: theme.error,
+  }}
+/>

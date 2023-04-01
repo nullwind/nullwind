@@ -1,6 +1,6 @@
-import { Title } from "nullwind";
+import { theme, Title } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta
   title="Title"
@@ -45,3 +45,11 @@ const MyComponent = () => {
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    title: theme.title,
+  }}
+/>

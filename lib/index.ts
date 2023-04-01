@@ -28,5 +28,6 @@ export { default as ChevronRightIcon } from "./components/icons/ChevronRightIcon
 export { default as StarIcon } from "./components/icons/StarIcon";
 export { default as XIcon } from "./components/icons/XIcon";
 
-// Helpers
+// Theme
+export { default as theme } from "./theme";
 export { default as useTheme } from "./useTheme";

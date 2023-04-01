@@ -1,6 +1,6 @@
-import { Textarea } from "nullwind";
+import { theme, Textarea } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta title="Textarea" description="Use the following code to create a textarea form element." />
 
@@ -81,3 +81,16 @@ import { Textarea } from "nullwind";
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    input: theme.input,
+    label: theme.label,
+    corner: theme.corner,
+    textarea: theme.textarea,
+    helper: theme.helper,
+    error: theme.error,
+  }}
+/>

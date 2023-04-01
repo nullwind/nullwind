@@ -1,6 +1,6 @@
-import { Divider } from "nullwind";
+import { theme, Divider } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta title="Divider" description="Divider component renders horizontal line" />
 
@@ -34,3 +34,11 @@ const MyComponent = () => {
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    divider: theme.divider,
+  }}
+/>

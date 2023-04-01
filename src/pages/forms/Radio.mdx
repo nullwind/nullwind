@@ -1,6 +1,6 @@
-import { Radio } from "nullwind";
+import { theme, Radio } from "nullwind";
 
-import { Meta, Playground } from "~/components";
+import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta
   title="Radio"
@@ -62,3 +62,16 @@ import { Radio } from "nullwind";
     ```
   </Playground.Code>
 </Playground>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    inlineInput: theme.inlineInput,
+    label: theme.label,
+    corner: theme.corner,
+    radio: theme.radio,
+    helper: theme.helper,
+    error: theme.error,
+  }}
+/>
