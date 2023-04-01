@@ -194,6 +194,9 @@ const theme = {
     5: "text-lg font-bold text-slate-900",
     6: "text-base font-bold text-slate-900",
   },
+  divider: {
+    base: "my-8 text-sm flex items-center gap-4 before:h-px before:flex-1 before:bg-slate-300 before:content-[''] after:h-px after:flex-1 after:bg-slate-300 after:content-['']",
+  },
 };
 
 export default theme;

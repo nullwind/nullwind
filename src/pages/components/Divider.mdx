@@ -1,0 +1,36 @@
+import { Divider } from "nullwind";
+
+import { Meta, Playground } from "~/components";
+
+<Meta title="Divider" description="Divider component renders horizontal line" />
+
+# Divider
+
+Divider component renders a horizontal line. You can change style properties in `theme.divider`.
+
+Set `label` prop to render a specific label, default `label` is "More".
+
+## Usage
+
+```jsx
+import { Divider } from "nullwind";
+
+const MyComponent = () => {
+  return <Divider class="my-4" label="More Content" />;
+};
+```
+
+## Examples
+
+<Playground>
+  <Playground.Preview>
+    <Divider />
+    <Divider label="More Content" />
+  </Playground.Preview>
+  <Playground.Code>
+    ```jsx
+    <Divider />
+    <Divider label="More Content" />
+    ```
+  </Playground.Code>
+</Playground>
