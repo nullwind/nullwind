@@ -2,6 +2,7 @@ import Alert from "./pages/components/Alert.mdx";
 import Avatar from "./pages/components/Avatar.mdx";
 import Badge from "./pages/components/Badge.mdx";
 import Button from "./pages/components/Button.mdx";
+import ButtonGroup from "./pages/components/ButtonGroup.mdx";
 import Divider from "./pages/components/Divider.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
 import Tab from "./pages/components/Tab.mdx";
@@ -55,6 +56,11 @@ export const routes = [
         title: "Button",
         path: "/components/button",
         component: Button,
+      },
+      {
+        title: "ButtonGroup",
+        path: "/components/button-group",
+        component: ButtonGroup,
       },
       {
         title: "Divider",
