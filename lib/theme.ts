@@ -134,9 +134,9 @@ const theme = {
     content:
       "relative inline-block bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full",
     close: {
-      root: "absolute top-4 right-4",
+      base: "absolute top-4 right-4",
       button: {
-        root: "bg-white rounded-md text-slate-400 hover:text-slate-500 focus:outline-none",
+        base: "bg-white rounded-md text-slate-400 hover:text-slate-500 focus:outline-none",
         icon: "h-5 w-5",
       },
     },
