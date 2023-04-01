@@ -18,7 +18,7 @@ import { Alert } from "nullwind";
 
 const MyComponent = () => {
   return (
-    <Alert color="info" rounded={true} withBorderAccent={false} ondismiss={() => {}}>
+    <Alert color="info" ondismiss={() => {}}>
       This is a info alert
     </Alert>
   );
@@ -29,7 +29,7 @@ const MyComponent = () => {
 
 <Playground>
   <Playground.Preview>
-    <div class="flex flex-wrap gap-5 justify-center items-center">
+    <div class="flex flex-wrap items-center justify-center gap-5">
       <Alert color="info" ondismiss={() => {}}>
         <h4 class="font-bold">Info alert</h4>
         <div class="mt-1">
