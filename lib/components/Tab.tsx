@@ -18,14 +18,17 @@ const Tab = ({
 
   return (
     <div class={klass}>
-      <ul class={classes.list}>
+      <ul class={classes.list.base}>
         {children.map((child, idx) => {
           if (!child.attributes?.title) return false;
 
           return (
             <li>
               <a
-                class={[classes.listItem.base, child.attributes?.active && classes.listItem.active]}
+                class={[
+                  classes.list.item.base,
+                  child.attributes?.active && classes.list.item.active,
+                ]}
                 onclick={() => onchange && onchange(idx)}
               >
                 {child.attributes?.title}

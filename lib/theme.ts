@@ -170,11 +170,13 @@ const theme = {
     td: "px-6 py-4",
   },
   tab: {
-    list: "border-b border-b-slate-100 -mb-px flex items-center gap-4 text-sm font-medium w-auto",
-    listItem: {
-      base: "inline-flex cursor-pointer items-center gap-2 px-1 py-3 text-primary-600 hover:text-primary-600",
-      active:
-        "relative text-primary-600 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-primary-600",
+    list: {
+      base: "border-b border-b-slate-100 -mb-px flex items-center gap-4 text-sm font-medium w-auto",
+      item: {
+        base: "inline-flex cursor-pointer items-center gap-2 px-1 py-3 text-primary-600 hover:text-primary-600",
+        active:
+          "relative text-primary-600 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-primary-600",
+      },
     },
     panel: "py-3",
   },
