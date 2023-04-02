@@ -28,7 +28,7 @@ export class AppShell extends Nullstack {
         <div class="container mx-auto justify-between px-6 md:flex 2xl:px-32">
           <div class="flex items-center justify-between">
             <a href="/" title="Nullwind" class="flex">
-              <Logo />
+              <Logo class="h-[30px]" />
             </a>
             <a
               href="#"
