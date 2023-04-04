@@ -57,7 +57,6 @@ function Toggle({
           onclick?.();
         }}
       >
-        <span class="sr-only">{label}</span>
         <span
           aria-hidden="true"
           class={[classes.switch.base, classes.switch.checked[value ? "on" : "off"]]}

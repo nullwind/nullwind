@@ -30,6 +30,24 @@ const MyComponent = () => {
 <Playground>
   <Playground.Preview>
     <div class="flex flex-wrap items-center justify-center gap-5">
+      <Alert color="primary" ondismiss={() => {}}>
+        <h4 class="font-bold">Info alert</h4>
+        <div class="mt-1">
+          <p>
+            Lorem ipsum dolor sit amet. Internos reprehenderit perspiciatis commodi et omnis
+            impedit.
+          </p>
+        </div>
+      </Alert>
+      <Alert color="secondary" ondismiss={() => {}}>
+        <h4 class="font-bold">Info alert</h4>
+        <div class="mt-1">
+          <p>
+            Lorem ipsum dolor sit amet. Internos reprehenderit perspiciatis commodi et omnis
+            impedit.
+          </p>
+        </div>
+      </Alert>
       <Alert color="info" ondismiss={() => {}}>
         <h4 class="font-bold">Info alert</h4>
         <div class="mt-1">
@@ -70,6 +88,22 @@ const MyComponent = () => {
   </Playground.Preview>
   <Playground.Code>
     ```jsx
+    <Alert color="primary" ondismiss={() => {}}>
+      <h4 class="font-bold">Info alert</h4>
+      <div class="mt-1">
+        <p>
+          Lorem ipsum dolor sit amet. Internos reprehenderit perspiciatis commodi et omnis impedit.
+        </p>
+      </div>
+    </Alert>
+    <Alert color="secondary" ondismiss={() => {}}>
+      <h4 class="font-bold">Info alert</h4>
+      <div class="mt-1">
+        <p>
+          Lorem ipsum dolor sit amet. Internos reprehenderit perspiciatis commodi et omnis impedit.
+        </p>
+      </div>
+    </Alert>
     <Alert color="info" ondismiss={() => {}}>
       <h4 class="font-bold">Info alert</h4>
       <div class="mt-1">

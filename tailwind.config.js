@@ -10,7 +10,7 @@ module.exports = {
       },
       colors: {
         primary: colors.sky,
-        secondary: colors.gray,
+        secondary: colors.slate,
         info: colors.blue,
         success: colors.green,
         warning: colors.orange,

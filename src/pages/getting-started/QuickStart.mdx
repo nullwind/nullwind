@@ -25,8 +25,8 @@ class Application extends Nullstack {
     context.useTheme = useTheme();
   }
 
-  render() {
-    if (!this.hydrated) return false;
+  render(context) {
+    if (!context.useTheme) return false;
 
     return (
       <main>

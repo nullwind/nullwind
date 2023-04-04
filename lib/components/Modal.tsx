@@ -37,7 +37,6 @@ const Modal = ({
           {typeof onclose === "function" && (
             <div class={classes.wrapper.content.close.base} onclick={onclose && onclose}>
               <button type="button" class={classes.wrapper.content.close.button.base}>
-                <span class="sr-only">Close</span>
                 <XIcon class={classes.wrapper.content.close.button.icon} />
               </button>
             </div>

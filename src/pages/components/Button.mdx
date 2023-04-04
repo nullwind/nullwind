@@ -23,7 +23,7 @@ const MyComponent = () => {
     <Button
       href="https://nullstack.app" // set custom `href` to use as a link
       color="primary" // primary, secondary, info, success, warning, danger
-      size="base" // xs, sm, base, lg, xl
+      size="base" // sm, base, lg
       outline={false}
       disabled={false}
       onclick={() => {}}
@@ -105,20 +105,16 @@ const MyComponent = () => {
 <Playground title="Sizes">
   <Playground.Preview>
     <div class="flex flex-wrap gap-5 justify-center items-center">
-      <Button size="xs">XS</Button>
       <Button size="sm">SM</Button>
-      <Button size="base">Base</Button>
+      <Button>Base</Button>
       <Button size="lg">LG</Button>
-      <Button size="xl">XL</Button>
     </div>
   </Playground.Preview>
   <Playground.Code>
     ```jsx
-    <Button size="xs">XS</Button>
     <Button size="sm">SM</Button>
-    <Button size="base">Base</Button>
+    <Button>Base</Button>
     <Button size="lg">LG</Button>
-    <Button size="xl">XL</Button>
     ```
   </Playground.Code>
 </Playground>
