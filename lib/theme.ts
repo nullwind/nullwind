@@ -89,23 +89,23 @@ const theme = {
   },
   textInput: {
     base: "w-full rounded-md border-slate-300 shadow-sm disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
-    error: "border-danger-300 text-danger-900 placeholder-danger-300",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   select: {
     base: "w-full rounded-md border-slate-300 shadow-sm disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
-    error: "border-danger-300 text-danger-900 placeholder-danger-300",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   textarea: {
     base: "w-full rounded-md border-slate-300 shadow-sm disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
-    error: "border-danger-300 text-danger-900 placeholder-danger-300",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   checkbox: {
     base: "h-4 w-4 rounded border-slate-300 text-primary-600 shadow-sm disabled:cursor-not-allowed disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
-    error: "border-danger-300 text-danger-900 placeholder-danger-300",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   radio: {
     base: "h-4 w-4 rounded-full border-slate-300 text-primary-600 shadow-sm disabled:cursor-not-allowed disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
-    error: "border-danger-300 text-danger-900 placeholder-danger-300",
+    error: "!border-danger-300 text-danger-900 placeholder-danger-300",
   },
   toggle: {
     base: "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200",
