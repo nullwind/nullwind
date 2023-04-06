@@ -1,6 +1,6 @@
 const theme = {
   button: {
-    base: "font-medium rounded-md focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed",
+    base: "font-medium text-sm px-4 py-2 rounded-md focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed",
     color: {
       primary:
         "text-white bg-primary-500 border border-transparent hover:bg-primary-800 disabled:hover:bg-primary-500",
@@ -37,16 +37,15 @@ const theme = {
     },
     size: {
       sm: "text-xs px-3 py-1.5",
-      base: "text-sm px-4 py-2",
       lg: "text-base px-5 py-2.5",
     },
   },
   buttonGroup: {
     base: "inline-flex",
     position: {
-      start: "rounded-r-none",
-      middle: "rounded-none",
-      end: "rounded-l-none",
+      start: "rounded-r-none border-r-0",
+      middle: "rounded-none border-l-0",
+      end: "rounded-l-none border-l-0",
     },
   },
   alert: {
