@@ -1,8 +1,8 @@
 import mergeTheme from "./helpers/mergeTheme";
 import defaultTheme from "./theme";
-import type { Theme, UseTheme } from "./types";
+import type { Theme } from "./types";
 
-function useTheme(customTheme?: Partial<Theme>): UseTheme {
+function useTheme(customTheme?: Partial<Theme>) {
   return function useTheme(customComponentTheme) {
     return mergeTheme(mergeTheme(defaultTheme, customTheme), customComponentTheme);
   };

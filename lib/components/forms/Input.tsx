@@ -5,6 +5,7 @@ import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
 import type { ComponentProps } from "../../types";
+import getUseTheme from "../../useTheme";
 
 interface InputProps extends ComponentProps {
   corner?: string;
@@ -24,7 +25,7 @@ function Input({
   label,
   required,
   theme,
-  useTheme,
+  useTheme = getUseTheme(),
 }: NullstackClientContext<InputProps>) {
   const { input } = useTheme(theme);
 

@@ -1,7 +1,5 @@
 import Nullstack, { NullstackNode } from "nullstack";
 
-import { useTheme } from "nullwind";
-
 import { AppShell } from "./AppShell";
 import NotFound from "./pages/NotFound.mdx";
 import { routes } from "./routes";
@@ -15,10 +13,6 @@ declare function Head(): NullstackNode;
 class Application extends Nullstack {
   prepare(context) {
     context.page.locale = "en-US";
-  }
-
-  hydrate(context) {
-    context.useTheme = useTheme();
   }
 
   renderHead() {

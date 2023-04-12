@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 
 import XIcon from "./icons/XIcon";
 import type { ComponentProps } from "../types";
+import getUseTheme from "../useTheme";
 
 interface ModalProps extends ComponentProps {
   children?: NullstackNode;
@@ -16,7 +17,7 @@ const Modal = ({
   class: klass,
   onclose,
   theme,
-  useTheme,
+  useTheme = getUseTheme(),
   visible,
 }: NullstackClientContext<ModalProps>) => {
   const classes = useTheme(theme).modal;

@@ -2,6 +2,7 @@ import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } f
 
 import Input from "./Input";
 import type { ComponentProps } from "../../types";
+import getUseTheme from "../../useTheme";
 
 interface SelectProps extends ComponentProps {
   children?: NullstackNode;
@@ -24,7 +25,7 @@ const Select = ({
   label,
   required,
   theme,
-  useTheme,
+  useTheme = getUseTheme(),
   ...rest
 }: NullstackClientContext<SelectProps>) => {
   const classes = useTheme(theme).select;

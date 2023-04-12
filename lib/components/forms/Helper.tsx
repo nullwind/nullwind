@@ -1,13 +1,14 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import type { ComponentProps } from "../../types";
+import getUseTheme from "../../useTheme";
 
 interface HelperProps extends ComponentProps {
   children?: NullstackNode;
 }
 
 function Helper(props: NullstackClientContext<HelperProps>) {
-  const { children, class: klass, theme, useTheme } = props;
+  const { children, class: klass, theme, useTheme = getUseTheme() } = props;
   const classes = useTheme(theme).helper;
   return <p class={[classes, klass]}>{children}</p>;
 }

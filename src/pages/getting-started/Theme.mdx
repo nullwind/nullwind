@@ -33,16 +33,26 @@ You have a few options. They each have benefits and drawbacks, and you can combi
         </Table.TD>
         <Table.TD>
           ```jsx
-            import type { Theme } from 'nullwind';
-            import { Button } from 'nullwind';
+            import Nullstack from 'nullstack';
 
-            const theme: Theme = {
+            const theme = {
               button: {
                 base: 'rounded-none',
               },
             };
 
-            context.useTheme = useTheme(theme);
+            class Application extends Nullstack {
+              initiate(context) {
+                context.useTheme = useTheme(theme);
+              }
+
+              render(context) {
+                // wait for the theme to be ready
+                if (!context.useTheme) return false;
+
+                return true;
+              }
+            }
           ```
         </Table.TD>
       </Table.TR>
@@ -77,10 +87,9 @@ You have a few options. They each have benefits and drawbacks, and you can combi
         </Table.TD>
         <Table.TD>
           ```jsx
-            import type { Theme } from 'nullwind';
             import { Button } from 'nullwind';
 
-            const theme: Theme = {
+            const theme = {
               button: {
                 base: 'rounded-none',
               },

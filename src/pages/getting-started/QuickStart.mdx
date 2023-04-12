@@ -21,13 +21,7 @@ import Nullstack from "nullstack";
 import { useTheme, Button } from "nullwind";
 
 class Application extends Nullstack {
-  hydrate(context) {
-    context.useTheme = useTheme();
-  }
-
   render(context) {
-    if (!context.useTheme) return false;
-
     return (
       <main>
         <Button>Button</Button>

@@ -3,6 +3,7 @@ import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } f
 import { twMerge } from "tailwind-merge";
 
 import type { ComponentProps } from "../types";
+import getUseTheme from "../useTheme";
 
 export interface ButtonProps extends ComponentProps {
   active?: boolean;
@@ -28,9 +29,9 @@ function Button({
   size,
   theme,
   type,
-  useTheme,
+  useTheme = getUseTheme(),
   ...rest
-}: NullstackClientContext<ButtonProps>) {
+}: NullstackClientContext<ButtonProps>): NullstackNode {
   const isLink = typeof href !== "undefined";
   const Component = isLink ? "a" : "button";
   const classes = useTheme(theme).button;

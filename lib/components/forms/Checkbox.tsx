@@ -2,6 +2,7 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 
 import InlineInput from "./InlineInput";
 import type { ComponentProps } from "../../types";
+import getUseTheme from "../../useTheme";
 
 interface CheckboxProps extends ComponentProps {
   disabled?: boolean;
@@ -19,7 +20,7 @@ const Checkbox = ({
   label,
   required,
   theme,
-  useTheme,
+  useTheme = getUseTheme(),
   ...rest
 }: NullstackClientContext<CheckboxProps>) => {
   const classes = useTheme(theme).checkbox;

@@ -3,6 +3,7 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 import { twMerge } from "tailwind-merge";
 
 import type { ComponentProps } from "../types";
+import getUseTheme from "../useTheme";
 
 interface AvatarProps extends ComponentProps {
   description?: string;
@@ -12,7 +13,16 @@ interface AvatarProps extends ComponentProps {
 }
 
 function Avatar(props: NullstackClientContext<AvatarProps>) {
-  const { class: klass, description, id, name, placeholder, src, theme, useTheme } = props;
+  const {
+    class: klass,
+    description,
+    id,
+    name,
+    placeholder,
+    src,
+    theme,
+    useTheme = getUseTheme(),
+  } = props;
   const classes = useTheme(theme).avatar;
   const placeholderUrl = placeholder || `https://eu.ui-avatars.com/api/?name=${name}`;
 

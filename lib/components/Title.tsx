@@ -3,6 +3,7 @@ import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } f
 import { twMerge } from "tailwind-merge";
 
 import type { ComponentProps } from "../types";
+import getUseTheme from "../useTheme";
 
 interface TitleProps extends ComponentProps {
   children?: NullstackNode;
@@ -14,7 +15,7 @@ function Title({
   class: klass,
   h = 1,
   theme,
-  useTheme,
+  useTheme = getUseTheme(),
 }: NullstackClientContext<TitleProps>) {
   const classes = useTheme(theme).title;
   const tag = `h${h}`;

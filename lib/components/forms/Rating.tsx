@@ -1,6 +1,7 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
 import type { ComponentProps } from "../../types";
+import getUseTheme from "../../useTheme";
 import StarIcon from "../icons/StarIcon";
 
 interface RatingProps extends ComponentProps {
@@ -10,7 +11,7 @@ interface RatingProps extends ComponentProps {
 }
 
 function Rating(props: NullstackClientContext<RatingProps>) {
-  const { averageRate, bind, class: klass, disabled, theme, useTheme } = props;
+  const { averageRate, bind, class: klass, disabled, theme, useTheme = getUseTheme() } = props;
   const classes = useTheme(theme).rating;
   const rate = averageRate >= 0 ? averageRate : bind.object[bind.property];
 

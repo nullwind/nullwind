@@ -1,13 +1,14 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import type { ComponentProps } from "../../types";
+import getUseTheme from "../../useTheme";
 
 interface CornerProps extends ComponentProps {
   children?: NullstackNode;
 }
 
 function Corner(props: NullstackClientContext<CornerProps>) {
-  const { children, class: klass, theme, useTheme } = props;
+  const { children, class: klass, theme, useTheme = getUseTheme() } = props;
   const classes = useTheme(theme).corner;
   return <span class={[classes, klass]}>{children}</span>;
 }

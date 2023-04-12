@@ -4,6 +4,7 @@ import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
 import type { ComponentProps } from "../../types";
+import getUseTheme from "../../useTheme";
 
 interface InlineInputProps extends ComponentProps {
   error?: string;
@@ -21,7 +22,7 @@ function InlineInput({
   label,
   required,
   theme,
-  useTheme,
+  useTheme = getUseTheme(),
 }: NullstackClientContext<InlineInputProps>) {
   const { inlineInput } = useTheme(theme);
 

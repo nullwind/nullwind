@@ -2,6 +2,7 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 
 import Input from "./Input";
 import type { ComponentProps } from "../../types";
+import getUseTheme from "../../useTheme";
 
 interface TextareaProps extends ComponentProps {
   corner?: string;
@@ -25,7 +26,7 @@ function Textarea({
   required,
   rows = 4,
   theme,
-  useTheme,
+  useTheme = getUseTheme(),
   ...rest
 }: NullstackClientContext<TextareaProps>) {
   const classes = useTheme(theme).textarea;
