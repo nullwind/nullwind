@@ -1,3 +1,4 @@
+import { Alert } from "nullwind";
 import { Meta } from "~/components";
 
 <Meta title="Getting Started" description="" />
@@ -6,25 +7,11 @@ import { Meta } from "~/components";
 
 ## Installation
 
+Nullwind is a modern UI component library for Tailwind CSS, you just need to install Tailwind CSS and configure it.
+
 ```bash
 yarn add -D tailwindcss @tailwindcss/forms @tailwindcss/typography
 yarn add 'https://gitpkg.now.sh/fccoelho7/nullwind/lib?main'
-```
-
-Nullwind is a modern UI component library for Tailwind CSS, you just need to install Tailwind CSS and configure it.
-
-## Usage
-
-```tsx
-// Application.js
-import Nullstack from "nullstack";
-import { Button } from "nullwind";
-
-class Application extends Nullstack {
-  render() {
-    return <Button>Button</Button>;
-  }
-}
 ```
 
 ## Configuration
@@ -60,75 +47,38 @@ module.exports = {
 };
 ```
 
-## Tailwind Theme
+## Usage
 
-We add two colors to the theme, primary and secondary, you can set your colors. This is a required configuration, please configure it according to your own needs.
+```tsx
+// Application.js
+import Nullstack from "nullstack";
+import { Button } from "nullwind";
 
-1. First you net import the colors from tailwindcss/colors.
+class Application extends Nullstack {
+  renderHead() {
+    return (
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+    );
+  }
 
-```js
-const colors = require("tailwindcss/colors");
+  render() {
+    return (
+      <main>
+        <Head />
+        <Button>Click me</Button>
+      </main>
+    );
+  }
+}
 ```
 
-2. Then you can set your colors, more colors can be found in Tailwind CSS Customizing Colors.
-
-```js
-// Set theme colors (Required config!)
-colors: {
-  primary: colors.blue,
-  secondary: colors.slate,
-},
-```
-
-3. You can also use Tailwind CSS Color Shades Generator to produce and configure your colors.
-
-```js
-// Set theme colors (Required config!)
-colors: {
-  primary: {
-    50: "#e6f6ff",
-    100: "#b3ebff",
-    ...
-  },
-  secondary: {
-    50: "#f4f5f7",
-    100: "#e4e7eb",
-    ...
-  },
-},
-```
-
-## Font
-
-We use Inter as the default font, You can easily use Google Font CDN to import Inter fonts.
-
-```html
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-    rel="stylesheet"
-  />
-</head>
-```
-
-Then you can add the Inter to the tailwind.config.js file.
-
-```js
-// Set font family
-fontFamily: {
-  sans: ["Inter", ...defaultTheme.fontFamily.sans],
-},
-```
-
-To use different fonts, simply replace the font “inter” with your preferred font.
-
-## Plugins
-
-We use @tailwindcss/typography and @tailwindcss/forms plugins by default, you can add them to the tailwind.config.js file. It is not required, you can configure it as needed.
-
-```js
-// Add plugins
-plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
-```
+<Alert color="primary" class="mt-4">
+  If you're looking for theme customization, please see the <b>Theme</b> section.
+</Alert>
