@@ -18,15 +18,11 @@ Nullwind is a modern UI component library for Tailwind CSS, you just need to ins
 ```tsx
 // Application.js
 import Nullstack from "nullstack";
-import { useTheme, Button } from "nullwind";
+import { Button } from "nullwind";
 
 class Application extends Nullstack {
-  render(context) {
-    return (
-      <main>
-        <Button>Button</Button>
-      </main>
-    );
+  render() {
+    return <Button>Button</Button>;
   }
 }
 ```
