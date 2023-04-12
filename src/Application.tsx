@@ -1,4 +1,4 @@
-import Nullstack from "nullstack";
+import Nullstack, { NullstackNode } from "nullstack";
 
 import { useTheme } from "nullwind";
 
@@ -9,6 +9,8 @@ import { routes } from "./routes";
 import "prism-themes/themes/prism-shades-of-purple.css";
 import "./styles.css";
 import "../tailwind.css";
+
+declare function Head(): NullstackNode;
 
 class Application extends Nullstack {
   prepare(context) {

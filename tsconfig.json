@@ -12,7 +12,10 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "preserve",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "nullwind": ["lib/index.ts"]
+    }
   },
   "include": ["**/*.ts", "**/*.nts", "**/*.tsx"],
   "exclude": ["node_modules"]
