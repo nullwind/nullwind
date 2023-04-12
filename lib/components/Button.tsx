@@ -28,17 +28,19 @@ function Button({
   positionInGroup,
   size,
   theme,
-  type,
+  type = "button",
   useTheme = getUseTheme(),
   ...rest
 }: NullstackClientContext<ButtonProps>): NullstackNode {
   const isLink = typeof href !== "undefined";
-  const Component = isLink ? "a" : "button";
   const classes = useTheme(theme).button;
   const groupClasses = useTheme(theme).buttonGroup;
 
   return (
-    <Component
+    // @ts-ignore
+    <element
+      tag={isLink ? "a" : type}
+      href={href}
       class={twMerge(
         classes.base,
         outline ? classes.outline[color] : classes.color[color],
@@ -47,12 +49,10 @@ function Button({
         positionInGroup && groupClasses.position[positionInGroup],
         klass
       )}
-      href={href}
-      type={isLink ? undefined : type}
       {...rest}
     >
       {children}
-    </Component>
+    </element>
   );
 }
 
