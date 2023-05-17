@@ -3,7 +3,7 @@ import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } f
 import { twMerge } from "tailwind-merge";
 
 import { ComponentProps } from "../types";
-import getUseTheme from "../useTheme";
+import useThemeProvider from "../useTheme";
 
 interface DefaultProps extends ComponentProps {
   children?: NullstackNode;
@@ -14,7 +14,7 @@ const Table = ({
   class: klass,
   id,
   theme,
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
 }: NullstackClientContext<DefaultProps>) => {
   return (
     <table id={id} class={twMerge(useTheme(theme).table.base, klass)}>
@@ -27,7 +27,7 @@ Table.THead = ({
   children,
   class: klass,
   theme,
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
 }: NullstackClientContext<DefaultProps>) => {
   return <thead class={twMerge(useTheme(theme).table.thead, klass)}>{children}</thead>;
 };
@@ -36,7 +36,7 @@ Table.TH = ({
   children,
   class: klass,
   theme,
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
 }: NullstackClientContext<DefaultProps>) => {
   return (
     <th scope="col" class={twMerge(useTheme(theme).table.th, klass)}>
@@ -49,7 +49,7 @@ Table.TBody = ({
   children,
   class: klass,
   theme,
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
 }: NullstackClientContext<DefaultProps>) => {
   return <tbody class={twMerge(useTheme(theme).table.tbody, klass)}>{children}</tbody>;
 };
@@ -58,7 +58,7 @@ Table.TR = ({
   children,
   class: klass,
   theme,
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
 }: NullstackClientContext<DefaultProps>) => (
   <tr class={twMerge(useTheme(theme).table.tr, klass)}>{children}</tr>
 );
@@ -67,7 +67,7 @@ Table.TD = ({
   children,
   class: klass,
   theme,
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
 }: NullstackClientContext<DefaultProps>) => {
   return <td class={twMerge(useTheme(theme).table.td, klass)}>{children}</td>;
 };

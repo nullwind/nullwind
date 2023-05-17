@@ -2,7 +2,7 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 
 import Input from "./Input";
 import type { ComponentProps } from "../../types";
-import getUseTheme from "../../useTheme";
+import useThemeProvider from "../../useTheme";
 
 interface TextInputProps extends ComponentProps {
   bind?: object;
@@ -28,7 +28,7 @@ function TextInput({
   required,
   theme,
   type = "text",
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
   ...rest
 }: NullstackClientContext<TextInputProps>) {
   const classes = useTheme(theme).textInput;

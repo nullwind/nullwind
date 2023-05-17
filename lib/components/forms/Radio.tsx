@@ -2,7 +2,7 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 
 import InlineInput from "./InlineInput";
 import type { ComponentProps } from "../../types";
-import getUseTheme from "../../useTheme";
+import useThemeProvider from "../../useTheme";
 
 interface RadioProps extends ComponentProps {
   disabled?: boolean;
@@ -21,7 +21,7 @@ function Radio({
   label,
   required,
   theme,
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
   ...rest
 }: NullstackClientContext<RadioProps>) {
   const classes = useTheme(theme).radio;

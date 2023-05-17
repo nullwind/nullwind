@@ -3,14 +3,14 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 import { twMerge } from "tailwind-merge";
 
 import { ComponentProps } from "../types";
-import getUseTheme from "../useTheme";
+import useThemeProvider from "../useTheme";
 
 interface ButtonGroupProps extends ComponentProps {
   children?: Record<string, Record<string, string>>[];
 }
 
 function ButtonGroup(props: NullstackClientContext<ButtonGroupProps>) {
-  const { children, class: klass, theme, useTheme = getUseTheme() } = props;
+  const { children, class: klass, theme, useTheme = useThemeProvider() } = props;
   const classes = useTheme(theme).buttonGroup;
 
   return (

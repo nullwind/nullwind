@@ -1,7 +1,7 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import type { ComponentProps } from "../../types";
-import getUseTheme from "../../useTheme";
+import useThemeProvider from "../../useTheme";
 
 interface LabelProps extends ComponentProps {
   children?: NullstackNode;
@@ -16,7 +16,7 @@ function Label(props: NullstackClientContext<LabelProps>) {
     for: receivedFor,
     required,
     theme,
-    useTheme = getUseTheme(),
+    useTheme = useThemeProvider(),
   } = props;
   const classes = useTheme(theme).label;
 

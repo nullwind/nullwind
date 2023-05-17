@@ -3,14 +3,21 @@ import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack"
 import { twMerge } from "tailwind-merge";
 
 import type { ComponentProps } from "../types";
-import getUseTheme from "../useTheme";
+import useThemeProvider from "../useTheme";
 
 interface BadgeProps extends ComponentProps {
   color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
 }
 
 function Badge(props: NullstackClientContext<BadgeProps>) {
-  const { children, class: klass, color = "primary", id, theme, useTheme = getUseTheme() } = props;
+  const {
+    children,
+    class: klass,
+    color = "primary",
+    id,
+    theme,
+    useTheme = useThemeProvider(),
+  } = props;
 
   const classes = useTheme(theme).badge;
 

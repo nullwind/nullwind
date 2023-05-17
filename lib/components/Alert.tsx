@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 
 import XIcon from "./icons/XIcon";
 import type { ComponentProps } from "../types";
-import getUseTheme from "../useTheme";
+import useThemeProvider from "../useTheme";
 
 declare function Icon(): NullstackNode;
 
@@ -22,7 +22,7 @@ const Alert = ({
   icon: Icon,
   ondismiss,
   theme,
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
 }: NullstackClientContext<AlertProps>) => {
   const classes = useTheme(theme).alert;
 

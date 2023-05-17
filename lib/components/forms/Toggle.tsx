@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 
 import InlineInput from "./InlineInput";
 import type { ComponentProps } from "../../types";
-import getUseTheme from "../../useTheme";
+import useThemeProvider from "../../useTheme";
 
 interface ToggleProps extends ComponentProps {
   disabled?: boolean;
@@ -26,7 +26,7 @@ function Toggle({
   onclick,
   required,
   theme,
-  useTheme = getUseTheme(),
+  useTheme = useThemeProvider(),
 }: NullstackClientContext<ToggleProps>) {
   const classes = useTheme(theme).toggle;
   const value = !!bind?.object?.[bind?.property];
