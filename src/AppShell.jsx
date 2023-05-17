@@ -71,7 +71,7 @@ export class AppShell extends Nullstack {
             <ul class="mt-6 items-center gap-5 space-y-6 font-medium md:mt-0 md:flex md:space-y-0">
               <li>
                 <a
-                  href="https://github.com/fccoelho7/nullwind"
+                  href="https://github.com/nullwind/nullwind"
                   target="_blank"
                   class="block hover:text-primary-400"
                   aria-label="GitHub"

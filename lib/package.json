@@ -9,7 +9,7 @@
   "sideEffects": false,
   "homepage": "https://nullwind.dev/",
   "repository": {
-    "url": "https://github.com/fccoelho7/nullwind.git",
+    "url": "https://github.com/nullwind/nullwind.git",
     "type": "git",
     "directory": "src/lib"
   },
