@@ -1,5 +1,5 @@
 import { theme, Tab } from "nullwind";
-
+import Preview from "./Preview";
 import { Meta, Playground, ThemePreview } from "~/components";
 
 <Meta
@@ -33,23 +33,21 @@ const MyComponent = () => {
 
 <Playground title="Default">
   <Playground.Preview>
-    <Tab onchange={(idx) => alert(`Choosen Tab: ${idx}`)}>
-      <Tab.Item title="Profile" active>
-        Tab content 1
-      </Tab.Item>
-      <Tab.Item title="Notifications">Tab content 2</Tab.Item>
-      <Tab.Item title="Settings">Tab content 3</Tab.Item>
-    </Tab>
+    <Preview />
   </Playground.Preview>
   <Playground.Code>
     ```jsx
-    <Tab onchange={(idx) => alert(`Choosen Tab: ${idx}`)}>
-      <Tab.Item title="Profile" active>
-        Tab content 1
-      </Tab.Item>
-      <Tab.Item title="Notifications">Tab content 2</Tab.Item>
-      <Tab.Item title="Settings">Tab content 3</Tab.Item>
-    </Tab>
+    <Tab onchange={(idx) => (this.idx = idx)}>
+        <Tab.Item title="Profile" active={this.idx === 0}>
+          Tab content 1
+        </Tab.Item>
+        <Tab.Item title="Notifications" active={this.idx === 1}>
+          Tab content 2
+        </Tab.Item>
+        <Tab.Item title="Settings" active={this.idx === 2}>
+          Tab content 3
+        </Tab.Item>
+      </Tab>
     ```
   </Playground.Code>
 </Playground>
