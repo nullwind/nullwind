@@ -5,13 +5,19 @@ import { Meta } from "~/components";
 
 # Quick Start
 
+## Installing Nullstack + Tailwind (optional)
+
+```bash
+npx create-nullstack-app@latest --tailwind
+```
+
 ## Installation
 
 Nullwind is a modern UI component library for Tailwind CSS, you just need to install Tailwind CSS and configure it.
 
 ```bash
-yarn add -D tailwindcss @tailwindcss/forms @tailwindcss/typography
-yarn add 'nullwind/nullwind'
+yarn add -D @tailwindcss/forms @tailwindcss/typography
+yarn add nullwind
 ```
 
 ## Configuration
@@ -54,6 +60,8 @@ module.exports = {
 import Nullstack from "nullstack";
 import { Button } from "nullwind";
 
+import "../tailwind.css";
+
 class Application extends Nullstack {
   renderHead() {
     return (
@@ -77,6 +85,8 @@ class Application extends Nullstack {
     );
   }
 }
+
+export default Application;
 ```
 
 <Alert color="primary" class="mt-4">
