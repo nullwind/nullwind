@@ -5,7 +5,7 @@ import Button from "./pages/components/Button.mdx";
 import ButtonGroup from "./pages/components/ButtonGroup.mdx";
 import Divider from "./pages/components/Divider.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
-import Tab from "./pages/components/Tab.mdx";
+import Tab from "./pages/components/Tab/Tab.mdx";
 import Table from "./pages/components/Table.mdx";
 import Title from "./pages/components/Title.mdx";
 import Checkbox from "./pages/forms/Checkbox.mdx";
