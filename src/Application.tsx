@@ -2,6 +2,7 @@ import Nullstack, { NullstackNode } from "nullstack";
 
 import { AppShell } from "./AppShell";
 import NotFound from "./pages/NotFound.mdx";
+import ThemeBuilderIframe from "./pages/theme-builder/ThemeBuilderIframe";
 import { routes } from "./routes";
 
 import "prism-themes/themes/prism-shades-of-purple.css";
@@ -29,14 +30,16 @@ class Application extends Nullstack {
     );
   }
 
-  render() {
+  render({ router }) {
     if (!this.hydrated) return false;
+    if (router.path === "/iframe") return <ThemeBuilderIframe route="/iframe" persistent />;
 
     const allRoutes = routes.map((section) => section.routes).flat();
 
     return (
       <body class="bg-white text-secondary-500 antialiased">
         <Head />
+
         <AppShell>
           {allRoutes.map(({ component: Component, path }) => (
             <Component route={path} persistent />
