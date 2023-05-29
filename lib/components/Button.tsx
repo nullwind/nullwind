@@ -14,7 +14,7 @@ export interface ButtonProps extends ComponentProps {
   href?: string;
   outline?: boolean;
   positionInGroup?: "start" | "middle" | "end";
-  size?: "sm" | "lg";
+  size?: "sm" | "md" | "lg";
   type?: "button" | "submit" | "reset";
 }
 
@@ -23,10 +23,11 @@ function Button({
   children,
   class: klass,
   color = "primary",
+  fullSized,
   href,
   outline,
   positionInGroup,
-  size,
+  size = "md",
   theme,
   type = "button",
   useTheme = useThemeProvider(),
@@ -47,6 +48,7 @@ function Button({
         outline ? classes.outline[color] : classes.color[color],
         active && classes.active[color],
         size && classes.size[size],
+        fullSized && classes.fullSized,
         positionInGroup && groupClasses.position[positionInGroup],
         klass
       )}
