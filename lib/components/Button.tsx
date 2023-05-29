@@ -39,7 +39,8 @@ function Button({
   return (
     // @ts-ignore
     <element
-      tag={isLink ? "a" : type}
+      tag={isLink ? "a" : "button"}
+      type={isLink ? undefined : type}
       href={href}
       class={twMerge(
         classes.base,
