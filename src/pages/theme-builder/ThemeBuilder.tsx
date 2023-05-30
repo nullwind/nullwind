@@ -104,8 +104,8 @@ class ThemeBuilder extends Nullstack {
             <h2 class={"my-0 flex justify-between"}>
               Colors
               <Button size="sm" onclick={this.toogleColors}>
-                {this.showColors && <IconCode />}
-                {!this.showColors && <IconSettings />}
+                {this.showColors && <IconCode size={18} />}
+                {!this.showColors && <IconSettings size={18} />}
               </Button>
             </h2>
             {this.showColors && <Colors obj={this.colors} />}
@@ -113,8 +113,8 @@ class ThemeBuilder extends Nullstack {
             <h2 class={"my-0 flex justify-between"}>
               Configs
               <Button size="sm" onclick={this.toogleConfigs}>
-                {this.showConfigs && <IconCode />}
-                {!this.showConfigs && <IconSettings />}
+                {this.showConfigs && <IconCode size={18} />}
+                {!this.showConfigs && <IconSettings size={18} />}
               </Button>
             </h2>
             {this.showConfigs && <Config obj={this.theme} />}
