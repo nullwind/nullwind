@@ -14,7 +14,7 @@ declare function Colors(): NullstackNode;
 class ThemeBuilder extends Nullstack {
   theme = theme;
   colors = {
-    primary: "pink",
+    primary: "sky",
     secondary: "slate",
     info: "blue",
     success: "green",
@@ -91,13 +91,13 @@ class ThemeBuilder extends Nullstack {
       <>
         <h1>Theme Builder</h1>
         <div class="flex flex-row">
-          <div class="basis-1/3">
+          <div class="basis-1/3 sticky inset-0 right-auto z-20 -ml-6 shrink-0 overflow-y-auto max-h-screen">
             <h2 class={"my-0"}>Colors</h2>
             <Colors obj={this.colors} />
             <h2 class={"my-0"}>Configs</h2>
             <Config obj={this.theme} />
           </div>
-          <div class="basis-2/3">
+          <div class="basis-2/3 ml-4 sticky inset-0 right-auto z-20 shrink-0 overflow-y-auto max-h-screen">
             <iframe
               class="w-full h-full"
               ref={this.iframe}
