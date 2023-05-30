@@ -1,6 +1,7 @@
 import Nullstack, { NullstackNode } from "nullstack";
 
-import { Textarea } from "nullwind";
+import { IconCode, IconSettings } from "nullstack-feather-icons";
+import { Button, Textarea } from "nullwind";
 import { theme } from "nullwind";
 import getPalette from "tailwindcss-palette-generator";
 
@@ -12,6 +13,8 @@ declare function Config(): NullstackNode;
 declare function Colors(): NullstackNode;
 
 class ThemeBuilder extends Nullstack {
+  showColors = true;
+  showConfigs = true;
   theme = theme;
   colors = {
     primary: "sky",
@@ -23,6 +26,12 @@ class ThemeBuilder extends Nullstack {
   };
   _script: HTMLScriptElement;
   iframe: HTMLIFrameElement;
+  toogleColors() {
+    this.showColors = !this.showColors;
+  }
+  toogleConfigs() {
+    this.showConfigs = !this.showConfigs;
+  }
 
   _formatString(str: string) {
     return str.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/\w\S*/g, function (txt) {
@@ -92,10 +101,24 @@ class ThemeBuilder extends Nullstack {
         <h1>Theme Builder</h1>
         <div class="flex flex-row">
           <div class="basis-1/3 sticky inset-0 right-auto z-20 -ml-6 shrink-0 overflow-y-auto max-h-screen">
-            <h2 class={"my-0"}>Colors</h2>
-            <Colors obj={this.colors} />
-            <h2 class={"my-0"}>Configs</h2>
-            <Config obj={this.theme} />
+            <h2 class={"my-0 flex justify-between"}>
+              Colors
+              <Button size="sm" onclick={this.toogleColors}>
+                {this.showColors && <IconCode />}
+                {!this.showColors && <IconSettings />}
+              </Button>
+            </h2>
+            {this.showColors && <Colors obj={this.colors} />}
+            {!this.showColors && <pre>{JSON.stringify(this._getColors(), null, 2)}</pre>}
+            <h2 class={"my-0 flex justify-between"}>
+              Configs
+              <Button size="sm" onclick={this.toogleConfigs}>
+                {this.showConfigs && <IconCode />}
+                {!this.showConfigs && <IconSettings />}
+              </Button>
+            </h2>
+            {this.showConfigs && <Config obj={this.theme} />}
+            {!this.showConfigs && <pre>{JSON.stringify(this.theme, null, 2)}</pre>}
           </div>
           <div class="basis-2/3 ml-4 sticky inset-0 right-auto z-20 shrink-0 overflow-y-auto max-h-screen">
             <iframe
