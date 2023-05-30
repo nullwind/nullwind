@@ -1,6 +1,6 @@
 import Nullstack from "nullstack";
 
-import { Button, Title } from "nullwind";
+import ButtonsIframe from "./iframe/ButtonsIframe";
 
 class ThemeBuilderIframe extends Nullstack {
   theme;
@@ -50,16 +50,8 @@ class ThemeBuilderIframe extends Nullstack {
   render() {
     if (!this.theme && !this.colors) return false;
     return (
-      <div class="flex-col gap-4">
-        <Title h={2}> Buttons </Title>
-        <div class="flex gap-4">
-          <Button theme={this.theme} color="primary">
-            Normal
-          </Button>
-          <Button theme={this.theme} color="primary" outline>
-            Outline
-          </Button>
-        </div>
+      <div class="flex flex-col gap-4">
+        <ButtonsIframe theme={this.theme} />
         <script
           src="https://cdn.tailwindcss.com?plugins=forms,typography"
           onload={this.handleLoad}
