@@ -3,25 +3,28 @@ import Nullstack, { NullstackNode } from "nullstack";
 import { Textarea } from "nullwind";
 import { Title } from "nullwind";
 import { theme } from "nullwind";
+import getPalette from "tailwindcss-palette-generator";
 
 import ListItem from "./ListItem";
 
+const colorsTw = require("tailwindcss/colors");
+
 declare function Config(): NullstackNode;
+declare function Colors(): NullstackNode;
 
 class ThemeBuilder extends Nullstack {
   theme = theme;
+  colors = {
+    primary: "pink",
+    secondary: "slate",
+    info: "blue",
+    success: "green",
+    warning: "orange",
+    danger: "red",
+  };
   _script: HTMLScriptElement;
   iframe: HTMLIFrameElement;
-  hydrate() {
-    // this._script = document.createElement("script");
-    // this._script.src = "https://unpkg.com/tailwindcss-jit-cdn";
-    // this._script.async = true;
-    // document.body.appendChild(this._script);
-    // console.log(this._script);
-  }
-  terminate() {
-    // this._script.parentNode.removeChild( this._script );
-  }
+
   _formatString(str: string) {
     return str.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/\w\S*/g, function (txt) {
       return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();
@@ -29,7 +32,46 @@ class ThemeBuilder extends Nullstack {
   }
 
   update() {
-    this.iframe.contentWindow.postMessage({ theme: JSON.parse(JSON.stringify(this.theme)) });
+    this.updateIframe();
+  }
+  _getColor(color: string) {
+    if (color.startsWith("#")) return getPalette(color).primary;
+    else return colorsTw[color];
+  }
+  _getColors() {
+    const colors = {
+      primary: this._getColor(this.colors.primary),
+      secondary: this._getColor(this.colors.secondary),
+      info: this._getColor(this.colors.info),
+      success: this._getColor(this.colors.success),
+      warning: this._getColor(this.colors.warning),
+      danger: this._getColor(this.colors.danger),
+    };
+    return colors;
+  }
+
+  hydrate() {
+    window.addEventListener("message", () => this.updateIframe());
+  }
+
+  updateIframe() {
+    this.iframe.contentWindow.postMessage({
+      theme: JSON.parse(JSON.stringify(this.theme)),
+      colors: JSON.parse(JSON.stringify(this._getColors())),
+    });
+  }
+
+  renderColors({ obj }) {
+    return (
+      <ul>
+        {Object.keys(obj).map((key) => (
+          <ListItem label={this._formatString(key)}>
+            {typeof obj[key] === "object" && <Colors obj={obj[key]} />}
+            {typeof obj[key] === "string" && <input type="color" bind={obj[key]} />}
+          </ListItem>
+        ))}
+      </ul>
+    );
   }
 
   renderConfig({ obj }) {
@@ -45,18 +87,24 @@ class ThemeBuilder extends Nullstack {
     );
   }
 
-  render({ instances, router }) {
-    console.log(instances);
+  render({ router }) {
     return (
       <>
         <h1>Theme Builder</h1>
         <div class="flex flex-row">
           <div class="basis-1/2">
+            <Title h={3}>Colors</Title>
+            <Colors obj={this.colors} />
             <Title h={3}>Configs</Title>
             <Config obj={this.theme} />
           </div>
           <div class="flex flex-row basis-1/2">
-            <iframe ref={this.iframe} src={`${router.base}/iframe`} frameborder="0" />
+            <iframe
+              ref={this.iframe}
+              src={`${router.base}/iframe`}
+              frameborder="0"
+              onload={this.updateIframe}
+            />
           </div>
         </div>
       </>
