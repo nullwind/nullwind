@@ -2,6 +2,8 @@ import Nullstack from "nullstack";
 
 import AlertIframe from "./iframe/AlertIframe";
 import AvatarIframe from "./iframe/AvatarIframe";
+import BadgeIframe from "./iframe/BadgeIframe";
+import ButtonGroupIframe from "./iframe/ButtonGroupIframe";
 import ButtonsIframe from "./iframe/ButtonsIframe";
 
 class ThemeBuilderIframe extends Nullstack {
@@ -43,7 +45,7 @@ class ThemeBuilderIframe extends Nullstack {
     this.recived_data = true;
   }
 
-  handleLoad({ event }) {
+  handleLoad() {
     globalThis.tailwind.config = {
       theme: {
         extend: {
@@ -58,7 +60,9 @@ class ThemeBuilderIframe extends Nullstack {
       <div class="flex flex-col gap-4">
         <AlertIframe theme={this.theme} />
         <AvatarIframe theme={this.theme} />
+        <BadgeIframe theme={this.theme} />
         <ButtonsIframe theme={this.theme} />
+        <ButtonGroupIframe theme={this.theme} />
         <script
           src="https://cdn.tailwindcss.com?plugins=forms,typography"
           onload={this.handleLoad}
