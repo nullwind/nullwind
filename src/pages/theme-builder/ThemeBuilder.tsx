@@ -1,7 +1,6 @@
 import Nullstack, { NullstackNode } from "nullstack";
 
 import { Textarea } from "nullwind";
-import { Title } from "nullwind";
 import { theme } from "nullwind";
 import getPalette from "tailwindcss-palette-generator";
 
@@ -93,12 +92,12 @@ class ThemeBuilder extends Nullstack {
         <h1>Theme Builder</h1>
         <div class="flex flex-row">
           <div class="basis-1/2">
-            <Title h={3}>Colors</Title>
+            <h2 class={"my-0"}>Colors</h2>
             <Colors obj={this.colors} />
-            <Title h={3}>Configs</Title>
+            <h2 class={"my-0"}>Configs</h2>
             <Config obj={this.theme} />
           </div>
-          <div class="flex flex-row basis-1/2">
+          <div class="basis-1/2">
             <iframe
               ref={this.iframe}
               src={`${router.base}/iframe`}
