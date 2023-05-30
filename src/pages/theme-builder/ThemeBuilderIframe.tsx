@@ -1,5 +1,7 @@
 import Nullstack from "nullstack";
 
+import AlertIframe from "./iframe/AlertIframe";
+import AvatarIframe from "./iframe/AvatarIframe";
 import ButtonsIframe from "./iframe/ButtonsIframe";
 
 class ThemeBuilderIframe extends Nullstack {
@@ -21,6 +23,9 @@ class ThemeBuilderIframe extends Nullstack {
         },
       };
     }
+    //if (event.data?.scrollTo) {
+
+    //}
   }
 
   hydrate() {
@@ -51,6 +56,8 @@ class ThemeBuilderIframe extends Nullstack {
     if (!this.theme && !this.colors) return false;
     return (
       <div class="flex flex-col gap-4">
+        <AlertIframe theme={this.theme} />
+        <AvatarIframe theme={this.theme} />
         <ButtonsIframe theme={this.theme} />
         <script
           src="https://cdn.tailwindcss.com?plugins=forms,typography"
