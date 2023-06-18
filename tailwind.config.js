@@ -1,5 +1,5 @@
-const colors = require("tailwindcss/colors");
 const defaultTheme = require("tailwindcss/defaultTheme");
+const { colors } = require("./src/utils/colors");
 
 module.exports = {
   content: ["lib/theme.ts", "./src/**/*.{jsx,tsx,mdx}"],
@@ -9,12 +9,12 @@ module.exports = {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.sky,
-        secondary: colors.slate,
-        info: colors.blue,
-        success: colors.green,
-        warning: colors.orange,
-        danger: colors.red,
+        primary: colors.primary,
+        secondary: colors.secondary,
+        info: colors.info,
+        success: colors.success,
+        warning: colors.warning,
+        danger: colors.danger,
       },
     },
   },

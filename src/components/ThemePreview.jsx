@@ -1,11 +1,7 @@
+import Code from "./Code";
+
 const ThemePreview = ({ theme }) => {
-  return (
-    <pre class="language-json">
-      <code class="language-json">
-        <div html={JSON.stringify(theme, null, 2)}></div>
-      </code>
-    </pre>
-  );
+  return <Code code={JSON.stringify(theme, null, 2)} language="json" format={false} />;
 };
 
 export default ThemePreview;

@@ -1,6 +1,6 @@
 import { theme, TextInput } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Playground, Demo, ThemePreview } from "~/components";
 
 <Meta
   title="TextInput"
@@ -13,77 +13,54 @@ These are system-generated notifications with a high degree of criticality. They
 
 ## Usage
 
-```jsx
-import { TextInput } from "nullwind";
-```
+<Demo
+  component={(props) => <TextInput class="w-80" {...props} />}
+  configurator={[
+    {
+      name: "label",
+      type: "text",
+      value: "My Field",
+      defaultValue: "",
+    },
+    {
+      name: "corner",
+      type: "text",
+      value: "",
+      defaultValue: "",
+    },
+    {
+      name: "helper",
+      type: "text",
+      value: "This is a helper message",
+      defaultValue: "",
+    },
+    {
+      name: "error",
+      type: "text",
+      value: "",
+      defaultValue: "",
+    },
+    {
+      name: "required",
+      type: "boolean",
+      value: true,
+      defaultValue: false,
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      value: false,
+      defaultValue: false,
+    },
+  ]}
+  template={(props) => `
+    import { TextInput } from 'nullwind';
 
-## Examples
+    export default function Demo() {
+      return <TextInput ${props} bind={this.field} />;
+    }
 
-<Playground title="Default">
-  <Playground.Preview>
-    <TextInput />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <TextInput />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With label">
-  <Playground.Preview>
-    <TextInput label="Email" required />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <TextInput label="Email" required />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With corner">
-  <Playground.Preview>
-    <TextInput label="Email" corner="This is a corner" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <TextInput label="Email" corner="This is a corner" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With help text">
-  <Playground.Preview>
-    <TextInput label="Email" helper="This a help message" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <TextInput label="Email" helper="This a help message" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With validation error">
-  <Playground.Preview>
-    <TextInput label="Email" error="This is a error message" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <TextInput label="Email" error="This is a error message" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Disabled">
-  <Playground.Preview>
-    <TextInput label="Email" disabled />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <TextInput label="Email" disabled />
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 

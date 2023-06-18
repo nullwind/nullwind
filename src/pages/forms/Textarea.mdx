@@ -1,6 +1,6 @@
 import { theme, Textarea } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Playground, ThemePreview, Demo } from "~/components";
 
 <Meta title="Textarea" description="Use the following code to create a textarea form element." />
 
@@ -10,77 +10,54 @@ Use the following code to create a textarea form element.
 
 ## Usage
 
-```jsx
-import { Textarea } from "nullwind";
-```
+<Demo
+  component={(props) => <Textarea class="w-80" {...props} />}
+  configurator={[
+    {
+      name: "label",
+      type: "text",
+      value: "My Field",
+      defaultValue: "",
+    },
+    {
+      name: "corner",
+      type: "text",
+      value: "",
+      defaultValue: "",
+    },
+    {
+      name: "helper",
+      type: "text",
+      value: "This is a helper message",
+      defaultValue: "",
+    },
+    {
+      name: "error",
+      type: "text",
+      value: "",
+      defaultValue: "",
+    },
+    {
+      name: "required",
+      type: "boolean",
+      value: true,
+      defaultValue: false,
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      value: false,
+      defaultValue: false,
+    },
+  ]}
+  template={(props) => `
+    import { Textarea } from 'nullwind';
 
-## Examples
+    export default function Demo() {
+      return <Textarea ${props} bind={this.field} />;
+    }
 
-<Playground title="Default">
-  <Playground.Preview>
-    <Textarea />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Textarea />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With label">
-  <Playground.Preview>
-    <Textarea label="Email" required />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Textarea label="Email" required />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With corner">
-  <Playground.Preview>
-    <Textarea label="Email" corner="This is a corner" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Textarea label="Email" corner="This is a corner" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With help text">
-  <Playground.Preview>
-    <Textarea label="Email" helper="This a help message" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Textarea label="Email" helper="This a help message" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With validation error">
-  <Playground.Preview>
-    <Textarea label="Email" error="This a error message" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Textarea label="Email" error="This a error message" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Disabled">
-  <Playground.Preview>
-    <Textarea label="Email" disabled />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Textarea label="Email" disabled />
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 

@@ -1,6 +1,6 @@
 import { theme, Avatar } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Demo, ThemePreview } from "~/components";
 
 <Meta
   title="Avatar"
@@ -13,48 +13,43 @@ Avatars are used to represent a person or organization. They can be used in a va
 
 ## Usage
 
-```jsx
-import { Avatar } from "nullwind";
+<Demo
+  component={(props) => <Avatar {...props} />}
+  configurator={[
+    {
+      name: "src",
+      type: "text",
+      value: "/avatar.avif",
+      defaultValue: "",
+    },
+    {
+      name: "name",
+      type: "text",
+      value: "John Doe",
+      defaultValue: "",
+    },
+    {
+      name: "description",
+      type: "text",
+      value: "Joined in April 1976",
+      defaultValue: "",
+    },
+    {
+      name: "placeholder",
+      type: "text",
+      value: "",
+      defaultValue: "",
+      helper: "If src is not provided, this will be used as a placeholder",
+    },
+  ]}
+  template={(props) => `
+    import { Avatar } from 'nullwind';
 
-const MyComponent = () => {
-  return (
-    <Avatar
-      src="/avatar.avif"
-      name="John Doe"
-      description="Joined in April 1976" // optional
-      placeholder="avatar-placeholder.png" // optional
-    />
-  );
-};
-```
+    export default function Demo() {
+      return <Avatar ${props} />;
+    }
 
-## Examples
-
-<Playground title="Default">
-  <Playground.Preview>
-    <div class="flex flex-wrap justify-center">
-      <Avatar src="/avatar.avif" name="John Doe" description="Joined in April 1976" />
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Avatar src="/avatar.avif" name="John Doe" description="Joined in April 1976" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With empty image">
-  <Playground.Preview>
-    <div class="flex flex-wrap justify-center">
-      <Avatar name="John Doe" description="Joined in April 1976" />
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Avatar name="John Doe" description="Joined in April 1976" />
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 

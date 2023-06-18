@@ -1,6 +1,6 @@
 import { theme, Badge } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Demo, ThemePreview } from "~/components";
 
 <Meta
   title="Badge"
@@ -13,42 +13,25 @@ Badges are used to highlight important information, such as the number of unread
 
 ## Usage
 
-```jsx
-import { Badge } from "nullwind";
+<Demo
+  component={(props) => <Badge {...props}>My cool badge</Badge>}
+  configurator={[
+    {
+      name: "color",
+      type: "select",
+      options: ["primary", "secondary", "info", "success", "warning", "danger"],
+      value: "primary",
+      defaultValue: "primary"
+    },
+  ]}
+  template={(props) => `
+    import { Badge } from 'nullwind';
 
-const MyComponent = () => {
-  return (
-    <Badge id="my-badge" class="my-class" color="info">
-      This is an badge
-    </Badge>
-  );
-};
-```
+    export default function Demo() {
+      return <Badge ${props}>My cool badge</Badge>;
+    }
 
-## Examples
-
-<Playground title="Default">
-  <Playground.Preview>
-    <div class="flex flex-wrap justify-center gap-2">
-      <Badge>Primary</Badge>
-      <Badge color="secondary">Secondary</Badge>
-      <Badge color="info">Info</Badge>
-      <Badge color="success">Success</Badge>
-      <Badge color="warning">Warning</Badge>
-      <Badge color="danger">Danger</Badge>
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Badge>Primary</Badge>
-    <Badge color="secondary">Secondary</Badge>
-    <Badge color="info">Info</Badge>
-    <Badge color="success">Success</Badge>
-    <Badge color="warning">Warning</Badge>
-    <Badge color="danger">Danger</Badge>
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 
