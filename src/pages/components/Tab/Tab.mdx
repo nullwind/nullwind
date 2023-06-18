@@ -1,6 +1,6 @@
 import { theme, Tab } from "nullwind";
 import Preview from "./Preview";
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Demo, ThemePreview } from "~/components";
 
 <Meta
   title="Tab"
@@ -13,44 +13,28 @@ Use these responsive tabs components to create a secondary navigational hierarch
 
 ## Usage
 
-```jsx
-import { Tab } from "nullwind";
+<Demo
+  component={Preview}
+  template={() => `
+    import { Tab } from 'nullwind';
 
-const MyComponent = () => {
-  return (
-    <Tab onchange={(idx) => alert(`Choosen Tab: ${idx}`)}>
-      <Tab.Item title="Profile" active>
-        Tab content 1
-      </Tab.Item>
-      <Tab.Item title="Notifications">Tab content 2</Tab.Item>
-      <Tab.Item title="Settings">Tab content 3</Tab.Item>
-    </Tab>
-  );
-};
-```
+    export default function Demo() {
+      return (
+        <Tab onchange={(idx) => (this.idx = idx)}>
+          <Tab.Item title="Profile" active={this.idx === 0}>
+            Tab content 1
+          </Tab.Item>
+          <Tab.Item title="Notifications" active={this.idx === 1}>
+            Tab content 2
+          </Tab.Item>
+          <Tab.Item title="Settings" active={this.idx === 2}>
+            Tab content 3
+          </Tab.Item>
+        </Tab>
+      );
+    }
 
-## Examples
-
-<Playground title="Default">
-  <Playground.Preview>
-    <Preview />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Tab onchange={(idx) => (this.idx = idx)}>
-      <Tab.Item title="Profile" active={this.idx === 0}>
-        Tab content 1
-      </Tab.Item>
-      <Tab.Item title="Notifications" active={this.idx === 1}>
-        Tab content 2
-      </Tab.Item>
-      <Tab.Item title="Settings" active={this.idx === 2}>
-        Tab content 3
-      </Tab.Item>
-    </Tab>
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 

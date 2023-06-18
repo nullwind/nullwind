@@ -1,0 +1,36 @@
+import { Alert } from "nullwind";
+import { Meta, Code } from "~/components";
+import { configuration, usage } from "./examples";
+
+<Meta title="Getting Started" description="Learn how to install and configure Nullwind" />
+
+# Quick Start
+
+## Installing Nullstack + Tailwind (optional)
+
+```bash
+npx create-nullstack-app@latest --tailwind
+```
+
+## Installation
+
+Nullwind is a modern UI component library for Tailwind CSS, you just need to install Tailwind CSS and configure it.
+
+```bash
+yarn add -D @tailwindcss/forms @tailwindcss/typography
+yarn add nullwind
+```
+
+## Configuration
+
+You need to add this to your `tailwind.config.js` file.
+
+<Code code={configuration} class="mt-6" />
+
+## Usage
+
+<Code code={usage} />
+
+<Alert color="primary" class="mt-4">
+  If you're looking for theme customization, please see the <b>Theme</b> section.
+</Alert>

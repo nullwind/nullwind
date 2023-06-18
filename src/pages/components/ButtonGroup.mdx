@@ -1,6 +1,6 @@
 import { theme, Button, ButtonGroup } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Demo, ThemePreview } from "~/components";
 
 <Meta title="ButtonGroup" description="ButtonGroup component renders a group of buttons" />
 
@@ -12,42 +12,28 @@ You can change style properties in `theme.buttonGroup`.
 
 ## Usage
 
-```jsx
-import { ButtonGroup } from "nullwind";
-
-const MyComponent = () => {
-  return (
+<Demo
+  component={() => (
     <ButtonGroup>
       <Button>Button 1</Button>
       <Button>Button 2</Button>
       <Button>Button 3</Button>
     </ButtonGroup>
-  );
-};
-```
+  )}
+  template={() => `
+    import { ButtonGroup, Button } from 'nullwind';
 
-## Examples
+    export default function Demo() {
+      return (
+        <ButtonGroup>
+          <Button>Button 1</Button>
+          <Button>Button 2</Button>
+          <Button>Button 3</Button>
+        </ButtonGroup>
+      );
+    }
 
-<Playground>
-  <Playground.Preview>
-    <div class="flex justify-center">
-      <ButtonGroup>
-        <Button color="secondary">Button 1</Button>
-        <Button color="secondary">Button 2</Button>
-        <Button color="secondary">Button 3</Button>
-      </ButtonGroup>
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <ButtonGroup>
-      <Button color="secondary">Button 1</Button>
-      <Button color="secondary">Button 2</Button>
-      <Button color="secondary">Button 3</Button>
-    </ButtonGroup>
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 

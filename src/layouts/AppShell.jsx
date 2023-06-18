@@ -3,9 +3,9 @@ import Nullstack from "nullstack";
 import docsearch from "@docsearch/js";
 import { IconGithub, IconMenu } from "nullstack-feather-icons";
 
-import { Logo } from "./assets/Logo";
-import { Breadcrumb, Pagination } from "./components";
-import { routes } from "./routes";
+import { Logo } from "../assets/Logo";
+import { Breadcrumb, Pagination } from "../components";
+import { routes } from "../routes";
 
 export class AppShell extends Nullstack {
   menuOpen = false;
@@ -22,13 +22,13 @@ export class AppShell extends Nullstack {
   renderHeader() {
     return (
       <header
-        class="absolute top-0 left-0 right-0 z-50 py-4 md:fixed md:transition-all backdrop-blur bg-gray-900 shadow-sm"
+        class="absolute left-0 right-0 top-0 z-50 flex h-16 items-center bg-slate-900 shadow-sm backdrop-blur md:fixed md:transition-all"
         id="header"
       >
         <div class="container mx-auto justify-between px-6 md:flex 2xl:px-32">
           <div class="flex items-center justify-between">
             <a href="/" title="Nullwind" class="flex">
-              <Logo class="h-[30px] -mt-1" />
+              <Logo class="-mt-1 h-[30px]" />
             </a>
             <a
               href="#"
@@ -89,11 +89,11 @@ export class AppShell extends Nullstack {
 
   renderSidebar({ router }) {
     return (
-      <aside class="sticky inset-0 right-auto z-20 -ml-6 -mr-6 shrink-0 overflow-y-auto border-y border-y-gray-100 bg-white px-6 lg:fixed lg:top-24 lg:left-[max(0px,calc(50%-30.5rem))] lg:m-0 lg:block lg:h-[calc(100vh-100px)] lg:w-64 lg:border-none lg:bg-transparent lg:px-0 xl:left-[max(0px,calc(50%-38.5rem))] 2xl:left-[max(0px,calc(50%-40rem))]">
+      <aside class="sticky inset-0 right-auto z-20 -ml-6 -mr-6 shrink-0 overflow-y-auto border-y border-y-gray-100 bg-white px-6 lg:fixed lg:left-[max(0px,calc(50%-30.5rem))] lg:top-24 lg:m-0 lg:block lg:h-[calc(100vh-100px)] lg:w-64 lg:border-none lg:bg-transparent lg:px-0 xl:left-[max(0px,calc(50%-38.5rem))] 2xl:left-[max(0px,calc(50%-40rem))]">
         <div
           class={["-ml-2 lg:m-0 lg:block lg:pb-10 lg:pr-4", this.menuOpen ? "visible" : "hidden"]}
         >
-          <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+          <div class="flex flex-1 flex-col overflow-y-auto pb-4 pt-5">
             <nav class="text-sm">
               <ul class="space-y-4">
                 {routes.map((group) => (
@@ -131,7 +131,7 @@ export class AppShell extends Nullstack {
     return (
       <div class="mt-4 w-full min-w-0 max-w-full lg:mt-0 lg:pl-72">
         <main class="flex-1">
-          <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-0 prose">
+          <div class="prose mx-auto max-w-5xl px-4 sm:px-6 md:px-0">
             <div class="py-4">
               <Breadcrumb />
               {children}
@@ -162,7 +162,7 @@ export class AppShell extends Nullstack {
         <Header />
         <main>
           <section class="pt-14 lg:pt-24">
-            <div class="container mx-auto px-6 2xl:px-32">
+            <div class="container mx-auto px-3 2xl:px-32">
               <div class="relative w-full lg:flex">
                 <Sidebar />
                 <Main>{children}</Main>

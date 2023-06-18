@@ -1,6 +1,6 @@
 import { theme, Select } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, ThemePreview, Demo } from "~/components";
 
 <Meta
   title="Select"
@@ -13,125 +13,66 @@ Use the following select input element to show selectable list of items.
 
 ## Usage
 
-```jsx
-import { Select } from "nullwind";
-```
+<Demo
+  component={(props) => (
+    <Select class="w-80" {...props}>
+      <option value="0">Option One</option>
+      <option value="1">Option Two</option>
+      <option value="2">Option Three</option>
+    </Select>
+  )}
+  configurator={[
+    {
+      name: "label",
+      type: "text",
+      value: "My Field",
+      defaultValue: "",
+    },
+    {
+      name: "corner",
+      type: "text",
+      value: "",
+      defaultValue: "",
+    },
+    {
+      name: "helper",
+      type: "text",
+      value: "This is a helper message",
+      defaultValue: "",
+    },
+    {
+      name: "error",
+      type: "text",
+      value: "",
+      defaultValue: "",
+    },
+    {
+      name: "required",
+      type: "boolean",
+      value: true,
+      defaultValue: false,
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      value: false,
+      defaultValue: false,
+    },
+  ]}
+  template={(props) => `
+    import { Select } from 'nullwind';
 
-## Examples
+    export default function Demo() {
+      return (
+        <Select ${props} bind={this.field}>
+          <option value="0">Option One</option>
+          <option value="1">Option Two</option>
+          <option value="2">Option Three</option>
+        </Select>
+      );
+    }
 
-<Playground title="Default">
-  <Playground.Preview>
-    <Select>
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Select>
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With label">
-  <Playground.Preview>
-    <Select label="Some label here" required>
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Select label="Some label here" required>
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With corner">
-  <Playground.Preview>
-    <Select label="Some label here" corner="This is a corner">
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Select label="Some label here">
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With helper">
-  <Playground.Preview>
-    <Select label="Some label here" helper="This is a helper">
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Select label="Some label here" helper="This is a helper">
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With validation error">
-  <Playground.Preview>
-    <Select label="Some label here" error="This a error message">
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Select label="Some label here" error="This a error message">
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Disabled">
-  <Playground.Preview>
-    <Select label="Some label here" disabled>
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Select label="Some label here" disabled>
-      <option value="0">Option One</option>
-      <option value="1">Option Two</option>
-      <option value="2">Option Three</option>
-    </Select>
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 
