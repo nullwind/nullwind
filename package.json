@@ -9,7 +9,8 @@
     "build": "npx nullstack build",
     "lint": "tsc --noEmit && eslint \"**/*.{ts,nts,tsx}\" --fix",
     "test": "jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "vercel-build": "npx nullstack build --mode=ssr"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
