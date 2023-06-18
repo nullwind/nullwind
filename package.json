@@ -48,7 +48,7 @@
     "@docsearch/js": "^3.3.2",
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/loader": "^2.2.1",
-    "nullstack-feather-icons": "^1.0.0",
+    "nullstack-feather-icons": "1.0.0",
     "prism-themes": "git+https://github.com/prismjs/prism-themes.git",
     "string-replace-loader": "^3.1.0",
     "yup": "^0.32.11"
