@@ -1,6 +1,5 @@
 const path = require("path");
 const [server, client] = require("nullstack/webpack.config");
-const rehypePrism = require("@mapbox/rehype-prism");
 
 const mdxRule = {
   test: /\.mdx?$/,
@@ -20,7 +19,6 @@ const mdxRule = {
         pragma: "Nullstack.element",
         pragmaFrag: "Nullstack.fragment",
         pragmaImportSource: "nullstack",
-        rehypePlugins: [rehypePrism],
       },
     },
   ],

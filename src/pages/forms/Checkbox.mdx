@@ -1,6 +1,6 @@
 import { theme, Checkbox } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Demo, ThemePreview } from "~/components";
 
 <Meta
   title="Checkbox"
@@ -13,55 +13,48 @@ The code below can be used to create a fieldset of checkbox elements inside a fo
 
 ## Usage
 
-```jsx
-import { Checkbox } from "nullwind";
-```
+<Demo
+  component={(props) => <Checkbox {...props} />}
+  configurator={[
+    {
+      name: "label",
+      type: "text",
+      value: "My Field",
+      defaultValue: "",
+    },
+    {
+      name: "helper",
+      type: "text",
+      value: "This is a helper message",
+      defaultValue: "",
+    },
+    {
+      name: "error",
+      type: "text",
+      value: "",
+      defaultValue: "",
+    },
+    {
+      name: "required",
+      type: "boolean",
+      value: true,
+      defaultValue: false,
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      value: false,
+      defaultValue: false,
+    },
+  ]}
+  template={(props) => `
+    import { Checkbox } from 'nullwind';
 
-## Examples
+    export default function Demo() {
+      return <Checkbox ${props} bind={this.field} />;
+    }
 
-<Playground title="Default">
-  <Playground.Preview>
-    <Checkbox id={1} label="Some label here" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Checkbox id={1} label="Some label here" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With helper">
-  <Playground.Preview>
-    <Checkbox id={2} label="Some label here" helper="This is some description" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Checkbox id={2} label="Some label here" helper="This is some description" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With validation error">
-  <Playground.Preview>
-    <Checkbox id={2} label="Some label here" error="This a error message" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Checkbox id={2} label="Some label here" error="This a error message" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Disabled">
-  <Playground.Preview>
-    <Checkbox id={3} label="Some label here" disabled />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Checkbox id={3} label="Some label here" disabled />
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 

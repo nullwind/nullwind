@@ -1,6 +1,6 @@
 import { theme, Rating } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Demo, ThemePreview } from "~/components";
 
 <Meta title="Rating" description="Rating component is used to display rating stars." />
 
@@ -10,33 +10,30 @@ Rating component is used to display rating stars.
 
 ## Usage
 
-```jsx
-import { Rating } from "nullwind";
-```
+<Demo
+  component={(props) => <Rating {...props} />}
+  configurator={[
+    {
+      name: "averageRate",
+      type: "number",
+      value: 3,
+      defaultValue: 0,
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      value: false,
+      defaultValue: false,
+    },
+  ]}
+  template={(props) => `
+    import { Rating } from 'nullwind';
 
-## Examples
+    export default function Demo() {
+      return <Rating ${props} bind={this.field} />;
+    }
 
-<Playground title="Default">
-  <Playground.Preview>
-    <Rating averageRate={3} />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Rating averageRate={3} bind={this.rating} />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Disabled">
-  <Playground.Preview>
-    <Rating averageRate={2} disabled />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Rating averageRate={2} disabled bind={this.rating} />
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 

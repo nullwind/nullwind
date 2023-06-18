@@ -1,6 +1,6 @@
 import { theme, Divider } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Demo, ThemePreview } from "~/components";
 
 <Meta title="Divider" description="Divider component renders horizontal line" />
 
@@ -12,28 +12,24 @@ Set `label` prop to render a specific label, default `label` is "More".
 
 ## Usage
 
-```jsx
-import { Divider } from "nullwind";
+<Demo
+  component={(props) => <Divider class="w-full" {...props} />}
+  configurator={[
+    {
+      name: "label",
+      type: "text",
+      value: "More",
+      defaultValue: "More",
+    },
+  ]}
+  template={(props) => `
+    import { Divider } from 'nullwind';
 
-const MyComponent = () => {
-  return <Divider class="my-4" label="More Content" />;
-};
-```
+    export default function Demo() {
+      return <Divider ${props} />;
+    }
 
-## Examples
-
-<Playground>
-  <Playground.Preview>
-    <Divider />
-    <Divider label="More Content" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Divider />
-    <Divider label="More Content" />
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 

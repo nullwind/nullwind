@@ -1,0 +1,104 @@
+import { Meta, Code } from "~/components";
+import { Table } from "nullwind";
+import { global, component, classes } from "./examples";
+
+<Meta title="Theme" description="Learn how to customize the components' theme" />
+
+# Theme
+
+You want to customize Nullwind. Specifically, you would like to remove/add Tailwind CSS classes to one or more components.
+
+You have a few options. They each have benefits and drawbacks, and you can combine them how you want.
+
+### Custom context theme
+
+<div class="space-y-6">
+  <Table>
+    <Table.THead class="border-none">
+      <Table.TR>
+        <Table.TH>Benefits & Drawbacks</Table.TH>
+        <Table.TH>Example</Table.TH>
+      </Table.TR>
+    </Table.THead>
+    <Table.TBody>
+      <Table.TR>
+        <Table.TD>
+          <ul>
+            <li class="text-green-700">You can customize every component, one time, in one place</li>
+            <li class="text-green-700">Changes will apply to every usage of the component in your app</li>
+            <li class="text-green-700">You get the best performance.</li>
+            <li class="text-red-700">
+              Customizations can quickly become complex and hard to maintain in one large JSON file
+            </li>
+          </ul>
+        </Table.TD>
+        <Table.TD>
+          <Code code={global} />
+        </Table.TD>
+      </Table.TR>
+    </Table.TBody>
+  </Table>
+
+### Custom component with `theme={}`
+
+<Table>
+  <Table.THead class="border-none">
+    <Table.TR>
+      <Table.TH>Benefits & Drawbacks</Table.TH>
+      <Table.TH>Example</Table.TH>
+    </Table.TR>
+  </Table.THead>
+  <Table.TBody>
+    <Table.TR>
+      <Table.TD>
+        <ul>
+          <li class="text-green-700">
+            You can customize one usage of a component that has nested elements
+          </li>
+          <li class="text-green-700">
+            You can still create a custom component of your own to reuse the customizations rather
+            than repeating them
+          </li>
+          <li class="text-red-700">You add further complexity and indirection to your app</li>
+          <li class="text-red-700">Your app will probably perform worse at scale</li>
+        </ul>
+      </Table.TD>
+      <Table.TD>
+        <Code code={component} />
+      </Table.TD>
+    </Table.TR>
+  </Table.TBody>
+</Table>
+
+### Custom component with `class={}`
+
+  <Table>
+    <Table.THead class="border-none">
+      <Table.TR>
+        <Table.TH>Benefits & Drawbacks</Table.TH>
+        <Table.TH>Example</Table.TH>
+      </Table.TR>
+    </Table.THead>
+    <Table.TBody>
+      <Table.TR>
+        <Table.TD>
+          <ul>
+            <li class="text-green-700">You can customize with very little effort and code</li>
+            <li class="text-green-700">You don't need to learn how to use the theme API</li>
+            <li class="text-red-700">
+              Some components have nested elements, and you can't customize all of them with one{" "}
+              <b>class</b>
+            </li>
+            <li class="text-red-700">
+              You need to customize every usage of a component individually, or create and remember to use
+              a custom component of your own
+            </li>
+          </ul>
+        </Table.TD>
+        <Table.TD>
+          <Code code={classes} />
+        </Table.TD>
+      </Table.TR>
+    </Table.TBody>
+  </Table>
+</div>
