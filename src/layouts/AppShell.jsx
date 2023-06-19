@@ -70,16 +70,16 @@ export class AppShell extends Nullstack {
             </ul>
             <div class="hidden h-5 w-px bg-white/20 md:block"></div>
             <ul class="mt-6 items-center gap-5 space-y-6 font-medium md:mt-0 md:flex md:space-y-0">
-              <li>
+              <li class="pt-1">
                 <a
+                  class="github-button inline-block"
                   href="https://github.com/nullwind/nullwind"
-                  target="_blank"
-                  class="block hover:text-primary-400"
-                  aria-label="GitHub"
+                  data-show-count="true"
+                  aria-label="Star nullwind/nullwind on GitHub"
                 >
-                  <span class="block md:hidden">GitHub</span>
-                  <GithubIcon class="text-white" />
+                  Star
                 </a>
+                <script async defer src="https://buttons.github.io/buttons.js" />
               </li>
             </ul>
           </nav>
