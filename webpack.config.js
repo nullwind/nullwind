@@ -16,9 +16,9 @@ const mdxRule = {
       loader: "@mdx-js/loader",
       options: {
         jsxRuntime: "classic",
-        pragma: "Nullstack.element",
-        pragmaFrag: "Nullstack.fragment",
-        pragmaImportSource: "nullstack",
+        pragma: "$runtime.element",
+        pragmaFrag: "$runtime.fragment",
+        pragmaImportSource: "nullstack/runtime",
       },
     },
   ],
@@ -34,14 +34,17 @@ function customServer(...args) {
 
   config.module.rules.push(mdxRule);
 
-  config.resolve.alias = alias;
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    ...alias,
+  };
 
   return config;
 }
 
 function customClient(...args) {
   const config = client(...args);
-  const rule = config.module.rules.find((rule) => rule.test.test(".css"));
+  const rule = config.module.rules.find((rule) => rule.test && rule.test.test(".css"));
 
   rule.use.push({
     loader: require.resolve("postcss-loader"),
@@ -56,7 +59,10 @@ function customClient(...args) {
 
   config.module.rules.push(mdxRule);
 
-  config.resolve.alias = alias;
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    ...alias,
+  };
 
   return config;
 }
