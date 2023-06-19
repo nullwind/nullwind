@@ -1,8 +1,9 @@
 import Nullstack from "nullstack";
 
 import docsearch from "@docsearch/js";
-import { IconGithub, IconMenu } from "nullstack-feather-icons";
+import { Bars3Icon } from "nullstack-heroicons/24/outline";
 
+import { GithubIcon } from "../assets/GithubIcon";
 import { Logo } from "../assets/Logo";
 import { Breadcrumb, Pagination } from "../components";
 import { routes } from "../routes";
@@ -36,7 +37,7 @@ export class AppShell extends Nullstack {
               class="block md:hidden"
               onclick={{ menuOpen: !this.menuOpen }}
             >
-              <IconMenu size={32} />
+              <Bars3Icon class="h-8 w-8 text-white" />
             </a>
           </div>
           <nav
@@ -77,7 +78,7 @@ export class AppShell extends Nullstack {
                   aria-label="GitHub"
                 >
                   <span class="block md:hidden">GitHub</span>
-                  <IconGithub />
+                  <GithubIcon class="text-white" />
                 </a>
               </li>
             </ul>
