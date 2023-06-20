@@ -18,7 +18,7 @@ export default function Code({ code, format = true, language = "javascript", cla
   return (
     <div class={["relative", klass]}>
       <CopyButton class="absolute right-1.5 top-1.5 z-10" code={code} />
-      <pre class="m-0 rounded-none pr-9">
+      <pre class="m-0 pr-9">
         <code html={html} />
       </pre>
     </div>
