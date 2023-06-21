@@ -19,6 +19,12 @@ pages, for that use Links.
   component={(props) => <Button {...props}>Click here!</Button>}
   configurator={[
     {
+      name: "href",
+      type: "url",
+      value: "https://nullwind.dev/",
+      defaultValue: ""
+    },
+    {
       name: "color",
       type: "select",
       options: ["primary", "secondary", "info", "success", "warning", "danger"],

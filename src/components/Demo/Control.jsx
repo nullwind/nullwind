@@ -5,6 +5,7 @@ const controls = {
   select: Select,
   boolean: Toggle,
   number: TextInput,
+  url: TextInput,
 };
 
 export default ({ ...props }) => {
