@@ -23,6 +23,7 @@ function Button({
   children,
   class: klass,
   color = "primary",
+  disabled,
   fullSized,
   href,
   outline,
@@ -49,6 +50,7 @@ function Button({
         active && classes.active[color],
         size && classes.size[size],
         fullSized && classes.fullSized,
+        disabled && classes.disabled,
         positionInGroup && groupClasses.position[positionInGroup],
         klass
       )}

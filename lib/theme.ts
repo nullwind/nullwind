@@ -1,6 +1,6 @@
 const theme = {
   button: {
-    base: "font-medium flex h-min items-center justify-center text-center rounded-md focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed",
+    base: "font-medium flex h-min items-center justify-center text-center rounded-md focus:outline-none",
     color: {
       primary:
         "text-white bg-primary-500 border border-transparent hover:bg-primary-800 disabled:hover:bg-primary-500",
@@ -41,6 +41,7 @@ const theme = {
       lg: "text-base px-5 py-2.5",
     },
     fullSized: "w-full",
+    disabled: "opacity-50 cursor-not-allowed pointer-events-none",
   },
   buttonGroup: {
     base: "inline-flex",
