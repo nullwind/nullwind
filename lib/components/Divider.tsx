@@ -15,9 +15,9 @@ function Divider({
   theme,
   useTheme = useThemeProvider(),
 }: NullstackClientContext<DividerProps>) {
-  const classes = useTheme(theme).divider;
+  const { base } = useTheme(theme).divider;
 
-  return <div class={twMerge(classes.base, klass)}>{label}</div>;
+  return <div class={twMerge(base, klass)}>{label}</div>;
 }
 
 export default Divider as NullstackFunctionalComponent<DividerProps>;

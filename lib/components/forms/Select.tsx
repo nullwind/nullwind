@@ -28,7 +28,7 @@ const Select = ({
   useTheme = useThemeProvider(),
   ...rest
 }: NullstackClientContext<SelectProps>) => {
-  const classes = useTheme(theme).select;
+  const { base, variants } = useTheme(theme).select;
 
   return (
     <Input
@@ -43,7 +43,7 @@ const Select = ({
     >
       <select
         id={id}
-        class={[classes.base, error && classes.error]}
+        class={[base, variants.error[!!error && "true"]]}
         disabled={disabled}
         required={required}
         {...rest}

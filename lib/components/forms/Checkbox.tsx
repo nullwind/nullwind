@@ -23,7 +23,7 @@ const Checkbox = ({
   useTheme = useThemeProvider(),
   ...rest
 }: NullstackClientContext<CheckboxProps>) => {
-  const classes = useTheme(theme).checkbox;
+  const { base, variants } = useTheme(theme).checkbox;
 
   return (
     <InlineInput
@@ -36,7 +36,7 @@ const Checkbox = ({
       theme={theme}
     >
       <input
-        class={[classes.base, error && classes.error]}
+        class={[base, variants.error[!!error && "true"]]}
         id={id}
         required={required}
         type="checkbox"
