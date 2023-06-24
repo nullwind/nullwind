@@ -31,7 +31,7 @@ function TextInput({
   useTheme = useThemeProvider(),
   ...rest
 }: NullstackClientContext<TextInputProps>) {
-  const classes = useTheme(theme).textInput;
+  const { base, variants } = useTheme(theme).textInput;
 
   return (
     <Input
@@ -47,7 +47,7 @@ function TextInput({
       <input
         id={id}
         type={type}
-        class={[classes.base, error && classes.error]}
+        class={[base, variants.error[!!error && "true"]]}
         bind={bind}
         disabled={disabled}
         required={required}

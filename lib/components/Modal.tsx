@@ -20,25 +20,25 @@ const Modal = ({
   useTheme = useThemeProvider(),
   visible,
 }: NullstackClientContext<ModalProps>) => {
-  const classes = useTheme(theme).modal;
+  const { base, slots, variants } = useTheme(theme).modal;
 
   return (
     <div
-      class={twMerge(classes.base, classes.visible[visible ? "on" : "off"], klass)}
+      class={twMerge(base, variants.visible[visible && "true"], klass)}
       role="dialog"
       aria-modal={visible}
     >
       <div
-        class={classes.overlay}
+        class={slots.overlay}
         aria-hidden="true"
         onclick={typeof onclose === "function" && onclose}
       />
-      <div class={classes.wrapper.base}>
-        <div class={classes.wrapper.content.base}>
+      <div class={slots.wrapper}>
+        <div class={slots.content}>
           {typeof onclose === "function" && (
-            <div class={classes.wrapper.content.close.base} onclick={onclose && onclose}>
-              <button type="button" class={classes.wrapper.content.close.button.base}>
-                <XIcon class={classes.wrapper.content.close.button.icon} />
+            <div class={slots.close} onclick={onclose && onclose}>
+              <button type="button" class={slots.closeButton}>
+                <XIcon class={slots.closeButtonIcon} />
               </button>
             </div>
           )}

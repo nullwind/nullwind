@@ -6,20 +6,18 @@ import type { ComponentProps } from "../types";
 import useThemeProvider from "../useTheme";
 
 export interface ButtonProps extends ComponentProps {
-  active?: boolean;
   children?: NullstackNode;
   color?: "primary" | "secondary" | "success" | "danger" | "warning" | "info";
   disabled?: boolean;
   fullSized?: boolean;
   href?: string;
   outline?: boolean;
-  positionInGroup?: "start" | "middle" | "end";
+  position?: "start" | "middle" | "end";
   size?: "sm" | "md" | "lg";
   type?: "button" | "submit" | "reset";
 }
 
 function Button({
-  active,
   children,
   class: klass,
   color = "primary",
@@ -27,7 +25,7 @@ function Button({
   fullSized,
   href,
   outline,
-  positionInGroup,
+  position,
   size = "md",
   theme,
   type = "button",
@@ -35,8 +33,7 @@ function Button({
   ...rest
 }: NullstackClientContext<ButtonProps>): NullstackNode {
   const isLink = typeof href !== "undefined";
-  const classes = useTheme(theme).button;
-  const groupClasses = useTheme(theme).buttonGroup;
+  const { base, variants } = useTheme(theme).button;
 
   return (
     // @ts-ignore
@@ -45,13 +42,13 @@ function Button({
       type={isLink ? undefined : type}
       href={href}
       class={twMerge(
-        classes.base,
-        outline ? classes.outline[color] : classes.color[color],
-        active && classes.active[color],
-        size && classes.size[size],
-        fullSized && classes.fullSized,
-        disabled && classes.disabled,
-        positionInGroup && groupClasses.position[positionInGroup],
+        base,
+        variants.color[color],
+        outline && variants.outline[color],
+        size && variants.size[size],
+        fullSized && variants.fullSized,
+        disabled && variants.disabled,
+        variants.position[position],
         klass
       )}
       {...rest}

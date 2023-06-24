@@ -27,11 +27,11 @@ function Input({
   theme,
   useTheme = useThemeProvider(),
 }: NullstackClientContext<InputProps>) {
-  const { input } = useTheme(theme);
+  const { base, slots } = useTheme(theme).input;
 
   return (
-    <div class={[input.base, klass]}>
-      <div class={input.labelWrapper}>
+    <div class={[base, klass]}>
+      <div class={slots.labelWrapper}>
         <Label required={required} for={id} theme={theme}>
           {label}
         </Label>

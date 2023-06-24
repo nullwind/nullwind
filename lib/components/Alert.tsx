@@ -24,24 +24,19 @@ const Alert = ({
   theme,
   useTheme = useThemeProvider(),
 }: NullstackClientContext<AlertProps>) => {
-  const classes = useTheme(theme).alert;
+  const { base, slots, variants } = useTheme(theme).alert;
 
   return (
-    <div class={twMerge(classes.base, classes.color[color], klass)} role="alert">
+    <div class={twMerge(base, variants.color[color], klass)} role="alert">
       {Icon && (
-        <span class={classes.icon}>
+        <span class={slots.icon}>
           <Icon />
         </span>
       )}
-      <div class={classes.content}>{children}</div>
+      <div class={slots.content}>{children}</div>
       {typeof ondismiss === "function" && (
-        <button
-          aria-label="Dismiss"
-          class={[classes.close.base, classes.close.color[color]]}
-          onclick={ondismiss}
-          type="button"
-        >
-          <XIcon aria-hidden class={classes.close.icon} />
+        <button aria-label="Dismiss" class={slots.close} onclick={ondismiss} type="button">
+          <XIcon aria-hidden class={slots.closeIcon} />
         </button>
       )}
     </div>

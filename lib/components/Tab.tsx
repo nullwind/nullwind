@@ -1,9 +1,17 @@
-import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
+import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import { ComponentProps } from "../types";
 import useThemeProvider from "../useTheme";
+
+type CustomChildren = NullstackNode & {
+  attributes?: {
+    active?: boolean;
+    title?: string;
+  };
+};
+
 interface TabProps extends ComponentProps {
-  children?: NullstackClientContext<TabItemProps>[];
+  children?: CustomChildren[];
   onchange?: (index: number) => void;
 }
 
@@ -14,11 +22,11 @@ const Tab = ({
   theme,
   useTheme = useThemeProvider(),
 }: NullstackClientContext<TabProps>) => {
-  const classes = useTheme(theme).tab;
+  const { slots, variants } = useTheme(theme).tab;
 
   return (
     <div class={klass}>
-      <ul class={classes.list.base}>
+      <ul class={slots.list}>
         {children.map((child, idx) => {
           if (!child.attributes?.title) return false;
 
@@ -26,8 +34,8 @@ const Tab = ({
             <li>
               <a
                 class={[
-                  classes.list.item.base,
-                  child.attributes?.active && classes.list.item.active,
+                  slots.listItem,
+                  variants.listItem.active[child.attributes?.active && "true"],
                 ]}
                 onclick={() => onchange && onchange(idx)}
               >
@@ -37,16 +45,10 @@ const Tab = ({
           );
         })}
       </ul>
-      <div class={classes.panel}>{children.filter((child) => child.attributes?.active)}</div>
+      <div class={slots.panel}>{children.filter((child) => child.attributes?.active)}</div>
     </div>
   );
 };
-
-interface TabItemProps {
-  active?: boolean;
-  attributes?: TabItemProps;
-  title?: string;
-}
 
 Tab.Item = ({ children }) => <div>{children}</div>;
 

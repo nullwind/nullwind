@@ -18,11 +18,10 @@ function Badge(props: NullstackClientContext<BadgeProps>) {
     theme,
     useTheme = useThemeProvider(),
   } = props;
-
-  const classes = useTheme(theme).badge;
+  const { base, variants } = useTheme(theme).badge;
 
   return (
-    <span id={id} class={twMerge(classes.base, classes.color[color], klass)}>
+    <span id={id} class={twMerge(base, variants.color[color], klass)}>
       {children}
     </span>
   );

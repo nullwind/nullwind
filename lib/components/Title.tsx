@@ -17,11 +17,10 @@ function Title({
   theme,
   useTheme = useThemeProvider(),
 }: NullstackClientContext<TitleProps>) {
-  const classes = useTheme(theme).title;
-  const tag = `h${h}`;
+  const { variants } = useTheme(theme).title;
 
   return (
-    <element tag={tag} class={twMerge(classes[tag], klass)}>
+    <element tag={`h${h}`} class={twMerge(variants.h[h], klass)}>
       {children}
     </element>
   );
