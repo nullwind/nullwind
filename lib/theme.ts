@@ -129,28 +129,27 @@ const theme = {
     },
   },
   toggle: {
-    base: "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200",
+    base: "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 bg-slate-200",
     variants: {
       hasLabel: {
         true: "-mt-1",
       },
       checked: {
-        true: {
-          base: "bg-primary-600",
-          switch: "translate-x-5",
-        },
-        false: {
-          base: "bg-slate-200",
-          switch: "translate-x-0",
-        },
+        true: "bg-primary-600",
       },
       disabled: {
         true: "cursor-not-allowed opacity-50",
       },
     },
     slots: {
-      switch:
-        "pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200",
+      switch: {
+        base: "pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200",
+        variants: {
+          checked: {
+            true: "translate-x-5",
+          },
+        },
+      },
     },
   },
   modal: {
@@ -205,33 +204,35 @@ const theme = {
     },
   },
   tab: {
-    variants: {
-      listItem: {
-        active: {
-          true: "relative text-primary-600 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-primary-600",
-        },
-      },
-    },
     slots: {
       list: "border-b border-b-slate-100 -mb-px flex items-center gap-4 text-sm font-medium w-auto",
-      listItem:
-        "inline-flex cursor-pointer items-center gap-2 px-1 py-3 text-primary-600 hover:text-primary-600",
+      listItem: {
+        base: "inline-flex cursor-pointer items-center gap-2 px-1 py-3 text-primary-600 hover:text-primary-600",
+        variants: {
+          active: {
+            true: "relative text-primary-600 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-full after:bg-primary-600",
+          },
+        },
+      },
       panel: "py-3",
     },
   },
   rating: {
     base: "flex items-center",
     variants: {
-      star: {
-        empty: "text-slate-300",
-        filled: "text-yellow-400",
-      },
       disabled: {
         true: "cursor-not-allowed",
       },
     },
     slots: {
-      star: "h-6 w-6",
+      star: {
+        base: "h-6 w-6 text-slate-300",
+        variants: {
+          filled: {
+            true: "text-yellow-400",
+          },
+        },
+      },
     },
   },
   title: {

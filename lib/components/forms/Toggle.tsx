@@ -46,7 +46,7 @@ function Toggle({
         type="button"
         class={twMerge(
           base,
-          variants.checked[checked && "true"].base,
+          variants.checked[checked && "true"],
           variants.hasLabel[!!label && "true"],
           variants.disabled[disabled && "true"],
           klass
@@ -60,7 +60,7 @@ function Toggle({
       >
         <span
           aria-hidden="true"
-          class={[slots.switch, variants.checked[checked && "true"].switch]}
+          class={[slots.switch.base, slots.switch.variants.checked[checked && "true"]]}
         />
       </button>
     </InlineInput>

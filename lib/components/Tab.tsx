@@ -22,7 +22,7 @@ const Tab = ({
   theme,
   useTheme = useThemeProvider(),
 }: NullstackClientContext<TabProps>) => {
-  const { slots, variants } = useTheme(theme).tab;
+  const { slots } = useTheme(theme).tab;
 
   return (
     <div class={klass}>
@@ -34,8 +34,8 @@ const Tab = ({
             <li>
               <a
                 class={[
-                  slots.listItem,
-                  variants.listItem.active[child.attributes?.active && "true"],
+                  slots.listItem.base,
+                  slots.listItem.variants.active[child.attributes?.active && "true"],
                 ]}
                 onclick={() => onchange && onchange(idx)}
               >

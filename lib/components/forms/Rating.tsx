@@ -23,9 +23,9 @@ function Rating(props: NullstackClientContext<RatingProps>) {
         <button onclick={() => (bind.object[bind.property] = i)} disabled={disabled}>
           <StarIcon
             class={[
-              slots.star,
+              slots.star.base,
               variants.disabled[disabled && "true"],
-              rate >= i + 1 ? variants.star.filled : variants.star.empty,
+              slots.star.variants.filled[rate >= i + 1 && "true"],
             ]}
           />
         </button>
