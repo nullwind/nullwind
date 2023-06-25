@@ -1,75 +1,60 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import { twMerge } from "tailwind-merge";
+import tc from "../tc";
+import { BaseProps } from "../types";
 
-import { ComponentProps } from "../types";
-import useThemeProvider from "../useTheme";
+export const baseTable = {
+  base: "w-full border-collapse bg-white text-left text-sm text-slate-500",
+  slots: {
+    thead: "bg-slate-50",
+    th: "px-6 py-4 font-medium text-slate-900",
+    tbody: "divide-y divide-slate-100 border-t border-slate-100",
+    tr: "",
+    td: "px-6 py-4",
+  },
+};
 
-interface DefaultProps extends ComponentProps {
+interface DefaultProps extends BaseProps {
   children?: NullstackNode;
 }
 
-const Table = ({
-  children,
-  class: klass,
-  id,
-  theme,
-  useTheme = useThemeProvider(),
-}: NullstackClientContext<DefaultProps>) => {
+const Table = ({ children, class: klass, id, theme }: NullstackClientContext<DefaultProps>) => {
+  const { base } = tc(baseTable, theme?.table)();
+
   return (
-    <table id={id} class={twMerge(useTheme(theme).table.base, klass)}>
+    <table id={id} class={base({ class: klass })}>
       {children}
     </table>
   );
 };
 
-Table.THead = ({
-  children,
-  class: klass,
-  theme,
-  useTheme = useThemeProvider(),
-}: NullstackClientContext<DefaultProps>) => {
-  return <thead class={twMerge(useTheme(theme).table.slots.thead, klass)}>{children}</thead>;
+Table.THead = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+  const { thead } = tc(baseTable, theme?.table)();
+  return <thead class={thead({ class: klass })}>{children}</thead>;
 };
 
-Table.TH = ({
-  children,
-  class: klass,
-  theme,
-  useTheme = useThemeProvider(),
-}: NullstackClientContext<DefaultProps>) => {
+Table.TH = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+  const { th } = tc(baseTable, theme?.table)();
   return (
-    <th scope="col" class={twMerge(useTheme(theme).table.slots.th, klass)}>
+    <th scope="col" class={th({ class: klass })}>
       {children}
     </th>
   );
 };
 
-Table.TBody = ({
-  children,
-  class: klass,
-  theme,
-  useTheme = useThemeProvider(),
-}: NullstackClientContext<DefaultProps>) => {
-  return <tbody class={twMerge(useTheme(theme).table.slots.tbody, klass)}>{children}</tbody>;
+Table.TBody = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+  const { tbody } = tc(baseTable, theme?.table)();
+  return <tbody class={tbody({ class: klass })}>{children}</tbody>;
 };
 
-Table.TR = ({
-  children,
-  class: klass,
-  theme,
-  useTheme = useThemeProvider(),
-}: NullstackClientContext<DefaultProps>) => (
-  <tr class={twMerge(useTheme(theme).table.slots.tr, klass)}>{children}</tr>
-);
+Table.TR = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+  const { tr } = tc(baseTable, theme?.table)();
+  return <tr class={tr({ class: klass })}>{children}</tr>;
+};
 
-Table.TD = ({
-  children,
-  class: klass,
-  theme,
-  useTheme = useThemeProvider(),
-}: NullstackClientContext<DefaultProps>) => {
-  return <td class={twMerge(useTheme(theme).table.slots.td, klass)}>{children}</td>;
+Table.TD = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+  const { td } = tc(baseTable, theme?.table)();
+  return <td class={td({ class: klass })}>{children}</td>;
 };
 
 export default Table as NullstackFunctionalComponent<DefaultProps>;

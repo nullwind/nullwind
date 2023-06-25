@@ -1,11 +1,7 @@
-import theme from "./theme";
-import useTheme from "./useTheme";
+import * as theme from "./theme";
 
-export type Theme = typeof theme;
-export interface ComponentProps {
+export interface BaseProps {
   class?: string;
-  customTheme?: Theme;
   id?: string;
-  theme?: Theme;
-  useTheme?: ReturnType<typeof useTheme>;
+  theme?: typeof theme;
 }

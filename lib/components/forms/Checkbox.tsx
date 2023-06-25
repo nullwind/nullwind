@@ -1,10 +1,19 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
 import InlineInput from "./InlineInput";
-import type { ComponentProps } from "../../types";
-import useThemeProvider from "../../useTheme";
+import tc from "../../tc";
+import type { BaseProps } from "../../types";
 
-interface CheckboxProps extends ComponentProps {
+export const baseCheckbox = {
+  base: "h-4 w-4 rounded border-slate-300 text-primary-600 shadow-sm disabled:cursor-not-allowed disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
+  variants: {
+    error: {
+      true: "!border-danger-300 text-danger-900 placeholder-danger-300",
+    },
+  },
+};
+
+interface CheckboxProps extends BaseProps {
   disabled?: boolean;
   error?: string;
   helper?: string;
@@ -20,10 +29,9 @@ const Checkbox = ({
   label,
   required,
   theme,
-  useTheme = useThemeProvider(),
   ...rest
 }: NullstackClientContext<CheckboxProps>) => {
-  const { base, variants } = useTheme(theme).checkbox;
+  const checkbox = tc(baseCheckbox, theme?.checkbox);
 
   return (
     <InlineInput
@@ -36,7 +44,7 @@ const Checkbox = ({
       theme={theme}
     >
       <input
-        class={[base, variants.error[!!error && "true"]]}
+        class={checkbox({ error: !!error })}
         id={id}
         required={required}
         type="checkbox"

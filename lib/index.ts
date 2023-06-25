@@ -31,5 +31,4 @@ export { default as StarIcon } from "./components/icons/StarIcon";
 export { default as XIcon } from "./components/icons/XIcon";
 
 // Theme
-export { default as theme } from "./theme";
-export { default as useTheme } from "./useTheme";
+export * as theme from "./theme";
