@@ -1,10 +1,19 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import Input from "./Input";
-import type { ComponentProps } from "../../types";
-import useThemeProvider from "../../useTheme";
+import tc from "../../tc";
+import type { BaseProps } from "../../types";
 
-interface SelectProps extends ComponentProps {
+export const baseSelect = {
+  base: "w-full rounded-md border-slate-300 shadow-sm disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
+  variants: {
+    error: {
+      true: "!border-danger-300 text-danger-900 placeholder-danger-300",
+    },
+  },
+};
+
+interface SelectProps extends BaseProps {
   children?: NullstackNode;
   corner?: string;
   disabled?: boolean;
@@ -25,10 +34,9 @@ const Select = ({
   label,
   required,
   theme,
-  useTheme = useThemeProvider(),
   ...rest
 }: NullstackClientContext<SelectProps>) => {
-  const { base, variants } = useTheme(theme).select;
+  const select = tc(baseSelect, theme?.select);
 
   return (
     <Input
@@ -43,7 +51,7 @@ const Select = ({
     >
       <select
         id={id}
-        class={[base, variants.error[!!error && "true"]]}
+        class={select({ error: !!error })}
         disabled={disabled}
         required={required}
         {...rest}

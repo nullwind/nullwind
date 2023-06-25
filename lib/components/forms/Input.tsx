@@ -4,10 +4,17 @@ import Corner from "./Corner";
 import Error from "./Error";
 import Helper from "./Helper";
 import Label from "./Label";
-import type { ComponentProps } from "../../types";
-import useThemeProvider from "../../useTheme";
+import tc from "../../tc";
+import type { BaseProps } from "../../types";
 
-interface InputProps extends ComponentProps {
+export const baseInput = {
+  base: "flex flex-col gap-1.5",
+  slots: {
+    labelWrapper: "flex justify-between",
+  },
+};
+
+interface InputProps extends BaseProps {
   corner?: string;
   error?: string;
   helper?: string;
@@ -25,13 +32,13 @@ function Input({
   label,
   required,
   theme,
-  useTheme = useThemeProvider(),
 }: NullstackClientContext<InputProps>) {
-  const { base, slots } = useTheme(theme).input;
+  const input = tc(baseInput, theme?.input);
+  const { base, labelWrapper } = input();
 
   return (
-    <div class={[base, klass]}>
-      <div class={slots.labelWrapper}>
+    <div class={base({ class: klass })}>
+      <div class={labelWrapper()}>
         <Label required={required} for={id} theme={theme}>
           {label}
         </Label>
