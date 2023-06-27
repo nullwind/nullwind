@@ -31,7 +31,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npx nullstack build --mode=ssg --output=docs --cache
+        run: npx nullstack build --mode=ssg --output=docs
 
       - name: Send to Github
         run: |
@@ -41,5 +41,5 @@ jobs:
           git add docs -f
           git config --global user.name "Deployer"
           git config --global user.email "nullwind@deployer.ci"
-          git commit -m ":rocket: New SSG Build"
+          git commit -m "docs: :rocket: New SSG Build" --no-verify
           git push -u origin gh-pages -f

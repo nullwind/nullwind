@@ -21,6 +21,8 @@ export { default as Select } from "./components/forms/Select";
 export { default as Textarea } from "./components/forms/Textarea";
 export { default as TextInput } from "./components/forms/TextInput";
 export { default as Toggle } from "./components/forms/Toggle";
+export { default as Input } from "./components/forms/Input";
+export { default as InlineInput } from "./components/forms/InlineInput";
 
 // Icons
 export { default as ChevronLeftIcon } from "./components/icons/ChevronLeftIcon";

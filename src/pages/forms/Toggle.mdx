@@ -1,0 +1,69 @@
+import { theme, Toggle } from "nullwind";
+import { Meta, Demo, ThemePreview } from "~/components";
+
+<Meta
+  title="Toggle"
+  description="Use the following toggle switch component to ask for a yes or no type of input from your users without the use of JavaScript."
+/>
+
+# Toggle
+
+Use the following toggle switch component to ask for a yes or no type of input from your users without the use of JavaScript.
+
+## Usage
+
+<Demo
+  component={(props) => <Toggle {...props} />}
+  configurator={[
+    {
+      name: "label",
+      type: "text",
+      value: "My Field",
+      defaultValue: "",
+    },
+    {
+      name: "helper",
+      type: "text",
+      value: "This is a helper message",
+      defaultValue: "",
+    },
+    {
+      name: "error",
+      type: "text",
+      value: "",
+      defaultValue: "",
+    },
+    {
+      name: "required",
+      type: "boolean",
+      value: true,
+      defaultValue: false,
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      value: false,
+      defaultValue: false,
+    },
+  ]}
+  template={(props) => `
+    import { Toggle } from 'nullwind';
+
+    export default function Demo() {
+      return <Toggle ${props} bind={this.field} />;
+    }
+
+`}/>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    inlineInput: theme.inlineInput,
+    label: theme.label,
+    corner: theme.corner,
+    toggle: theme.toggle,
+    helper: theme.helper,
+    error: theme.error,
+  }}
+/>

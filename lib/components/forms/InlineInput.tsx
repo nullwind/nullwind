@@ -24,12 +24,12 @@ function InlineInput({
   theme,
   useTheme = useThemeProvider(),
 }: NullstackClientContext<InlineInputProps>) {
-  const { inlineInput } = useTheme(theme);
+  const { base, slots } = useTheme(theme).inlineInput;
 
   return (
-    <div class={[inlineInput.base, klass]}>
+    <div class={[base, klass]}>
       {children}
-      <div class={inlineInput.labelWrapper}>
+      <div class={slots.labelWrapper}>
         {label && (
           <Label for={id} required={required} theme={theme}>
             {label}

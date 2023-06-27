@@ -1,7 +1,11 @@
 {
   "name": "nullwind",
   "description": "Nullstack components library focused on usability, accessibility and developer experience",
+<<<<<<< HEAD
   "version": "0.0.3",
+=======
+  "version": "0.0.6",
+>>>>>>> main
   "module": "index.ts",
   "types": "types.d.ts",
   "license": "MIT",

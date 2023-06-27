@@ -6,7 +6,7 @@ import ButtonGroup from "./pages/components/ButtonGroup.mdx";
 import Divider from "./pages/components/Divider.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
 import Tab from "./pages/components/Tab/Tab.mdx";
-import Table from "./pages/components/Table.mdx";
+import Table from "./pages/components/Table/Table.mdx";
 import Title from "./pages/components/Title.mdx";
 import Checkbox from "./pages/forms/Checkbox.mdx";
 import Radio from "./pages/forms/Radio.mdx";
@@ -14,10 +14,11 @@ import Rating from "./pages/forms/Rating.mdx";
 import Select from "./pages/forms/Select.mdx";
 import Textarea from "./pages/forms/Textarea.mdx";
 import TextInput from "./pages/forms/TextInput.mdx";
-import Toggle from "./pages/forms/Toggle/Toggle.mdx";
-import QuickStart from "./pages/getting-started/QuickStart.mdx";
-import Theme from "./pages/getting-started/Theme.mdx";
+import Toggle from "./pages/forms/Toggle.mdx";
+import QuickStart from "./pages/getting-started/QuickStart/QuickStart.mdx";
+import Theme from "./pages/getting-started/Theme/Theme.mdx";
 import ThemeBuilder from "./pages/theme-builder/ThemeBuilder";
+
 
 export const routes = [
   {

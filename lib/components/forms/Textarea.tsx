@@ -29,7 +29,7 @@ function Textarea({
   useTheme = useThemeProvider(),
   ...rest
 }: NullstackClientContext<TextareaProps>) {
-  const classes = useTheme(theme).textarea;
+  const { base, variants } = useTheme(theme).textarea;
 
   return (
     <Input
@@ -45,7 +45,7 @@ function Textarea({
       <textarea
         id={id}
         rows={rows}
-        class={[classes.base, error && classes.error]}
+        class={[base, variants.error[!!error && "true"]]}
         disabled={disabled}
         required={required}
         bind={bind}

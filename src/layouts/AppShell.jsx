@@ -1,11 +1,12 @@
 import Nullstack from "nullstack";
 
 import docsearch from "@docsearch/js";
-import { IconGithub, IconMenu } from "nullstack-feather-icons";
+import { Bars3Icon } from "nullstack-heroicons/24/outline";
 
-import { Logo } from "./assets/Logo";
-import { Breadcrumb, Pagination } from "./components";
-import { routes } from "./routes";
+import { DiscordIcon } from "../assets/DiscordIcon";
+import { Logo } from "../assets/Logo";
+import { Breadcrumb, Pagination } from "../components";
+import { routes } from "../routes";
 
 export class AppShell extends Nullstack {
   menuOpen = false;
@@ -22,13 +23,13 @@ export class AppShell extends Nullstack {
   renderHeader() {
     return (
       <header
-        class="absolute top-0 left-0 right-0 z-50 py-4 md:fixed md:transition-all backdrop-blur bg-gray-900 shadow-sm"
+        class="absolute left-0 right-0 top-0 z-50 flex h-16 items-center bg-slate-900 shadow-sm backdrop-blur md:fixed md:transition-all"
         id="header"
       >
         <div class="container mx-auto justify-between px-6 md:flex 2xl:px-32">
           <div class="flex items-center justify-between">
             <a href="/" title="Nullwind" class="flex">
-              <Logo class="h-[30px] -mt-1" />
+              <Logo class="-mt-1 h-[30px]" />
             </a>
             <a
               href="#"
@@ -36,7 +37,7 @@ export class AppShell extends Nullstack {
               class="block md:hidden"
               onclick={{ menuOpen: !this.menuOpen }}
             >
-              <IconMenu size={32} />
+              <Bars3Icon class="h-8 w-8 text-white" />
             </a>
           </div>
           <nav
@@ -71,14 +72,23 @@ export class AppShell extends Nullstack {
             <ul class="mt-6 items-center gap-5 space-y-6 font-medium md:mt-0 md:flex md:space-y-0">
               <li>
                 <a
-                  href="https://github.com/nullwind/nullwind"
+                  class="text-white hover:text-primary-400"
+                  href="https://discord.gg/eDZfKz264v"
                   target="_blank"
-                  class="block hover:text-primary-400"
-                  aria-label="GitHub"
                 >
-                  <span class="block md:hidden">GitHub</span>
-                  <IconGithub />
+                  <DiscordIcon class="h-5 w-5" />
                 </a>
+              </li>
+              <li class="pt-1">
+                <a
+                  class="github-button inline-block"
+                  href="https://github.com/nullwind/nullwind"
+                  data-show-count="true"
+                  aria-label="Star nullwind/nullwind on GitHub"
+                >
+                  Star
+                </a>
+                <script async defer src="https://buttons.github.io/buttons.js" />
               </li>
             </ul>
           </nav>
@@ -89,11 +99,11 @@ export class AppShell extends Nullstack {
 
   renderSidebar({ router }) {
     return (
-      <aside class="sticky inset-0 right-auto z-20 -ml-6 -mr-6 shrink-0 overflow-y-auto border-y border-y-gray-100 bg-white px-6 lg:fixed lg:top-24 lg:left-[max(0px,calc(50%-30.5rem))] lg:m-0 lg:block lg:h-[calc(100vh-100px)] lg:w-64 lg:border-none lg:bg-transparent lg:px-0 xl:left-[max(0px,calc(50%-38.5rem))] 2xl:left-[max(0px,calc(50%-40rem))]">
+      <aside class="sticky inset-0 right-auto z-20 -ml-6 -mr-6 shrink-0 overflow-y-auto border-y border-y-gray-100 bg-white px-6 lg:fixed lg:left-[max(0px,calc(50%-30.5rem))] lg:top-24 lg:m-0 lg:block lg:h-[calc(100vh-100px)] lg:w-64 lg:border-none lg:bg-transparent lg:px-0 xl:left-[max(0px,calc(50%-38.5rem))] 2xl:left-[max(0px,calc(50%-40rem))]">
         <div
           class={["-ml-2 lg:m-0 lg:block lg:pb-10 lg:pr-4", this.menuOpen ? "visible" : "hidden"]}
         >
-          <div class="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
+          <div class="flex flex-1 flex-col overflow-y-auto pb-4 pt-5">
             <nav class="text-sm">
               <ul class="space-y-4">
                 {routes.map((group) => (
@@ -131,7 +141,7 @@ export class AppShell extends Nullstack {
     return (
       <div class="mt-4 w-full min-w-0 max-w-full lg:mt-0 lg:pl-72">
         <main class="flex-1">
-          <div class="max-w-5xl mx-auto px-4 sm:px-6 md:px-0 prose">
+          <div class="prose mx-auto max-w-5xl px-4 sm:px-6 md:px-0">
             <div class="py-4">
               <Breadcrumb />
               {children}
@@ -162,7 +172,7 @@ export class AppShell extends Nullstack {
         <Header />
         <main>
           <section class="pt-14 lg:pt-24">
-            <div class="container mx-auto px-6 2xl:px-32">
+            <div class="container mx-auto px-3 2xl:px-32">
               <div class="relative w-full lg:flex">
                 <Sidebar />
                 <Main>{children}</Main>

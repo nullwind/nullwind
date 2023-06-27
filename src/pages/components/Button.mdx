@@ -1,6 +1,6 @@
 import { theme, Button, ButtonGroup } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Demo, ThemePreview } from "~/components";
 
 <Meta
   title="Button"
@@ -15,136 +15,57 @@ pages, for that use Links.
 
 ## Usage
 
-```jsx
-import { Button } from "nullwind";
+<Demo
+  component={(props) => <Button {...props}>Click here!</Button>}
+  configurator={[
+    {
+      name: "href",
+      type: "url",
+      value: "https://nullwind.dev/",
+      defaultValue: ""
+    },
+    {
+      name: "color",
+      type: "select",
+      options: ["primary", "secondary", "info", "success", "warning", "danger"],
+      value: "primary",
+      defaultValue: "primary"
+    },
+    {
+      name: "size",
+      type: "select",
+      options: ["sm", "md", "lg"],
+      value: "md",
+      defaultValue: "md"
+    },
+    {
+      name: "outline",
+      type: "boolean",
+      value: false,
+      defaultValue: false
+    },
+    {
+      name: "fullSized",
+      type: "boolean",
+      value: false,
+      defaultValue: false
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      value: false,
+      defaultValue: false
+    }
+  ]}
+  template={(props) => `
+    import { Button } from 'nullwind';
 
-const MyComponent = () => {
-  return (
-    <Button
-      href="https://nullstack.app" // set custom `href` to use as a link
-      color="primary" // primary, secondary, info, success, warning, danger
-      size="sm" // sm, lg
-      fullSized={false}
-      outline={false}
-      disabled={false}
-      onclick={() => {}}
-    >
-      Button
-    </Button>
-  );
-};
-```
+    export default function Demo() {
+      return <Button ${props}>Click here!</Button>;
+    }
 
-## Examples
-
-<Playground title="Colors">
-  <Playground.Preview>
-    <div class="flex flex-wrap gap-5 justify-center items-center">
-      <Button>Primary</Button>
-      <Button color="secondary">Secondary</Button>
-      <Button color="info">Info</Button>
-      <Button color="success">Success</Button>
-      <Button color="warning">Warning</Button>
-      <Button color="danger">Danger</Button>
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Button>Primary</Button>
-    <Button color="secondary">Secondary</Button>
-    <Button color="info">Info</Button>
-    <Button color="success">Success</Button>
-    <Button color="warning">Warning</Button>
-    <Button color="danger">Danger</Button>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Outline">
-  <Playground.Preview>
-    <div class="flex flex-wrap gap-5 justify-center items-center">
-      <Button outline>Primary</Button>
-      <Button outline color="secondary">
-        Secondary
-      </Button>
-      <Button outline color="info">
-        Info
-      </Button>
-      <Button outline color="success">
-        Success
-      </Button>
-      <Button outline color="warning">
-        Warning
-      </Button>
-      <Button outline color="danger">
-        Danger
-      </Button>
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Button outline>Primary</Button>
-    <Button outline color="secondary">
-      Secondary
-    </Button>
-    <Button outline color="info">
-      Info
-    </Button>
-    <Button outline color="success">
-      Success
-    </Button>
-    <Button outline color="warning">
-      Warning
-    </Button>
-    <Button outline color="danger">
-      Danger
-    </Button>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Sizes">
-  <Playground.Preview>
-    <div class="flex flex-wrap gap-5 justify-center items-center">
-      <Button size="sm">SM</Button>
-      <Button>Base</Button>
-      <Button size="lg">LG</Button>
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Button size="sm">SM</Button>
-    <Button>Base</Button>
-    <Button size="lg">LG</Button>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Full Sized">
-  <Playground.Preview>
-    <div class="flex flex-wrap gap-5 justify-center items-center">
-      <Button fullSized>Primary</Button>
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Button fullSized>Primary</Button>
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Disabled">
-  <Playground.Preview>
-    <div class="flex flex-wrap gap-5 justify-center items-center">
-      <Button disabled>Primary</Button>
-    </div>
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Button disabled>Primary</Button>
-    ```
-  </Playground.Code>
-</Playground>
+`}
+/>
 
 ## Theme
 

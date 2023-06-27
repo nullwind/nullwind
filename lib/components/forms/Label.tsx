@@ -18,10 +18,10 @@ function Label(props: NullstackClientContext<LabelProps>) {
     theme,
     useTheme = useThemeProvider(),
   } = props;
-  const classes = useTheme(theme).label;
+  const { base } = useTheme(theme).label;
 
   return (
-    <label data-required={required} for={receivedFor} class={[classes, klass]}>
+    <label data-required={required} for={receivedFor} class={[base, klass]}>
       {children}
     </label>
   );

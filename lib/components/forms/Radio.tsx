@@ -24,7 +24,7 @@ function Radio({
   useTheme = useThemeProvider(),
   ...rest
 }: NullstackClientContext<RadioProps>) {
-  const classes = useTheme(theme).radio;
+  const { base, variants } = useTheme(theme).radio;
 
   return (
     <InlineInput
@@ -37,7 +37,7 @@ function Radio({
       theme={theme}
     >
       <input
-        class={[classes.base, error && classes.error]}
+        class={[base, error && variants.error[!!error && "true"]]}
         disabled={disabled}
         id={id}
         type="radio"

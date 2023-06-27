@@ -1,6 +1,6 @@
 import { theme, Radio } from "nullwind";
 
-import { Meta, Playground, ThemePreview } from "~/components";
+import { Meta, Demo, ThemePreview } from "~/components";
 
 <Meta
   title="Radio"
@@ -13,55 +13,48 @@ Group a series of buttons together on a single line or stack them in a vertical 
 
 ## Usage
 
-```jsx
-import { Radio } from "nullwind";
-```
+<Demo
+  component={(props) => <Radio {...props} />}
+  configurator={[
+    {
+      name: "label",
+      type: "text",
+      value: "My Field",
+      defaultValue: "",
+    },
+    {
+      name: "helper",
+      type: "text",
+      value: "This is a helper message",
+      defaultValue: "",
+    },
+    {
+      name: "error",
+      type: "text",
+      value: "",
+      defaultValue: "",
+    },
+    {
+      name: "required",
+      type: "boolean",
+      value: true,
+      defaultValue: false,
+    },
+    {
+      name: "disabled",
+      type: "boolean",
+      value: false,
+      defaultValue: false,
+    },
+  ]}
+  template={(props) => `
+    import { Radio } from 'nullwind';
 
-## Examples
+    export default function Demo() {
+      return <Radio ${props} bind={this.field} />;
+    }
 
-<Playground title="Default">
-  <Playground.Preview>
-    <Radio id={1} label="Some label here" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Radio id={1} label="Some label here" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With helper">
-  <Playground.Preview>
-    <Radio id={2} label="Some label here" helper="This is a helper" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Radio id={2} label="Some label here" helper="This is a helper" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="With validation error">
-  <Playground.Preview>
-    <Radio id={2} label="Some label here" error="This a error message" />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Radio id={2} label="Some label here" error="This a error message" />
-    ```
-  </Playground.Code>
-</Playground>
-
-<Playground title="Disabled">
-  <Playground.Preview>
-    <Radio id={3} label="Some label here" disabled />
-  </Playground.Preview>
-  <Playground.Code>
-    ```jsx
-    <Radio id={3} label="Some label here" disabled />
-    ```
-  </Playground.Code>
-</Playground>
+`}/>
 
 ## Theme
 

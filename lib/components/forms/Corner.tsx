@@ -9,8 +9,8 @@ interface CornerProps extends ComponentProps {
 
 function Corner(props: NullstackClientContext<CornerProps>) {
   const { children, class: klass, theme, useTheme = useThemeProvider() } = props;
-  const classes = useTheme(theme).corner;
-  return <span class={[classes, klass]}>{children}</span>;
+  const { base } = useTheme(theme).corner;
+  return <span class={[base, klass]}>{children}</span>;
 }
 
 export default Corner as NullstackFunctionalComponent<CornerProps>;

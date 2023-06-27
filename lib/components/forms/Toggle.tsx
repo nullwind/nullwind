@@ -28,8 +28,8 @@ function Toggle({
   theme,
   useTheme = useThemeProvider(),
 }: NullstackClientContext<ToggleProps>) {
-  const classes = useTheme(theme).toggle;
-  const value = !!bind?.object?.[bind?.property];
+  const { base, slots, variants } = useTheme(theme).toggle;
+  const checked = !!bind?.object?.[bind?.property];
 
   return (
     <InlineInput
@@ -45,10 +45,10 @@ function Toggle({
         id={id}
         type="button"
         class={twMerge(
-          classes.base,
-          label && classes.hasLabel,
-          classes.checked[value ? "on" : "off"],
-          disabled && classes.disabled,
+          base,
+          variants.checked[checked && "true"],
+          variants.hasLabel[!!label && "true"],
+          variants.disabled[disabled && "true"],
           klass
         )}
         role="switch"
@@ -60,7 +60,7 @@ function Toggle({
       >
         <span
           aria-hidden="true"
-          class={[classes.switch.base, classes.switch.checked[value ? "on" : "off"]]}
+          class={[slots.switch.base, slots.switch.variants.checked[checked && "true"]]}
         />
       </button>
     </InlineInput>

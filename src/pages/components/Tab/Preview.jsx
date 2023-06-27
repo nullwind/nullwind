@@ -7,7 +7,7 @@ class Preview extends Nullstack {
 
   render() {
     return (
-      <Tab onchange={(idx) => (this.idx = idx)}>
+      <Tab class="max-w-xl w-full" onchange={(idx) => (this.idx = idx)}>
         <Tab.Item title="Profile" active={this.idx === 0}>
           Tab content 1
         </Tab.Item>
