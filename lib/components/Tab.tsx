@@ -27,7 +27,7 @@ const Tab = ({
   return (
     <div class={klass}>
       <ul class={slots.list}>
-        {children.map((child, idx) => {
+        {children.map((child: CustomChildren, idx) => {
           if (!child.attributes?.title) return false;
 
           return (
@@ -45,7 +45,9 @@ const Tab = ({
           );
         })}
       </ul>
-      <div class={slots.panel}>{children.filter((child) => child.attributes?.active)}</div>
+      <div class={slots.panel}>
+        {children.filter((child: CustomChildren) => child.attributes?.active)}
+      </div>
     </div>
   );
 };
