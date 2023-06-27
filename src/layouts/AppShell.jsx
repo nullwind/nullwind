@@ -3,7 +3,7 @@ import Nullstack from "nullstack";
 import docsearch from "@docsearch/js";
 import { Bars3Icon } from "nullstack-heroicons/24/outline";
 
-import { GithubIcon } from "../assets/GithubIcon";
+import { DiscordIcon } from "../assets/DiscordIcon";
 import { Logo } from "../assets/Logo";
 import { Breadcrumb, Pagination } from "../components";
 import { routes } from "../routes";
@@ -70,6 +70,15 @@ export class AppShell extends Nullstack {
             </ul>
             <div class="hidden h-5 w-px bg-white/20 md:block"></div>
             <ul class="mt-6 items-center gap-5 space-y-6 font-medium md:mt-0 md:flex md:space-y-0">
+              <li>
+                <a
+                  class="text-white hover:text-primary-400"
+                  href="https://discord.gg/eDZfKz264v"
+                  target="_blank"
+                >
+                  <DiscordIcon class="h-5 w-5" />
+                </a>
+              </li>
               <li class="pt-1">
                 <a
                   class="github-button inline-block"
