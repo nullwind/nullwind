@@ -1,6 +1,6 @@
 import Nullstack, { NullstackNode } from "nullstack";
 
-import { IconCode, IconSettings } from "nullstack-feather-icons";
+import { CodeIcon, SettingsIcon } from "nullstack-feather-icons";
 import { Button, Textarea } from "nullwind";
 import { theme } from "nullwind";
 import getPalette from "tailwindcss-palette-generator";
@@ -15,6 +15,7 @@ declare function Colors(): NullstackNode;
 class ThemeBuilder extends Nullstack {
   showColors = true;
   showConfigs = true;
+  teste = false;
   theme = theme;
   colors = {
     primary: "sky",
@@ -104,8 +105,8 @@ class ThemeBuilder extends Nullstack {
             <h2 class={"my-0 flex justify-between"}>
               Colors
               <Button size="sm" onclick={this.toogleColors}>
-                {this.showColors && <IconCode size={18} />}
-                {!this.showColors && <IconSettings size={18} />}
+                {this.showColors && <CodeIcon size={18} />}
+                {!this.showColors && <SettingsIcon size={18} />}
               </Button>
             </h2>
             {this.showColors && <Colors obj={this.colors} />}
@@ -113,8 +114,8 @@ class ThemeBuilder extends Nullstack {
             <h2 class={"my-0 flex justify-between"}>
               Configs
               <Button size="sm" onclick={this.toogleConfigs}>
-                {this.showConfigs && <IconCode size={18} />}
-                {!this.showConfigs && <IconSettings size={18} />}
+                {this.showConfigs && <CodeIcon size={18} />}
+                {!this.showConfigs && <SettingsIcon size={18} />}
               </Button>
             </h2>
             {this.showConfigs && <Config obj={this.theme} />}

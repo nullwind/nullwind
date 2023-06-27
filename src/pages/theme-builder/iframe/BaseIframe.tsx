@@ -1,9 +1,10 @@
-import Nullstack from "nullstack";
+import Nullstack, { NullstackNode } from "nullstack";
 
-import { IconChevronDown, IconChevronRight } from "nullstack-feather-icons";
+import { ChevronDownIcon, ChevronRightIcon } from "nullstack-feather-icons";
+
 interface IBaseIframe {
-  children?: any;
-  title: any;
+  children?: NullstackNode;
+  title: string | NullstackNode;
 }
 class BaseIframe extends Nullstack<IBaseIframe> {
   showContent = true;
@@ -17,8 +18,8 @@ class BaseIframe extends Nullstack<IBaseIframe> {
           class="flex gap-2 cursor-pointer text-3xl font-bold items-center"
           onclick={this.toogleContent}
         >
-          {this.showContent && <IconChevronDown size={24} />}
-          {!this.showContent && <IconChevronRight size={24} />}
+          {this.showContent && <ChevronDownIcon size={24} />}
+          {!this.showContent && <ChevronRightIcon size={24} />}
           {title}
         </h2>
         {this.showContent && <div class="flex flex-col gap-4">{children}</div>}

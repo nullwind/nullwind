@@ -52,6 +52,7 @@
     "@docsearch/js": "^3.3.2",
     "@mdx-js/loader": "^2.3.0",
     "highlight.js": "^11.8.0",
+    "nullstack-feather-icons": "^1.1.1",
     "nullstack-heroicons": "^0.1.0",
     "string-replace-loader": "^3.1.0",
     "yup": "^0.32.11"
