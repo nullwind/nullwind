@@ -74,6 +74,7 @@ class Demo extends Nullstack {
                     select: {
                       base: "py-1.5 text-sm",
                     },
+                    helper: "text-xs",
                   }}
                 />
               ))}

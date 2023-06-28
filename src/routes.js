@@ -8,6 +8,7 @@ import Modal from "./pages/components/Modal/Modal.mdx";
 import Tab from "./pages/components/Tab/Tab.mdx";
 import Table from "./pages/components/Table/Table.mdx";
 import Title from "./pages/components/Title.mdx";
+import Tooltip from "./pages/components/Tooltip.mdx";
 import Checkbox from "./pages/forms/Checkbox.mdx";
 import Radio from "./pages/forms/Radio.mdx";
 import Rating from "./pages/forms/Rating.mdx";
@@ -93,6 +94,11 @@ export const routes = [
         title: "Title",
         path: "/components/title",
         component: Title,
+      },
+      {
+        title: "Tooltip",
+        path: "/components/tooltip",
+        component: Tooltip,
       },
     ],
   },

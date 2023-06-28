@@ -1,7 +1,7 @@
 {
   "name": "nullwind",
   "description": "Nullstack components library focused on usability, accessibility and developer experience",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "module": "index.ts",
   "types": "types.d.ts",
   "license": "MIT",
@@ -32,6 +32,7 @@
     "tailwindcss": "^3.0.0"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.4.2",
     "tailwind-merge": "^1.12.0"
   }
 }

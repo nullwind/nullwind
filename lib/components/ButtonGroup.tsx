@@ -1,9 +1,11 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import { twMerge } from "tailwind-merge";
+import tc from "../tc";
+import { BaseProps } from "../types";
 
-import { ComponentProps } from "../types";
-import useThemeProvider from "../useTheme";
+export const baseButtonGroup = {
+  base: "inline-flex",
+};
 
 type CustomChildren = NullstackNode & {
   attributes?: {
@@ -11,16 +13,16 @@ type CustomChildren = NullstackNode & {
   };
 };
 
-interface ButtonGroupProps extends ComponentProps {
+interface ButtonGroupProps extends BaseProps {
   children?: CustomChildren[];
 }
 
 function ButtonGroup(props: NullstackClientContext<ButtonGroupProps>) {
-  const { children, class: klass, theme, useTheme = useThemeProvider() } = props;
-  const { base } = useTheme(theme).buttonGroup;
+  const { children, class: klass, theme } = props;
+  const buttonGroup = tc(baseButtonGroup, theme?.buttonGroup);
 
   return (
-    <div class={twMerge(base, klass)}>
+    <div class={buttonGroup({ class: klass })}>
       {children.map((child: CustomChildren, index) => {
         if (!child.attributes) return child;
 

@@ -1,26 +1,31 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import { twMerge } from "tailwind-merge";
+import tc from "../tc";
+import type { BaseProps } from "../types";
 
-import type { ComponentProps } from "../types";
-import useThemeProvider from "../useTheme";
+export const baseTitle = {
+  variants: {
+    h: {
+      1: "text-4xl font-bold",
+      2: "text-3xl font-bold",
+      3: "text-2xl font-bold",
+      4: "text-xl font-bold",
+      5: "text-lg font-bold",
+      6: "text-base font-bold",
+    },
+  },
+};
 
-interface TitleProps extends ComponentProps {
+interface TitleProps extends BaseProps {
   children?: NullstackNode;
   h?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-function Title({
-  children,
-  class: klass,
-  h = 1,
-  theme,
-  useTheme = useThemeProvider(),
-}: NullstackClientContext<TitleProps>) {
-  const { variants } = useTheme(theme).title;
+function Title({ children, class: klass, h = 1, theme }: NullstackClientContext<TitleProps>) {
+  const title = tc(baseTitle, theme?.title);
 
   return (
-    <element tag={`h${h}`} class={twMerge(variants.h[h], klass)}>
+    <element tag={`h${h}`} class={title({ h, class: klass })}>
       {children}
     </element>
   );

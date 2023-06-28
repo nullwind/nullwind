@@ -1,0 +1,88 @@
+import { theme, Tooltip, Alert } from "nullwind";
+import { InformationCircleIcon } from "nullstack-heroicons/24/outline";
+
+import { Meta, Demo, ThemePreview } from "~/components";
+
+<Meta
+  title="Tooltip"
+  description="A tooltip is a small pop-up window that appears when a user hovers over an object, such as a button or link."
+/>
+
+# Tootip
+
+A tooltip is a small pop-up window that appears when a user hovers over an object, such as a button or link.
+
+## Usage
+
+<Demo
+  component={(props) => (
+    <div class="flex gap-2">
+      This is {props.placement} tooltip
+      <Tooltip {...props}>
+        <InformationCircleIcon class="w-5 h-5 inline-block" />
+      </Tooltip>
+    </div>
+  )}
+  configurator={[
+    {
+      name: "label",
+      type: "text",
+      value: "Tooltip message here",
+      defaultValue: ""
+    },
+    {
+      name: "color",
+      type: "select",
+      options: ["light", "dark"],
+      value: "dark",
+      defaultValue: "dark"
+    },
+    {
+      name: "placement",
+      type: "select",
+      options: [
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "right",
+        "right-start",
+        "right-end",
+        "left",
+        "left-start",
+        "left-end"
+      ],
+      value: "top",
+      defaultValue: "top"
+    },
+    {
+      name: "offset",
+      type: "number",
+      value: 8,
+      defaultValue: 8,
+      helper: "The offset of the tooltip from the target element in pixels"
+    },
+  ]}
+  template={(props) => `
+    import { Tooltip } from "nullwind";
+    import { InformationCircleIcon } from "nullstack-heroicons/24/outline";
+
+    export default function Demo() {
+      return (
+        <Tooltip ${props}>
+          <InformationCircleIcon class="w-5 h-5" />
+        </Tooltip>
+      );
+    }
+
+`} />
+
+## Theme
+
+<ThemePreview
+  theme={{
+    tooltip: theme.tooltip,
+  }}
+/>

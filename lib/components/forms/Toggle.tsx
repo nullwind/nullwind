@@ -1,12 +1,35 @@
 import { NullstackClientContext } from "nullstack";
 
-import { twMerge } from "tailwind-merge";
-
 import InlineInput from "./InlineInput";
-import type { ComponentProps } from "../../types";
-import useThemeProvider from "../../useTheme";
+import tc from "../../tc";
+import type { BaseProps } from "../../types";
 
-interface ToggleProps extends ComponentProps {
+export const baseToggle = {
+  base: "relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 bg-slate-200",
+  variants: {
+    hasLabel: {
+      true: "-mt-1",
+    },
+    checked: {
+      true: "bg-primary-600",
+    },
+    disabled: {
+      true: "cursor-not-allowed opacity-50",
+    },
+  },
+  slots: {
+    switch: {
+      base: "pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200",
+      variants: {
+        checked: {
+          true: "translate-x-5",
+        },
+      },
+    },
+  },
+};
+
+interface ToggleProps extends BaseProps {
   disabled?: boolean;
   error?: string;
   helper?: string;
@@ -26,9 +49,9 @@ function Toggle({
   onclick,
   required,
   theme,
-  useTheme = useThemeProvider(),
 }: NullstackClientContext<ToggleProps>) {
-  const { base, slots, variants } = useTheme(theme).toggle;
+  const toggle = tc(baseToggle, theme?.toggle);
+  const { base, switch: switchSlot } = toggle();
   const checked = !!bind?.object?.[bind?.property];
 
   return (
@@ -44,13 +67,12 @@ function Toggle({
       <button
         id={id}
         type="button"
-        class={twMerge(
-          base,
-          variants.checked[checked && "true"],
-          variants.hasLabel[!!label && "true"],
-          variants.disabled[disabled && "true"],
-          klass
-        )}
+        class={base({
+          checked,
+          disabled,
+          hasLabel: !!label,
+          class: klass,
+        })}
         role="switch"
         disabled={disabled}
         onclick={() => {
@@ -58,10 +80,7 @@ function Toggle({
           onclick?.();
         }}
       >
-        <span
-          aria-hidden="true"
-          class={[slots.switch.base, slots.switch.variants.checked[checked && "true"]]}
-        />
+        <span aria-hidden="true" class={switchSlot({ checked })} />
       </button>
     </InlineInput>
   );

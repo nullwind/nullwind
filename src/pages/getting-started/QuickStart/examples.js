@@ -4,7 +4,7 @@ export const configuration = `
   const colors = require("tailwindcss/colors");
 
   module.exports = {
-    content: ["node_modules/nullwind/theme.ts", "src/**/*.{jsx,tsx}"],
+    content: ["node_modules/nullwind/**/*.tsx", "src/**/*.{jsx,tsx}"],
     theme: {
       extend: {
         // Set font family
