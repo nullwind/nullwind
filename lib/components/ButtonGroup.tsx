@@ -23,7 +23,7 @@ function ButtonGroup(props: NullstackClientContext<ButtonGroupProps>) {
 
   return (
     <div class={buttonGroup({ class: klass })}>
-      {children.map((child, index) => {
+      {children.map((child: CustomChildren, index) => {
         if (!child.attributes) return child;
 
         const position = index === 0 ? "start" : index === children.length - 1 ? "end" : "middle";

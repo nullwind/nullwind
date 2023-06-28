@@ -36,7 +36,7 @@ const Tab = ({ children, class: klass, onchange, theme }: NullstackClientContext
   return (
     <div class={klass}>
       <ul class={list()}>
-        {children.map((child, idx) => {
+        {children.map((child: CustomChildren, idx) => {
           if (!child.attributes?.title) return false;
 
           return (
@@ -51,7 +51,9 @@ const Tab = ({ children, class: klass, onchange, theme }: NullstackClientContext
           );
         })}
       </ul>
-      <div class={panel()}>{children.filter((child) => child.attributes?.active)}</div>
+      <div class={panel()}>
+        {children.filter((child: CustomChildren) => child.attributes?.active)}
+      </div>
     </div>
   );
 };
