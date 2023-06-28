@@ -21,6 +21,9 @@ export const baseTooltip = {
       dark: "bg-gray-900 text-white border-gray-900",
     },
   },
+  defaultVariants: {
+    color: "light",
+  },
   slots: {
     arrow: "absolute bg-inherit w-2 h-2 rotate-45",
   },
