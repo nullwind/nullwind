@@ -21,3 +21,4 @@ export { baseTextarea as textarea } from "./components/forms/Textarea";
 export { baseTextInput as textInput } from "./components/forms/TextInput";
 export { baseTitle as title } from "./components/Title";
 export { baseToggle as toggle } from "./components/forms/Toggle";
+export { baseTooltip as tooltip } from "./components/Tooltip";
