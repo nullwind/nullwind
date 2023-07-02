@@ -1,70 +1,64 @@
-import Nullstack from "nullstack";
+import { Avatar, Badge, Table } from "nullwind";
 
-import { Table, Avatar, Badge } from "nullwind";
+export default () => {
+  const users = [
+    {
+      id: 1,
+      name: "John Doe",
+      title: "Software Engineer",
+      email: "foo@bar.com",
+      status: "Active",
+    },
+    {
+      id: 2,
+      name: "Paul Smith",
+      title: "Product Manager",
+      email: "foo@bar.com",
+      status: "Active",
+    },
+    {
+      id: 3,
+      name: "Michael Johnson",
+      title: "Data Analyst",
+      email: "foo@bar.com",
+      status: "Active",
+    },
+  ];
 
-class Preview extends Nullstack {
-  render() {
-    return (
-      <Table>
-        <Table.THead>
-          <Table.TR>
-            <Table.TH>Name</Table.TH>
-            <Table.TH>Title</Table.TH>
-            <Table.TH>Email</Table.TH>
-            <Table.TH>Status</Table.TH>
-            <Table.TH>Actions</Table.TH>
-          </Table.TR>
-        </Table.THead>
-        <Table.TBody>
-          <Table.TR>
-            <Table.TD class="font-medium text-gray-900">
-              <Avatar src="/avatar.avif" name="John Doe" description="User" />
-            </Table.TD>
-            <Table.TD>Software Engineer</Table.TD>
-            <Table.TD>user@ae.studio</Table.TD>
-            <Table.TD>
-              <Badge color="success">Active</Badge>
-            </Table.TD>
-            <Table.TD class="space-x-2">
-              <a href="#" class="text-primary-600 hover:text-primary-900">
-                Edit
-              </a>
-            </Table.TD>
-          </Table.TR>
-          <Table.TR>
-            <Table.TD class="font-medium text-gray-900">
-              <Avatar src="/avatar.avif" name="John Doe" description="User" />
-            </Table.TD>
-            <Table.TD>Software Engineer</Table.TD>
-            <Table.TD>user@ae.studio</Table.TD>
-            <Table.TD>
-              <Badge color="warning">Pending</Badge>
-            </Table.TD>
-            <Table.TD class="space-x-2">
-              <a href="#" class="text-primary-600 hover:text-primary-900">
-                Edit
-              </a>
-            </Table.TD>
-          </Table.TR>
-          <Table.TR>
-            <Table.TD class="font-medium text-gray-900">
-              <Avatar name="John Doe" description="User" />
-            </Table.TD>
-            <Table.TD>Software Engineer</Table.TD>
-            <Table.TD>user@ae.studio</Table.TD>
-            <Table.TD>
-              <Badge color="danger">Inactive</Badge>
-            </Table.TD>
-            <Table.TD class="space-x-2">
-              <a href="#" class="text-primary-600 hover:text-primary-900">
-                Edit
-              </a>
-            </Table.TD>
-          </Table.TR>
-        </Table.TBody>
-      </Table>
-    );
-  }
-}
+  const rows = users.map((user) => (
+    <tr>
+      <td>
+        <Avatar
+          src={`https://xsgames.co/randomusers/avatar.php?g=male&name=${user.name}`}
+          name={user.name}
+          description="User"
+        />
+      </td>
+      <td>{user.title}</td>
+      <td>{user.email}</td>
+      <td>
+        <Badge color="success">{user.status}</Badge>
+      </td>
+      <td class="space-x-2">
+        <a href="#" class="text-primary-600 underline">
+          Edit
+        </a>
+      </td>
+    </tr>
+  ));
 
-export default Preview;
+  return (
+    <Table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Title</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
+    </Table>
+  );
+};
