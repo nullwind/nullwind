@@ -18,6 +18,8 @@ import TextInput from "./pages/forms/TextInput.mdx";
 import Toggle from "./pages/forms/Toggle.mdx";
 import QuickStart from "./pages/getting-started/QuickStart/QuickStart.mdx";
 import Theme from "./pages/getting-started/Theme/Theme.mdx";
+import ThemeBuilder from "./pages/theme-builder/ThemeBuilder";
+
 
 export const routes = [
   {
@@ -32,6 +34,11 @@ export const routes = [
         title: "Theme",
         path: "/getting-started/theme",
         component: Theme,
+      },
+      {
+        title: "Theme Builder",
+        path: "/getting-started/theme-builder",
+        component: ThemeBuilder,
       },
     ],
   },

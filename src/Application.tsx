@@ -3,6 +3,7 @@ import Nullstack, { NullstackNode } from "nullstack";
 import { AppShell } from "./layouts/AppShell";
 import Customize from "./layouts/Customize";
 import NotFound from "./pages/NotFound.mdx";
+import ThemeBuilderIframe from "./pages/theme-builder/ThemeBuilderIframe";
 import { routes } from "./routes";
 import { buildColorsVars } from "./utils/colors";
 
@@ -49,14 +50,16 @@ class Application extends Nullstack {
     );
   }
 
-  render() {
+  render({ router }) {
     if (!this.hydrated) return false;
+    if (router.path === "/iframe") return <ThemeBuilderIframe route="/iframe" persistent />;
 
     const allRoutes = routes.map((section) => section.routes).flat();
 
     return (
       <body class="bg-white text-secondary-500 antialiased">
         <Head />
+
         <AppShell>
           <Customize />
           {allRoutes.map(({ component: Component, path }) => (
