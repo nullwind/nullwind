@@ -5,6 +5,7 @@ export { default as Badge } from "./components/Badge";
 export { default as Button } from "./components/Button";
 export { default as ButtonGroup } from "./components/ButtonGroup";
 export { default as Divider } from "./components/Divider";
+export { default as Dropdown } from "./components/Dropdown";
 export { default as Modal } from "./components/Modal";
 export { default as Tab } from "./components/Tab";
 export { default as Table } from "./components/Table";

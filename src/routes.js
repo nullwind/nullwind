@@ -4,6 +4,7 @@ import Badge from "./pages/components/Badge.mdx";
 import Button from "./pages/components/Button.mdx";
 import ButtonGroup from "./pages/components/ButtonGroup.mdx";
 import Divider from "./pages/components/Divider.mdx";
+import Dropdown from "./pages/components/Dropdown/Dropdown.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
 import Tab from "./pages/components/Tab/Tab.mdx";
 import Table from "./pages/components/Table/Table.mdx";
@@ -67,6 +68,11 @@ export const routes = [
         title: "Divider",
         path: "/components/divider",
         component: Divider,
+      },
+      {
+        title: "Dropdown",
+        path: "/components/dropdown",
+        component: Dropdown,
       },
       {
         title: "Modal",

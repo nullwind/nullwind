@@ -1,0 +1,31 @@
+import { theme } from "nullwind";
+import Preview from "./Preview.jsx";
+
+import { Meta, Demo, ThemePreview } from "~/components";
+
+<Meta title="Dropdown" description="Dropdown component render a toggleable list" />
+
+# Divider
+
+Dropdown component renders a toggleable , contextual overlay for diplay a list of itens .
+
+Set `label` prop to render a specific label, default `label` is "Menu".
+
+Set `show` prop to make content in dropdown visible
+
+Set `onToggle` callback for execute some action when visible
+
+## Usage
+
+<Demo
+  component={Preview}
+  template={(props) => `
+    import { Divider } from 'nullwind';
+
+    export default function Demo() {
+      return <Divider ${props} />;
+    }
+
+`}/>
+
+
