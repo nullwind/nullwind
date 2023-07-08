@@ -1,11 +1,11 @@
-import { Select, TextInput, Toggle } from "nullwind";
+import { Input, Select, Toggle } from "nullwind";
 
 const controls = {
-  text: TextInput,
+  text: Input,
   select: Select,
   boolean: Toggle,
-  number: TextInput,
-  url: TextInput,
+  number: Input,
+  url: Input,
 };
 
 export default ({ ...props }) => {

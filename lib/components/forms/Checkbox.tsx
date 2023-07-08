@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import InlineInput from "./InlineInput";
+import InlineInputWrapper from "./InlineInputWrapper";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
@@ -34,7 +34,7 @@ const Checkbox = ({
   const checkbox = tc(baseCheckbox, theme?.checkbox);
 
   return (
-    <InlineInput
+    <InlineInputWrapper
       class={klass}
       error={error}
       helper={helper}
@@ -50,7 +50,7 @@ const Checkbox = ({
         type="checkbox"
         {...rest}
       />
-    </InlineInput>
+    </InlineInputWrapper>
   );
 };
 

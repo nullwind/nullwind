@@ -1,7 +1,7 @@
 import Nullstack from "nullstack";
 
 import { Cog8ToothIcon, CheckIcon } from "nullstack-heroicons/24/outline";
-import { Button, Input, Title } from "nullwind";
+import { Button, InputWrapper, Title } from "nullwind";
 
 const tailwindConfigTemplate = (colors) => `
   // tailwind.config.js
@@ -67,9 +67,9 @@ export default class Customize extends Nullstack {
               Tailwind Colors
             </Title>
             {Object.keys(colors).map((color) => (
-              <Input
+              <InputWrapper
                 theme={{
-                  input: {
+                  inputWrapper: {
                     base: "capitalize font-semibold",
                   },
                 }}
@@ -83,7 +83,7 @@ export default class Customize extends Nullstack {
                     bind={colors[color]}
                   />
                 </div>
-              </Input>
+              </InputWrapper>
             ))}
           </div>
           <Button fullSized onclick={this.onClickToGenerate}>
