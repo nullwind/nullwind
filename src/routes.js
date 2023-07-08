@@ -10,11 +10,11 @@ import Table from "./pages/components/Table/Table.mdx";
 import Title from "./pages/components/Title.mdx";
 import Tooltip from "./pages/components/Tooltip.mdx";
 import Checkbox from "./pages/forms/Checkbox.mdx";
+import Input from "./pages/forms/Input.mdx";
 import Radio from "./pages/forms/Radio.mdx";
 import Rating from "./pages/forms/Rating.mdx";
 import Select from "./pages/forms/Select.mdx";
 import Textarea from "./pages/forms/Textarea.mdx";
-import TextInput from "./pages/forms/TextInput.mdx";
 import Toggle from "./pages/forms/Toggle.mdx";
 import QuickStart from "./pages/getting-started/QuickStart/QuickStart.mdx";
 import Theme from "./pages/getting-started/Theme/Theme.mdx";
@@ -124,9 +124,9 @@ export const routes = [
         component: Textarea,
       },
       {
-        title: "TextInput",
-        path: "/components/textInput",
-        component: TextInput,
+        title: "Input",
+        path: "/components/input",
+        component: Input,
       },
       {
         title: "Toggle",

@@ -4,7 +4,7 @@ import InputWrapper from "./InputWrapper";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
-export const baseTextInput = {
+export const baseInput = {
   base: "w-full rounded-md border-slate-300 shadow-sm disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
   variants: {
     error: {
@@ -13,7 +13,7 @@ export const baseTextInput = {
   },
 };
 
-interface TextInputProps extends BaseProps {
+interface InputProps extends BaseProps {
   bind?: object;
   corner?: string;
   disabled?: boolean;
@@ -25,7 +25,7 @@ interface TextInputProps extends BaseProps {
   type?: string;
 }
 
-function TextInput({
+function Input({
   bind,
   class: klass,
   corner,
@@ -38,8 +38,8 @@ function TextInput({
   theme,
   type = "text",
   ...rest
-}: NullstackClientContext<TextInputProps>) {
-  const textInput = tc(baseTextInput, theme?.textInput);
+}: NullstackClientContext<InputProps>) {
+  const input = tc(baseInput, theme?.input);
 
   return (
     <InputWrapper
@@ -55,7 +55,7 @@ function TextInput({
       <input
         id={id}
         type={type}
-        class={textInput({ error: !!error })}
+        class={input({ error: !!error })}
         bind={bind}
         disabled={disabled}
         required={required}
@@ -65,4 +65,4 @@ function TextInput({
   );
 }
 
-export default TextInput as NullstackFunctionalComponent<TextInputProps>;
+export default Input as NullstackFunctionalComponent<InputProps>;

@@ -18,7 +18,7 @@ export { baseSelect as select } from "./components/forms/Select";
 export { baseTab as tab } from "./components/Tab";
 export { baseTable as table } from "./components/Table";
 export { baseTextarea as textarea } from "./components/forms/Textarea";
-export { baseTextInput as textInput } from "./components/forms/TextInput";
+export { baseInput as input } from "./components/forms/Input";
 export { baseTitle as title } from "./components/Title";
 export { baseToggle as toggle } from "./components/forms/Toggle";
 export { baseTooltip as tooltip } from "./components/Tooltip";

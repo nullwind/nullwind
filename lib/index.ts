@@ -22,7 +22,7 @@ export { default as Radio } from "./components/forms/Radio";
 export { default as Rating } from "./components/forms/Rating";
 export { default as Select } from "./components/forms/Select";
 export { default as Textarea } from "./components/forms/Textarea";
-export { default as TextInput } from "./components/forms/TextInput";
+export { default as Input } from "./components/forms/Input";
 export { default as Toggle } from "./components/forms/Toggle";
 
 // Icons

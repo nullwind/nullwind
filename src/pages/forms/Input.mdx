@@ -1,20 +1,20 @@
-import { theme, TextInput } from "nullwind";
+import { theme, Input } from "nullwind";
 
 import { Meta, Playground, Demo, ThemePreview } from "~/components";
 
 <Meta
-  title="TextInput"
-  description="These are system-generated notifications with a high degree of criticality. They should be used when the system is unstable or there is a risk of loss of data or access to resources."
+  title="Input"
+  description="Input is a component that allows users to enter text input in a form field."
 />
 
-# TextInput
+# Input
 
-These are system-generated notifications with a high degree of criticality. They should be used when the system is unstable or there is a risk of loss of data or access to resources.
+Input is a component that allows users to enter text input in a form field.
 
 ## Usage
 
 <Demo
-  component={(props) => <TextInput class="w-80" {...props} />}
+  component={(props) => <Input class="w-80" {...props} />}
   configurator={[
     {
       name: "label",
@@ -54,10 +54,10 @@ These are system-generated notifications with a high degree of criticality. They
     },
   ]}
   template={(props) => `
-    import { TextInput } from 'nullwind';
+    import { Input } from 'nullwind';
 
     export default function Demo() {
-      return <TextInput ${props} bind={this.field} />;
+      return <Input ${props} bind={this.field} />;
     }
 
 `}/>
@@ -69,7 +69,7 @@ These are system-generated notifications with a high degree of criticality. They
     input: theme.input,
     label: theme.label,
     corner: theme.corner,
-    textInput: theme.textInput,
+    input: theme.input,
     helper: theme.helper,
     error: theme.error,
   }}

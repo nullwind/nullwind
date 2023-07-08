@@ -68,7 +68,7 @@ class Demo extends Nullstack {
                   options={control.options}
                   helper={control.helper}
                   theme={{
-                    textInput: {
+                    input: {
                       base: "py-1.5 text-sm",
                     },
                     select: {
