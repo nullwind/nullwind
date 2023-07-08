@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
-import Input from "./Input";
+import InputWrapper from "./InputWrapper";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
@@ -39,7 +39,7 @@ const Select = ({
   const select = tc(baseSelect, theme?.select);
 
   return (
-    <Input
+    <InputWrapper
       id={id}
       label={label}
       error={error}
@@ -58,7 +58,7 @@ const Select = ({
       >
         {children}
       </select>
-    </Input>
+    </InputWrapper>
   );
 };
 

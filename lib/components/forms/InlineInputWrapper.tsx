@@ -6,21 +6,21 @@ import Label from "./Label";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
-export const baseInlineInput = {
+export const baseInlineInputWrapper = {
   base: "relative flex items-start gap-3",
   slots: {
     labelWrapper: "flex flex-col gap-1.5",
   },
 };
 
-interface InlineInputProps extends BaseProps {
+interface InlineInputWrapperProps extends BaseProps {
   error?: string;
   helper?: string;
   label?: string;
   required?: boolean;
 }
 
-function InlineInput({
+function InlineInputWrapper({
   children,
   class: klass,
   error,
@@ -29,9 +29,9 @@ function InlineInput({
   label,
   required,
   theme,
-}: NullstackClientContext<InlineInputProps>) {
-  const inlineInput = tc(baseInlineInput, theme?.inlineInput);
-  const { base, labelWrapper } = inlineInput();
+}: NullstackClientContext<InlineInputWrapperProps>) {
+  const inlineInputWrapper = tc(baseInlineInputWrapper, theme?.inlineInputWrapper);
+  const { base, labelWrapper } = inlineInputWrapper();
 
   return (
     <div class={base({ class: klass })}>
@@ -52,4 +52,4 @@ function InlineInput({
   );
 }
 
-export default InlineInput as NullstackFunctionalComponent<InlineInputProps>;
+export default InlineInputWrapper as NullstackFunctionalComponent<InlineInputWrapperProps>;

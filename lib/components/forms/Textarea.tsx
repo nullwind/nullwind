@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import Input from "./Input";
+import InputWrapper from "./InputWrapper";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
@@ -40,7 +40,7 @@ function Textarea({
   const textarea = tc(baseTextarea, theme?.textarea);
 
   return (
-    <Input
+    <InputWrapper
       id={id}
       label={label}
       error={error}
@@ -59,7 +59,7 @@ function Textarea({
         bind={bind}
         {...rest}
       />
-    </Input>
+    </InputWrapper>
   );
 }
 

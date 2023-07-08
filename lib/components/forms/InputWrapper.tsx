@@ -7,14 +7,14 @@ import Label from "./Label";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
-export const baseInput = {
+export const baseInputWrapper = {
   base: "flex flex-col gap-1.5",
   slots: {
     labelWrapper: "flex justify-between",
   },
 };
 
-interface InputProps extends BaseProps {
+interface InputWrapperProps extends BaseProps {
   corner?: string;
   error?: string;
   helper?: string;
@@ -22,7 +22,7 @@ interface InputProps extends BaseProps {
   required?: boolean;
 }
 
-function Input({
+function InputWrapper({
   children,
   class: klass,
   corner,
@@ -32,8 +32,8 @@ function Input({
   label,
   required,
   theme,
-}: NullstackClientContext<InputProps>) {
-  const input = tc(baseInput, theme?.input);
+}: NullstackClientContext<InputWrapperProps>) {
+  const input = tc(baseInputWrapper, theme?.input);
   const { base, labelWrapper } = input();
 
   return (
@@ -54,4 +54,4 @@ function Input({
   );
 }
 
-export default Input as NullstackFunctionalComponent<InputProps>;
+export default InputWrapper as NullstackFunctionalComponent<InputWrapperProps>;

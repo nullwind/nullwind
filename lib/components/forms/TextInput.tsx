@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import Input from "./Input";
+import InputWrapper from "./InputWrapper";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
@@ -42,7 +42,7 @@ function TextInput({
   const textInput = tc(baseTextInput, theme?.textInput);
 
   return (
-    <Input
+    <InputWrapper
       id={id}
       label={label}
       error={error}
@@ -61,7 +61,7 @@ function TextInput({
         required={required}
         {...rest}
       />
-    </Input>
+    </InputWrapper>
   );
 }
 

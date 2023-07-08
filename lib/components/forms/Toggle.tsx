@@ -1,6 +1,6 @@
 import { NullstackClientContext } from "nullstack";
 
-import InlineInput from "./InlineInput";
+import InlineInputWrapper from "./InlineInputWrapper";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
@@ -55,7 +55,7 @@ function Toggle({
   const checked = !!bind?.object?.[bind?.property];
 
   return (
-    <InlineInput
+    <InlineInputWrapper
       class={klass}
       error={error}
       helper={helper}
@@ -82,7 +82,7 @@ function Toggle({
       >
         <span aria-hidden="true" class={switchSlot({ checked })} />
       </button>
-    </InlineInput>
+    </InlineInputWrapper>
   );
 }
 
