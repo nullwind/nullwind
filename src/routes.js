@@ -3,6 +3,7 @@ import Avatar from "./pages/components/Avatar.mdx";
 import Badge from "./pages/components/Badge.mdx";
 import Button from "./pages/components/Button.mdx";
 import ButtonGroup from "./pages/components/ButtonGroup.mdx";
+import CopyButton from "./pages/components/CopyButton.mdx";
 import Divider from "./pages/components/Divider.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
 import Tab from "./pages/components/Tab/Tab.mdx";
@@ -57,6 +58,11 @@ export const routes = [
         title: "Button",
         path: "/components/button",
         component: Button,
+      },
+      {
+        title: "CopyButton",
+        path: "/components/copy-button",
+        component: CopyButton,
       },
       {
         title: "ButtonGroup",
