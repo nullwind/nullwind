@@ -1,56 +1,67 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import Corner from "./Corner";
-import Error from "./Error";
-import Helper from "./Helper";
-import Label from "./Label";
+import InputWrapper from "./InputWrapper";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
 export const baseInput = {
-  base: "flex flex-col gap-1.5",
-  slots: {
-    labelWrapper: "flex justify-between",
+  base: "w-full rounded-md py-1.5 border-slate-300 shadow-sm placeholder:text-gray-400 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
+  variants: {
+    error: {
+      true: "!border-danger-300 text-danger-900 placeholder-danger-300",
+    },
   },
 };
 
 interface InputProps extends BaseProps {
+  bind?: object;
   corner?: string;
+  disabled?: boolean;
   error?: string;
   helper?: string;
   label?: string;
+  name?: string;
   required?: boolean;
+  type?: string;
 }
 
 function Input({
-  children,
+  bind,
   class: klass,
   corner,
+  disabled,
   error,
   helper,
   id,
   label,
   required,
   theme,
+  type = "text",
+  ...rest
 }: NullstackClientContext<InputProps>) {
   const input = tc(baseInput, theme?.input);
-  const { base, labelWrapper } = input();
 
   return (
-    <div class={base({ class: klass })}>
-      <div class={labelWrapper()}>
-        <Label required={required} for={id} theme={theme}>
-          {label}
-        </Label>
-        {corner && <Corner theme={theme}>{corner}</Corner>}
-      </div>
-      {children}
-      {error ? (
-        <Error theme={theme}>{error}</Error>
-      ) : (
-        helper && <Helper theme={theme}>{helper}</Helper>
-      )}
-    </div>
+    <InputWrapper
+      id={id}
+      label={label}
+      error={error}
+      helper={helper}
+      corner={corner}
+      required={required}
+      class={klass}
+      theme={theme}
+    >
+      <input
+        id={id}
+        type={type}
+        class={input({ error: !!error })}
+        bind={bind}
+        disabled={disabled}
+        required={required}
+        {...rest}
+      />
+    </InputWrapper>
   );
 }
 

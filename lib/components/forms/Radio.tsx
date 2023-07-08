@@ -1,6 +1,6 @@
 import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
-import InlineInput from "./InlineInput";
+import InlineInputWrapper from "./InlineInputWrapper";
 import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
@@ -35,7 +35,7 @@ function Radio({
   const radio = tc(baseRadio, theme?.radio);
 
   return (
-    <InlineInput
+    <InlineInputWrapper
       class={klass}
       error={error}
       helper={helper}
@@ -45,7 +45,7 @@ function Radio({
       theme={theme}
     >
       <input class={radio({ error: !!error })} disabled={disabled} id={id} type="radio" {...rest} />
-    </InlineInput>
+    </InlineInputWrapper>
   );
 }
 

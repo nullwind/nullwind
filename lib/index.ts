@@ -16,14 +16,14 @@ export { default as Tooltip } from "./components/Tooltip";
 export { default as Checkbox } from "./components/forms/Checkbox";
 export { default as Error } from "./components/forms/Error";
 export { default as Helper } from "./components/forms/Helper";
-export { default as InlineInput } from "./components/forms/InlineInput";
-export { default as Input } from "./components/forms/Input";
+export { default as InlineInputWrapper } from "./components/forms/InlineInputWrapper";
+export { default as InputWrapper } from "./components/forms/InputWrapper";
 export { default as Label } from "./components/forms/Label";
 export { default as Radio } from "./components/forms/Radio";
 export { default as Rating } from "./components/forms/Rating";
 export { default as Select } from "./components/forms/Select";
 export { default as Textarea } from "./components/forms/Textarea";
-export { default as TextInput } from "./components/forms/TextInput";
+export { default as Input } from "./components/forms/Input";
 export { default as Toggle } from "./components/forms/Toggle";
 
 // Icons
