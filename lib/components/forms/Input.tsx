@@ -5,7 +5,7 @@ import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
 export const baseInput = {
-  base: "w-full rounded-md border-slate-300 shadow-sm disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
+  base: "w-full rounded-md py-1.5 border-slate-300 shadow-sm placeholder:text-gray-400 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 focus:ring-offset-0",
   variants: {
     error: {
       true: "!border-danger-300 text-danger-900 placeholder-danger-300",

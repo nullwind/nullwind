@@ -8,7 +8,7 @@ import tc from "../../tc";
 import type { BaseProps } from "../../types";
 
 export const baseInputWrapper = {
-  base: "flex flex-col gap-1.5",
+  base: "flex flex-col gap-2",
   slots: {
     labelWrapper: "flex justify-between",
   },

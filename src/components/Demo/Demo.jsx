@@ -59,7 +59,7 @@ class Demo extends Nullstack {
             </div>
           </div>
           {configurator && (
-            <div class="hidden w-1/3 flex-col gap-6 px-4 py-6 md:flex">
+            <div class="hidden w-1/3 flex-col gap-4 px-4 py-6 md:flex">
               {configurator?.map((control) => (
                 <Control
                   type={control.type}

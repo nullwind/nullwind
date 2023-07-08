@@ -17,6 +17,19 @@ Input is a component that allows users to enter text input in a form field.
   component={(props) => <Input class="w-80" {...props} />}
   configurator={[
     {
+      name: "type",
+      type: "select",
+      options: ["text", "password", "email", "number", "tel"],
+      value: "text",
+      defaultValue: "text",
+    },
+    {
+      name: "placeholder",
+      type: "text",
+      value: "John Doe",
+      defaultValue: "",
+    },
+    {
       name: "label",
       type: "text",
       value: "My Field",
@@ -57,7 +70,7 @@ Input is a component that allows users to enter text input in a form field.
     import { Input } from 'nullwind';
 
     export default function Demo() {
-      return <Input ${props} bind={this.field} />;
+      return <Input ${props} />;
     }
 
 `}/>

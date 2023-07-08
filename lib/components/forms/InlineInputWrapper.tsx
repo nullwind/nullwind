@@ -9,7 +9,7 @@ import type { BaseProps } from "../../types";
 export const baseInlineInputWrapper = {
   base: "relative flex items-start gap-3",
   slots: {
-    labelWrapper: "flex flex-col gap-1.5",
+    labelWrapper: "flex flex-col gap-2",
   },
 };
 
