@@ -5,6 +5,7 @@ import Button from "./pages/components/Button.mdx";
 import ButtonGroup from "./pages/components/ButtonGroup.mdx";
 import Divider from "./pages/components/Divider.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
+import Popover from "./pages/components/Popover.mdx";
 import Tab from "./pages/components/Tab/Tab.mdx";
 import Table from "./pages/components/Table/Table.mdx";
 import Title from "./pages/components/Title.mdx";
@@ -72,6 +73,11 @@ export const routes = [
         title: "Modal",
         path: "/components/modal",
         component: Modal,
+      },
+      {
+        title: "Popover",
+        path: "/components/Popover",
+        component: Popover,
       },
       {
         title: "Tab",

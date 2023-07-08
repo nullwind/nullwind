@@ -1,0 +1,103 @@
+import { theme, Popover, Button, Title } from "nullwind";
+import { InformationCircleIcon } from "nullstack-heroicons/24/outline";
+
+import { Meta, Demo, ThemePreview } from "~/components";
+
+<Meta title="Popover" description="A popover component to display contextual information." />
+
+# Popover
+
+A popover component to display contextual information.
+
+## Usage
+
+<Demo
+  component={(props) => (
+    <Popover {...props}>
+      <Popover.Target>
+        <Button>Open Poppover</Button>
+      </Popover.Target>
+      <Popover.Dropdown>
+        {({ hide }) => (
+          <div class="p-4 max-w-xs flex justify-center gap-4 flex-col">
+            <Title h={4}>Example</Title>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet magna efficitur, iaculis leo sit amet, porta urna. Proin pellentesque iaculis aliquam. Pellentesque ullamcorper metus velit, id mattis dolor auctor vitae.</p>
+            <div class="flex justify-between">
+              <Button color="danger" outline onclick={hide}>Close</Button>
+              <Button onclick={hide}>Save</Button>
+            </div>
+          </div>
+        )}
+      </Popover.Dropdown>
+    </Popover>
+  )}
+  configurator={[
+    {
+      name: "placement",
+      type: "select",
+      options: [
+        "top",
+        "top-start",
+        "top-end",
+        "bottom",
+        "bottom-start",
+        "bottom-end",
+        "right",
+        "right-start",
+        "right-end",
+        "left",
+        "left-start",
+        "left-end"
+      ],
+      value: "top",
+      defaultValue: "top"
+    },
+    {
+      name: "offset",
+      type: "number",
+      value: 16,
+      defaultValue: 16,
+      helper: "The offset of the popover from the target element in pixels"
+    },
+    {
+      name: "opened",
+      type: "boolean",
+      value: false,
+      defaultValue: false,
+      helper: "Control popover's state"
+    }
+  ]}
+  template={(props) => `
+    import { Popover } from "nullwind";
+
+    export default function Demo() {
+      return (
+        <Popover ${props}>
+          <Popover.Target>
+            <Button>Open Poppover</Button>
+          </Popover.Target>
+          <Popover.Dropdown>
+            {({ hide }) => (
+              <div class="p-4 max-w-xs flex justify-center gap-4 flex-col">
+                <Title h={4}>Example</Title>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet magna efficitur, iaculis leo sit amet, porta urna. Proin pellentesque iaculis aliquam. Pellentesque ullamcorper metus velit, id mattis dolor auctor vitae.</p>
+                <div class="flex justify-between">
+                  <Button color="danger" outline onclick={hide}>Close</Button>
+                  <Button onclick={hide}>Save</Button>
+                </div>
+              </div>
+            )}
+          </Popover.Dropdown>
+        </Popover>
+      );
+    }
+
+`} />
+
+## Theme
+
+<ThemePreview
+  theme={{
+    popover: theme.popover,
+  }}
+/>

@@ -10,6 +10,7 @@ export { default as Tab } from "./components/Tab";
 export { default as Table } from "./components/Table";
 export { default as Title } from "./components/Title";
 export { default as Tooltip } from "./components/Tooltip";
+export { default as Popover } from "./components/Popover";
 
 // Forms
 export { default as Checkbox } from "./components/forms/Checkbox";
