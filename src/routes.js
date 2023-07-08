@@ -5,7 +5,7 @@ import Button from "./pages/components/Button.mdx";
 import ButtonGroup from "./pages/components/ButtonGroup.mdx";
 import Divider from "./pages/components/Divider.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
-import Tab from "./pages/components/Tab/Tab.mdx";
+import Tabs from "./pages/components/Tabs/Tabs.mdx";
 import Table from "./pages/components/Table/Table.mdx";
 import Title from "./pages/components/Title.mdx";
 import Tooltip from "./pages/components/Tooltip.mdx";
@@ -74,9 +74,9 @@ export const routes = [
         component: Modal,
       },
       {
-        title: "Tab",
+        title: "Tabs",
         path: "/components/tab",
-        component: Tab,
+        component: Tabs,
       },
       {
         title: "Table",

@@ -15,7 +15,7 @@ export { baseModal as modal } from "./components/Modal";
 export { baseRadio as radio } from "./components/forms/Radio";
 export { baseRating as rating } from "./components/forms/Rating";
 export { baseSelect as select } from "./components/forms/Select";
-export { baseTab as tab } from "./components/Tab";
+export { baseTabs as tabs } from "./components/Tabs";
 export { baseTable as table } from "./components/Table";
 export { baseTextarea as textarea } from "./components/forms/Textarea";
 export { baseTextInput as textInput } from "./components/forms/TextInput";
