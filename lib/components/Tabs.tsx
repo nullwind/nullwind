@@ -56,6 +56,6 @@ const Tabs = ({ children, class: klass, onchange, theme }: NullstackClientContex
   );
 };
 
-Tabs.Item = ({ children }) => <div>{children}</div>;
+Tabs.Tab = ({ children }) => <div>{children}</div>;
 
 export default Tabs as NullstackFunctionalComponent<TabProps>;
