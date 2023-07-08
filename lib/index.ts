@@ -3,6 +3,7 @@ export { default as Alert } from "./components/Alert";
 export { default as Avatar } from "./components/Avatar";
 export { default as Badge } from "./components/Badge";
 export { default as Button } from "./components/Button";
+export { default as CopyButton } from "./components/CopyButton";
 export { default as ButtonGroup } from "./components/ButtonGroup";
 export { default as Divider } from "./components/Divider";
 export { default as Modal } from "./components/Modal";

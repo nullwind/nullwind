@@ -1,0 +1,55 @@
+import { theme, CopyButton, Button } from "nullwind";
+
+import { Meta, Demo, ThemePreview } from "~/components";
+
+<Meta title="CopyButton" description="CopyButton allows you to copy text to clipboard" />
+
+# CopyButton
+
+Its children is a function that receives an object with the following properties:
+
+- `copied` – boolean value that indicates that given value was recently copied to clipboard, it resets after given timeout (defaults to 500ms)
+- `copy` – function that should be called to copy given value to clipboard
+
+## Usage
+
+<Demo
+  component={(props) => (
+    <CopyButton {...props}>
+      {({ copied, copy }) => (
+        <Button color={copied && "success"} onclick={copy}>
+          {copied ? "Copied!" : "Copy"}
+        </Button>
+      )}
+    </CopyButton>
+  )}
+  configurator={[
+    {
+      name: "text",
+      type: "text",
+      value: "Hello World",
+      defaultValue: "",
+    },
+    {
+      name: "timeout",
+      type: "number",
+      value: 500,
+      defaultValue: 500,
+    },
+  ]}
+  template={(props) => `
+    import { CopyButton } from 'nullwind';
+
+    export default function Demo() {
+      return (
+        <CopyButton ${props}>
+          {({ copied, copy }) => (
+            <Button color={copied && "success"} onclick={copy}>
+              {copied ? "Copied!" : "Copy"}
+            </Button>
+          )}
+        </CopyButton>
+      );
+    }
+
+`}/>
