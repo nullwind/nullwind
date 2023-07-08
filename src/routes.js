@@ -3,6 +3,7 @@ import Avatar from "./pages/components/Avatar.mdx";
 import Badge from "./pages/components/Badge.mdx";
 import Button from "./pages/components/Button.mdx";
 import ButtonGroup from "./pages/components/ButtonGroup.mdx";
+import CopyButton from "./pages/components/CopyButton.mdx";
 import Divider from "./pages/components/Divider.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
 import Tabs from "./pages/components/Tabs/Tabs.mdx";
@@ -10,11 +11,11 @@ import Table from "./pages/components/Table/Table.mdx";
 import Title from "./pages/components/Title.mdx";
 import Tooltip from "./pages/components/Tooltip.mdx";
 import Checkbox from "./pages/forms/Checkbox.mdx";
+import Input from "./pages/forms/Input.mdx";
 import Radio from "./pages/forms/Radio.mdx";
 import Rating from "./pages/forms/Rating.mdx";
 import Select from "./pages/forms/Select.mdx";
 import Textarea from "./pages/forms/Textarea.mdx";
-import TextInput from "./pages/forms/TextInput.mdx";
 import Toggle from "./pages/forms/Toggle.mdx";
 import QuickStart from "./pages/getting-started/QuickStart/QuickStart.mdx";
 import Theme from "./pages/getting-started/Theme/Theme.mdx";
@@ -57,6 +58,11 @@ export const routes = [
         title: "Button",
         path: "/components/button",
         component: Button,
+      },
+      {
+        title: "CopyButton",
+        path: "/components/copy-button",
+        component: CopyButton,
       },
       {
         title: "ButtonGroup",
@@ -124,9 +130,9 @@ export const routes = [
         component: Textarea,
       },
       {
-        title: "TextInput",
-        path: "/components/textInput",
-        component: TextInput,
+        title: "Input",
+        path: "/components/input",
+        component: Input,
       },
       {
         title: "Toggle",
