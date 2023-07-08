@@ -82,7 +82,7 @@ export const routes = [
       },
       {
         title: "Popover",
-        path: "/components/Popover",
+        path: "/components/popover",
         component: Popover,
       },
       {
