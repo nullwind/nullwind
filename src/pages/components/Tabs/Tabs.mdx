@@ -20,14 +20,14 @@ Use these responsive tabs components to create a secondary navigational hierarch
 
     export default function Demo() {
       return (
-        <Tabs onchange={(idx) => (this.idx = idx)}>
-          <Tabs.Tab title="Profile" active={this.idx === 0}>
+        <Tabs onchange={(index) => (this.active = index)}>
+          <Tabs.Tab title="Profile" active>
             Tabs content 1
           </Tabs.Tab>
-          <Tabs.Tab title="Notifications" active={this.idx === 1}>
+          <Tabs.Tab title="Notifications">
             Tabs content 2
           </Tabs.Tab>
-          <Tabs.Tab title="Settings" active={this.idx === 2}>
+          <Tabs.Tab title="Settings">
             Tabs content 3
           </Tabs.Tab>
         </Tabs>
