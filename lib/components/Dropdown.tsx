@@ -15,8 +15,11 @@ export const baseDropdown = {
     item: {
       base: "text-gray-700 block px-4 py-2 text-sm",
       variants: {
+        type: {
+          option: "hover:bg-gray-300 focus:bg-gray-300",
+        },
         active: {
-          true: "bg-red-500",
+          true: "bg-gray-300",
         },
       },
     },
@@ -59,13 +62,48 @@ interface DropdownItemProps extends BaseProps {
   Dropdown: Dropdown;
   active: boolean;
   index?: string;
+  onclick: (ref?: HTMLElement) => void;
   type?: "option" | "none";
 }
+
+class DropdownItem extends Nullstack {
+  active = false;
+  _elementRef: HTMLElement & CustonChildrenItem;
+  render({
+    children,
+    class: klass,
+    onclick,
+    theme,
+    type = "option",
+  }: NullstackClientContext<DropdownItemProps>) {
+    const { item } = tc(baseDropdown, theme?.dropdown)();
+    const child = children;
+    return (
+      <element
+        tag={type == "option" ? "a" : "div"}
+        role="none"
+        aria-orientation="vertical"
+        aria-labelledby="menu-button"
+        tabindex="0"
+        ref={this._elementRef}
+        class={item({
+          class: klass,
+          type,
+          active: type == "option" && this._elementRef?.attributes?.active,
+        })}
+        onclick={[() => onclick(this._elementRef), () => (this.active = !this.active)]}
+      >
+        {child}
+      </element>
+    );
+  }
+}
+
 class Dropdown extends Nullstack {
   visible: boolean;
   _targetRef: HTMLElement;
   _dropdownRef: HTMLElement;
-  _currentIndex;
+  _currentElement: HTMLElement;
   static Target: NullstackFunctionalComponent<DropdownTargetProps> = ({
     Dropdown,
     children,
@@ -92,13 +130,11 @@ class Dropdown extends Nullstack {
       if (!item.attributes.index) {
         item.attributes.index = `${index}`;
       }
-      item.attributes.active = Dropdown._currentIndex == item.attributes.index;
       return item;
     });
     return (
       <div
         ref={Dropdown._dropdownRef}
-        key={Dropdown._currentIndex}
         id="dropdown-container"
         role="presentation"
         class={container({ class: klass })}
@@ -110,27 +146,17 @@ class Dropdown extends Nullstack {
 
   static Item: NullstackFunctionalComponent<DropdownItemProps> = ({
     Dropdown,
-    active = false,
     children,
-    class: klass,
-    index,
-    theme,
-    type = "option",
+    ...props
   }: NullstackClientContext<DropdownItemProps>) => {
-    const { item } = tc(baseDropdown, theme?.dropdown)();
-    const child = children;
     return (
-      <element
-        tag={type == "option" ? "a" : "div"}
-        role="none"
-        aria-orientation="vertical"
-        aria-labelledby="menu-button"
-        tabindex="0"
-        onclick={() => type == "option" && Dropdown._selected({ index })}
-        class={item({ class: klass, active })}
+      <DropdownItem
+        {...{ ...props }}
+        ref={Dropdown._currentElement}
+        onclick={(ref) => Dropdown._selected({ ref })}
       >
-        {child}
-      </element>
+        {children}
+      </DropdownItem>
     );
   };
 
@@ -144,8 +170,8 @@ class Dropdown extends Nullstack {
     this.visible = false;
   }
 
-  _selected({ index }) {
-    this._currentIndex = index;
+  _selected({ ref }) {
+    this._hide();
   }
 
   render({ children, class: klass, theme }: NullstackClientContext<DropdownProps>) {
