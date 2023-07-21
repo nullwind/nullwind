@@ -4,12 +4,14 @@ import Nullstack, {
   NullstackNode,
 } from "nullstack";
 
+import { computePosition, flip, offset, type Placement, shift } from "@floating-ui/dom";
+
 import tc from "../tc";
 import type { BaseProps } from "../types";
 
 export const baseDropdown = {
   slots: {
-    wrapper: "relative inline-block",
+    wrapper: "",
     container:
       "hidden absolute z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
     item: {
@@ -28,6 +30,8 @@ export const baseDropdown = {
 
 interface DropdownProps extends BaseProps {
   children: NullstackNode[];
+  offset?: number;
+  placement?: Placement;
 }
 
 interface DropdownContainerProps extends BaseProps {
@@ -172,6 +176,26 @@ class Dropdown extends Nullstack {
 
   _selected({ ref }) {
     this._hide();
+  }
+
+  _outsideClick(event) {
+    if (!this._dropdownRef.contains(event.target) && !this._targetRef.contains(event.target)) {
+      this._hide();
+    }
+  }
+  updatePosition(context?: NullstackClientContext<DropdownProps>) {
+    computePosition(this._targetRef, this._dropdownRef, {
+      placement: context.placement || "top",
+      middleware: [offset(context.offset || 8), flip(), shift()],
+    }).then(({ x, y }) => {
+      Object.assign(this._targetRef.style, {
+        left: `${x}px`,
+        top: `${y}px`,
+      });
+    });
+  }
+  hydrate() {
+    document.addEventListener("click", this._outsideClick);
   }
 
   render({ children, class: klass, theme }: NullstackClientContext<DropdownProps>) {
