@@ -6,9 +6,10 @@ import ButtonGroup from "./pages/components/ButtonGroup.mdx";
 import CopyButton from "./pages/components/CopyButton.mdx";
 import Divider from "./pages/components/Divider.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
+import Pagination from "./pages/components/Pagination/Pagination.mdx";
 import Popover from "./pages/components/Popover.mdx";
-import Tabs from "./pages/components/Tabs/Tabs.mdx";
 import Table from "./pages/components/Table/Table.mdx";
+import Tabs from "./pages/components/Tabs/Tabs.mdx";
 import Title from "./pages/components/Title.mdx";
 import Tooltip from "./pages/components/Tooltip.mdx";
 import Checkbox from "./pages/forms/Checkbox.mdx";
@@ -79,6 +80,11 @@ export const routes = [
         title: "Modal",
         path: "/components/modal",
         component: Modal,
+      },
+      {
+        title: "Pagination",
+        path: "/components/pagination",
+        component: Pagination,
       },
       {
         title: "Popover",
