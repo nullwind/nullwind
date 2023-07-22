@@ -3,7 +3,6 @@ import Nullstack from "nullstack";
 import { Button, Dropdown } from "nullwind";
 
 class Preview extends Nullstack {
-  show = false;
 
   render() {
     return (
@@ -26,8 +25,8 @@ class Preview extends Nullstack {
           </Button>
         </Dropdown.Target>
         <Dropdown.Container>
-          <Dropdown.Item index="test">
-            <p>Text</p>
+          <Dropdown.Item index="test" href="https://google.com">
+            <p href="https://google.com">Text</p>
           </Dropdown.Item>
           <Dropdown.Item>Text 2</Dropdown.Item>
           <Dropdown.Item type="none">
