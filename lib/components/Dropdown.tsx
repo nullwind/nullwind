@@ -65,8 +65,10 @@ type DropdownTargetProps = DropdownContainerProps;
 interface DropdownItemProps extends BaseProps {
   Dropdown: Dropdown;
   active: boolean;
-  index?: string;
-  onclick: (ref?: HTMLElement) => void;
+  href?: string;
+  index: number;
+  onclick: (ref?: HTMLElement, idx?: string | number) => void;
+  title?: string;
   type?: "option" | "none";
 }
 
@@ -74,19 +76,28 @@ class DropdownItem extends Nullstack {
   active = false;
   _elementRef: HTMLElement & CustonChildrenItem;
   render({
+    Dropdown,
     children,
     class: klass,
+    href,
+    index,
     onclick,
     theme,
+    title,
     type = "option",
   }: NullstackClientContext<DropdownItemProps>) {
+    if (this._elementRef) {
+      Dropdown._elementsRef.set(index, this._elementRef);
+    }
     const { item } = tc(baseDropdown, theme?.dropdown)();
     const child = children;
     return (
       <element
         tag={type == "option" ? "a" : "div"}
         role="none"
+        href={href}
         aria-orientation="vertical"
+        title={title}
         aria-labelledby="menu-button"
         tabindex="0"
         ref={this._elementRef}
@@ -95,7 +106,7 @@ class DropdownItem extends Nullstack {
           type,
           active: type == "option" && this._elementRef?.attributes?.active,
         })}
-        onclick={[() => onclick(this._elementRef), () => (this.active = !this.active)]}
+        onclick={[() => onclick(this._elementRef, index), () => (this.active = !this.active)]}
       >
         {child}
       </element>
@@ -108,6 +119,8 @@ class Dropdown extends Nullstack {
   _targetRef: HTMLElement;
   _dropdownRef: HTMLElement;
   _currentElement: HTMLElement;
+  _currentElementIndex = -1;
+  _elementsRef = new Map<number, HTMLElement>();
   static Target: NullstackFunctionalComponent<DropdownTargetProps> = ({
     Dropdown,
     children,
@@ -131,9 +144,7 @@ class Dropdown extends Nullstack {
     const { container } = tc(baseDropdown, theme?.dropdown)();
     const child = children.map((item: CustonChildrenItem, index) => {
       item.attributes.Dropdown = Dropdown;
-      if (!item.attributes.index) {
-        item.attributes.index = `${index}`;
-      }
+      item.attributes.index = `${index}`;
       return item;
     });
     return (
@@ -156,8 +167,10 @@ class Dropdown extends Nullstack {
     return (
       <DropdownItem
         {...{ ...props }}
+        key={Dropdown._currentElementIndex.toString()}
+        Dropdown={Dropdown}
         ref={Dropdown._currentElement}
-        onclick={(ref) => Dropdown._selected({ ref })}
+        onclick={(ref) => Dropdown._selected({ ref, index: props.index })}
       >
         {children}
       </DropdownItem>
@@ -166,21 +179,67 @@ class Dropdown extends Nullstack {
 
   _show() {
     this._dropdownRef.style.display = "block";
+    this.updatePosition();
     this.visible = true;
   }
 
   _hide() {
     this._dropdownRef.style.display = "none";
     this.visible = false;
+    this._currentElementIndex = -1;
   }
 
-  _selected({ ref }) {
+  _selected({ index, ref }) {
+    this._currentElementIndex = index;
+    this._currentElement = ref;
     this._hide();
   }
 
-  _outsideClick(event) {
-    if (!this._dropdownRef.contains(event.target) && !this._targetRef.contains(event.target)) {
-      this._hide();
+  _outsideClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    if (event?.target) {
+      if (!this._dropdownRef.contains(target) && !this._targetRef.contains(target)) {
+        this._hide();
+      }
+    }
+  }
+
+  _activeElement() {
+    this._elementsRef.forEach((element: HTMLElement & CustonChildrenItem, index) => {
+      if (element) {
+        element.attributes.active = index == this._currentElementIndex;
+      }
+    });
+  }
+
+  _onArrowDown() {
+    if (this._currentElementIndex == -1 || this._currentElementIndex >= this._elementsRef.size) {
+      this._currentElementIndex = 0;
+    } else {
+      this._currentElementIndex += 1;
+    }
+    this._currentElement = this._elementsRef[this._currentElementIndex];
+  }
+
+  _onKeyDown(event: KeyboardEvent) {
+    const key = event.key; // Preferred way to get the key value
+
+    if (this.visible) {
+      switch (key) {
+        case "Enter":
+          event.preventDefault();
+          if (this._currentElement) {
+            this._currentElement.click();
+          }
+          break;
+        case "ArrowDown":
+          event.preventDefault();
+          this._onArrowDown();
+          break;
+        default:
+          break;
+      }
+      this._activeElement();
     }
   }
   updatePosition(context?: NullstackClientContext<DropdownProps>) {
@@ -196,6 +255,12 @@ class Dropdown extends Nullstack {
   }
   hydrate() {
     document.addEventListener("click", this._outsideClick);
+    document.addEventListener("keydown", this._onKeyDown);
+  }
+
+  terminate() {
+    document.removeEventListener("click", this._outsideClick);
+    document.removeEventListener("keydown", this._onKeyDown);
   }
 
   render({ children, class: klass, theme }: NullstackClientContext<DropdownProps>) {
