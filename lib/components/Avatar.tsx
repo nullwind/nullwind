@@ -1,55 +1,47 @@
-import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
+import Nullstack, { NullstackClientContext, NullstackNode } from "nullstack";
 
 import tc from "../tc";
 import type { BaseProps } from "../types";
 
 export const baseAvatar = {
-  base: "flex flex-wrap items-center gap-3",
+  base: "h-10 w-10 flex-shrink-0 overflow-hidden rounded-full",
   slots: {
-    imageWrapper: "h-10 w-10 flex-shrink-0",
-    image: "h-full w-full rounded-full object-cover object-center ring ring-white",
-    imageFallback:
-      "flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-secondary-100 text-slate-500",
-    name: "text-sm font-medium text-secondary-500",
-    description: "text-xs text-secondary-400",
+    image: "h-full w-full object-cover object-center",
+    placeholder:
+      "h-full w-full flex font-semibold items-center justify-center bg-gray-100 text-gray-500",
   },
 };
 
 interface AvatarProps extends BaseProps {
-  description?: string;
+  icon?: NullstackNode;
   name?: string;
-  placeholder?: string;
   src?: string;
 }
 
-function Avatar(props: NullstackClientContext<AvatarProps>) {
-  const { class: klass, description, id, name, placeholder, src, theme } = props;
-  const avatar = tc(baseAvatar, theme?.avatar);
-  const {
-    base,
-    description: descriptionSlot,
-    image,
-    imageFallback,
-    imageWrapper,
-    name: nameSlot,
-  } = avatar();
-  const placeholderUrl = placeholder || `https://eu.ui-avatars.com/api/?name=${name}`;
-
-  return (
-    <div id={id} class={base({ class: klass })}>
-      <div class={imageWrapper()}>
-        {(src && <img class={image()} src={src} alt={name} />) || (
-          <div class={imageFallback()}>
-            <img src={placeholderUrl} alt={name} />
-          </div>
-        )}
-      </div>
-      <div>
-        <div class={nameSlot()}>{name}</div>
-        <div class={descriptionSlot()}>{description}</div>
-      </div>
-    </div>
-  );
+function getInitialsFromName(name: string) {
+  return name
+    ?.split(" ")
+    .map((n) => n.charAt(0).toUpperCase())
+    .join("");
 }
 
-export default Avatar as NullstackFunctionalComponent<AvatarProps>;
+export default class Avatar extends Nullstack<AvatarProps> {
+  error = false;
+
+  prepare({ src }: NullstackClientContext<AvatarProps>) {
+    this.error = !src;
+  }
+
+  render(props: NullstackClientContext<AvatarProps>) {
+    const { class: klass, icon, id, name, src, theme } = props;
+    const avatar = tc(baseAvatar, theme?.avatar);
+    const { base, image, placeholder } = avatar();
+
+    return (
+      <div id={id} class={base({ class: klass })}>
+        {this.error && <div class={placeholder()}>{icon || getInitialsFromName(name)}</div>}
+        {!this.error && <img class={image()} src={src} alt={name} onerror={{ error: true }} />}
+      </div>
+    );
+  }
+}
