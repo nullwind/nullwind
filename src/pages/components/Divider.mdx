@@ -21,12 +21,50 @@ Set `label` prop to render a specific label, default `label` is "More".
       value: "More",
       defaultValue: "More",
     },
+    {
+      name: "labelPosition",
+      type: "select",
+      options: ["left", "center", "right"],
+      value: "center",
+      defaultValue: "center"
+    },
   ]}
   template={(props) => `
     import { Divider } from 'nullwind';
 
     export default function Demo() {
       return <Divider ${props} />;
+    }
+
+`}/>
+
+## With custom label
+
+<Demo
+  component={() => (
+    <Divider
+      label="Read More"
+      labelProps={{
+        tag: 'a',
+        class: 'text-primary-500',
+        href: 'https://nullwind.dev'
+      }}
+    />
+  )}
+  template={(props) => `
+    import { Divider } from 'nullwind';
+
+    export default function Demo() {
+      return (
+        <Divider
+          label="Read More"
+          labelProps={{
+            tag: 'a',
+            class: 'text-primary-500',
+            href: 'https://nullwind.dev'
+          }}
+        />
+      );
     }
 
 `}/>
