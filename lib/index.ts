@@ -13,6 +13,7 @@ export { default as Title } from "./components/Title";
 export { default as Tooltip } from "./components/Tooltip";
 export { default as Popover } from "./components/Popover";
 export { default as Pagination } from "./components/Pagination";
+export { default as Notifications } from "./components/Notifications";
 
 // Forms
 export { default as Checkbox } from "./components/forms/Checkbox";

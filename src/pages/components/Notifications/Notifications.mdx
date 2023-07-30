@@ -1,0 +1,133 @@
+import { theme, Notifications } from "nullwind";
+
+import { Meta, Demo, ThemePreview } from "~/components";
+import Preview from "./Preview";
+import PreviewTwo from "./PreviewTwo";
+
+<Meta
+  title="Notifications"
+  description="Notifications is an instance component that displays notification messages"
+/>
+
+# Notifications
+
+Notifications is an instance component that displays notification messages.
+
+## Usage
+
+<Demo
+  component={(props) => <Preview {...props} />}
+  configurator={[
+    {
+      name: "placement",
+      type: "select",
+      options: [
+        "top-left",
+        "top-center",
+        "top-right",
+        "bottom-left",
+        "bottom-center",
+        "bottom-right"
+      ],
+      value: "top-right",
+      defaultValue: "top-right",
+    },
+  ]}
+  template={(props) => `
+    import Nullstack from 'nullstack';
+    import { Button, Notifications } from 'nullwind';
+    import { CheckCircleIcon } from "nullstack-heroicons/24/solid";
+
+    export default class Demo extends Nullstack {
+      render() {
+        return (
+          <main>
+            <Notifications ${props} key="notifications" />
+            <Button
+              onclick={() =>
+                instances.notifications.show({
+                  icon: () => <CheckCircleIcon class="h-6 w-6 text-success-500" />,
+                  title: "Successfully saved!",
+                  message: "Anyone with a link can now view this file.",
+                })
+              }
+            >
+              Show Notification
+            </Button>
+          </main>
+        );
+      }
+    }
+
+`}/>
+
+## Functions
+
+Notifications system is based on custom events:
+
+- `notifications.show` - adds given notification to notifications list
+- `notifications.updateData` - updates notification that was previously added to the list
+- `notifications.hide` - removes notification with given id from notifications list
+- `notifications.clean` - removes all notifications from list
+
+## Notification props
+
+Notification state item can have these properties:
+
+- **id** - notification id, it is used to update and remove notification, by default id is randomly generated
+- **icon** - notification icon, it can be a function that returns a component or a component
+- **title** - notification's title
+- **message** - required notification body
+- **duration** - in ms, use `false` to disable auto close, by default it is `4000`
+- **withClose** - notification will have a close button, by default it is `true`
+
+## Update notification
+
+<Demo
+  component={(props) => <PreviewTwo {...props} />}
+  template={(props) => `
+    import Nullstack from 'nullstack';
+    import { Button, Notifications } from 'nullwind';
+    import { ArrowPathIcon, CheckCircleIcon } from "nullstack-heroicons/24/solid";
+
+    export default class Demo extends Nullstack {
+      render() {
+        return (
+          <main>
+            <Notifications ${props} key="notifications" />
+            <Button
+              onclick={() => {
+                instances.notifications.show({
+                  id: "my-notification",
+                  icon: () => <ArrowPathIcon class="h-5 w-5 animate-spin" />,
+                  title: "We're saving your changes!",
+                  message: "Please wait a moment while we save your changes.",
+                  duration: false,
+                });
+
+                setTimeout(() => {
+                  instances.notifications.updateData({
+                    id: "my-notification",
+                    icon: () => <CheckCircleIcon class="h-6 w-6 text-success-500" />,
+                    title: "Successfully saved!",
+                    message: "Anyone with a link can now view this file.",
+                  });
+                }, 3000);
+              }}
+            >
+              Show Notification
+            </Button>
+          </main>
+        );
+      }
+    }
+
+`}/>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    notifications: theme.notifications,
+  }}
+/>
