@@ -24,3 +24,4 @@ export { baseToggle as toggle } from "./components/forms/Toggle";
 export { baseTooltip as tooltip } from "./components/Tooltip";
 export { basePopover as popover } from "./components/Popover";
 export { basePagination as pagination } from "./components/Pagination";
+export { baseNotifications as notifications } from "./components/Notifications";

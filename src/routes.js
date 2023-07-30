@@ -6,6 +6,7 @@ import ButtonGroup from "./pages/components/ButtonGroup.mdx";
 import CopyButton from "./pages/components/CopyButton.mdx";
 import Divider from "./pages/components/Divider.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
+import Notifications from "./pages/components/Notifications/Notifications.mdx";
 import Pagination from "./pages/components/Pagination/Pagination.mdx";
 import Popover from "./pages/components/Popover.mdx";
 import Table from "./pages/components/Table/Table.mdx";
@@ -39,23 +40,8 @@ export const routes = [
     ],
   },
   {
-    title: "Components",
+    title: "Buttons",
     routes: [
-      {
-        title: "Alert",
-        path: "/components/alert",
-        component: Alert,
-      },
-      {
-        title: "Avatar",
-        path: "/components/avatar",
-        component: Avatar,
-      },
-      {
-        title: "Badge",
-        path: "/components/badge",
-        component: Badge,
-      },
       {
         title: "Button",
         path: "/components/button",
@@ -70,46 +56,6 @@ export const routes = [
         title: "ButtonGroup",
         path: "/components/button-group",
         component: ButtonGroup,
-      },
-      {
-        title: "Divider",
-        path: "/components/divider",
-        component: Divider,
-      },
-      {
-        title: "Modal",
-        path: "/components/modal",
-        component: Modal,
-      },
-      {
-        title: "Pagination",
-        path: "/components/pagination",
-        component: Pagination,
-      },
-      {
-        title: "Popover",
-        path: "/components/popover",
-        component: Popover,
-      },
-      {
-        title: "Tabs",
-        path: "/components/tab",
-        component: Tabs,
-      },
-      {
-        title: "Table",
-        path: "/components/table",
-        component: Table,
-      },
-      {
-        title: "Title",
-        path: "/components/title",
-        component: Title,
-      },
-      {
-        title: "Tooltip",
-        path: "/components/tooltip",
-        component: Tooltip,
       },
     ],
   },
@@ -150,6 +96,91 @@ export const routes = [
         title: "Toggle",
         path: "/components/toggle",
         component: Toggle,
+      },
+    ],
+  },
+  {
+    title: "Navigation",
+    routes: [
+      {
+        title: "Pagination",
+        path: "/components/pagination",
+        component: Pagination,
+      },
+      {
+        title: "Tabs",
+        path: "/components/tab",
+        component: Tabs,
+      },
+    ],
+  },
+  {
+    title: "Data display",
+    routes: [
+      {
+        title: "Avatar",
+        path: "/components/avatar",
+        component: Avatar,
+      },
+      {
+        title: "Badge",
+        path: "/components/badge",
+        component: Badge,
+      },
+      {
+        title: "Table",
+        path: "/components/table",
+        component: Table,
+      },
+    ],
+  },
+  {
+    title: "Overlays",
+    routes: [
+      {
+        title: "Modal",
+        path: "/components/modal",
+        component: Modal,
+      },
+      {
+        title: "Popover",
+        path: "/components/popover",
+        component: Popover,
+      },
+      {
+        title: "Tooltip",
+        path: "/components/tooltip",
+        component: Tooltip,
+      },
+    ],
+  },
+  {
+    title: "Typography",
+    routes: [
+      {
+        title: "Title",
+        path: "/components/title",
+        component: Title,
+      },
+      {
+        title: "Divider",
+        path: "/components/divider",
+        component: Divider,
+      },
+    ],
+  },
+  {
+    title: "Feedback",
+    routes: [
+      {
+        title: "Alert",
+        path: "/components/alert",
+        component: Alert,
+      },
+      {
+        title: "Notifications",
+        path: "/components/notifications",
+        component: Notifications,
       },
     ],
   },
