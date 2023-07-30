@@ -19,12 +19,6 @@ pages, for that use Links.
   component={(props) => <Button {...props}>Click here!</Button>}
   configurator={[
     {
-      name: "href",
-      type: "url",
-      value: "https://nullwind.dev/",
-      defaultValue: ""
-    },
-    {
       name: "color",
       type: "select",
       options: ["primary", "secondary", "info", "success", "warning", "danger"],
@@ -59,6 +53,45 @@ pages, for that use Links.
   ]}
   template={(props) => `
     import { Button } from 'nullwind';
+
+    export default function Demo() {
+      return <Button ${props}>Click here!</Button>;
+    }
+
+`}
+/>
+
+## Button as Link
+
+You can use the Button component as a Link by passing the `href` prop.
+
+<Demo
+  component={(props) => <Button {...props}>Click here!</Button>}
+  configurator={[
+    {
+      name: "title",
+      type: "text",
+      value: "Nullwind",
+      defaultValue: ""
+    },
+    {
+      name: "href",
+      type: "url",
+      value: "https://nullwind.dev/",
+      defaultValue: ""
+    },
+
+    {
+      name: "target",
+      type: "select",
+      options: ["_blank", "_self", "_parent", "_top"],
+      value: "_blank",
+      defaultValue: ""
+    },
+
+]}
+template={(props) => `
+import { Button } from 'nullwind';
 
     export default function Demo() {
       return <Button ${props}>Click here!</Button>;
