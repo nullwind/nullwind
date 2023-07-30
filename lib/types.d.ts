@@ -5,3 +5,5 @@ export interface BaseProps {
   id?: string;
   theme?: typeof theme;
 }
+
+export * from "./index";
