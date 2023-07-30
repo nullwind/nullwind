@@ -32,6 +32,7 @@ class Preview extends Nullstack {
       <Table>
         <Table.THead>
           <Table.TR>
+            <Table.TH />
             <Table.TH>Name</Table.TH>
             <Table.TH>Title</Table.TH>
             <Table.TH>Email</Table.TH>
@@ -43,8 +44,9 @@ class Preview extends Nullstack {
           {people.map((person) => (
             <Table.TR>
               <Table.TD>
-                <Avatar src={person.avatar} name={person.name} description="User" />
+                <Avatar src={person.avatar} name={person.name} />
               </Table.TD>
+              <Table.TD>{person.name}</Table.TD>
               <Table.TD>{person.title}</Table.TD>
               <Table.TD>{person.email}</Table.TD>
               <Table.TD>

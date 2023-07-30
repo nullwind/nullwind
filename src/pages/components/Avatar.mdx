@@ -1,4 +1,5 @@
 import { theme, Avatar } from "nullwind";
+import { UserIcon } from "nullstack-heroicons/24/solid";
 
 import { Meta, Demo, ThemePreview } from "~/components";
 
@@ -28,25 +29,41 @@ Avatars are used to represent a person or organization. They can be used in a va
       value: "John Doe",
       defaultValue: "",
     },
-    {
-      name: "description",
-      type: "text",
-      value: "Joined in April 1976",
-      defaultValue: "",
-    },
-    {
-      name: "placeholder",
-      type: "text",
-      value: "",
-      defaultValue: "",
-      helper: "If src is not provided, this will be used as a placeholder",
-    },
   ]}
   template={(props) => `
     import { Avatar } from 'nullwind';
 
     export default function Demo() {
       return <Avatar ${props} />;
+    }
+
+`}/>
+
+## Avatar Fallbacks
+
+If there is an error loading the src of the avatar, there are 2 fallbacks:
+
+- If there's a name prop, we use it to generate the initials.
+- If there's no name prop, you can use a custom icon.
+
+<Demo
+  component={(props) => (
+    <div class="flex gap-3">
+      <Avatar name="John Doe" />
+      <Avatar icon={<UserIcon class="h-5 w-5" />} />
+    </div>
+  )}
+  template={(props) => `
+    import { Avatar } from 'nullwind';
+    import { UserIcon } from "nullstack-heroicons/24/solid";
+
+    export default function Demo() {
+      return (
+        <>
+          <Avatar src="/not-found.avif" name="John Doe" />
+          <Avatar src="/not-found.avif" icon={<UserIcon class="h-5 w-5" />} />
+        </>
+      );
     }
 
 `}/>
