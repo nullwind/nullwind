@@ -25,10 +25,12 @@ class Preview extends Nullstack {
           </Button>
         </Dropdown.Target>
         <Dropdown.Container>
-          <Dropdown.Item index="test" href="https://google.com">
+          <Dropdown.Item href="https://google.com">
             <p href="https://google.com">Text</p>
           </Dropdown.Item>
           <Dropdown.Item>Text 2</Dropdown.Item>
+
+          <Dropdown.Item onclick={(index) => console.log("get index for element: "+ index)}>click event</Dropdown.Item>
           <Dropdown.Item type="none">
             <Button color="danger" type="submit" role="menuitem">Sign out</Button>
           </Dropdown.Item>

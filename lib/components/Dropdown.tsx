@@ -18,10 +18,10 @@ export const baseDropdown = {
       base: "text-gray-700 block px-4 py-2 text-sm",
       variants: {
         type: {
-          option: "hover:bg-gray-300 focus:bg-gray-300",
+          option: "hover:bg-gray-200",
         },
         active: {
-          true: "bg-gray-300",
+          true: "bg-gray-400",
         },
       },
     },
@@ -64,63 +64,19 @@ type DropdownTargetProps = DropdownContainerProps;
 
 interface DropdownItemProps extends BaseProps {
   Dropdown: Dropdown;
-  active: boolean;
   href?: string;
   index: number;
-  onclick: (ref?: HTMLElement, idx?: string | number) => void;
+  onclick?: (index: number) => void;
   title?: string;
   type?: "option" | "none";
 }
-
-class DropdownItem extends Nullstack {
-  active = false;
-  _elementRef: HTMLElement & CustonChildrenItem;
-  render({
-    Dropdown,
-    children,
-    class: klass,
-    href,
-    index,
-    onclick,
-    theme,
-    title,
-    type = "option",
-  }: NullstackClientContext<DropdownItemProps>) {
-    if (this._elementRef) {
-      Dropdown._elementsRef.set(index, this._elementRef);
-    }
-    const { item } = tc(baseDropdown, theme?.dropdown)();
-    const child = children;
-    return (
-      <element
-        tag={type == "option" ? "a" : "div"}
-        role="none"
-        href={href}
-        aria-orientation="vertical"
-        title={title}
-        aria-labelledby="menu-button"
-        tabindex="0"
-        ref={this._elementRef}
-        class={item({
-          class: klass,
-          type,
-          active: type == "option" && this._elementRef?.attributes?.active,
-        })}
-        onclick={[() => onclick(this._elementRef, index), () => (this.active = !this.active)]}
-      >
-        {child}
-      </element>
-    );
-  }
-}
-
 class Dropdown extends Nullstack {
   visible: boolean;
   _targetRef: HTMLElement;
   _dropdownRef: HTMLElement;
   _currentElement: HTMLElement;
-  _currentElementIndex = -1;
-  _elementsRef = new Map<number, HTMLElement>();
+  _currentElementIndex = null;
+
   static Target: NullstackFunctionalComponent<DropdownTargetProps> = ({
     Dropdown,
     children,
@@ -162,20 +118,45 @@ class Dropdown extends Nullstack {
   static Item: NullstackFunctionalComponent<DropdownItemProps> = ({
     Dropdown,
     children,
-    ...props
+    class: klass,
+    href,
+    index,
+    onclick,
+    theme,
+    title,
+    type = "option",
   }: NullstackClientContext<DropdownItemProps>) => {
+    const { item } = tc(baseDropdown, theme?.dropdown)();
     return (
-      <DropdownItem
-        {...{ ...props }}
-        key={Dropdown._currentElementIndex.toString()}
-        Dropdown={Dropdown}
-        ref={Dropdown._currentElement}
-        onclick={(ref) => Dropdown._selected({ ref, index: props.index })}
+      <element
+        tag={type == "option" ? "a" : "div"}
+        role="none"
+        aria-orientation="vertical"
+        title={title}
+        href={type == "option" ? href : undefined}
+        aria-labelledby="menu-button"
+        tabindex="0"
+        class={item({
+          class: `${klass} dropdown-item`,
+          type,
+        })}
+        onclick={[
+          () => Dropdown._selected(index),
+          () => {
+            if (onclick) {
+              onclick(index);
+            }
+          },
+        ]}
       >
         {children}
-      </DropdownItem>
+      </element>
     );
   };
+
+  _elementsRef() {
+    return this._dropdownRef.querySelectorAll<HTMLTableRowElement>(".dropdown-item");
+  }
 
   _show() {
     this._dropdownRef.style.display = "block";
@@ -184,14 +165,15 @@ class Dropdown extends Nullstack {
   }
 
   _hide() {
+    this._deactiveElement(this._currentElement);
+    this._currentElement = null;
+    this._currentElementIndex = null;
     this._dropdownRef.style.display = "none";
     this.visible = false;
-    this._currentElementIndex = -1;
   }
 
-  _selected({ index, ref }) {
-    this._currentElementIndex = index;
-    this._currentElement = ref;
+  _selected(index: number) {
+    this._updateCurrentElement(index);
     this._hide();
   }
 
@@ -204,42 +186,71 @@ class Dropdown extends Nullstack {
     }
   }
 
-  _activeElement() {
-    this._elementsRef.forEach((element: HTMLElement & CustonChildrenItem, index) => {
-      if (element) {
-        element.attributes.active = index == this._currentElementIndex;
-      }
-    });
+  _activeClass() {
+    // TODO: implement dynamic change for theme oevrlay
+    return baseDropdown.slots.item.variants.active.true;
+  }
+
+  _activeElement(element?: HTMLElement) {
+    if (element) {
+      element.classList.add(this._activeClass());
+    }
+  }
+
+  _deactiveElement(element?: HTMLElement) {
+    if (element) {
+      element.classList.remove(this._activeClass());
+    }
   }
 
   _onArrowDown() {
-    if (this._currentElementIndex == -1 || this._currentElementIndex >= this._elementsRef.size) {
-      this._currentElementIndex = 0;
+    let index = this._currentElementIndex;
+    if (index === null || index + 1 >= this._elementsRef().length) {
+      index = 0;
     } else {
-      this._currentElementIndex += 1;
+      index = index + 1;
     }
-    this._currentElement = this._elementsRef[this._currentElementIndex];
+    this._updateCurrentElement(index);
   }
 
+  _onArrowUp() {
+    let index = this._currentElementIndex;
+    if (index == 0) {
+      index = this._elementsRef().length - 1;
+    } else {
+      index = index - 1;
+    }
+    this._updateCurrentElement(index);
+  }
+
+  _updateCurrentElement(index: number) {
+    this._deactiveElement(this._currentElement);
+    this._currentElement = this._elementsRef()[index];
+    this._currentElementIndex = index;
+  }
   _onKeyDown(event: KeyboardEvent) {
     const key = event.key; // Preferred way to get the key value
-
     if (this.visible) {
       switch (key) {
         case "Enter":
           event.preventDefault();
           if (this._currentElement) {
-            this._currentElement.click();
+            this._activeElement(this._currentElement);
+            if (this._currentElement?.click) {
+              this._currentElement.click();
+            }
           }
           break;
         case "ArrowDown":
           event.preventDefault();
           this._onArrowDown();
           break;
-        default:
+        case "ArrowUp":
+          event.preventDefault();
+          this._onArrowUp();
           break;
       }
-      this._activeElement();
+      this._activeElement(this._currentElement);
     }
   }
   updatePosition(context?: NullstackClientContext<DropdownProps>) {
@@ -261,6 +272,8 @@ class Dropdown extends Nullstack {
   terminate() {
     document.removeEventListener("click", this._outsideClick);
     document.removeEventListener("keydown", this._onKeyDown);
+    this._currentElementIndex = null;
+    this._currentElement = null;
   }
 
   render({ children, class: klass, theme }: NullstackClientContext<DropdownProps>) {
