@@ -22,6 +22,7 @@ export { baseInput as input } from "./components/forms/Input";
 export { baseTitle as title } from "./components/Title";
 export { baseToggle as toggle } from "./components/forms/Toggle";
 export { baseTooltip as tooltip } from "./components/Tooltip";
+export { baseDropdown as dropdown } from "./components/Dropdown";
 export { basePopover as popover } from "./components/Popover";
 export { basePagination as pagination } from "./components/Pagination";
 export { baseNotifications as notifications } from "./components/Notifications";

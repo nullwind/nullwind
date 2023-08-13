@@ -5,6 +5,7 @@ import Button from "./pages/components/Button.mdx";
 import ButtonGroup from "./pages/components/ButtonGroup.mdx";
 import CopyButton from "./pages/components/CopyButton.mdx";
 import Divider from "./pages/components/Divider.mdx";
+import Dropdown from "./pages/components/Dropdown/Dropdown.mdx";
 import Modal from "./pages/components/Modal/Modal.mdx";
 import Notifications from "./pages/components/Notifications/Notifications.mdx";
 import Pagination from "./pages/components/Pagination/Pagination.mdx";
@@ -111,6 +112,11 @@ export const routes = [
         title: "Tabs",
         path: "/components/tab",
         component: Tabs,
+      },
+      {
+        title: "Dropdown",
+        path: "/components/dropdown",
+        component: Dropdown,
       },
     ],
   },

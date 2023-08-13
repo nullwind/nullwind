@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2015",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -14,9 +18,17 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "nullwind": ["lib/index.ts"]
+      "nullwind": [
+        "lib/index.ts"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.nts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*.ts",
+    "**/*.nts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

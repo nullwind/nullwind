@@ -6,6 +6,7 @@ export { default as Button } from "./components/Button";
 export { default as CopyButton } from "./components/CopyButton";
 export { default as ButtonGroup } from "./components/ButtonGroup";
 export { default as Divider } from "./components/Divider";
+export { default as Dropdown } from "./components/Dropdown";
 export { default as Modal } from "./components/Modal";
 export { default as Tabs } from "./components/Tabs";
 export { default as Table } from "./components/Table";
