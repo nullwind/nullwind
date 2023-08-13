@@ -1,0 +1,89 @@
+import { theme, Pagination } from "nullwind";
+
+import { Meta, Demo, ThemePreview } from "~/components";
+import Preview from "./Preview";
+
+<Meta
+  title="Pagination"
+  description="Pagination component is used to navigate through pages of content."
+/>
+
+# Pagination
+
+Pagination component is used to navigate through pages of content.
+
+## Usage
+
+<Demo
+  component={(props) => <Preview {...props} />}
+  configurator={[
+    {
+      name: "totalCount",
+      type: "number",
+      value: 100,
+      defaultValue: 100,
+    },
+    {
+      name: "pageSize",
+      type: "number",
+      value: 10,
+      defaultValue: 10,
+    },
+    {
+      name: "previousLabel",
+      type: "text",
+      value: "Previous",
+      defaultValue: "Previous",
+    },
+    {
+      name: "nextLabel",
+      type: "text",
+      value: "Next",
+      defaultValue: "Next",
+    },
+    {
+      name: "siblings",
+      type: "number",
+      value: 1,
+      defaultValue: 1,
+      helper: "Controls number of active item siblings"
+    },
+    {
+      name: "boundaries",
+      type: "number",
+      value: 1,
+      defaultValue: 1,
+      helper: "Controls number of items displayed after previous and before next button"
+    },
+  ]}
+  template={(props) => `
+    import Nullstack from 'nullstack';
+    import { Pagination } from 'nullwind';
+
+    export default class Demo extends Nullstack {
+      page = 1
+
+      prepare({ params }) {
+        this.page = params.page || 1;
+      }
+
+      render({ params }) {
+        return (
+          <Pagination
+            ${props}
+            bind={this.page}
+            onchange={(page) => params.page = page}
+          />
+        );
+      }
+    }
+
+`}/>
+
+## Theme
+
+<ThemePreview
+  theme={{
+    pagination: theme.pagination,
+  }}
+/>

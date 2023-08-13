@@ -4,10 +4,35 @@ import { Table, Avatar, Badge } from "nullwind";
 
 class Preview extends Nullstack {
   render() {
+    const people = [
+      {
+        avatar: "https://randomuser.me/api/portraits/women/1.jpg",
+        name: "Alice Smith",
+        title: "Frontend Developer",
+        email: "alice.smith@example.com",
+        status: "Active",
+      },
+      {
+        avatar: "https://randomuser.me/api/portraits/men/2.jpg",
+        name: "Bob Johnson",
+        title: "Backend Developer",
+        email: "bob.johnson@example.com",
+        status: "Inactive",
+      },
+      {
+        avatar: "https://randomuser.me/api/portraits/men/3.jpg",
+        name: "Charlie Brown",
+        title: "Fullstack Developer",
+        email: "charlie.brown@example.com",
+        status: "Active",
+      },
+    ];
+
     return (
       <Table>
         <Table.THead>
           <Table.TR>
+            <Table.TH />
             <Table.TH>Name</Table.TH>
             <Table.TH>Title</Table.TH>
             <Table.TH>Email</Table.TH>
@@ -16,51 +41,26 @@ class Preview extends Nullstack {
           </Table.TR>
         </Table.THead>
         <Table.TBody>
-          <Table.TR>
-            <Table.TD class="font-medium text-gray-900">
-              <Avatar src="/avatar.avif" name="John Doe" description="User" />
-            </Table.TD>
-            <Table.TD>Software Engineer</Table.TD>
-            <Table.TD>user@ae.studio</Table.TD>
-            <Table.TD>
-              <Badge color="success">Active</Badge>
-            </Table.TD>
-            <Table.TD class="space-x-2">
-              <a href="#" class="text-primary-600 hover:text-primary-900">
-                Edit
-              </a>
-            </Table.TD>
-          </Table.TR>
-          <Table.TR>
-            <Table.TD class="font-medium text-gray-900">
-              <Avatar src="/avatar.avif" name="John Doe" description="User" />
-            </Table.TD>
-            <Table.TD>Software Engineer</Table.TD>
-            <Table.TD>user@ae.studio</Table.TD>
-            <Table.TD>
-              <Badge color="warning">Pending</Badge>
-            </Table.TD>
-            <Table.TD class="space-x-2">
-              <a href="#" class="text-primary-600 hover:text-primary-900">
-                Edit
-              </a>
-            </Table.TD>
-          </Table.TR>
-          <Table.TR>
-            <Table.TD class="font-medium text-gray-900">
-              <Avatar name="John Doe" description="User" />
-            </Table.TD>
-            <Table.TD>Software Engineer</Table.TD>
-            <Table.TD>user@ae.studio</Table.TD>
-            <Table.TD>
-              <Badge color="danger">Inactive</Badge>
-            </Table.TD>
-            <Table.TD class="space-x-2">
-              <a href="#" class="text-primary-600 hover:text-primary-900">
-                Edit
-              </a>
-            </Table.TD>
-          </Table.TR>
+          {people.map((person) => (
+            <Table.TR>
+              <Table.TD>
+                <Avatar src={person.avatar} name={person.name} />
+              </Table.TD>
+              <Table.TD>{person.name}</Table.TD>
+              <Table.TD>{person.title}</Table.TD>
+              <Table.TD>{person.email}</Table.TD>
+              <Table.TD>
+                <Badge color={person.status === "Active" ? "success" : "danger"}>
+                  {person.status}
+                </Badge>
+              </Table.TD>
+              <Table.TD>
+                <a href="#" class="text-primary-600 hover:text-primary-900">
+                  Edit
+                </a>
+              </Table.TD>
+            </Table.TR>
+          ))}
         </Table.TBody>
       </Table>
     );
