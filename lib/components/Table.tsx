@@ -1,4 +1,4 @@
-import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
+import { NullstackClientContext, NullstackNode } from "nullstack";
 
 import tc from "../tc";
 import { BaseProps } from "../types";
@@ -18,43 +18,65 @@ interface DefaultProps extends BaseProps {
   children?: NullstackNode;
 }
 
-const Table = ({ children, class: klass, id, theme }: NullstackClientContext<DefaultProps>) => {
+const Table = ({
+  children,
+  class: klass,
+  id,
+  ref,
+  theme,
+}: NullstackClientContext<DefaultProps>) => {
   const { base } = tc(baseTable, theme?.table)();
 
   return (
-    <table id={id} class={base({ class: klass })}>
+    <table id={id} class={base({ class: klass })} ref={ref}>
       {children}
     </table>
   );
 };
 
-Table.THead = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+Table.THead = ({ children, class: klass, ref, theme }: NullstackClientContext<DefaultProps>) => {
   const { thead } = tc(baseTable, theme?.table)();
-  return <thead class={thead({ class: klass })}>{children}</thead>;
+  return (
+    <thead class={thead({ class: klass })} ref={ref}>
+      {children}
+    </thead>
+  );
 };
 
-Table.TH = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+Table.TH = ({ children, class: klass, ref, theme }: NullstackClientContext<DefaultProps>) => {
   const { th } = tc(baseTable, theme?.table)();
   return (
-    <th scope="col" class={th({ class: klass })}>
+    <th scope="col" class={th({ class: klass })} ref={ref}>
       {children}
     </th>
   );
 };
 
-Table.TBody = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+Table.TBody = ({ children, class: klass, ref, theme }: NullstackClientContext<DefaultProps>) => {
   const { tbody } = tc(baseTable, theme?.table)();
-  return <tbody class={tbody({ class: klass })}>{children}</tbody>;
+  return (
+    <tbody class={tbody({ class: klass })} ref={ref}>
+      {children}
+    </tbody>
+  );
 };
 
-Table.TR = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+Table.TR = ({ children, class: klass, ref, theme }: NullstackClientContext<DefaultProps>) => {
   const { tr } = tc(baseTable, theme?.table)();
-  return <tr class={tr({ class: klass })}>{children}</tr>;
+  return (
+    <tr class={tr({ class: klass })} ref={ref}>
+      {children}
+    </tr>
+  );
 };
 
-Table.TD = ({ children, class: klass, theme }: NullstackClientContext<DefaultProps>) => {
+Table.TD = ({ children, class: klass, ref, theme }: NullstackClientContext<DefaultProps>) => {
   const { td } = tc(baseTable, theme?.table)();
-  return <td class={td({ class: klass })}>{children}</td>;
+  return (
+    <td class={td({ class: klass })} ref={ref}>
+      {children}
+    </td>
+  );
 };
 
-export default Table as NullstackFunctionalComponent<DefaultProps>;
+export { Table as default };
