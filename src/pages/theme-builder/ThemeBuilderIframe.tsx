@@ -1,19 +1,29 @@
 import Nullstack from "nullstack";
 
-import AlertIframe from "./iframe/AlertIframe";
-import AvatarIframe from "./iframe/AvatarIframe";
-import BadgeIframe from "./iframe/BadgeIframe";
-import ButtonGroupIframe from "./iframe/ButtonGroupIframe";
-import ButtonsIframe from "./iframe/ButtonsIframe";
-
+// import { parse } from "@ungap/structured-clone/json";
+const parse = (_) => {
+  return "TODO: Resolve this import";
+};
 class ThemeBuilderIframe extends Nullstack {
   theme;
   colors;
   recived_data = false;
+  custom_children = {};
+  div;
 
   updateTheme({ event }) {
+    console.log("updateTheme", event);
     if (event.data?.theme) {
       this.theme = event.data?.theme;
+    }
+    if (event.data?.children) {
+      console.log("event.data?.children", parse(event.data?.children));
+      this.div = {
+        ...this.div,
+        ...event.data?.children,
+      };
+      this.custom_children = parse(event.data?.children);
+      // this.custom_children = event.data?.children;
     }
     if (event.data?.colors) {
       this.colors = event.data?.colors;
@@ -25,9 +35,6 @@ class ThemeBuilderIframe extends Nullstack {
         },
       };
     }
-    //if (event.data?.scrollTo) {
-
-    //}
   }
 
   hydrate() {
@@ -55,19 +62,23 @@ class ThemeBuilderIframe extends Nullstack {
     };
   }
   render() {
-    if (!this.theme && !this.colors) return false;
+    // if (!this.theme && !this.colors) return false;
     return (
-      <div class="flex flex-col gap-4">
-        <AlertIframe theme={this.theme} />
-        <AvatarIframe theme={this.theme} />
-        <BadgeIframe theme={this.theme} />
-        <ButtonsIframe theme={this.theme} />
-        <ButtonGroupIframe theme={this.theme} />
+      <>
+        <div ref={this.div} {...this.custom_children} />
+        {/* {this.custom_children} */}
         <script
           src="https://cdn.tailwindcss.com?plugins=forms,typography"
           onload={this.handleLoad}
         ></script>
-      </div>
+      </>
+      // <div class="flex flex-col gap-4">
+      //   <AlertIframe theme={this.theme} />
+      //   <AvatarIframe theme={this.theme} />
+      //   <BadgeIframe theme={this.theme} />
+      //   <ButtonsIframe theme={this.theme} />
+      //   <ButtonGroupIframe theme={this.theme} />
+      // </div>
     );
   }
 }

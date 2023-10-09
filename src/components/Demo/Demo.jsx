@@ -1,10 +1,13 @@
 import Nullstack from "nullstack";
 
+import { stringify } from "@ungap/structured-clone/json";
+
 import Control from "./Control";
 import Code from "../Code";
 
 class Demo extends Nullstack {
   configurator = {};
+  iframe;
 
   prepare({ configurator }) {
     configurator?.forEach((control) => (this.configurator[control.name] = control));
@@ -49,9 +52,9 @@ class Demo extends Nullstack {
       .join(" ");
   }
 
-  render({ component: Component, configurator, template }) {
+  renderIframed({ component: Component, configurator, template }) {
     return (
-      <div class="my-12 border">
+      <>
         <div class="flex w-full">
           <div class="w-full md:border-r">
             <div class="not-prose flex h-full min-h-[320px] flex-col items-center justify-center px-8 py-4">
@@ -82,6 +85,26 @@ class Demo extends Nullstack {
           )}
         </div>
         <Code code={template(this.templateProps)} />
+      </>
+    );
+  }
+
+  hydrate() {
+    window.addEventListener("message", () => this.updateIframe());
+  }
+
+  updateIframe({ component: Component, configurator, template }) {
+    const Iframed = this.renderIframed({ component: Component, configurator, template });
+    console.log("updateIframe", Iframed);
+    this.iframe.contentWindow.postMessage({
+      children: stringify(Iframed),
+    });
+  }
+
+  render({ router }) {
+    return (
+      <div class="my-12 border">
+        <iframe ref={this.iframe} src={`${router.base}/iframe`} onload={this.updateIframe} />
       </div>
     );
   }

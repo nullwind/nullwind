@@ -52,6 +52,7 @@
     "@docsearch/js": "^3.3.2",
     "@floating-ui/dom": "^1.4.2",
     "@mdx-js/loader": "^2.3.0",
+    "@ungap/structured-clone": "^1.2.0",
     "highlight.js": "^11.8.0",
     "nullstack-feather-icons": "^1.1.1",
     "nullstack-heroicons": "^0.1.0",
