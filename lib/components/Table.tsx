@@ -1,4 +1,4 @@
-import { NullstackClientContext, NullstackNode } from "nullstack";
+import { NullstackClientContext, NullstackFunctionalComponent, NullstackNode } from "nullstack";
 
 import tc from "../tc";
 import { BaseProps } from "../types";
@@ -18,7 +18,15 @@ interface DefaultProps extends BaseProps {
   children?: NullstackNode;
 }
 
-const Table = ({
+type ITable<TProps = unknown> = NullstackFunctionalComponent<TProps> & {
+  TBody?: (context: BaseProps) => NullstackNode;
+  TD?: (context: BaseProps) => NullstackNode;
+  TH?: (context: BaseProps) => NullstackNode;
+  THead?: (context: BaseProps) => NullstackNode;
+  TR?: (context: BaseProps) => NullstackNode;
+};
+
+const Table: ITable = ({
   children,
   class: klass,
   id,
