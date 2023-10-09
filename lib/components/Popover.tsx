@@ -37,12 +37,16 @@ interface PopoverProps extends BaseProps {
   placement?: Placement;
 }
 
+type PopoverContext<TProps = unknown> = Omit<NullstackClientContext, "children"> & TProps;
+
 interface TargetProps extends BaseProps {
   Popover: Popover;
+  children?: CustomChildren;
 }
 
 interface DropdownProps extends BaseProps {
   Popover: Popover;
+  children?: CustomChildren;
 }
 
 class Popover extends Nullstack<PopoverProps> {
@@ -50,8 +54,8 @@ class Popover extends Nullstack<PopoverProps> {
   _dropdownRef: HTMLElement;
   _arrowRef: HTMLElement;
 
-  static Target: (context: NullstackClientContext<TargetProps>) => NullstackNode;
-  static Dropdown: (context: NullstackClientContext<DropdownProps>) => NullstackNode;
+  static Target: (context: PopoverContext<TargetProps>) => NullstackNode;
+  static Dropdown: (context: PopoverContext<DropdownProps>) => NullstackNode;
 
   get opened() {
     return this._dropdownRef?.style?.display === "block";
@@ -115,7 +119,7 @@ class Popover extends Nullstack<PopoverProps> {
     }
   }
 
-  render({ children }: NullstackClientContext<PopoverProps>) {
+  render({ children }: PopoverContext<PopoverProps>) {
     if (Array.isArray(children)) {
       return children?.map((child: CustomChildren) => {
         child.attributes.Popover = this;
