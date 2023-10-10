@@ -14,7 +14,6 @@ export const baseInput = {
 };
 
 interface InputProps extends BaseProps {
-  bind?: object;
   corner?: string;
   disabled?: boolean;
   error?: string;
