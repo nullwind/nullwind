@@ -1,4 +1,4 @@
-import { NullstackClientContext } from "nullstack";
+import { NullstackClientContext, NullstackFunctionalComponent } from "nullstack";
 
 import InlineInputWrapper from "./InlineInputWrapper";
 import tc from "../../tc";
@@ -38,7 +38,9 @@ interface ToggleProps extends BaseProps {
   required?: boolean;
 }
 
-function Toggle({
+type IToogle<TProps = unknown> = NullstackFunctionalComponent<TProps> & ToggleProps;
+
+const Toggle: IToogle = ({
   bind,
   class: klass,
   disabled = false,
@@ -49,7 +51,7 @@ function Toggle({
   onclick,
   required,
   theme,
-}: NullstackClientContext<ToggleProps>) {
+}: NullstackClientContext<ToggleProps>) => {
   const toggle = tc(baseToggle, theme?.toggle);
   const { base, switch: switchSlot } = toggle();
   const checked = !!bind?.object?.[bind?.property];
@@ -84,6 +86,6 @@ function Toggle({
       </button>
     </InlineInputWrapper>
   );
-}
+};
 
 export default Toggle;

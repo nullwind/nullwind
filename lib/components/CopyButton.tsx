@@ -7,6 +7,11 @@ interface CopyButtonProps extends BaseProps {
   timeout?: number;
 }
 
+type CopyButtonContext<TProps = unknown> = Omit<NullstackClientContext, "children"> &
+  TProps & {
+    children: (context: { copied: boolean; copy: Promise<void> }) => void;
+  };
+
 export default class CopyButton extends Nullstack<CopyButtonProps> {
   copied = false;
 
@@ -21,8 +26,8 @@ export default class CopyButton extends Nullstack<CopyButtonProps> {
 
     setTimeout(() => (this.copied = false), timeout);
   }
-
-  render({ children }: NullstackClientContext<CopyButtonProps>) {
+  /* */
+  popover({ children }: CopyButtonContext<CopyButtonProps>) {
     const child = children?.[0];
 
     if (typeof child !== "function") {
@@ -30,5 +35,9 @@ export default class CopyButton extends Nullstack<CopyButtonProps> {
     }
 
     return child({ copied: this.copied, copy: this.copy });
+  }
+
+  render(context) {
+    return this.popover(context);
   }
 }
